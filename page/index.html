@@ -21,7 +21,7 @@
 						<img src="../img/iPhone.png" />
 						<p>免费咨询热线：0550-3022569</p>
 						<span>|</span>
-						<p>收藏 </p>
+						<p onclick="addFavorite()" >收藏 </p>
 						<span>|</span>
 						<p>帮助</p>
 					</div>
@@ -102,9 +102,8 @@
 		<script type="text/javascript" src="../layui/layui.all.js" ></script>
 		<script type="text/javascript" src="../js/main.js" ></script>
 		<script>
-			layui.use(['carousel', 'form'], function(){
+			layui.use(['carousel'], function(){
 			  var carousel = layui.carousel
-			  ,form = layui.form;
 			  //首页轮播
 			  carousel.render({
 			    elem: '#banner'
@@ -113,7 +112,12 @@
 			    ,height: '402' 
 			    ,indicator: 'none'
 			  });
-			})
+			});
+			
+			//搜索切换
+			$(".searchBox .toptab span").click(function(){
+				$(this).addClass("active").siblings().removeClass("active");
+			});
 		</script>
 	</body>
 </html>

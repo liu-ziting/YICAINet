@@ -53,6 +53,9 @@ button {
 	padding: 0;
 	margin: 0;
 }
+.layui-layer-msg{
+	width: 210px;
+}
 /*头部*/
 header{
 	width: 100%;
@@ -157,6 +160,7 @@ header .rightBox .toptab span{
 	line-height: 32px;
 	text-align: center;
 	cursor: pointer;
+	transition: all 0.5s;
 }
 header .rightBox .toptab .active{
 	background-color: #195edd;

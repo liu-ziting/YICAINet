@@ -1,22 +1,8 @@
 var App = {
-	modulePath:getRootPath()+"/mobile/GzbApp/module/",		//模块地址
-	moduleIndex:getRootPath()+"/mobile/GzbApp/",	    	//模块地址
-	apiBasePath:getRootPath()+"/service/v1/", 				//接口地址
-	rootPath:getRootPath()+"/mobile/GzbApp/",				//项目根目录地址
+	apiBasePath:"http://okyc-business.utools.club/", 	//接口地址
+	rootPath:getRootPath()+"/YICAINet/",				//项目根目录地址
 	filePath:getRootPath(),									//附件地址
 	timestamp:((Date.parse(new Date()))/1000).toString(),	//时间戳
-	debug:"no"												//是否开启调试 yes/no
-};
-/* H5调试工具  */
-if(App.debug == "yes"){
-	$.ajax({
-	   url: App.rootPath+'/js/eruda.js',
-	   async: false,
-	   dataType: "script",
-	   success: function () {
-	   	eruda.init();
-	   }
-	});
 };
 
 /* 获取url地址参数  */
@@ -41,19 +27,21 @@ var http = {
 		var loading = '';
 		let def = $.Deferred();
 		if(options.mask) {
-			loading = layer.msg('加载中，请稍后..', {
+			loading = layer.msg('加载中，请稍后...', {
 				icon: 16,
 				shade: 0.01,
 				time: 0
 			});
 		}
 		$.ajax({
-			url: '' + options.url,
+			url: App.apiBasePath + options.url,
 			data: options.data,
 			type: options.type,
-			headers: {
-				'x-auth-token': ''
-			},
+			//dataType : "jsonp",//数据类型为jsonp  
+			//jsonp: "jsonpCallback",//服务端用于接收callback调用的function名的参数
+			//headers: {
+			//	'x-auth-token': ''
+			//},
 			contentType: options.json ? 'application/json;charset=UTF-8' : 'application/x-www-form-urlencoded'
 		}).then(function(rsp) {
 			def.resolve(rsp);
@@ -62,7 +50,7 @@ var http = {
 			}, 100)
 		}, function(error) {
 			if(error.status == 504) {
-				layer.msg('请求超时，请重试', {
+				layer.msg('请求超时，请重试!', {
 					icon: 5
 				});
 			} else if(error.responseText) {
@@ -75,7 +63,7 @@ var http = {
 						layer.msg(emsg, {
 							icon: 5
 						}, function() {
-							location.href = '/login.html';
+							location.href = '../page/login.html';
 						});
 						break;
 				}
@@ -88,22 +76,26 @@ var http = {
 		return def;
 	}
 }
+
 /* ajax调用 */
-function types(){
+news()
+function news(){
 	http.ajax({
-		url: 'https://www.mxnzp.com/api/news/types',
-		type: 'POST',
+		url: 'user/check',
+		type: 'GET',
 		json: false,
-		mask: true, //是否有loading,
+		mask: true,
 		data: {
-	
+			data:'15755055889',
+			type:'phone'
 		}
 	}).then(function(data) {
 		console.log(data);
-		// 成功回调，data是成功回调参数
-	}, function(err) {
+		if(data.code == 200){
+			
+		}
+	},function(err) {
 		console.log(err);
-		// 错误回调，err是错误回调参数
 	})
 };
 
@@ -171,4 +163,26 @@ function parseUA() {
     weixin: u2.match(/MicroMessenger/i) == "micromessenger",
     ali: u.indexOf('AliApp') > -1,
   };
+}
+
+//收藏
+function addFavorite() {
+	var url = window.location;
+	var title = document.title;
+	var ua = navigator.userAgent.toLowerCase();
+	if(ua.indexOf("360se") > -1) {
+		layer.msg("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+	} else if(ua.indexOf("msie 8") > -1) {
+		window.external.AddToFavoritesBar(url, title); //IE8
+	} else if(document.all) { //IE类浏览器
+		try {
+			window.external.addFavorite(url, title);
+		} catch(e) {
+			layer.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+		}
+	} else if(window.sidebar) { //firfox等浏览器；
+		window.sidebar.addPanel(title, url, "");
+	} else {
+		layer.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+	}
 }
