@@ -78,7 +78,7 @@ var http = {
 }
 
 /* ajax调用 */
-news()
+//news()
 function news(){
 	http.ajax({
 		url: 'user/check',
@@ -98,6 +98,62 @@ function news(){
 		console.log(err);
 	})
 };
+
+var json = {
+  "code": '验证码*',
+  "companyAddress": "公司地址",
+  "companyName": "公司名称",
+  "companyPhone": "办公电话",
+  "id": 0,
+  "phone": "手机号*",
+  "sex": "性别*",
+  "username": "用户名*"
+}
+$.ajax({
+	url: 'http://okyc-business.utools.club/user/register',
+	type: 'post',
+	dateType: 'jsonp',
+	jsonp: "jsonpCallback",
+	crossDomain: true, 
+	contentType: 'application/json;charset=UTF-8',
+	headers: {
+		'Content-Type': 'application/json;charset=utf8',
+	},
+	data: {
+		createUser:json 
+	},
+	success: function(data) {
+		console.log("sucess");
+	},
+	error: function(data) {
+		console.log(data)
+		console.log("error");
+	}
+});
+
+//$.ajax({
+//  type: 'POST',
+//  url:  "http://okyc-business.utools.club/user/register",
+//  contentType: "application/json",
+//  dataType: "json",
+//  data:JSON.stringify({ 
+//    code: '验证码*',
+//	  companyAddress: '公司地址',
+//	  companyName: '公司名称',
+//	  companyPhone: '办公电话',
+//	  id: 0,
+//	  phone: '手机号*',
+//	  sex: '性别*',
+//	  username: '用户名*'
+//  }),
+//  success: function(data) {
+//      console.log(data);
+//  },
+//  error: function(msg) {
+//      console.log(msg)
+//  }
+//})
+
 
 
 /* 获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS” */
