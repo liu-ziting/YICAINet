@@ -472,9 +472,28 @@ header nav ul .active {
 	text-align: center;
 	line-height: 50px;
 	font-weight: bold;
+	position: relative;
 }
 .main .titlebg span{
 	color: #1668d8;
+}
+.main .titlebg em{
+	position: absolute;
+	right: 0;
+	top: 13px;
+	height: 24px;
+	line-height: 24px;
+	font-style: normal;
+	font-weight: normal;
+    display: block;
+    float: right;
+    background-color: #f4f4f4;
+    border: 1px solid #d8d8d8;
+    color: #757575;
+    font-size: 12px;
+    padding: 0px 8px;
+    border-radius: 15px;
+    cursor: pointer;
 }
 .main .purchaseTab{
 	width: 100%;
@@ -691,6 +710,7 @@ header nav ul .active {
 	color: #1668d8;
 	margin-top: 13px;
 	margin-bottom: 12px;
+	cursor: pointer;
 }
 .main .classification  p{
 	font-size: 12px;
@@ -705,10 +725,311 @@ header nav ul .active {
 /*采购活动*/
 .main .activity{
 	background-color: #ffffff;
-	padding: 15px 30px;
+	padding: 15px 20px;
 	overflow: hidden;
 	margin-bottom: 20px;
+	padding-bottom: 5px;
 }
 .main .activity .box{
 	margin-top: 25px;
+}
+.main .activity .left{
+	width: 354px;
+	height: 430px;
+	float: left;
+	margin-right: 20px;
+	position: relative;
+}
+.main .activity .left:before{
+	content: "图片加载中...";
+	color: #8D8D8D;
+	top: 0;
+	text-align: center;
+	line-height: 430px;
+	width: 354px;
+	position: absolute;
+}
+.main .activity .left div{
+	background-color: #FFFFFF
+}
+.main .activity .left img{
+	width: 354px;
+	height: 286px;
+	display: block;
+	float: left;
+	margin-bottom: 14px;
+}
+.main .activity .left .layui-carousel-ind{
+	top: 0;
+}
+.main .activity .left h4{
+	font-size: 18px;
+	color: #252525;
+	text-align: center;
+	font-weight: bold;
+	text-align: center;
+	margin-bottom: 10px;
+}
+.main .activity .left p{
+	font-size: 14px;
+	color: #676666;
+	text-align: left;
+	-webkit-line-clamp: 3;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.main .activity .left ul{
+	background-color: none
+}
+.main .activity .left li{
+	background-color: #797979
+}
+.main .activity .left li.layui-this{
+	background-color: #0000FF
+}
+.main .activity .left  .layui-carousel-ind ul{
+	background-color: #ffffff;
+}
+.main .activity .right {
+	float: left;
+	overflow: hidden;
+    width: 756px;
+}
+.main .activity .right ul li{
+	float: left;
+	width: 174px;
+	height: auto;
+	margin-left: 15px;
+	margin-bottom: 15px;
+	cursor: pointer;
+}
+.main .activity .right ul li .imgbox{
+	width: 174px;
+	height: 140px;
+	overflow: hidden;
+	background-color: #f1f1f1;
+	position: relative;
+}
+.main .activity .right ul li .imgbox:hover img {
+	transform: scale(1.1);
+	transition: all 0.6s;
+}
+.main .activity .right ul li .imgbox:before{
+	content: "图片加载中...";
+	color: #8D8D8D;
+	top: 0;
+	text-align: center;
+	line-height: 140px;
+	width: 174px;
+	position: absolute;
+	z-index: 1;
+}
+.main .activity .right ul li .imgbox img{
+	display: block;
+	width: 174px;
+	height: 140px;
+	position: absolute;
+	z-index: 9;
+	transition: all 0.6s;
+}
+.main .activity .right ul li p{
+	font-size: 14px;
+	color: #585757;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+.main .activity .right ul li span{
+	display: block;
+	float: left;
+	font-size: 12px;
+	color: #585757;
+	margin-right: 15px;
+}
+.main .activity .right ul li span img{
+	display: block;
+	float: left;
+	margin-right: 5px;
+}
+.main .activity .right ul li span .dz{
+	width: 13px;
+	margin-top: -1px;
+}
+.main .activity .right ul li span .ck{
+	width: 18px;
+	margin-top: 1px;
+}
+/*政策法规*/
+.main .policy{
+	background-color: #ffffff;
+	padding: 15px 20px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.main .policy > div{
+	margin-top: 20px;
+	overflow: hidden;
+}
+.main .policy .left{
+	width:400px;
+	float: left;
+}
+.main .policy .left h1{
+	width:400px;
+	height: 100px;
+	font-size: 24px;
+	color: #FFFFFF;
+	background: url(../img/zcfgb.png) no-repeat;
+	background-size:  100%;
+	text-align: center;
+	font-weight: bold;
+	line-height: 100px;
+	margin-bottom: 17px;
+}
+.main .policy .left p{
+	font-size: 14px;
+	color: #252525;
+	text-indent: 2em;
+	line-height: 25px;
+	margin-bottom: 8px;
+}
+.main .policy .left time{
+	font-size: 14px;
+	color: #878787;
+}
+.main .policy .left time a{
+	color: #1668d8;
+	float: right;
+	margin-top: -19px;
+}
+.main .policy .left time a img{
+	display: block;
+	float: left;
+	margin-right: 5px;
+    margin-top: 3px;
+}
+.main .policy .middle{
+	float: left;
+	width: 420px;
+	height: 235px;
+	margin-right: 38px;
+	margin-left: 38px;
+}
+.main .policy .middle ul li{
+	width: 100%;
+	font-size: 14px;
+	color: #252525;
+	height: 20px;
+	line-height: 20px;
+	margin-bottom: 14px;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+.main .policy .middle ul li span{
+	float: right;
+	color: #666363;
+	height: 20px;
+	line-height: 20px;
+}
+.main .policy .middle ul li i{
+	font-style: normal;
+}
+.main .policy .middle ul .active{
+	font-size: 16px;
+	color: #1668d8;
+	height: 85px;
+	transition: all 0.3s;
+}
+.main .policy .middle ul .active i{
+	display: none;
+}
+.main .policy .middle ul li p{
+	display: none;
+}
+.main .policy .middle ul .active p{
+	display: block;
+	font-size: 14px;
+	color: #878787;
+	line-height: 25px;
+	margin-top: 10px;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.main .policy .right{
+	width: 234px;
+	float: left;
+}
+.main .policy .right img{
+	display: block;
+	float: left;
+	width: 120px;
+	height: 120px;
+}
+.main .policy .right h5{
+	font-size: 14px;
+	color: #535353;
+	float: left;
+	font-weight: bold;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	width: 100%;
+}
+.main .policy .right p{
+	font-size: 12px;
+	width: 100%;
+	color: #535353;
+	line-height: 25px;
+	float: left;
+}
+
+
+/*底部*/
+footer{
+	width: 100%;
+	background-color: #4c4c4c;
+	padding-bottom: 28px;
+}
+footer .footerTop{
+	background-color: #3e3e3e;
+	width: 100%;
+}
+footer ul {
+	width: 733px;
+	height: 40px;
+	color: #FFFFFF;
+	margin: 0 auto;
+}
+footer ul li{
+	float: left;
+	padding: 0 35px;
+	margin-top: 10px;
+    line-height: 17px;
+	border-right:1px solid #FFFFFF
+}
+footer ul li:last-child{
+	border: none;
+}
+footer section{
+	width: 717px;
+	color: #FFFFFF;
+	margin: 0 auto;
+}
+footer section p{
+	font-size: 14px;
+	width: 595px;
+    margin: 26px auto ;
+}
+footer section p a{
+	padding: 0 20px;
+	color: #FFFFFF !important;
+}
+footer section span{
+	display: block;
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	color: #a2a2a2;
+	margin-top: 7px;
 }

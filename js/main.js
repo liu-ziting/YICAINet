@@ -5,6 +5,9 @@ var App = {
 	timestamp:((Date.parse(new Date()))/1000).toString(),	//时间戳
 };
 
+// 引入公共的底部
+$("#footer").load("../page/footer.html");
+
 /* 获取url地址参数  */
 function getQueryString(name) {
     var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
