@@ -1,156 +1,271 @@
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: none;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
-body{
+
+body {
 	background-color: #f5f5f5;
 	width: 100%;
 }
+
 ol,
 ul {
 	list-style: none;
 }
+
 img {
 	object-fit: cover;
 	display: block;
 	border: none;
 }
+
 a:link {
 	color: inherit;
 	text-decoration: none;
 }
+
 a:hover {
 	color: inherit;
 	text-decoration: none;
 }
+
 a:visited {
 	color: inherit;
 	text-decoration: none;
 }
+
 blockquote,
 q {
 	quotes: none;
 }
+
 .clear {
 	clear: both;
 }
+
 button {
 	outline: none !important;
 	border: none;
 	cursor: pointer;
 }
-.centered{
+
+.centered {
 	width: 1170px;
 	margin: 0 auto;
 	overflow: hidden
 }
-.row{
+
+.row {
 	padding: 0;
 	margin: 0;
 }
-.layui-layer-msg{
+
+.layui-layer-msg {
 	width: 210px;
 }
+
+
 /*头部*/
-header{
+
+header {
 	width: 100%;
 }
-header .htop{
+
+header .htop {
 	width: 100%;
 	height: 50px;
 	background-color: #f9f9f9;
 }
-header .htop p{
+
+header .htop p {
 	font-size: 14px;
 	line-height: 50px;
 	color: #5e5e5e;
 	float: left;
 }
-header .htop .login{
+
+header .htop .login {
 	font-size: 14px;
 	line-height: 50px;
 	color: #5e5e5e;
 	float: left;
 	margin-left: 0;
 }
-header .htop .loginIcon{
+
+header .htop .loginIcon {
 	display: block;
 	float: left;
 	margin: 17px 10px 0 10px;
 }
-header .htop a{
+
+header .htop a {
 	color: #1162f6;
 	font-size: 14px;
 	line-height: 50px;
 	margin-left: 10px;
 }
-header .right{
+
+header .right {
 	float: right;
 }
-header .htop .left{
+
+header .htop .left {
 	float: left;
 }
-header .right img{
+
+header .right img {
 	margin: 17px 10px 0 10px;
 	display: block;
 	float: left;
 }
-header .right p{
+
+header .right p {
 	float: left;
 	cursor: pointer;
 }
-header .right span{
+
+header .right span {
 	display: block;
 	float: left;
 	margin: 0 20px;
 	line-height: 45px;
 }
+
 header .navbar {
 	width: 1170px;
 	margin: 0 auto;
 	padding: 0;
 }
+
 header .navbar .nav-link {
 	font-size: 18px;
 }
+
 header .navbar .nav-item {
 	height: 67px;
 	line-height: 67px;
 	margin-left: 100px;
 	text-align: center;
 }
-header .navbar .nav-item a{
+
+header .navbar .nav-item a {
 	padding: 0 !important;
 }
-header .navbar-toggler-icon img{
+
+header .navbar-toggler-icon img {
 	display: block;
 	width: 40px;
-    margin-top: -2px;
+	margin-top: -2px;
 }
-header .searchBox{
+
+header .searchBox {
 	width: 100%;
 	height: 134px;
 	background-color: #FFFFFF;
 	padding-top: 34px;
 }
-header .searchBox .logo img{
+
+header .searchBox .logo img {
 	display: block;
 	float: left;
 }
+
 header .rightBox {
 	float: right;
 	margin-right: 14px;
 }
-header .rightBox .toptab{
+
+header .rightBox .toptab {
 	width: 100%;
 	overflow: hidden;
 }
-header .rightBox .toptab span{
+
+header .rightBox .toptab span {
 	display: block;
 	float: left;
 	font-size: 14px;
@@ -162,24 +277,28 @@ header .rightBox .toptab span{
 	cursor: pointer;
 	transition: all 0.5s;
 }
-header .rightBox .toptab .active{
+
+header .rightBox .toptab .active {
 	background-color: #195edd;
 	color: #FFFFFF;
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
 }
-header .rightBox .search{
+
+header .rightBox .search {
 	width: 410px;
 	height: 40px;
 	border: 2px solid #195edd;
 }
-header .rightBox .search input{
+
+header .rightBox .search input {
 	background-color: inherit;
 	border: none;
 	float: left;
 	width: 200px;
 }
-header .rightBox .search span{
+
+header .rightBox .search span {
 	display: block;
 	width: 60px;
 	height: 38px;
@@ -187,49 +306,60 @@ header .rightBox .search span{
 	float: right;
 	cursor: pointer;
 }
-header .rightBox .search span img{
+
+header .rightBox .search span img {
 	width: 25px;
 	display: block;
 	margin: 0 auto;
 	margin-top: 6px;
 }
-header nav{
+
+header nav {
 	width: 100%;
 	height: 65px;
 	background-color: #313131;
 }
-header nav ul{
+
+header nav ul {
 	float: right;
+	margin-right: -20px;
 }
-header nav ul li{
+
+header nav ul li {
 	float: left;
 	height: 40px;
 	line-height: 40px;
 	margin-top: 12.5px;
 	font-size: 16px;
 	color: #FFFFFF;
-	margin-left: 72px;
+	margin-left: 76px;
 	padding: 0 20px;
 	cursor: pointer;
 }
-header nav ul .active{
+header nav ul li:first-child {
+	margin-left: 0;
+}
+header nav ul .active {
 	background-color: #195edd;
 	border-radius: 5px;
 }
+
 .main {
 	margin-top: 20px;
 }
-.title{
+
+.title {
 	width: 100%;
 	font-size: 24px;
-	color: #535353;	
+	color: #535353;
 	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 15px;
 	font-weight: bold;
 	margin-bottom: 20px;
 	position: relative;
 }
-.title:before{
+
+.title:before {
 	content: "";
 	width: 110px;
 	height: 1px;
@@ -237,10 +367,12 @@ header nav ul .active{
 	bottom: -1px;
 	border-bottom: 1px solid #0000FF;
 }
-.title b{
+
+.title b {
 	color: #1668d8;
 }
-.title span{
+
+.title span {
 	font-weight: normal;
 	display: block;
 	float: right;
@@ -253,13 +385,31 @@ header nav ul .active{
 	margin-top: 5px;
 	cursor: pointer;
 }
+
+
 /*首页横幅*/
-.main .banner .left{
+.main .banner{
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.main .banner .left {
 	width: 840px;
 	height: 402px;
 	float: left;
+	position: relative;
 }
-.main .banner .right{
+.main .banner .left:before{
+	content: "图片加载中...";
+	color: #8D8D8D;
+	top: 0;
+	text-align: center;
+	line-height: 402px;
+	width: 840px;
+	position: absolute;
+	z-index: 9;
+	z-index: -1;
+}
+.main .banner .right {
 	width: 315px;
 	height: 402px;
 	float: left;
@@ -267,33 +417,298 @@ header nav ul .active{
 	margin-left: 15px;
 	padding: 22px 26px;
 }
-.main .banner .right li{
+
+.main .banner .right li {
 	width: 100%;
 	height: 84px;
 	margin-bottom: 20px;
 	color: #FFFFFF
 }
-.main .banner .right li:nth-child(1){
+
+.main .banner .right li:nth-child(1) {
 	background: url(../img/ba1.png) no-repeat;
 	background-size: 100% 100%;
 }
-.main .banner .right li:nth-child(2){
+
+.main .banner .right li:nth-child(2) {
 	background: url(../img/ba2.png) no-repeat;
 	background-size: 100% 100%;
 }
-.main .banner .right li:nth-child(3){
+
+.main .banner .right li:nth-child(3) {
 	background: url(../img/ba3.png) no-repeat;
 	background-size: 100% 100%;
 }
-.main .banner .right li h1{
+
+.main .banner .right li h1 {
 	font-size: 20px;
 	font-weight: bold;
 	padding-top: 18px;
-  margin-left: 77px;
+	margin-left: 77px;
 }
-.main .banner .right li p{
+
+.main .banner .right li p {
 	font-size: 12px;
 	margin-left: 77px;
 	letter-spacing: 2.5px;
-  margin-top: 6px;
+	margin-top: 6px;
+}
+
+
+/*采购信息*/
+.main .purchase {
+	background-color: #ffffff;
+	padding: 15px 30px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.main .titlebg {
+	width: 100%;
+	height: 50px;
+	font-size: 24px;
+	color: #535353;
+	background: url(../img/h1title.png) no-repeat;
+	background-size:  100%;
+	text-align: center;
+	line-height: 50px;
+	font-weight: bold;
+}
+.main .titlebg span{
+	color: #1668d8;
+}
+.main .purchaseTab{
+	width: 100%;
+	height: 50px;
+	background-color: #f4f4f4;
+	margin-bottom: 22px;
+}
+.main .purchaseTab .layui-tab-title{
+	height: 50px;
+	line-height: 50px;
+}
+.main .purchaseTab li{
+	font-size: 18px;
+	color: #252525;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 35px;
+}
+.main .purchaseTab .layui-this{
+	color: #1668d8;
+    font-weight: bold;
+}
+.main .purchaseTab .layui-this:after{
+	left: 16px;
+	height: 50px;
+	width: 67%;
+    border-bottom: 2px solid #1668d8;
+}
+.main .purchaseTab .layui-tab-title{
+	border: none;
+}
+.main .purchaseBox ul{
+	float: left;
+	width: 534px;
+}
+.main .purchaseBox li{
+	float: left;
+	width: 534px;
+	height: 60px;
+	position: relative;
+	padding: 10px;
+	cursor: pointer;
+	list-style-type: square;
+	list-style-position:inside;
+	margin-bottom: 5px;
+	border: 1px solid #FFFFFF;
+	transition: all 0.2s;
+}
+.main .purchaseBox h2{
+	width: 316px;
+	font-size: 14px;
+	color: #252525;
+	-webkit-line-clamp: 2;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	line-height: 22px;
+	margin-top: -18px;
+    margin-left: 12px;
+}
+.main .purchaseBox li time{
+	float: right;
+	position: absolute;
+	top: 12px;
+	right: 10px;
+	height: 60px;
+}
+.main .purchaseBox li time i{
+	display: block;
+    float: left;
+    margin-right: 4px;
+}
+.main .purchaseBox li time span{
+	font-size: 14px;
+	color: #8e8e8e;
+}
+.main .purchaseBox li time a{
+	font-size: 14px;
+	color: #1668d8;
+	float: right;
+	margin-top: 3px;
+}
+.main .purchaseBox ul:nth-child(1){
+	margin-right: 42px;
+}
+.main .purchaseBox li:hover{
+	background-color: #f4f4f4;
+	border: 1px solid #666;
+	transition: all 0.2s;
+}
+.main .purchaseBox li:hover h2{
+	color: #1668d8;
+}
+.main .purchaseBox .oneopen{
+	list-style:none;
+	height: 190px;
+}
+.main .purchaseBox .oneopen h2{
+	font-size: 18px;
+	color: #252525;
+	width: 100%;
+	margin: 0;
+	margin-bottom: 9px;
+}
+.main .purchaseBox .oneopen span{
+	font-size: 14px;
+	color: #8e8e8e;
+	display: block;
+	float: left;
+	margin-right: 45px;
+	height: 20px;
+	line-height: 20px;
+}
+.main .purchaseBox .oneopen span img{
+	display: block;
+	float: left;
+	margin-right: 10px;
+	margin-top: 3px;
+}
+.main .purchaseBox .oneopen p{
+	font-size: 14px;
+	color: #8e8e8e;
+	line-height: 25px;
+	margin-top: 10px;
+	-webkit-line-clamp: 4;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.main .purchaseBox .oneopen a{
+	font-size: 14px;
+    color: #1668d8;
+    float: right;
+    margin-top: -23px;
+    float: right;
+}
+/*广告*/
+.main .advertisement {
+	width: 100%;
+	height: 120px;
+	overflow: hidden;
+	object-fit: cover;
+	position: relative;
+	margin-bottom: 20px;
+}
+.main .advertisement img{
+	display: block;
+	width: 100%;
+}
+.main .advertisement span{
+	position: absolute;
+	width: 46px;
+	height: 22px;
+	background-color: #FFFFFF;
+	line-height: 22px;
+	text-align: center;
+	font-weight: bold;
+	top: 13px;
+	right: 18px;
+	border-radius: 5px;
+	color: #1668d8;
+	font-size: 12px;
+	cursor: pointer;
+}
+/*耗材信息、药品信息、设备信息*/
+.main .classification{
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.main .classification section{
+	padding: 20px 15px;
+	background-color: #FFFFFF;
+	float: left;
+	width: 376px;
+	height: 405px;
+	margin-left: 20px;
+}
+.main .classification section:first-child{
+	margin-left: 0px;
+}
+.main .classification .leftimg{
+	width: 115px;
+	height: 115px;
+	overflow: hidden;
+	float: left;
+	margin-right: 20px;
+	background-color: #f1f1f1;
+	position: relative;
+}
+.main .classification .leftimg:before{
+	content: "图片加载中...";
+	color: #8D8D8D;
+	top: 0;
+	text-align: center;
+	line-height: 115px;
+	width: 115px;
+	position: absolute;
+	z-index: 9;
+}
+.main .classification .leftimg img{
+	display: block;
+	width: 100%;
+	height: 100%;
+	z-index: 10;
+	position: absolute;
+	top: 0;
+}
+.main .classification .rightBox{
+	height: 120px;
+	float: left;
+}
+.main .classification h3{
+	font-size: 14px;
+	color: #1668d8;
+	margin-top: 13px;
+	margin-bottom: 12px;
+}
+.main .classification  p{
+	font-size: 12px;
+	color: #3f3f3f;
+	margin-bottom: 8px;
+}
+.main .classification .box{
+	margin-top: 35px;
+	overflow: hidden;
+	padding-left: 10px;
+}
+/*采购活动*/
+.main .activity{
+	background-color: #ffffff;
+	padding: 15px 30px;
+	overflow: hidden;
+	margin-bottom: 20px;
+}
+.main .activity .box{
+	margin-top: 25px;
 }
