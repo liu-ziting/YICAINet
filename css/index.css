@@ -123,7 +123,9 @@ blockquote,
 q {
 	quotes: none;
 }
-
+i,em{
+	font-style: normal;
+}
 .clear {
 	clear: both;
 }
@@ -338,6 +340,10 @@ header nav ul li {
 }
 header nav ul li:first-child {
 	margin-left: 0;
+}
+header nav ul li:hover {
+	background-color: #195edd;
+	border-radius: 5px;
 }
 header nav ul .active {
 	background-color: #195edd;
@@ -984,7 +990,6 @@ header nav ul .active {
 	float: left;
 }
 
-
 /*底部*/
 footer{
 	width: 100%;
@@ -1032,4 +1037,89 @@ footer section span{
 	font-size: 12px;
 	color: #a2a2a2;
 	margin-top: 7px;
+}
+/* 登录 注册*/
+.loginMain{
+	height: auto;
+	padding-bottom: 90px;
+}
+.loginMain h1{
+	color: #313131;
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 23px;
+	margin-top: 43px;
+}
+.loginMain p{
+	color: #666666;
+	font-size: 14px;
+	text-align: center;
+}
+.loginMain p a{
+	color: #195edd;
+	font-size: 14px;
+}
+.loginMain form{
+	width: 388px;
+	margin: 0 auto;
+	margin-top: 30px;
+}
+.loginMain form p{
+	text-align: left;
+	color: #666666;
+	margin-bottom: 12px;
+}
+.loginMain form p i{
+	color: #ff0000;
+	font-size: 16px;
+	margin-left: 2px;
+	position: relative;
+	top: 2px;
+}
+.loginMain form input{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 20px;
+}
+.loginMain form label {
+	margin-bottom: 15px;
+	display: block;
+}
+.loginMain form .qrcodeBox input{
+	width: 250px;
+	margin-right: 10px;
+	float: left;
+}
+.loginMain form .qrcodeBox button{
+	float: left;
+	height: 40px;
+	width: 128px;
+	background-color: #195edd;
+	margin-top: 0;
+	letter-spacing: normal;
+}
+.loginMain button{
+	width: 100%;
+	margin-top: 30px;
+	background-color: #195edd;
+	letter-spacing: 3px;
+}
+.loginMain form .two{
+	width: 186px;
+	float: left;
+}
+.loginMain form .two:first-child{
+	margin-right: 16px;
+}
+.loginMain .inquiry{
+	font-size: 14px;
+	color: #666666;
+}
+.loginMain .inquiry a{
+	color: #42adff;
+	margin-left: -20px;
+}
+.loginMain .inquiry p{
+	float: right;
+	font-size: 12px;
 }

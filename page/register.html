@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>医采网-注册</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
+
+<body>
+	<!--头部-->
+	<header>
+		<div class="htop">
+			<div class="centered">
+				<div class="left">
+					<p>欢迎来到医采网！</p>
+					<img class="loginIcon" src="../img/user.png" />
+					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+					<a href="#">免费注册</a>
+				</div>
+				<div class="right">
+					<img src="../img/iPhone.png" />
+					<p>免费咨询热线：0550-3022569</p>
+					<span>|</span>
+					<p onclick="addFavorite()">收藏 </p>
+					<span>|</span>
+					<p>帮助</p>
+				</div>
+			</div>
+		</div>
+		<div class="searchBox">
+			<div class="centered">
+				<a class="logo" href="index.html">
+					<img src="../img/logo.png" />
+				</a>
+				<!--搜索-->
+				<div class="rightBox">
+					<div class="toptab">
+						<span class="active">查询药品</span>
+						<span>查询耗材</span>
+					</div>
+					<div class="search">
+						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
+							autocomplete="off" class="layui-input">
+						<span>
+							<img src="../img/ss.png" />
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--导航-->
+		<nav>
+			<div class="centered">
+				<ul>
+					<a href="index.html"><li>首页</li></a>
+					<a href="#"><li>招标信息</li></a>
+					<a href="#"><li><a href="#">药品信息</li></a>
+					<a href="#"><li><a href="#">耗材信息</li></a>
+					<a href="#"><li><a href="#">设备信息</li></a>
+					<a href="#"><li><a href="#">政策法规</li></a>
+					<a href="#"><li><a href="#">下载中心</li></a>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="loginMain centered">
+		<h1>欢迎注册</h1>
+		<p>已有账号&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.html">现在登录</a></p>
+		<form class="layui-form">
+			<label class="two">
+				<p>姓名<i>*</i></p>
+				<input type="text" name="username" lay-verify="required" lay-reqtext="请输入您的真实姓名" placeholder="请输入您的真实姓名"
+					autocomplete="off" class="layui-input">
+			</label>
+			<label class="two">
+				<p>性别<i>*</i></p>
+				<div class="layui-input-inline">
+					<select name="quiz">
+						<option value="">请选择您的性别</option>
+						<option value="1">男</option>
+						<option value="0">女</option>
+					</select>
+				</div>
+			</label class="two">
+			<label>
+				<p>联系电话<i>*</i></p>
+				<input type="tel" name="phone" lay-verify="required" lay-reqtext="请输入您的手机号码"
+					placeholder="请输入您的手机号码作为注册登录账号" autocomplete="off" class="layui-input">
+			</label>
+			<label class="qrcodeBox">
+				<p>验证码<i>*</i></p>
+				<input type="tel" name="qrcode" lay-verify="required" lay-reqtext="请输入验证码" placeholder="请输入验证码"
+					autocomplete="off" class="layui-input">
+				<button type="button" class="layui-btn layui-btn-normal">获取短信验证码</button>
+			</label>
+			<label>
+				<p>办公电话</p>
+				<input type="text" name="" placeholder="请输入办公电话" class="layui-input">
+			</label>
+			<label>
+				<p>单位名称</p>
+				<input type="text" name="" placeholder="请输入单位名称" class="layui-input">
+			</label>
+			<label>
+				<p>单位地址</p>
+				<input type="text" name="" placeholder="请输入单位地址" class="layui-input">
+			</label>
+			<label class="inquiry">
+				<input type="checkbox" id="notice" lay-verify="notice" data-check="false" value="0" name="notice"
+					title="我已阅读并同意" lay-skin="primary">
+				<a href="#">《平台协议》</a>
+				<p>带“<i>*</i>”为必填选项</p>
+			</label>
+			<button type="submit" class="layui-btn" lay-submit="" lay-filter="register">立即注册</button>
+		</form>
+	</div>
+	<div id="footer"></div>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+		layui.use(['form', 'layedit', 'laydate'], function () {
+			var form = layui.form
+				, layer = layui.layer
+			//监听提交
+			form.on('submit(register)', function (data) {
+				layer.alert(JSON.stringify(data.field), {
+					title: '最终的提交信息'
+				})
+				return false;
+			});
+
+			//自定义验证规则
+			form.verify({
+				notice: function (value) {
+					if (value == 0) {
+						return '请先勾选平台协议！';
+					}
+				}
+			});
+			form.on('checkbox()', function (data) {
+				console.log(data.elem.checked)
+			});
+
+			$('#notice').on('click', function () {
+				var xuanzhong = $(this).attr('data-check');
+				if (xuanzhong == "false") {
+					$('#notice').each(function (i, input) {
+						$(input).attr('data-check', "false");
+					})
+					$(this).attr('data-check', "true");
+					$(this).prop('checked', true);
+					$("#notice").val(1)
+					layui.form.render();
+				} else {
+					$('#notice').each(function (i, input) {
+						$(input).attr('data-check', "false");
+					})
+					$(this).prop('checked', false);
+					$("#notice").val(0)
+					layui.form.render();
+				}
+			})
+		});
+
+	</script>
+</body>
+
+</html>
