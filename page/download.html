@@ -81,7 +81,7 @@
 						<p>设备招标相关文件<span>>></span></p>
 					</li>
 					<li>
-						<p>工程招标相关文件<span>>></span</p>
+						<p>工程招标相关文件<span>>></span></p>
 					</li>	
 					<li>
 						<p>服务招标相关文件<span>>></span></p>
@@ -148,7 +148,7 @@
 			</div>
 			<div class="right">
 				<h1>
-					下载中心
+					<b>药品招标相关文件</b>
 					<p>当前位置：<a href="download.html">下载中心</a> >> <a class="crumbs" href="#">药品招标相关文件</a></p>
 				</h1>
 				<div class="rightList">
@@ -223,7 +223,8 @@
 			//下载中心左侧选项卡切换
 			$(".download .leftTab li").click(function() {
 				var leftText = $(this).find("p").text();
-				$(".crumbs").text(leftText.slice(0,leftText.length-2))
+				$(".crumbs").text(leftText.slice(0,leftText.length-2));
+				$(".right h1 b").text(leftText.slice(0,leftText.length-2));
 				$(this).addClass("active").siblings().removeClass("active");
 			});
 			layui.use(['laypage', 'layer'], function() {
