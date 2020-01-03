@@ -135,7 +135,9 @@ button {
 	border: none;
 	cursor: pointer;
 }
-
+.hide{
+	display: none;
+}
 .centered {
 	width: 1170px;
 	margin: 0 auto;
@@ -151,7 +153,10 @@ button {
 	width: 210px;
 }
 
-
+.paging{
+	width: 100%;
+	text-align:center
+}
 /*头部*/
 
 header {
@@ -1126,4 +1131,198 @@ footer section span{
 .loginMain .inquiry p{
 	float: right;
 	font-size: 12px;
+}
+/*下载中心*/
+.download{
+	padding:30px  0 ;
+}
+.download > div{
+	float: left;
+}
+.download .left{
+	width: 258px;
+	height: auto;
+	margin-right: 25px;
+}
+.download .left > h1{
+	background-color: #1668d8;
+	width: 100%;
+	height: 72px;
+	line-height: 72px;
+	padding-left: 28px;
+	font-size: 24px;
+	color: #FFFFFF;
+}
+.download .left .leftTab{
+	padding: 10px;
+	background-color: #FFFFFF
+}
+.download .left .leftTab li{
+	width: 100%;
+	height: 70px;
+	line-height: 70px;
+	font-size: 18px;
+	color: #535353;
+	font-weight: bold;
+	border-bottom: 1px solid #efefef;
+	cursor: pointer;
+} 
+.download .left .leftTab li:last-child{
+	border-bottom: none;
+}
+.download .left .leftTab li p{
+	padding-left: 25px;
+	height: 63px;
+	line-height: 63px;
+	margin-top: 5px;
+	transition: all 0.1s;
+}
+.download .left .leftTab li span{
+	color: #FFFFFF;
+	padding-left: 10px;
+	font-weight: normal;
+	letter-spacing: 3px;
+}
+.download .left .leftTab .active p{
+	background-color: #16cef4;
+	width: 100%;	
+	color: #FFFFFF;
+	transition: all 0.1s;
+}
+.download .left .advertising{
+	width: 100%;
+	height: 205px;
+	margin: 25px 0;
+}
+.download .left .advertising img{
+	width: 100%;
+	height: 100%;
+}
+.download .left .cgactivity{
+	background-color: #FFFFFF;
+	padding: 20px;
+}
+.download .left .cgactivity h1{
+	margin-bottom: 15px;
+}
+.download .left .cgactivity ul li{
+	height: 45px;
+	width: 100%;
+	line-height: 45px;
+	border-bottom: 1px solid #e4e4e4;
+	cursor: pointer;
+}
+.download .left .cgactivity ul li:nth-child(1) span{
+	background-color: #3f81f6;
+	border: 1px solid #3f81f6;
+	color: #FFFFFF;
+}
+.download .left .cgactivity ul li:nth-child(2) span{
+	border: 1px solid #3f81f6;
+	color: #3f81f6;
+}
+.download .left .cgactivity ul li:nth-child(3) span{
+	border: 1px solid #3f81f6;
+	color: #3f81f6;
+}
+.download .left .cgactivity ul li:last-child{
+	border: none;
+}
+.download .left .cgactivity ul li span{
+	display: block;
+	float: left;
+	width: 23px;
+	height: 23px;
+	border: 1px solid #a0a0a0;
+	text-align: center;
+	color: #a0a0a0;
+	font-size: 12px;
+	line-height: 23px;
+	margin-right: 13px;
+	margin-top: 11px;
+}
+.download .left .cgactivity ul li p{
+	font-size: 14px;
+	color: #666666;
+	-webkit-line-clamp: 1;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-family: "宋体";
+	opacity: .9;
+}
+.download .left .cgactivity ul li:hover p{
+	opacity: 1;
+}
+.download .right{
+	width: 887px;
+	height: auto;
+	background-color: #FFFFFF;
+	padding: 30px 18px;
+	padding-bottom: 80px;
+}
+.download .right h1{
+	font-size: 24px;
+	color: #252525;
+	padding-left: 23px;
+	border-bottom: 1px solid #e4e4e4;
+	padding-bottom: 18px;
+}
+.download .right h1 p{
+	float: right;
+	font-size: 12px;
+	font-weight: normal;
+	margin-top: 10px;
+	padding-right: 10px;
+}
+.download .right .rightList ul{
+	margin-bottom: 50px;
+}
+.download .right .rightList ul li{
+	width: 100%;	
+	padding:40px 0 22px 20px;
+	border-bottom: 1px solid #e4e4e4;
+	cursor: pointer;
+}
+.download .right .rightList ul li h2{
+	font-size: 18px;
+	color:#252525 ;
+}
+.download .right .rightList ul li h2 .dlBox{
+	display: block;
+	float: right;
+	background: url(../img/xxm.png) no-repeat;
+	padding-right: 12px;
+    width: 75px;
+    background-position-x: 53px;
+    background-position-y: 3px;
+    cursor: pointer;
+}
+.download .right .rightList ul li time{
+	color: #8e8e8e;
+	font-size: 16px;
+	width: 100%;
+	display: block;
+	margin-top: 15px;
+}
+.download .right .rightList ul li time a{
+	float: right;
+}
+.download .right .rightList ul li time a img{
+	width: 25px;
+	display: block;
+	float: right;
+}
+.download .right .rightList ul li:hover h2{
+	color: #1668d8;
+}
+.download .right .rightList ul li:hover h2 .dlBox{
+	display: block;
+	float: right;
+	background: url(../img/xxx.png) no-repeat;
+	padding-right: 12px;
+    width: 75px;
+    background-position-x: 53px;
+    background-position-y: 3px;
+    cursor: pointer;
 }
