@@ -5,8 +5,6 @@ var App = {
 	timestamp:((Date.parse(new Date()))/1000).toString(),	//时间戳
 };
 
-// 引入公共的底部
-$("#footer").load("../page/footer.html");
 
 /* 获取url地址参数  */
 function getQueryString(name) {
@@ -196,4 +194,11 @@ function addFavorite() {
 	} else {
 		layer.msg('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
 	}
-}
+};
+// 引入公共的底部
+$("#footer").load("../page/footer.html");
+
+//搜索切换
+$(".searchBox .toptab span").click(function(){
+	$(this).addClass("active").siblings().removeClass("active");
+});
