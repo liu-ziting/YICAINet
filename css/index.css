@@ -485,6 +485,7 @@ header nav ul .active {
 	line-height: 50px;
 	font-weight: bold;
 	position: relative;
+	cursor: pointer;
 }
 .main .titlebg span{
 	color: #1668d8;
@@ -1182,6 +1183,8 @@ footer section span{
 	padding-left: 10px;
 	font-weight: normal;
 	letter-spacing: 3px;
+	float: right;
+	padding-right: 25px;
 }
 .download .left .leftTab .active p{
 	background-color: #16cef4;
@@ -1369,15 +1372,15 @@ footer section span{
 .policyList ul li h3{
 	font-size: 18px;
 	color: #1668d8;
-	line-height: 34px;
+	line-height: 36px;
 	font-weight: 500;
 }
 .policyList ul li h3 span{
 	width: 118px;
-	height: 34px;
+	height: 36px;
 	border: 1px solid #7f7f7f;
 	text-align: center;
-	line-height: 34px;
+	line-height: 36px;
 	color: #737383;
 	display: block;
 	float: right;
@@ -1393,7 +1396,7 @@ footer section span{
 	font-size: 15px;
 	display: block;
 	width: 100%;
-	margin:0 5px;
+	margin:3px 5px;
 }
 .policyList ul li p{
 	font-size: 14px;
@@ -1413,7 +1416,21 @@ footer section span{
 	right: 0;
 	position: absolute;
 }
-
+.policyList ul li i{
+	display: block;
+	float: right;
+	width: 25px;
+	bottom: 10px;
+	right: 0;
+	color: #D4D4D4;
+	position: absolute;
+	width: 60px;
+	font-size: 20px;
+}
+.policyList ul li i em{
+	font-size: 16px;
+	padding-left: 2px;
+}
 /*文章详情*/
 .details{
 	padding: 30px 15px;
