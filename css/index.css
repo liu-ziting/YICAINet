@@ -1413,3 +1413,36 @@ footer section span{
 	right: 0;
 	position: absolute;
 }
+
+/*文章详情*/
+.details{
+	padding: 30px 15px;
+}
+.details h5{
+	font-size: 24px;
+	color: #3a3839;
+}
+.details time{
+	display: block;
+	margin: 25px 0;
+	width: 100%;
+	font-size: 14px;
+	color: #535353;
+}
+.details time span{
+	margin-right: 40px;
+}
+.details time span:last-child{
+	color: #a0a0a0;
+}
+.details .content{
+	font-size: 14px;
+	color: #3a3839;
+	line-height: 25px;
+}
+.details .content img{
+	width: 100%;
+	display: block;
+	float: left;
+	margin: 15px 0;
+}

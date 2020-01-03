@@ -131,7 +131,7 @@
 			<div class="right">
 				<h1>
 					政府政策法规
-					<p>当前位置：<a href="policy.html">政策法规</a> >> <a class="crumbs" href="#">药品招标相关文件</a></p>
+					<p>当前位置：<a href="policy.html">政策法规</a> >> <a class="crumbs" href="javascript:;">国家政策法规</a></p>
 				</h1>
 				<div class="policyList">
 					<ul>
@@ -193,6 +193,8 @@
 					<!--分页-->
 					<div id="paging" class="paging"></div>
 				</div>
+				<!--详情-->
+				<div id="details" class="hide"></div>
 			</div>
 		</div>
 		<div id="footer"></div>
@@ -200,12 +202,26 @@
 		<script type="text/javascript" src="../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
 		<script>
+
+			//点击查看详情
+			$(".policyList li span").click(function(){
+				//文章详情
+				sessionStorage.setItem("detailsId","1223");
+   				$("#details").show().load("details.html",function(){
+   					$(".policyList").hide();
+   				});
+			})
+			
 			//政策法规左侧选项卡切换
 			$(".download .leftTab li").click(function() {
+				$(".policyList").show();
+				$("#details").hide();
 				var leftText = $(this).find("p").text();
 				$(".crumbs").text(leftText.slice(0,leftText.length-2))
 				$(this).addClass("active").siblings().removeClass("active");
 			});
+			
+			
 			layui.use(['laypage', 'layer'], function() {
 				var laypage = layui.laypage,
 					layer = layui.layer;
