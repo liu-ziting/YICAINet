@@ -1463,3 +1463,230 @@ footer section span{
 	float: left;
 	margin: 15px 0;
 }
+/* 用户中心 */
+.user{
+	padding:30px  0 ;
+}
+.user > div{
+	float: left;
+}
+.user .left{
+	width: 258px;
+	height: auto;
+	margin-right: 25px;
+}
+.user .right{
+	width: 887px;
+	height: auto;
+	background-color: #FFFFFF;
+	padding: 30px 18px;
+	padding-bottom: 80px;
+}
+.user .left > h1{
+	background: url("../img/userh1.png") no-repeat;
+	width: 100%;
+	height: 90px;
+	padding-left: 28px;
+	font-size: 24px;
+	color: #FFFFFF;
+}
+.user .left > h1 p{
+	float: left;
+	width: 100%;
+	margin-top: 15px;
+}
+.user .left > h1 span{
+	font-size: 14px;
+	font-weight: normal;
+	display: block;
+	float: left;
+	margin-top: 5px;
+}
+.user .left .leftTab{
+	padding: 10px;
+	background-color: #FFFFFF
+}
+.user .left .leftTab h2{
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+	border-bottom: 1px solid #e2e2e2;
+	font-size: 18px;
+	color: #252525;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+.user .left .leftTab h2 img{
+	display: block;
+	float: left;
+	margin: 20px;
+}
+.user .left .leftTab h2 span{
+	display: block;
+	float: left;
+}
+.user .left .leftTab li{
+	width: 100%;
+	height: 36px;
+	font-size: 14px;
+	color: #252525;
+	padding-left: 65px;
+	line-height: 36px;
+	cursor: pointer;
+}
+.user .left .leftTab .active{
+	background-color: #16cef4;
+	color: #ffffff;
+}
+.user .left .leftTab .quit{
+	width:94%;
+	margin-left: 3%;
+	height: 45px;
+	line-height: 45px;
+	background-color: #424242;
+	margin-top: 90px;
+	margin-bottom: 5px;
+	font-weight: bold;
+	font-size: 18px;
+	border-radius: inherit;
+}
+.user .right{
+	padding: 25px;
+}
+.user .right .txImg{
+	width: 100px;
+	height: 100px;
+	float: left;
+	margin-right: 18px;
+}
+.user .right .txImg img{
+	width: 100%;
+	height: 100%;
+}
+.user .right .tleft{
+	width: 575px;
+	height: 105px;
+	border-right: 1px dashed #eaeaea;
+	float: left;
+}
+.user .right .tleft h1{
+	font-size: 20px;
+	color: #535353;
+	font-weight: bold;
+	font-weight: bold;
+}
+.user .right .tleft h3{
+	float: left;
+	width: 430px;
+	margin-top: 55px;
+}
+.user .right .tleft p{
+	font-size: 12px;
+	color: #969696;
+	float: left;
+	line-height: 19px;
+	height: 19px;
+}
+.user .right .tleft p:last-child{
+	margin-left: 30px;
+}
+.user .right .tleft span{
+	display: block;
+	float: left;
+	font-size: 12px;
+	color: #ffffff;
+	background-color: #6aa7ff;
+	padding: 1px 7px;
+	margin-right: 10px;
+}
+.user .right .tright{
+	float: left;
+	height: 75px;
+	margin-top: 15px;
+}
+.user .right .tright ul li{
+	width: 120px;
+	float: left;
+	font-size: 14px;
+	color: #535353;
+	text-align: center;
+	cursor: pointer;
+	height: 75px;
+}
+.user .right .tright ul li img{
+	display: block;
+	margin: 6px auto 10px auto;
+}
+.user .right .tright ul li .recharge{
+	width: 68px;
+	height: 21px;
+	text-align: center;
+	line-height: 21px;
+	color: #ffffff;
+	background-color: #16cef4;
+	font-size: 12px;
+	border-radius: 3px;
+	margin: 16px auto;
+}
+.user .right .tright ul li:last-child {
+	border-left: 1px dashed #eaeaea;
+}
+.user .right .tright ul li:last-child img{
+	margin-top: 10px;
+}
+.user .right .topBox{
+	overflow: hidden;
+	border-bottom: 1px solid #e4e4e4;
+	padding-bottom: 22px;
+}
+.user .userbox{
+	padding-top: 25px;
+}
+.user .userbox h1{
+	font-size: 20px;
+	width: 100%;
+	font-weight: bold;
+	border-bottom: 1px solid #e4e4e4;
+	padding-bottom: 15px;
+}
+.user .userbox h1 b{
+	color: #1668d8;
+}
+.user .userbox ul {
+	margin: 20px 12px;
+	overflow: hidden;
+}
+.user .userbox ul li{
+	width: 100%;
+	font-size: 14px;
+	margin-bottom: 15px;
+	float: left;
+}
+.user .userbox ul li:last-child{
+	margin-bottom: 5px;
+}
+.user .userbox ul li p{
+	color: #535353;
+	font-weight: bold;
+	float: left;
+	width: 150px;
+}
+.user .userbox ul li span{
+	color: #3a3a3a;
+}
+.user .userbox table {
+	margin-top: 30px;
+}
+.user .userbox table tr{
+	height: 52px;
+	border-bottom: 1px solid #e2e2e2;
+	line-height: 52px;
+	text-align: center;
+	font-size: 16px;
+}
+.user .userbox table tr:nth-child(odd){
+	background-color: #f5f5f5;
+}
+.user .userbox table tr:nth-child(even){
+	background-color: #faf9f9;
+}

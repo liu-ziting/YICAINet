@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>医采网-个人中心</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
+
+<body>
+	<!--头部-->
+	<header>
+		<div class="htop">
+			<div class="centered">
+				<div class="left">
+					<p>欢迎来到医采网！</p>
+					<img class="loginIcon" src="../img/user.png" />
+					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+					<a href="register.html">免费注册</a>
+				</div>
+				<div class="right">
+					<img src="../img/iPhone.png" />
+					<p>免费咨询热线：0550-3022569</p>
+					<span>|</span>
+					<p onclick="addFavorite()">收藏 </p>
+					<span>|</span>
+					<p>帮助</p>
+				</div>
+			</div>
+		</div>
+		<div class="searchBox">
+			<div class="centered">
+				<a class="logo" href="index.html">
+					<img src="../img/logo.png" />
+				</a>
+				<!--搜索-->
+				<div class="rightBox">
+					<div class="toptab">
+						<span class="active">查询药品</span>
+						<span>查询耗材</span>
+					</div>
+					<div class="search">
+						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
+							autocomplete="off" class="layui-input">
+						<span>
+							<img src="../img/ss.png" />
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--导航-->
+		<nav>
+			<div class="centered">
+				<ul>
+					<li onclick="location='index.html'">首页</li>
+					<li onclick="location='callForBids.html'">招标信息</li>
+					<li>药品信息</li>
+					<li>耗材信息</li>
+					<li>设备信息</li>
+					<li onclick="location='policy.html'">政策法规</li>
+					<li onclick="location='download.html'">下载中心</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="user centered">
+		<div class="left">
+			<h1>
+				<p>会员中心</p><span>My home page</span>
+			</h1>
+			<div class="leftTab">
+				<h2>
+					<img src="../img/user1.png" />
+					<span>账户信息</span>
+				</h2>
+				<ul>
+					<li>个人信息</li>
+					<li>修改绑定手机号</li>
+				</ul>
+				<h2>
+					<img src="../img/user2.png" />
+					<span>财务中心</span>
+				</h2>
+				<ul>
+					<li>VIP会员充值</li>
+					<li>充值记录</li>
+				</ul>
+				<h2>
+					<img src="../img/user2.png" />
+					<span>服务中心</span>
+				</h2>
+				<ul>
+					<li>系统通知</li>
+					<li>服务帮助</li>
+				</ul>
+				<button type="button" onclick="location='login.html'" class="layui-btn quit">退出</button>
+			</div>
+		</div>
+		<div class="right">
+			<div class="topBox">
+				<div class="tleft">
+					<div class="txImg">
+						<img src="../img/temporary/20180518134730_vnJXa.jpeg" />
+					</div>
+					<h1>马冬梅</h1>
+					<h3>
+						<span>提示</span>
+						<p>当前登录IP:192.168.0.15</p>
+						<p>上次登录时间:2020-01-05 19:50</p>
+					</h3>
+				</div>
+				<div class="tright">
+					<ul>
+						<li>
+							<img src="../img/sj.png" alt="">
+							<p>修改手机</p>
+						</li>
+						<li>
+							<img src="../img/vip.png" alt="">
+							<p class="recharge">立即充值</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="userbox">
+				<h1>个人<b>信息</b></h1>
+				<ul>
+					<li>
+						<p>绑定手机：</p>
+						<span>15367891234</span>
+					</li>
+					<li>
+						<p>真实姓名：</p>
+						<span>马冬梅</span>
+					</li>
+					<li>
+						<p>注册时间：</p>
+						<span>2020-01-02 17:50</span>
+					</li>
+					<li>
+						<p>上次登录时间：</p>
+						<span>2020-01-05 15:50</span>
+					</li>
+					<li>
+						<p>上次访问IP：</p>
+						<span>192.168.0.15</span>
+					</li>
+				</ul>
+				<h1>充值<b>记录</b></h1>
+				<table class="layui-table"  lay-skin="nob">
+					<colgroup>
+					</colgroup>
+					<tbody>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+						<tr>
+							<td>2020-01-05</td>
+							<td>支付宝充值</td>
+							<td>-1000</td>
+							<td>交易成功</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<div id="footer"></div>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+
+
+	</script>
+</body>
+
+</html>
