@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>医采网-个人信息</title>
+	<title>医采网-充值记录</title>
 	<link rel="stylesheet" href="../layui/css/layui.css" />
 	<link rel="stylesheet" href="../css/index.css" />
 </head>
@@ -86,7 +86,7 @@
 				</h2>
 				<ul>
 					<li onclick="location='userVip.html'">VIP会员充值</li>
-					<li onclick="location='rechargeRecord.html'">充值记录</li>
+					<li class="active" onclick="location='rechargeRecord.html'">充值记录</li>
 				</ul>
 				<h2>
 					<img src="../img/user2.png" />
@@ -100,104 +100,94 @@
 			</div>
 		</div>
 		<div class="right">
-			<div class="topBox">
-				<div class="tleft">
-					<div class="txImg">
-						<img src="../img/temporary/20180518134730_vnJXa.jpeg" />
-					</div>
-					<h1>马冬梅</h1>
-					<h3>
-						<span>提示</span>
-						<p>当前登录IP:192.168.0.15</p>
-						<p>上次登录时间:2020-01-05 19:50</p>
-					</h3>
-				</div>
-				<div class="tright">
-					<ul>
-						<li onclick="location='editPhone.html'">
-							<img src="../img/sj.png" alt="">
-							<p>修改手机</p>
-						</li>
-						<li onclick="location='userVip.html'">
-							<img src="../img/vip.png" alt="">
-							<p class="recharge">立即充值</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="userbox">
-				<h1>个人<b>信息</b></h1>
-				<ul>
-					<li>
-						<p>绑定手机：</p>
-						<span>15367891234</span>
-					</li>
-					<li>
-						<p>真实姓名：</p>
-						<span>马冬梅</span>
-					</li>
-					<li>
-						<p>注册时间：</p>
-						<span>2020-01-02 17:50</span>
-					</li>
-					<li>
-						<p>上次登录时间：</p>
-						<span>2020-01-05 15:50</span>
-					</li>
-					<li>
-						<p>上次访问IP：</p>
-						<span>192.168.0.15</span>
-					</li>
-				</ul>
-				<h1>充值<b>记录</b></h1>
-				<table class="layui-table"  lay-skin="nob">
-					<colgroup>
-					</colgroup>
-					<tbody>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="userbox rechargeRecord">
+				<h1 class="usertitle">
+					充值记录
+					<p>当前位置：<a href="user.html">个人中心</a> >> <a href="#">财务中心</a>>> <a href="rechargeRecord.html">充值记录</a></p>
+				</h1>
+				<section>
+					<table class="layui-table"  lay-skin="nob">
+						<colgroup>
+						</colgroup>
+						<tbody>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+							<tr>
+								<td>2020-01-05</td>
+								<td>支付宝充值</td>
+								<td>-1000</td>
+								<td>交易成功</td>
+							</tr>
+						</tbody>
+					</table>
+					<!--分页-->
+					<div id="paging" class="paging"></div>
+				</section>
+				
 			</div>
 		</div>
 	</div>
@@ -206,8 +196,19 @@
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
-
-
+		layui.use(['laypage', 'layer'], function() {
+			var laypage = layui.laypage,
+				layer = layui.layer;
+			//下载中心分页
+			laypage.render({
+				elem: 'paging',
+				count: 100,
+				layout: ['count', 'prev', 'page', 'next', 'limit',  'skip'],
+				jump: function(obj) {
+					console.log(obj)
+				}
+			});
+		});
 	</script>
 </body>
 

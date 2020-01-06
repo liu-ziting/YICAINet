@@ -129,7 +129,9 @@ i,em{
 .clear {
 	clear: both;
 }
-
+.clear{
+	clear: both;
+}
 button {
 	outline: none !important;
 	border: none;
@@ -156,6 +158,9 @@ button {
 .paging{
 	width: 100%;
 	text-align:center
+}
+.layui-laypage .layui-laypage-curr .layui-laypage-em{
+	background-color: #195edd;
 }
 /*头部*/
 
@@ -196,7 +201,9 @@ header .htop a {
 	line-height: 50px;
 	margin-left: 10px;
 }
-
+header .userTop{
+	color: #4c4c4c !important;
+}
 header .right {
 	float: right;
 }
@@ -1489,6 +1496,7 @@ footer section span{
 	padding-left: 28px;
 	font-size: 24px;
 	color: #FFFFFF;
+	cursor: pointer;
 }
 .user .left > h1 p{
 	float: left;
@@ -1689,4 +1697,200 @@ footer section span{
 }
 .user .userbox table tr:nth-child(even){
 	background-color: #faf9f9;
+}
+.user .userbox table tr td:nth-child(3){
+	color: #1668d8;
+	font-weight: bold;
+}
+.user .usertitle{
+	width: 100%;
+	font-size: 24px !important;
+	color: #252525;
+	border-bottom: 1px solid #e4e4e4;
+	padding-bottom: 15px;
+	padding-left: 25px;
+	font-weight: bold;
+}
+.user .usertitle p{
+	font-size: 12px;
+	color: #252525;
+	float: right;
+	font-weight: normal;
+	line-height: 35px;
+}
+.user .usertitle p a{
+	padding: 0 3px;
+}
+
+/* 个人信息 */
+.user .usermy section{
+	padding: 33px 23px;
+}
+.user .usermy .editImg{
+	width: 136px;
+	height: 136px;
+	border: 1px solid #dddddd;
+	cursor: pointer;
+}
+.user .usermy .editImg img{
+	display: block;
+	margin: 0 auto;
+	margin-top: 8px;
+	width: 120px;
+	height: 120px;
+}
+.user .usermy .editphone{
+	background-color: #1668d8;
+	color: #ffffff;
+	width: 136px;
+	height: 40px;
+	margin-top: 15px;
+	border-radius: 3px;
+}
+.user .usermy h2{
+	font-size: 16px;
+	font-weight: bold;
+	color: #535353;
+	border-bottom: 1px solid #e4e4e4;
+	padding-bottom: 15px;
+	margin-top: 50px;
+	margin-bottom: 25px;
+}
+.user .usermy ul {
+
+	overflow: hidden;
+}
+.user .usermy ul li{
+	width: 100%;
+	float: left;
+	margin-bottom: 20px;
+	line-height: 20px;
+}
+.user .usermy ul li p{
+	font-size: 14px;
+	color: #2c2c2c;
+	float: left;
+	width: 74px;
+}
+.user .usermy ul li span{
+	display: block;
+	float: left;
+	padding-left: 25px;
+	min-width: 280px;
+}
+.user .usermy ul li img{
+	display: block;
+	margin-top: -7px;
+	cursor: pointer;
+}
+/* 修改手机号码 */
+.user .editPhone section{
+	padding: 50px 0 400px 0;
+}
+.user .editPhone section label{
+	width: 95px;
+	padding:0;
+	margin-right: 20px;
+	line-height: 35px;
+} 
+.user .editPhone section .layui-inline{
+	width: 100%;
+	margin-bottom: 15px;
+	font-size: 14px;
+	color: #252525;
+}
+.user .editPhone section input{
+	width: 260px;
+	height: 35px;
+}
+.user .editPhone section .layui-inline:nth-child(3) input{
+	width: 163px;
+	float: left;
+}
+.user .editPhone section .qrbut{
+	height: 35px;
+	line-height: 35px;
+	margin-left: 7px;
+	font-size: 14px;
+	width: 90px;
+    padding: 0;
+	color: #ffffff;
+	background-color: #195edd;
+}
+.user .editPhone section .save{
+	width: 260px;
+	height: 36px;
+	background-color: #195edd;
+	margin: 30px 115px;
+	font-size: 16px;
+	letter-spacing: 3px;
+}
+.rechargeRecord{
+	margin-bottom: 50px;
+	padding-top: 0 !important;
+}
+.rechargeRecord table{
+	margin-bottom: 40px;
+}
+.inform{
+	min-height: 700px;
+}
+.inform .top{
+	margin: 20px 15px;
+	line-height: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+.inform .top h2{
+	font-size: 15px;
+	font-weight: bold;
+	float: left;
+}
+.inform .top p{
+	float: left;
+	font-size: 12px;
+	color: #4c4c4c;
+	padding-left: 5px;
+}
+.inform .top em{
+	color: #1668d8;
+}
+.inform .top span{
+	color: #c90000;
+	padding: 0 5px;
+}
+.inform ul{
+	margin-bottom: 40px;
+	overflow: hidden;
+}
+.inform ul li{
+	width: 100%;
+	font-size: 12px;
+	color: #252525;
+	height: 36px;
+	line-height: 36px;
+	border-bottom: 1px dashed #c9c9c9;
+	padding-left: 10px;
+	cursor: pointer;
+}
+.inform ul li:last-child{
+	border: none;
+}
+.inform ul li p{
+	width: 460px;
+	float: left;
+}
+.inform ul .active p{
+	color: #1668d8;
+}
+.inform .header{
+	background-color: #f0f0f0;
+	height: 36px;
+	line-height: 36px;
+}
+.inform .header p{
+	width: 470px;
+	float: left;
+	padding-left: 15px;
+	color: #666;
 }

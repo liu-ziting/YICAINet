@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>医采网-个人信息</title>
+	<title>医采网-修改绑定手机</title>
 	<link rel="stylesheet" href="../layui/css/layui.css" />
 	<link rel="stylesheet" href="../css/index.css" />
 </head>
@@ -77,8 +77,8 @@
 					<span>账户信息</span>
 				</h2>
 				<ul>
-					<li onclick="location='userMy.html'">个人信息</li>
-					<li onclick="location='editPhone.html'">修改绑定手机号</li>
+					<li onclick="location='usermy.html'">个人信息</li>
+					<li class="active" onclick="location='editPhone.html'">修改绑定手机号</li>
 				</ul>
 				<h2>
 					<img src="../img/user2.png" />
@@ -100,104 +100,36 @@
 			</div>
 		</div>
 		<div class="right">
-			<div class="topBox">
-				<div class="tleft">
-					<div class="txImg">
-						<img src="../img/temporary/20180518134730_vnJXa.jpeg" />
-					</div>
-					<h1>马冬梅</h1>
-					<h3>
-						<span>提示</span>
-						<p>当前登录IP:192.168.0.15</p>
-						<p>上次登录时间:2020-01-05 19:50</p>
-					</h3>
-				</div>
-				<div class="tright">
-					<ul>
-						<li onclick="location='editPhone.html'">
-							<img src="../img/sj.png" alt="">
-							<p>修改手机</p>
-						</li>
-						<li onclick="location='userVip.html'">
-							<img src="../img/vip.png" alt="">
-							<p class="recharge">立即充值</p>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<div class="userbox">
-				<h1>个人<b>信息</b></h1>
-				<ul>
-					<li>
-						<p>绑定手机：</p>
-						<span>15367891234</span>
-					</li>
-					<li>
-						<p>真实姓名：</p>
-						<span>马冬梅</span>
-					</li>
-					<li>
-						<p>注册时间：</p>
-						<span>2020-01-02 17:50</span>
-					</li>
-					<li>
-						<p>上次登录时间：</p>
-						<span>2020-01-05 15:50</span>
-					</li>
-					<li>
-						<p>上次访问IP：</p>
-						<span>192.168.0.15</span>
-					</li>
-				</ul>
-				<h1>充值<b>记录</b></h1>
-				<table class="layui-table"  lay-skin="nob">
-					<colgroup>
-					</colgroup>
-					<tbody>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-					</tbody>
-				</table>
+			<div class="editPhone">
+				<h1 class="usertitle">
+					修改绑定手机
+					<p>当前位置：<a href="user.html">个人中心</a> >> <a href="#">账户信息</a>>> <a href="editPhone.html">修改绑定手机</a></p>
+				</h1>
+				<section>
+					<form class="layui-form" action="">
+						<div class="layui-inline">
+							<label class="layui-form-label">原手机号码：</label>
+							<div class="layui-input-inline">
+							<input type="tel" name="yphone" lay-verify="required" lay-reqtext="请输入原手机号码"  autocomplete="off" class="layui-input" placeholder="请输入当前绑定手机号码">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">新手机号码：</label>
+							<div class="layui-input-inline">
+							<input type="tel" name="sphone" lay-verify="required" lay-reqtext="请输入新手机号码"  autocomplete="off" class="layui-input" placeholder="请输入新的手机号码">
+							</div>
+						</div>
+						<div class="layui-inline">
+							<label class="layui-form-label">验证码：</label>
+							<div class="layui-input-inline">
+							<input type="tel" name="qrcode"  lay-verify="required" lay-reqtext="请输入手机验证码"   autocomplete="off" class="layui-input" placeholder="请输入验证码">
+							<button type="button" class="layui-btn qrbut">获取验证码</button>
+							</div>
+						</div>	
+							<button type="button" class="layui-btn save" lay-submit="" lay-filter="register">保存</button>
+					</form>
+					
+				</section>
 			</div>
 		</div>
 	</div>
@@ -207,7 +139,19 @@
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
 
-
+	layui.use(['form', 'layedit', 'laydate'], function () {
+			var form = layui.form
+				, layer = layui.layer
+			//监听提交
+			form.on('submit(register)', function (data) {
+				layer.alert(JSON.stringify(data.field), {
+					title: '最终的提交信息'
+				})
+				return false;
+			});
+			
+		});
+		
 	</script>
 </body>
 
