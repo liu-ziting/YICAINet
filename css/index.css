@@ -1446,6 +1446,18 @@ footer section span{
 	font-size: 24px;
 	color: #3a3839;
 }
+.details h5 .dlBook{
+	background-color: #1668d8;
+	width: 76px;
+	height: 31px;
+	line-height: 31px;
+	text-align: center;
+	float: right;
+	color: #FFFFFF;
+	font-size: 12px;
+	text-align: center;
+	border-radius: 2px;
+}
 .details time{
 	display: block;
 	margin: 25px 0;
@@ -1893,4 +1905,144 @@ footer section span{
 	float: left;
 	padding-left: 15px;
 	color: #666;
+}
+/*购买标书*/
+.buyBook{
+	background-color: #FFFFFF;
+	height: 530px;
+	margin-bottom: 40px;
+	padding: 35px 52px;
+}
+.buyBook ul li{
+	width: 100%;
+	overflow: hidden;
+	padding: 23px 0;
+	border-bottom: 1px solid #e4e4e4;
+}
+.buyBook ul li span{
+	font-size: 20px;
+	color: #333333;
+	display: block;
+	float: left;
+	padding-right: 60px;
+	line-height: 26px;
+	height: 26px;
+}
+.buyBook ul li p{
+	float: left;
+	font-size: 18px;
+	color: #1668d8;
+	line-height: 26px;
+	height: 26px;
+	padding-left: 10px;
+}
+.buyBook ul li b{
+	font-weight: normal;
+	font-size: 18px;
+	color: #1668d8;
+	float: right;
+	line-height: 26px;
+	height: 26px;
+}
+.buyBook ul li:nth-child(2) span{
+	line-height: 48px;
+	height: 48px;
+}
+.buyBook ul li:nth-child(2) div{
+	width: 136px;
+	height: 48px;
+	border: 1px solid #666666;
+	float: left;
+	margin-right: 60px;
+	cursor: pointer;
+}
+.buyBook ul li:nth-child(2) div span{
+	font-size: 14px;
+	color: #666666;
+	display: block;
+	float: left;
+	line-height: 48px;
+	padding-right: 0;
+}
+.buyBook ul li i{
+	display: block;
+	float: left;
+	width: 26px;
+	height: 23px;
+	margin-right: 5px;
+	margin-top: 12px;
+    margin-left: 32px;
+}
+.buyBook ul li:nth-child(2){
+	padding: 30px 0;
+}
+.buyBook ul li:nth-child(2) .wicon{
+	background: url(../img/wx1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.buyBook ul li:nth-child(2) .zicon{
+	background: url(../img/zfb1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.buyBook ul li:nth-child(2) .active{
+	background: url(../img/zfactive.png) no-repeat;
+	width: 137px;
+	height: 48px;
+	border: none;
+	background-size: 100% 100%;
+}
+.buyBook ul li:nth-child(2) .active span{
+	color: #FFFFFF;
+}
+.buyBook ul li:nth-child(2) .active .wicon{
+	background: url(../img/wx2.png) no-repeat;
+	background-size: 100% 100%;
+}
+.buyBook ul li:nth-child(2) .active .zicon{
+	background: url(../img/zfb2.png) no-repeat;
+	background-size: 100% 100%;
+}
+.buyBook ul li:nth-child(3){
+	padding-top: 56px;
+	border-bottom: none;
+}
+.buyBook ul li:nth-child(3) .qrcode{
+	width: 148px;
+	height: 148px;
+	background: url(../img/qrk.png) no-repeat;
+	background-size: 100% 100%;
+	padding-top: 6px;
+	margin-right: 38px;
+	float: left;
+}
+.buyBook ul li:nth-child(3) .qrcode img{
+	width: 136px;
+	height: 136px;
+	display: block;
+	margin: 0 auto;
+}
+.buyBook ul li:nth-child(3) p{
+	font-size: 18px;
+	color: #666666;
+	float: left;
+	padding-top: 12px;
+}
+.buyBook ul li:nth-child(3) .bottomImg{
+	width: 100%;
+	float: left;
+	margin-left: 196px;
+	margin-top: -53px;
+}
+.buyBook ul li:nth-child(3) .bottomImg img{
+	display: block;
+	float: left;
+	margin-right: 21px;
+} 
+.buyBook ul li:nth-child(3)  em{
+	font-size: 14px;
+	color: #666666;
+	width: 100%;
+	float: left;
+	margin-left: 196px;
+	margin-top: -15px;
 }

@@ -14,8 +14,16 @@ function getQueryString(name) {
         return unescape(r[2]);
     }
     return null;
-}
+};
 
+/* 打开新页面 */
+function openUrl(url,type){
+	if(!type){
+		window.location.href = url;
+	}else{
+		window.open(url)
+	};
+};
 /** ajax封装
     url: 请求接口地址,
     type: 请求类型 POST GET,

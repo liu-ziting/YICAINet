@@ -55,20 +55,20 @@
 		<nav>
 			<div class="centered">
 				<ul>
-					<li onclick="location='index.html'">首页</li>
-					<li onclick="location='callForBids.html'">招标信息</li>
+					<li onclick="openUrl('index.html')">首页</li>
+					<li onclick="openUrl('callForBids.html')">招标信息</li>
 					<li>药品信息</li>
 					<li>耗材信息</li>
 					<li>设备信息</li>
-					<li onclick="location='policy.html'">政策法规</li>
-					<li onclick="location='download.html'">下载中心</li>
+					<li onclick="openUrl('policy.html')">政策法规</li>
+					<li onclick="openUrl('download.html')">下载中心</li>
 				</ul>
 			</div>
 		</nav>
 	</header>
 	<div  id="userMy" class="user centered">
 		<div class="left">
-			<h1 onclick="location='user.html'">
+			<h1 onclick="openUrl('user.html')">
 				<p>会员中心</p><span>My home page</span>
 			</h1>
 			<div class="leftTab">
@@ -77,26 +77,26 @@
 					<span>账户信息</span>
 				</h2>
 				<ul>
-					<li class="active" onclick="location='userMy.html?#userMy'">个人信息</li>
-					<li onclick="location='editPhone.html?#editPhone'">修改绑定手机号</li>
+					<li class="active" onclick="openUrl('userMy.html')">个人信息</li>
+					<li onclick="openUrl('editPhone.html')">修改绑定手机号</li>
 				</ul>
 				<h2>
 					<img src="../img/user2.png" />
 					<span>财务中心</span>
 				</h2>
 				<ul>
-					<li onclick="location='userVip.html?#userVip'">VIP会员充值</li>
-					<li onclick="location='rechargeRecord.html?#rechargeRecord'">充值记录</li>
+					<li onclick="openUrl('userVip.html')">VIP会员充值</li>
+					<li onclick="openUrl('rechargeRecord.html')">充值记录</li>
 				</ul>
 				<h2>
 					<img src="../img/user2.png" />
 					<span>服务中心</span>
 				</h2>
 				<ul>
-					<li onclick="location='inform.html?#inform'">系统通知</li>
-					<li onclick="location='userHelp.html?#userHelp'">服务帮助</li>
+					<li onclick="openUrl('inform.html')">系统通知</li>
+					<li onclick="openUrl('userHelp.html')">服务帮助</li>
 				</ul>
-				<button type="button" onclick="location='login.html'" class="layui-btn quit">退出</button>
+				<button type="button" onclick="openUrl('login.html')" class="layui-btn quit">退出</button>
 			</div>
 		</div>
 		<div class="right">
@@ -109,7 +109,7 @@
 					<div class="editImg">
 						<img src="../img/usermy.png" alt="">
 					</div>
-					<button onclick="location='editPhone.html'" type="button" class="layui-btn editphone">修改绑定手机</button>
+					<button onclick="openUrl('editPhone.html')" type="button" class="layui-btn editphone">修改绑定手机</button>
 					<h2>修改个人资料</h2>
 					<ul>
 						<li>
