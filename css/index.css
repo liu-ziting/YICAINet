@@ -2213,3 +2213,44 @@ footer section span{
 .userVip ul li:nth-child(3) .ewm i a{
 	color: #0066cc;
 }
+/*购买成功*/
+.buySucceed{
+	background-color: #FFFFFF;
+	height: 560px;
+	margin-bottom: 40px;
+	padding: 35px 52px;
+}
+.buySucceed img{
+	display: block;
+	margin: 80px auto 23px auto;
+}
+.buySucceed h1{
+	font-size: 18px;
+	color: #333333;
+	margin-bottom: 45px;
+	width: 100%;
+	text-align: center;
+	font-weight: 500;
+}
+.buySucceed ul {
+	width: 330px;
+	margin: 0 auto;
+}
+.buySucceed ul li{
+	font-size: 14px;
+	color: #333333;
+	margin-bottom: 20px;
+}
+.buySucceed .download{
+	width: 190px;
+	height: 50px;
+	line-height: 50px;
+	color: #FFFFFF;
+	background-color: #195edd;
+	margin: 44px auto;
+	font-size: 18px;
+	display: block;
+	padding: 0;
+	text-align: center;
+	border-radius: 2px;
+}
