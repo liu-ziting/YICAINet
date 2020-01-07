@@ -2430,3 +2430,86 @@ footer section span{
 	color: #007DDB;
 	font-weight: normal;
 }
+.drugList .drugListMain{
+	overflow: hidden;
+}
+.drugList .drugListMain ul li{
+	width: 379px;
+	height: 230px;
+	background-color: #ffffff;
+	float: left;
+}
+.drugList .drugListMain ul li{
+	margin-right: 16px;
+	margin-bottom: 16px;
+	padding: 30px 30px 0 30px;
+}
+.drugList .drugListMain ul li:nth-child(3n+3){
+	margin-right: 0;
+}
+.drugList .drugListMain ul li .up{
+	border-bottom: 1px solid #eeeeee;
+	overflow: hidden;
+	padding-bottom: 15px;
+}
+.drugList .drugListMain ul li .up img{
+	display: block;
+	float: left;
+	border: 1px solid #cbcbcb;
+	width: 90px;
+	height: 90px;
+	margin-right: 13px;
+}
+.drugList .drugListMain ul li .up  h1{
+	font-size: 14px;
+	color: #1668d8;
+	margin-bottom: 12px;
+	cursor: pointer;
+}
+.drugList .drugListMain ul li .up  p{
+	font-size: 14px;
+	color: #3b3b3b;
+	margin-bottom: 5px;
+}
+.drugList .drugListMain ul li .down{
+	padding-top: 10px;
+}
+.drugList .drugListMain ul li .down p{
+	width: 50%;
+	float: left;
+	color: #666666;
+	margin-bottom: 5px;
+}
+.drugList .drugListMain ul li .down p:nth-child(2){
+	color: #8b8b8b;
+}
+.drugList .drugListMain ul li .down p span{
+	width: 85px;
+	height: 19px;
+	line-height: 19px;
+	text-align: center;
+	display: block;
+	float: right;
+	margin-right: 15px;
+	font-size: 12px;
+	background-color: #d6d0c0;
+	cursor: pointer;
+}
+.drugList .drugListMain ul li .down p i{
+	display:none;
+}
+.drugList .drugListMain ul li .online span{
+	display: none !important;
+}
+.drugList .drugListMain ul li .online p i{
+	display: inline;
+}
+.drugList .paging{
+	margin: 70px;
+}
+.drugList .layui-laypage-count{
+	background-color: inherit;
+}
+.drugList .layui-laypage-skip{
+	background-color: inherit;
+}
