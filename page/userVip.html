@@ -100,13 +100,51 @@
 			</div>
 		</div>
 		<div class="right">
-			<div class="">
+			<div class="userVip">
 				<h1 class="usertitle">
 					VIP会员充值
 					<p>当前位置：<a href="user.html">个人中心</a> >> <a href="#">财务中心</a>>> <a href="userHelp.html">VIP会员充值</a></p>
 				</h1>
 				<section>
-					
+					<ul>
+						<li>
+							<div class="active">
+								<h1>30元<span>35元/月</span></h1>
+								<p>包月会员立减5元</p>
+							</div>
+							<div>
+								<h1>80元<span>105元/季</span></h1>
+								<p>按季购买立享优惠</p>
+							</div>
+							<div>
+								<h1>300元<span>420元/年</span></h1>
+								<p>年费会员优惠更多</p>
+							</div>
+						</li>
+						<li>
+							<h2>支付<span>方式</span></h2>
+							<div class="wechat active">
+				    			<i class="wicon"></i>
+				    			<span>微信</span>
+				    		</div>
+				    		<div class="alipay">
+				    			<i class="zicon"></i>
+				    			<span>支付宝</span>
+				    		</div>
+						</li>
+						<li>
+							<p>扫描二维码进行支付：</p>
+							<div class="ewm">
+								<div class="qrcode">
+						    		<img src="../img/qrcode.png" />
+						    	</div>
+						    	<p>已为您优惠5元</p>
+						    	<h3>￥30.00</h3>
+						    	<i>推荐使用微信、支付宝支付</i>
+						    	<i>会员相关请阅读<a id="openNotice" href="javascript:;">《会员须知》</a></i>
+							</div>
+						</li>
+					</ul>
 				</section>
 			</div>
 		</div>
@@ -116,7 +154,26 @@
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
-	
+		//会员切换
+		$(".userVip ul li:nth-child(1) div").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+		//支付切换
+		$(".userVip ul li:nth-child(2) div").click(function(){
+			$(this).addClass("active").siblings().removeClass("active");
+		});
+		//用户协议弹窗
+		$("#openNotice").click(function(){
+			layer.open({
+			  type: 2,
+			  title: '平台协议须知',
+			  shadeClose: true,
+			  shade: 0.8,
+			  area: ['480px', '90%'],
+			  content: 'notice.html' 
+			}); 
+		})
+	</script
 	</script>
 </body>
 

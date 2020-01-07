@@ -2046,3 +2046,170 @@ footer section span{
 	margin-left: 196px;
 	margin-top: -15px;
 }
+/*vip会员充值*/
+.userVip section ul li{
+	width: 100%;
+	overflow: hidden;
+	padding: 33px 20px;
+	border-bottom: 1px solid #e4e4e4;
+}
+.userVip ul li:nth-child(1) > div{
+	width: 210px;
+	height: 100px;
+	border: 1px solid #666666;
+	border-radius: 3px;
+	float: left;
+	margin-right: 60px;
+	cursor: pointer;
+	
+}
+.userVip ul li:nth-child(1)>div:last-child{
+	margin-right: 0;
+}
+.userVip ul li:nth-child(1)>div h1{
+	text-align: center;
+	font-size: 20px;
+	margin-top: 25px;
+	font-weight: bold;
+	color: #666666;
+}
+.userVip ul li:nth-child(1)>div h1 span{
+	font-size: 14px;
+	color: #666666;
+	margin-left: 5px;
+	font-weight: normal;
+	text-decoration:line-through
+}
+.userVip ul li:nth-child(1)>div p{
+	text-align: center;
+	font-size: 14px;
+	color: #666666;
+}
+.userVip ul li:nth-child(1) .active{
+	background: url(../img/vipactive.png) no-repeat;
+	background-size: 100% 100%;
+	border: none;
+	height: 101px;
+}
+.userVip ul li:nth-child(1) .active h1{
+	color: #FFFFFF;
+}
+.userVip ul li:nth-child(1) .active p{
+	color: #FFFFFF;
+}
+.userVip ul li:nth-child(1) .active span{
+	color: #FFFFFF;
+}
+.userVip ul li:nth-child(2) h2{
+	font-size: 16px;
+	color: #333333;
+	font-weight: bold;
+	margin-bottom: 23px;
+}
+.userVip ul li:nth-child(2) h2 span{
+	color: #1668d8;
+}
+.userVip ul li:nth-child(2) i{
+	display: block;
+	float: left;
+	width: 26px;
+	height: 23px;
+	margin-right: 5px;
+	margin-top: 12px;
+    margin-left: 32px;
+}
+.userVip ul li:nth-child(2) > div{
+	width: 136px;
+	height: 48px;
+	border: 1px solid #666666;
+	float: left;
+	margin-right: 60px;
+	cursor: pointer;
+}
+.userVip ul li:nth-child(2) div span{
+	font-size: 14px;
+	color: #666666;
+	display: block;
+	float: left;
+	line-height: 48px;
+	padding-right: 0;
+}
+.userVip ul li:nth-child(2) .wicon{
+	background: url(../img/wx1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.userVip ul li:nth-child(2) .zicon{
+	background: url(../img/zfb1.png) no-repeat;
+	background-size: 100% 100%;
+}
+.userVip ul li:nth-child(2) .active{
+	background: url(../img/zfactive.png) no-repeat;
+	width: 137px;
+	height: 48px;
+	border: none;
+	background-size: 100% 100%;
+}
+.userVip ul li:nth-child(2) .active span{
+	color: #FFFFFF;
+}
+.userVip ul li:nth-child(2) .active .wicon{
+	background: url(../img/wx2.png) no-repeat;
+	background-size: 100% 100%;
+}
+.userVip ul li:nth-child(2) .active .zicon{
+	background: url(../img/zfb2.png) no-repeat;
+	background-size: 100% 100%;
+}
+.userVip ul li:nth-child(3){
+	border: none;
+	padding-bottom: 60px;
+}
+.userVip ul li:nth-child(3) p{
+	font-size: 14px;
+	color: #2c2c2c;
+	width: 100%;
+	margin-top: 13px;
+	margin-bottom: 22px;
+}
+.userVip ul li:nth-child(3) .qrcode{
+	width: 148px;
+	height: 148px;
+	background: url(../img/qrk.png) no-repeat;
+	background-size: 100% 100%;
+	padding-top: 6px;
+	margin-right: 38px;
+	float: left;
+}
+.userVip ul li:nth-child(3) .qrcode img{
+	width: 136px;
+	height: 136px;
+	display: block;
+	margin: 0 auto;
+}
+.userVip ul li:nth-child(3) .ewm{
+	float: left;
+	height: 148px;
+}
+.userVip ul li:nth-child(3) .ewm p{
+	font-size: 14px;
+	margin-top: 6px;
+	color: #0066cc;
+	float: left;
+	width: 200px;
+	margin-bottom: 5px !important;
+}
+.userVip ul li:nth-child(3) .ewm h3{
+	font-size: 40px;
+	color: #0066cc;
+	margin-bottom: 7px;
+}
+.userVip ul li:nth-child(3) .ewm i{
+	font-size: 14px;
+	width: 200px;
+	float: left;
+	color: #666666;
+	margin-top: 10px;
+}
+.userVip ul li:nth-child(3) .ewm i a{
+	color: #0066cc;
+}
