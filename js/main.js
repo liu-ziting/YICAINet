@@ -202,3 +202,10 @@ $("#footer").load("../page/footer.html");
 $(".searchBox .toptab span").click(function(){
 	$(this).addClass("active").siblings().removeClass("active");
 });
+
+//当页面加载状态为完全结束时进入 
+document.onreadystatechange = function(){ 
+　　 if(document.readyState == "complete"){ 　　
+
+   　 }
+}
