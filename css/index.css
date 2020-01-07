@@ -2254,3 +2254,179 @@ footer section span{
 	text-align: center;
 	border-radius: 2px;
 }
+/*药品信息*/
+.drugList .topSearch{
+	padding: 20px;	
+	background-color: #FFFFFF;
+	margin: 22px auto 38px auto;
+}
+.drugList .topSearch li{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+	font-size: 14px;
+	color: #000000;
+	border-bottom: 1px solid #eeeeee;
+}
+.drugList .topSearch li:last-child{
+	border-bottom: none;
+}
+.drugList .topSearch li p{
+	font-weight: bold;
+	float: left;
+	margin-right: 20px;
+	height: 58px;
+	line-height: 58px;
+}
+.drugList .topSearch li span{
+	display: block;
+	float: left;
+	padding: 0 20px;
+	cursor: pointer;
+	height: 58px;
+	line-height: 58px;
+	-webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+}
+.drugList .topSearch li section{
+	width: 900px;
+	overflow: hidden;
+	float: left;
+	height: 58px;
+	transition: height 0.5s;
+}
+.drugList .topSearch li .sectionActive{
+	height: auto !important;
+	transition: height 0.5s;
+}
+.drugList .topSearch li .active{
+	color: #007DDB;
+}
+.drugList .topSearch li .operation{
+	float: right;
+	float: left;
+}
+.drugList .topSearch li .operation p{
+	font-size: 14px;
+	font-weight: normal;
+	cursor: pointer;
+	float: left;
+	-webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+}
+.drugList .topSearch li .unfoldActive i{
+	transform:rotate(180deg);
+	transition: all 0.5s;
+}
+.drugList .topSearch li .operation i{
+	color: #666666;
+	font-size: 14px;
+    margin-left: 3px;
+    display: block;
+    float: right;
+    transition: all 0.5s;
+}
+.drugList .topSearch li .operation a{
+	float: left;
+	font-size: 14px;
+	width: 52px;
+	height: 26px;
+	border: 1px solid #dddddd;
+	text-align: center;
+	line-height: 26px;
+	margin-top: 15px;
+	cursor: pointer;
+	-webkit-user-select:none;
+   -moz-user-select:none;
+   -ms-user-select:none;
+   user-select:none;
+}
+.drugList .centreSearch{
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+.drugList .centreSearch label{
+	width: 260px;
+	height: 33px;
+	border: 1px solid #999999;
+	border-radius: 15px;
+	display: block;
+	float: left;
+	margin-top: 2px;
+}
+.drugList .centreSearch label input{
+	font-size: 12px;
+	color: #000000;
+	background-color: inherit;
+	height: 31px;
+	line-height: 31px;
+	border: none;
+	margin-top: 1px;
+	padding-left: 15px;
+}
+.drugList .centreSearch label .search{
+	display: block;
+	float: right;
+	margin-right: 15px;
+	margin-top: 6px;
+	cursor: pointer;
+}
+.drugList .centreSearch .right{
+	float: right;
+}
+.drugList .centreSearch .right p{
+	line-height: 36px;
+	font-size: 14px;
+	color: #0C0C0C;
+	float: left;
+}
+.drugList .centreSearch .right p span{
+	color: #007DDB;
+	padding: 0 3px;
+}
+.drugList .centreSearch .right .fy{
+	background-color: #FFFFFF;
+	padding: 7px 8px;
+	overflow: hidden;
+	float: right;
+	margin-left: 10px;
+}
+.drugList .centreSearch .right .fy span {
+	display: block;
+	float: left;
+}
+.drugList .centreSearch .right .fy span i{
+	font-size: 12px;
+	display: block;
+	margin-top: 3px;
+    margin-left: 3.5px;
+}
+.drugList .centreSearch .right .fy span:nth-child(1){
+	width: 22px;
+	height: 22px;
+	border: 1px solid #dddddd;
+	cursor: pointer;
+}
+.drugList .centreSearch .right .fy span:nth-child(2){
+	width: 50px;
+	height: 22px;
+	border-top: 1px solid #dddddd;
+	border-bottom: 1px solid #dddddd;
+	text-align: center;
+	line-height: 22px;
+	font-size: 12px;
+}
+.drugList .centreSearch .right .fy span:nth-child(3){
+	width: 22px;
+	height: 22px;
+	border: 1px solid #dddddd;
+	cursor: pointer;
+}
+.drugList .centreSearch .right .fy span b{
+	color: #007DDB;
+	font-weight: normal;
+}

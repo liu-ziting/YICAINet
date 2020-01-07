@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>医采网-药品信息</title>
+		<link rel="stylesheet" href="../layui/css/layui.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="htop">
+				<div class="centered">
+					<div class="left">
+						<p>欢迎来到医采网！</p>
+						<img class="loginIcon" src="../img/user.png" />
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心(登录可见)</a>
+					</div>
+					<div class="right">
+						<img src="../img/iPhone.png" />
+						<p>免费咨询热线：0550-3022569</p>
+						<span>|</span>
+						<p onclick="addFavorite()">收藏 </p>
+						<span>|</span>
+						<p>帮助</p>
+					</div>
+				</div>
+			</div>
+			<div class="searchBox">
+				<div class="centered">
+					<a class="logo" href="index.html">
+						<img src="../img/logo.png" />
+					</a>
+					<!--搜索-->
+					<div class="rightBox">
+						<div class="toptab">
+							<span class="active">查询药品</span>
+							<span>查询耗材</span>
+						</div>
+						<div class="search">
+							<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词" autocomplete="off" class="layui-input">
+							<span>
+								<img src="../img/ss.png" />
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--导航-->
+			<nav>
+				<div class="centered">
+					<ul>
+						<li onclick="openUrl('index.html')">首页</li>
+						<li onclick="openUrl('callForBids.html')">招标信息</li>
+						<li class="active" onclick="openUrl('drugList.html')">药品信息</li>
+						<li>耗材信息</li>
+						<li>设备信息</li>
+						<li onclick="openUrl('policy.html')">政策法规</li>
+						<li onclick="openUrl('download.html')">下载中心</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div class="drugList centered">
+			<div class="topSearch">
+				<ul>
+					<li>
+						<p>设备分类:</p>
+						<section>
+							<span>诊断类设备</span>
+							<span>治疗类设备</span>
+							<span>辅助类设备</span>
+						</section>
+					</li>
+					<li>
+						<p>设备功能:</p>
+						<section>
+							<span>X射线诊断设备</span>
+							<span>超声诊断设备</span>
+							<span>功能检查设备</span>
+							<span>内窥镜检查设备</span>
+							<span>实验诊断设备</span>
+							<span>核医学设备</span>
+							<span>X射线诊断设备</span>
+							<span>超声诊断设备</span>
+							<span>功能检查设备</span>
+							<span>内窥镜检查设备</span>
+							<span>实验诊断设备</span>
+							<span>核医学设备</span>
+						</section>
+						<div class="operation">
+							<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
+							<a class="multiple">多选</a>
+							<input type="hidden" class="multipleType" value="2" />
+						</div>
+					</li>
+					<li>
+						<p>具体设备:</p>
+						<section>
+							<span>接触治疗机</span>
+							<span>浅层治疗机</span>
+							<span>深度治疗机</span>
+							<span>加速器</span>
+							<span>60钴治疗机</span>
+							<span>镭或137铯腔内治疗及后装装置治疗</span>
+						</section>
+						<div class="operation">
+							<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
+							<a class="multiple">多选</a>
+							<input type="hidden" class="multipleType" value="2" />
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="centreSearch">
+				<label>
+					<input type="text" placeholder="请输入关键词进行搜索"/>
+					<img class="search" src="../img/centreSearch.png" />
+				</label>
+				<div class="right">
+					<p>共<span>1578</span>个商品</p>
+					<div class="fy">
+						<span><i class="layui-icon layui-icon-left"></i></span>
+						<span><b>1</b> / 234</span>
+						<span><i class="layui-icon layui-icon-right"></i></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div id="footer"></div>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script>
+			
+			//点击和取消点击
+			$(".drugList .topSearch li span").click(function(){
+				if($(this).hasClass("active")){
+					$(this).removeClass("active")
+				}else{
+					if($(this).parent().siblings().find(".multipleType").val() == 2){
+						$(this).addClass("active")
+					}else{
+						$(this).addClass("active").siblings().removeClass("active");
+					}
+				}
+			});
+			//设置单选和多选的值
+			$(".drugList .topSearch li .multiple").click(function(){
+				if($(this).text() == '多选'){
+					$(this).text("单选").siblings(".multipleType").val("1");
+				}else{
+					$(this).text("多选").siblings(".multipleType").val("2");
+				};
+			});
+			
+			//点击展开
+			$(".drugList .topSearch li .unfold").click(function(){
+				if($(this).hasClass("unfoldActive")){
+					$(this).removeClass("unfoldActive").parent().siblings("section").removeClass("sectionActive")
+				}else{
+					$(this).addClass("unfoldActive").parent().siblings("section").addClass("sectionActive")
+				};
+			});
+		</script>
+	</body>
+
+</html>
