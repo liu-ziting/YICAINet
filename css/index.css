@@ -1,84 +1,6 @@
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-footer,
-header,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-summary,
-time,
-mark,
-audio,
-video {
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,
+cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,
+caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -123,23 +45,30 @@ blockquote,
 q {
 	quotes: none;
 }
-i,em{
+
+i,
+em {
 	font-style: normal;
 }
+
 .clear {
 	clear: both;
 }
-.clear{
+
+.clear {
 	clear: both;
 }
+
 button {
 	outline: none !important;
 	border: none;
 	cursor: pointer;
 }
-.hide{
+
+.hide {
 	display: none;
 }
+
 .centered {
 	width: 1170px;
 	margin: 0 auto;
@@ -155,13 +84,16 @@ button {
 	width: 210px;
 }
 
-.paging{
+.paging {
 	width: 100%;
-	text-align:center
+	text-align: center
 }
-.layui-laypage .layui-laypage-curr .layui-laypage-em{
+
+.layui-laypage .layui-laypage-curr .layui-laypage-em {
 	background-color: #195edd;
 }
+
+
 /*头部*/
 
 header {
@@ -201,9 +133,11 @@ header .htop a {
 	line-height: 50px;
 	margin-left: 10px;
 }
-header .userTop{
+
+header .userTop {
 	color: #4c4c4c !important;
 }
+
 header .right {
 	float: right;
 }
@@ -350,14 +284,17 @@ header nav ul li {
 	cursor: pointer;
 	transition: all 0.2s;
 }
+
 header nav ul li:first-child {
 	margin-left: 0;
 }
+
 header nav ul li:hover {
 	border-radius: 5px;
 	transition: all 0.2s;
-	background-color: rgba(25,94,221,.8);
+	background-color: rgba(25, 94, 221, .8);
 }
+
 header nav ul .active {
 	background-color: #195edd;
 	border-radius: 5px;
@@ -407,17 +344,20 @@ header nav ul .active {
 
 
 /*首页横幅*/
-.main .banner{
+
+.main .banner {
 	overflow: hidden;
 	margin-bottom: 20px;
 }
+
 .main .banner .left {
 	width: 840px;
 	height: 402px;
 	float: left;
 	position: relative;
 }
-.main .banner .left:before{
+
+.main .banner .left:before {
 	content: "图片加载中...";
 	color: #8D8D8D;
 	top: 0;
@@ -428,6 +368,7 @@ header nav ul .active {
 	z-index: 9;
 	z-index: -1;
 }
+
 .main .banner .right {
 	width: 315px;
 	height: 402px;
@@ -475,29 +416,33 @@ header nav ul .active {
 
 
 /*采购信息*/
+
 .main .purchase {
 	background-color: #ffffff;
 	padding: 15px 30px;
 	overflow: hidden;
 	margin-bottom: 20px;
 }
+
 .main .titlebg {
 	width: 100%;
 	height: 50px;
 	font-size: 24px;
 	color: #535353;
 	background: url(../img/h1title.png) no-repeat;
-	background-size:  100%;
+	background-size: 100%;
 	text-align: center;
 	line-height: 50px;
 	font-weight: bold;
 	position: relative;
 	cursor: pointer;
 }
-.main .titlebg span{
+
+.main .titlebg span {
 	color: #1668d8;
 }
-.main .titlebg em{
+
+.main .titlebg em {
 	position: absolute;
 	right: 0;
 	top: 13px;
@@ -505,51 +450,59 @@ header nav ul .active {
 	line-height: 24px;
 	font-style: normal;
 	font-weight: normal;
-    display: block;
-    float: right;
-    background-color: #f4f4f4;
-    border: 1px solid #d8d8d8;
-    color: #757575;
-    font-size: 12px;
-    padding: 0px 8px;
-    border-radius: 15px;
-    cursor: pointer;
+	display: block;
+	float: right;
+	background-color: #f4f4f4;
+	border: 1px solid #d8d8d8;
+	color: #757575;
+	font-size: 12px;
+	padding: 0px 8px;
+	border-radius: 15px;
+	cursor: pointer;
 }
-.main .purchaseTab{
+
+.main .purchaseTab {
 	width: 100%;
 	height: 50px;
 	background-color: #f4f4f4;
 	margin-bottom: 22px;
 }
-.main .purchaseTab .layui-tab-title{
+
+.main .purchaseTab .layui-tab-title {
 	height: 50px;
 	line-height: 50px;
 }
-.main .purchaseTab li{
+
+.main .purchaseTab li {
 	font-size: 18px;
 	color: #252525;
 	height: 50px;
 	line-height: 50px;
 	margin-left: 35px;
 }
-.main .purchaseTab .layui-this{
+
+.main .purchaseTab .layui-this {
 	color: #1668d8;
-    font-weight: bold;
+	font-weight: bold;
 }
-.main .purchaseTab .layui-this:after{
+
+.main .purchaseTab .layui-this:after {
 	left: 16px;
 	height: 50px;
 	width: 67%;
-    border-bottom: 2px solid #1668d8;
+	border-bottom: 2px solid #1668d8;
 }
-.main .purchaseTab .layui-tab-title{
+
+.main .purchaseTab .layui-tab-title {
 	border: none;
 }
-.main .purchaseBox ul{
+
+.main .purchaseBox ul {
 	float: left;
 	width: 534px;
 }
-.main .purchaseBox li{
+
+.main .purchaseBox li {
 	float: left;
 	width: 534px;
 	height: 60px;
@@ -557,12 +510,13 @@ header nav ul .active {
 	padding: 10px;
 	cursor: pointer;
 	list-style-type: square;
-	list-style-position:inside;
+	list-style-position: inside;
 	margin-bottom: 5px;
 	border: 1px solid #FFFFFF;
 	transition: all 0.2s;
 }
-.main .purchaseBox h2{
+
+.main .purchaseBox h2 {
 	width: 316px;
 	font-size: 14px;
 	color: #252525;
@@ -572,53 +526,63 @@ header nav ul .active {
 	overflow: hidden;
 	line-height: 22px;
 	margin-top: -18px;
-    margin-left: 12px;
+	margin-left: 12px;
 }
-.main .purchaseBox li time{
+
+.main .purchaseBox li time {
 	float: right;
 	position: absolute;
 	top: 12px;
 	right: 10px;
 	height: 60px;
 }
-.main .purchaseBox li time i{
+
+.main .purchaseBox li time i {
 	display: block;
-    float: left;
-    margin-right: 4px;
+	float: left;
+	margin-right: 4px;
 }
-.main .purchaseBox li time span{
+
+.main .purchaseBox li time span {
 	font-size: 14px;
 	color: #8e8e8e;
 }
-.main .purchaseBox li time a{
+
+.main .purchaseBox li time a {
 	font-size: 14px;
 	color: #1668d8;
 	float: right;
 	margin-top: 3px;
 }
-.main .purchaseBox ul:nth-child(1){
+
+.main .purchaseBox ul:nth-child(1) {
 	margin-right: 42px;
 }
-.main .purchaseBox li:hover{
+
+.main .purchaseBox li:hover {
 	background-color: #f4f4f4;
 	border: 1px solid #666;
 	transition: all 0.2s;
 }
-.main .purchaseBox li:hover h2{
+
+.main .purchaseBox li:hover h2 {
 	color: #1668d8;
 }
-.main .purchaseBox .oneopen{
-	list-style:none;
+
+.main .purchaseBox .oneopen {
+	list-style: none;
 	height: 190px;
 }
-.main .purchaseBox .oneopen h2{
+
+.main .purchaseBox .oneopen h2 {
 	font-size: 18px;
 	color: #252525;
 	width: 100%;
 	margin: 0;
 	margin-bottom: 9px;
 }
-.main .purchaseBox .oneopen span{
+
+.main .purchaseBox .oneopen span {
 	font-size: 14px;
 	color: #8e8e8e;
 	display: block;
@@ -627,13 +591,15 @@ header nav ul .active {
 	height: 20px;
 	line-height: 20px;
 }
-.main .purchaseBox .oneopen span img{
+
+.main .purchaseBox .oneopen span img {
 	display: block;
 	float: left;
 	margin-right: 10px;
 	margin-top: 3px;
 }
-.main .purchaseBox .oneopen p{
+
+.main .purchaseBox .oneopen p {
 	font-size: 14px;
 	color: #8e8e8e;
 	line-height: 25px;
@@ -643,14 +609,18 @@ header nav ul .active {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-.main .purchaseBox .oneopen a{
+
+.main .purchaseBox .oneopen a {
 	font-size: 14px;
-    color: #1668d8;
-    float: right;
-    margin-top: -23px;
-    float: right;
+	color: #1668d8;
+	float: right;
+	margin-top: -23px;
+	float: right;
 }
+
+
 /*广告*/
+
 .main .advertisement {
 	width: 100%;
 	height: 120px;
@@ -659,11 +629,13 @@ header nav ul .active {
 	position: relative;
 	margin-bottom: 20px;
 }
-.main .advertisement img{
+
+.main .advertisement img {
 	display: block;
 	width: 100%;
 }
-.main .advertisement span{
+
+.main .advertisement span {
 	position: absolute;
 	width: 46px;
 	height: 22px;
@@ -678,12 +650,16 @@ header nav ul .active {
 	font-size: 12px;
 	cursor: pointer;
 }
+
+
 /*耗材信息、药品信息、设备信息*/
-.main .classification{
+
+.main .classification {
 	overflow: hidden;
 	margin-bottom: 20px;
 }
-.main .classification section{
+
+.main .classification section {
 	padding: 20px 15px;
 	background-color: #FFFFFF;
 	float: left;
@@ -691,10 +667,12 @@ header nav ul .active {
 	height: 405px;
 	margin-left: 20px;
 }
-.main .classification section:first-child{
+
+.main .classification section:first-child {
 	margin-left: 0px;
 }
-.main .classification .leftimg{
+
+.main .classification .leftimg {
 	width: 115px;
 	height: 115px;
 	overflow: hidden;
@@ -703,7 +681,8 @@ header nav ul .active {
 	background-color: #f1f1f1;
 	position: relative;
 }
-.main .classification .leftimg:before{
+
+.main .classification .leftimg:before {
 	content: "图片加载中...";
 	color: #8D8D8D;
 	top: 0;
@@ -713,7 +692,8 @@ header nav ul .active {
 	position: absolute;
 	z-index: 9;
 }
-.main .classification .leftimg img{
+
+.main .classification .leftimg img {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -721,46 +701,56 @@ header nav ul .active {
 	position: absolute;
 	top: 0;
 }
-.main .classification .rightBox{
+
+.main .classification .rightBox {
 	height: 120px;
 	float: left;
 }
-.main .classification h3{
+
+.main .classification h3 {
 	font-size: 14px;
 	color: #1668d8;
 	margin-top: 13px;
 	margin-bottom: 12px;
 	cursor: pointer;
 }
-.main .classification  p{
+
+.main .classification p {
 	font-size: 12px;
 	color: #3f3f3f;
 	margin-bottom: 8px;
 }
-.main .classification .box{
+
+.main .classification .box {
 	margin-top: 35px;
 	overflow: hidden;
 	padding-left: 10px;
 }
+
+
 /*采购活动*/
-.main .activity{
+
+.main .activity {
 	background-color: #ffffff;
 	padding: 15px 20px;
 	overflow: hidden;
 	margin-bottom: 20px;
 	padding-bottom: 5px;
 }
-.main .activity .box{
+
+.main .activity .box {
 	margin-top: 25px;
 }
-.main .activity .left{
+
+.main .activity .left {
 	width: 354px;
 	height: 430px;
 	float: left;
 	margin-right: 20px;
 	position: relative;
 }
-.main .activity .left:before{
+
+.main .activity .left:before {
 	content: "图片加载中...";
 	color: #8D8D8D;
 	top: 0;
@@ -769,20 +759,24 @@ header nav ul .active {
 	width: 354px;
 	position: absolute;
 }
-.main .activity .left div{
+
+.main .activity .left div {
 	background-color: #FFFFFF
 }
-.main .activity .left img{
+
+.main .activity .left img {
 	width: 354px;
 	height: 286px;
 	display: block;
 	float: left;
 	margin-bottom: 14px;
 }
-.main .activity .left .layui-carousel-ind{
+
+.main .activity .left .layui-carousel-ind {
 	top: 0;
 }
-.main .activity .left h4{
+
+.main .activity .left h4 {
 	font-size: 18px;
 	color: #252525;
 	text-align: center;
@@ -790,7 +784,8 @@ header nav ul .active {
 	text-align: center;
 	margin-bottom: 10px;
 }
-.main .activity .left p{
+
+.main .activity .left p {
 	font-size: 14px;
 	color: #676666;
 	text-align: left;
@@ -799,24 +794,30 @@ header nav ul .active {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-.main .activity .left ul{
+
+.main .activity .left ul {
 	background-color: none
 }
-.main .activity .left li{
+
+.main .activity .left li {
 	background-color: #797979
 }
-.main .activity .left li.layui-this{
+
+.main .activity .left li.layui-this {
 	background-color: #0000FF
 }
-.main .activity .left  .layui-carousel-ind ul{
+
+.main .activity .left .layui-carousel-ind ul {
 	background-color: #ffffff;
 }
+
 .main .activity .right {
 	float: left;
 	overflow: hidden;
-    width: 756px;
+	width: 756px;
 }
-.main .activity .right ul li{
+
+.main .activity .right ul li {
 	float: left;
 	width: 174px;
 	height: auto;
@@ -824,18 +825,21 @@ header nav ul .active {
 	margin-bottom: 15px;
 	cursor: pointer;
 }
-.main .activity .right ul li .imgbox{
+
+.main .activity .right ul li .imgbox {
 	width: 174px;
 	height: 140px;
 	overflow: hidden;
 	background-color: #f1f1f1;
 	position: relative;
 }
+
 .main .activity .right ul li .imgbox:hover img {
 	transform: scale(1.1);
 	transition: all 0.6s;
 }
-.main .activity .right ul li .imgbox:before{
+
+.main .activity .right ul li .imgbox:before {
 	content: "图片加载中...";
 	color: #8D8D8D;
 	top: 0;
@@ -845,7 +849,8 @@ header nav ul .active {
 	position: absolute;
 	z-index: 1;
 }
-.main .activity .right ul li .imgbox img{
+
+.main .activity .right ul li .imgbox img {
 	display: block;
 	width: 174px;
 	height: 140px;
@@ -853,89 +858,106 @@ header nav ul .active {
 	z-index: 9;
 	transition: all 0.6s;
 }
-.main .activity .right ul li p{
+
+.main .activity .right ul li p {
 	font-size: 14px;
 	color: #585757;
 	margin-top: 15px;
 	margin-bottom: 10px;
 }
-.main .activity .right ul li span{
+
+.main .activity .right ul li span {
 	display: block;
 	float: left;
 	font-size: 12px;
 	color: #585757;
 	margin-right: 15px;
 }
-.main .activity .right ul li span img{
+
+.main .activity .right ul li span img {
 	display: block;
 	float: left;
 	margin-right: 5px;
 }
-.main .activity .right ul li span .dz{
+
+.main .activity .right ul li span .dz {
 	width: 13px;
 	margin-top: -1px;
 }
-.main .activity .right ul li span .ck{
+
+.main .activity .right ul li span .ck {
 	width: 18px;
 	margin-top: 1px;
 }
+
+
 /*政策法规*/
-.main .policy{
+
+.main .policy {
 	background-color: #ffffff;
 	padding: 15px 20px;
 	overflow: hidden;
 	margin-bottom: 20px;
 }
-.main .policy > div{
+
+.main .policy>div {
 	margin-top: 20px;
 	overflow: hidden;
 }
-.main .policy .left{
-	width:400px;
+
+.main .policy .left {
+	width: 400px;
 	float: left;
 }
-.main .policy .left h1{
-	width:400px;
+
+.main .policy .left h1 {
+	width: 400px;
 	height: 100px;
 	font-size: 24px;
 	color: #FFFFFF;
 	background: url(../img/zcfgb.png) no-repeat;
-	background-size:  100%;
+	background-size: 100%;
 	text-align: center;
 	font-weight: bold;
 	line-height: 100px;
 	margin-bottom: 17px;
 }
-.main .policy .left p{
+
+.main .policy .left p {
 	font-size: 14px;
 	color: #252525;
 	text-indent: 2em;
 	line-height: 25px;
 	margin-bottom: 8px;
 }
-.main .policy .left time{
+
+.main .policy .left time {
 	font-size: 14px;
 	color: #878787;
 }
-.main .policy .left time a{
+
+.main .policy .left time a {
 	color: #1668d8;
 	float: right;
 	margin-top: -19px;
 }
-.main .policy .left time a img{
+
+.main .policy .left time a img {
 	display: block;
 	float: left;
 	margin-right: 5px;
-    margin-top: 3px;
+	margin-top: 3px;
 }
-.main .policy .middle{
+
+.main .policy .middle {
 	float: left;
 	width: 420px;
 	height: 235px;
 	margin-right: 38px;
 	margin-left: 38px;
 }
-.main .policy .middle ul li{
+
+.main .policy .middle ul li {
 	width: 100%;
 	font-size: 14px;
 	color: #252525;
@@ -945,28 +967,34 @@ header nav ul .active {
 	cursor: pointer;
 	transition: all 0.3s;
 }
-.main .policy .middle ul li span{
+
+.main .policy .middle ul li span {
 	float: right;
 	color: #666363;
 	height: 20px;
 	line-height: 20px;
 }
-.main .policy .middle ul li i{
+
+.main .policy .middle ul li i {
 	font-style: normal;
 }
-.main .policy .middle ul .active{
+
+.main .policy .middle ul .active {
 	font-size: 16px;
 	color: #1668d8;
 	height: 85px;
 	transition: all 0.3s;
 }
-.main .policy .middle ul .active i{
+
+.main .policy .middle ul .active i {
 	display: none;
 }
-.main .policy .middle ul li p{
+
+.main .policy .middle ul li p {
 	display: none;
 }
-.main .policy .middle ul .active p{
+
+.main .policy .middle ul .active p {
 	display: block;
 	font-size: 14px;
 	color: #878787;
@@ -977,17 +1005,20 @@ header nav ul .active {
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-.main .policy .right{
+
+.main .policy .right {
 	width: 234px;
 	float: left;
 }
-.main .policy .right img{
+
+.main .policy .right img {
 	display: block;
 	float: left;
 	width: 120px;
 	height: 120px;
 }
-.main .policy .right h5{
+
+.main .policy .right h5 {
 	font-size: 14px;
 	color: #535353;
 	float: left;
@@ -996,7 +1027,8 @@ header nav ul .active {
 	margin-top: 5px;
 	width: 100%;
 }
-.main .policy .right p{
+
+.main .policy .right p {
 	font-size: 12px;
 	width: 100%;
 	color: #535353;
@@ -1004,47 +1036,57 @@ header nav ul .active {
 	float: left;
 }
 
+
 /*底部*/
-footer{
+
+footer {
 	width: 100%;
 	background-color: #4c4c4c;
 	padding-bottom: 28px;
 }
-footer .footerTop{
+
+footer .footerTop {
 	background-color: #3e3e3e;
 	width: 100%;
 }
+
 footer ul {
 	width: 733px;
 	height: 40px;
 	color: #FFFFFF;
 	margin: 0 auto;
 }
-footer ul li{
+
+footer ul li {
 	float: left;
 	padding: 0 35px;
 	margin-top: 10px;
-    line-height: 17px;
-	border-right:1px solid #FFFFFF
+	line-height: 17px;
+	border-right: 1px solid #FFFFFF
 }
-footer ul li:last-child{
+
+footer ul li:last-child {
 	border: none;
 }
-footer section{
+
+footer section {
 	width: 717px;
 	color: #FFFFFF;
 	margin: 0 auto;
 }
-footer section p{
+
+footer section p {
 	font-size: 14px;
 	width: 595px;
-    margin: 26px auto ;
+	margin: 26px auto;
 }
-footer section p a{
+
+footer section p a {
 	padding: 0 20px;
 	color: #FFFFFF !important;
 }
-footer section span{
+
+footer section span {
 	display: block;
 	width: 100%;
 	text-align: center;
@@ -1052,59 +1094,72 @@ footer section span{
 	color: #a2a2a2;
 	margin-top: 7px;
 }
+
+
 /* 登录 注册*/
-.loginMain{
+
+.loginMain {
 	height: auto;
 	padding-bottom: 90px;
 }
-.loginMain h1{
+
+.loginMain h1 {
 	color: #313131;
 	font-size: 26px;
 	text-align: center;
 	margin-bottom: 23px;
 	margin-top: 43px;
 }
-.loginMain p{
+
+.loginMain p {
 	color: #666666;
 	font-size: 14px;
 	text-align: center;
 }
-.loginMain p a{
+
+.loginMain p a {
 	color: #195edd;
 	font-size: 14px;
 }
-.loginMain form{
+
+.loginMain form {
 	width: 388px;
 	margin: 0 auto;
 	margin-top: 30px;
 }
-.loginMain form p{
+
+.loginMain form p {
 	text-align: left;
 	color: #666666;
 	margin-bottom: 12px;
 }
-.loginMain form p i{
+
+.loginMain form p i {
 	color: #ff0000;
 	font-size: 16px;
 	margin-left: 2px;
 	position: relative;
 	top: 2px;
 }
-.loginMain form input{
+
+.loginMain form input {
 	height: 40px;
 	line-height: 40px;
 	padding-left: 20px;
 }
+
 .loginMain form label {
 	margin-bottom: 15px;
 	display: block;
 }
-.loginMain form .qrcodeBox input{
+
+.loginMain form .qrcodeBox input {
 	width: 250px;
 	margin-right: 10px;
 	float: left;
 }
-.loginMain form .qrcodeBox button{
+
+.loginMain form .qrcodeBox button {
 	float: left;
 	height: 40px;
 	width: 128px;
@@ -1113,7 +1168,8 @@ footer section span{
 	letter-spacing: normal;
 	font-size: 14px;
 }
-.loginMain button{
+
+.loginMain button {
 	width: 100%;
 	height: 40px;
 	margin-top: 30px;
@@ -1121,38 +1177,49 @@ footer section span{
 	letter-spacing: 3px;
 	font-size: 16px;
 }
-.loginMain form .two{
+
+.loginMain form .two {
 	width: 186px;
 	float: left;
 }
-.loginMain form .two:first-child{
+
+.loginMain form .two:first-child {
 	margin-right: 16px;
 }
-.loginMain .inquiry{
+
+.loginMain .inquiry {
 	font-size: 14px;
 	color: #666666;
 }
-.loginMain .inquiry a{
+
+.loginMain .inquiry a {
 	color: #42adff;
 	margin-left: -20px;
 }
-.loginMain .inquiry p{
+
+.loginMain .inquiry p {
 	float: right;
 	font-size: 12px;
 }
+
+
 /*下载中心*/
-.download{
-	padding:30px  0 ;
+
+.download {
+	padding: 30px 0;
 }
-.download > div{
+
+.download>div {
 	float: left;
 }
-.download .left{
+
+.download .left {
 	width: 258px;
 	height: auto;
 	margin-right: 25px;
 }
-.download .left > h1{
+
+.download .left>h1 {
 	background-color: #1668d8;
 	width: 100%;
 	height: 72px;
@@ -1161,11 +1228,13 @@ footer section span{
 	font-size: 24px;
 	color: #FFFFFF;
 }
-.download .left .leftTab{
+
+.download .left .leftTab {
 	padding: 10px;
 	background-color: #FFFFFF
 }
-.download .left .leftTab li{
+
+.download .left .leftTab li {
 	width: 100%;
 	height: 70px;
 	line-height: 70px;
@@ -1174,18 +1243,21 @@ footer section span{
 	font-weight: bold;
 	border-bottom: 1px solid #efefef;
 	cursor: pointer;
-} 
-.download .left .leftTab li:last-child{
+}
+
+.download .left .leftTab li:last-child {
 	border-bottom: none;
 }
-.download .left .leftTab li p{
+
+.download .left .leftTab li p {
 	padding-left: 25px;
 	height: 63px;
 	line-height: 63px;
 	margin-top: 5px;
 	transition: all 0.1s;
 }
-.download .left .leftTab li span{
+
+.download .left .leftTab li span {
 	color: #FFFFFF;
 	padding-left: 10px;
 	font-weight: normal;
@@ -1193,52 +1265,63 @@ footer section span{
 	float: right;
 	padding-right: 25px;
 }
-.download .left .leftTab .active p{
+
+.download .left .leftTab .active p {
 	background-color: #16cef4;
-	width: 100%;	
+	width: 100%;
 	color: #FFFFFF;
 	transition: all 0.1s;
 }
-.download .left .advertising{
+
+.download .left .advertising {
 	width: 100%;
 	height: 205px;
 	margin: 25px 0;
 }
-.download .left .advertising img{
+
+.download .left .advertising img {
 	width: 100%;
 	height: 100%;
 }
-.download .left .cgactivity{
+
+.download .left .cgactivity {
 	background-color: #FFFFFF;
 	padding: 20px;
 }
-.download .left .cgactivity h1{
+
+.download .left .cgactivity h1 {
 	margin-bottom: 15px;
 }
-.download .left .cgactivity ul li{
+
+.download .left .cgactivity ul li {
 	height: 45px;
 	width: 100%;
 	line-height: 45px;
 	border-bottom: 1px solid #e4e4e4;
 	cursor: pointer;
 }
-.download .left .cgactivity ul li:nth-child(1) span{
+
+.download .left .cgactivity ul li:nth-child(1) span {
 	background-color: #3f81f6;
 	border: 1px solid #3f81f6;
 	color: #FFFFFF;
 }
-.download .left .cgactivity ul li:nth-child(2) span{
+
+.download .left .cgactivity ul li:nth-child(2) span {
 	border: 1px solid #3f81f6;
 	color: #3f81f6;
 }
-.download .left .cgactivity ul li:nth-child(3) span{
+
+.download .left .cgactivity ul li:nth-child(3) span {
 	border: 1px solid #3f81f6;
 	color: #3f81f6;
 }
-.download .left .cgactivity ul li:last-child{
+
+.download .left .cgactivity ul li:last-child {
 	border: none;
 }
-.download .left .cgactivity ul li span{
+
+.download .left .cgactivity ul li span {
 	display: block;
 	float: left;
 	width: 23px;
@@ -1251,7 +1334,8 @@ footer section span{
 	margin-right: 13px;
 	margin-top: 11px;
 }
-.download .left .cgactivity ul li p{
+
+.download .left .cgactivity ul li p {
 	font-size: 14px;
 	color: #666666;
 	-webkit-line-clamp: 1;
@@ -1261,93 +1345,111 @@ footer section span{
 	font-family: "宋体";
 	opacity: .9;
 }
-.download .left .cgactivity ul li:hover p{
+
+.download .left .cgactivity ul li:hover p {
 	opacity: 1;
 }
-.download .right{
+
+.download .right {
 	width: 887px;
 	height: auto;
 	background-color: #FFFFFF;
 	padding: 30px 18px;
 	padding-bottom: 80px;
 }
-.download .right h1{
+
+.download .right h1 {
 	font-size: 24px;
 	color: #252525;
 	padding-left: 23px;
 	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 18px;
 }
-.download .right h1 p{
+
+.download .right h1 p {
 	float: right;
 	font-size: 12px;
 	font-weight: normal;
 	margin-top: 10px;
 	padding-right: 10px;
 }
-.download .right .rightList ul{
+
+.download .right .rightList ul {
 	margin-bottom: 50px;
 }
-.download .right .rightList ul li{
-	width: 100%;	
-	padding:40px 0 22px 20px;
+
+.download .right .rightList ul li {
+	width: 100%;
+	padding: 40px 0 22px 20px;
 	border-bottom: 1px solid #e4e4e4;
 	cursor: pointer;
 }
-.download .right .rightList ul li h2{
+
+.download .right .rightList ul li h2 {
 	font-size: 18px;
-	color:#252525 ;
+	color: #252525;
 }
-.download .right .rightList ul li h2 .dlBox{
+
+.download .right .rightList ul li h2 .dlBox {
 	display: block;
 	float: right;
 	background: url(../img/xxm.png) no-repeat;
 	padding-right: 12px;
-    width: 75px;
-    background-position-x: 53px;
-    background-position-y: 3px;
-    cursor: pointer;
+	width: 75px;
+	background-position-x: 53px;
+	background-position-y: 3px;
+	cursor: pointer;
 }
-.download .right .rightList ul li time{
+
+.download .right .rightList ul li time {
 	color: #8e8e8e;
 	font-size: 16px;
 	width: 100%;
 	display: block;
 	margin-top: 15px;
 }
-.download .right .rightList ul li time a{
+
+.download .right .rightList ul li time a {
 	float: right;
 }
-.download .right .rightList ul li time a img{
+
+.download .right .rightList ul li time a img {
 	width: 25px;
 	display: block;
 	float: right;
 }
-.download .right .rightList ul li:hover h2{
+
+.download .right .rightList ul li:hover h2 {
 	color: #1668d8;
 }
-.download .right .rightList ul li:hover h2 .dlBox{
+
+.download .right .rightList ul li:hover h2 .dlBox {
 	display: block;
 	float: right;
 	background: url(../img/xxx.png) no-repeat;
 	padding-right: 12px;
-    width: 75px;
-    background-position-x: 53px;
-    background-position-y: 3px;
-    cursor: pointer;
+	width: 75px;
+	background-position-x: 53px;
+	background-position-y: 3px;
+	cursor: pointer;
 }
+
+
 /*政策法规*/
-.policyList ul{
+
+.policyList ul {
 	margin-bottom: 50px;
 }
-.policyList ul li{
+
+.policyList ul li {
 	width: 100%;
 	border-bottom: 1px solid #e4e4e4;
 	padding: 30px 0;
 	overflow: hidden;
 	position: relative;
 }
-.policyList ul li .imgbox{
+
+.policyList ul li .imgbox {
 	width: 204px;
 	height: 140px;
 	overflow: hidden;
@@ -1356,17 +1458,20 @@ footer section span{
 	margin-right: 30px;
 	float: left;
 }
-.policyList ul li .imgbox img{
+
+.policyList ul li .imgbox img {
 	position: absolute;
 	display: block;
 	width: 100%;
 	z-index: 8;
 }
+
 .policyList ul li:hover img {
 	transform: scale(1.1);
 	transition: all 0.6s;
 }
-.policyList ul li .imgbox:before{
+
+.policyList ul li .imgbox:before {
 	content: "图片加载中...";
 	color: #8D8D8D;
 	top: 0;
@@ -1376,13 +1481,15 @@ footer section span{
 	position: absolute;
 	z-index: 1;
 }
-.policyList ul li h3{
+
+.policyList ul li h3 {
 	font-size: 18px;
 	color: #1668d8;
 	line-height: 36px;
 	font-weight: 500;
 }
-.policyList ul li h3 span{
+
+.policyList ul li h3 span {
 	width: 118px;
 	height: 36px;
 	border: 1px solid #7f7f7f;
@@ -1394,18 +1501,21 @@ footer section span{
 	font-size: 14px;
 	cursor: pointer;
 }
-.policyList ul li h3 span:hover{
+
+.policyList ul li h3 span:hover {
 	color: #000000;
 	border: 1px solid #000000;
 }
-.policyList ul li time{
+
+.policyList ul li time {
 	color: #8D8D8D;
 	font-size: 15px;
 	display: block;
 	width: 100%;
-	margin:3px 5px;
+	margin: 3px 5px;
 }
-.policyList ul li p{
+
+.policyList ul li p {
 	font-size: 14px;
 	color: #252525;
 	margin-top: 10px;
@@ -1415,7 +1525,8 @@ footer section span{
 	-webkit-box-orient: vertical;
 	overflow: hidden;
 }
-.policyList ul li a img{
+
+.policyList ul li a img {
 	display: block;
 	float: right;
 	width: 25px;
@@ -1423,7 +1534,8 @@ footer section span{
 	right: 0;
 	position: absolute;
 }
-.policyList ul li i{
+
+.policyList ul li i {
 	display: block;
 	float: right;
 	width: 25px;
@@ -1434,19 +1546,25 @@ footer section span{
 	width: 60px;
 	font-size: 20px;
 }
-.policyList ul li i em{
+
+.policyList ul li i em {
 	font-size: 16px;
 	padding-left: 2px;
 }
+
+
 /*文章详情*/
-.details{
+
+.details {
 	padding: 30px 15px;
 }
-.details h5{
+
+.details h5 {
 	font-size: 24px;
 	color: #3a3839;
 }
-.details h5 .dlBook{
+
+.details h5 .dlBook {
 	background-color: #1668d8;
 	width: 76px;
 	height: 31px;
@@ -1458,50 +1576,62 @@ footer section span{
 	text-align: center;
 	border-radius: 2px;
 }
-.details time{
+
+.details time {
 	display: block;
 	margin: 25px 0;
 	width: 100%;
 	font-size: 14px;
 	color: #535353;
 }
-.details time span{
+
+.details time span {
 	margin-right: 40px;
 }
-.details time span:last-child{
+
+.details time span:last-child {
 	color: #a0a0a0;
 }
-.details .content{
+
+.details .content {
 	font-size: 14px;
 	color: #3a3839;
 	line-height: 25px;
 }
-.details .content img{
+
+.details .content img {
 	width: 100%;
 	display: block;
 	float: left;
 	margin: 15px 0;
 }
+
+
 /* 用户中心 */
-.user{
-	padding:30px  0 ;
+
+.user {
+	padding: 30px 0;
 }
-.user > div{
+
+.user>div {
 	float: left;
 }
-.user .left{
+
+.user .left {
 	width: 258px;
 	height: auto;
 	margin-right: 25px;
 }
-.user .right{
+
+.user .right {
 	width: 887px;
 	height: auto;
 	background-color: #FFFFFF;
 	padding: 30px 18px;
 	padding-bottom: 80px;
 }
-.user .left > h1{
+
+.user .left>h1 {
 	background: url("../img/userh1.png") no-repeat;
 	width: 100%;
 	height: 90px;
@@ -1510,23 +1640,27 @@ footer section span{
 	color: #FFFFFF;
 	cursor: pointer;
 }
-.user .left > h1 p{
+
+.user .left>h1 p {
 	float: left;
 	width: 100%;
 	margin-top: 15px;
 }
-.user .left > h1 span{
+
+.user .left>h1 span {
 	font-size: 14px;
 	font-weight: normal;
 	display: block;
 	float: left;
 	margin-top: 5px;
 }
-.user .left .leftTab{
+
+.user .left .leftTab {
 	padding: 10px;
 	background-color: #FFFFFF
 }
-.user .left .leftTab h2{
+
+.user .left .leftTab h2 {
 	width: 100%;
 	height: 60px;
 	line-height: 60px;
@@ -1536,16 +1670,19 @@ footer section span{
 	font-weight: bold;
 	margin-bottom: 10px;
 }
-.user .left .leftTab h2 img{
+
+.user .left .leftTab h2 img {
 	display: block;
 	float: left;
 	margin: 20px;
 }
-.user .left .leftTab h2 span{
+
+.user .left .leftTab h2 span {
 	display: block;
 	float: left;
 }
-.user .left .leftTab li{
+
+.user .left .leftTab li {
 	width: 100%;
 	height: 36px;
 	font-size: 14px;
@@ -1554,12 +1691,14 @@ footer section span{
 	line-height: 36px;
 	cursor: pointer;
 }
-.user .left .leftTab .active{
+
+.user .left .leftTab .active {
 	background-color: #16cef4;
 	color: #ffffff;
 }
-.user .left .leftTab .quit{
-	width:94%;
+
+.user .left .leftTab .quit {
+	width: 94%;
 	margin-left: 3%;
 	height: 45px;
 	line-height: 45px;
@@ -1570,47 +1709,56 @@ footer section span{
 	font-size: 18px;
 	border-radius: inherit;
 }
-.user .right{
+
+.user .right {
 	padding: 25px;
 }
-.user .right .txImg{
+
+.user .right .txImg {
 	width: 100px;
 	height: 100px;
 	float: left;
 	margin-right: 18px;
 }
-.user .right .txImg img{
+
+.user .right .txImg img {
 	width: 100%;
 	height: 100%;
 }
-.user .right .tleft{
+
+.user .right .tleft {
 	width: 575px;
 	height: 105px;
 	border-right: 1px dashed #eaeaea;
 	float: left;
 }
-.user .right .tleft h1{
+
+.user .right .tleft h1 {
 	font-size: 20px;
 	color: #535353;
 	font-weight: bold;
 	font-weight: bold;
 }
-.user .right .tleft h3{
+
+.user .right .tleft h3 {
 	float: left;
 	width: 430px;
 	margin-top: 55px;
 }
-.user .right .tleft p{
+
+.user .right .tleft p {
 	font-size: 12px;
 	color: #969696;
 	float: left;
 	line-height: 19px;
 	height: 19px;
 }
-.user .right .tleft p:last-child{
+
+.user .right .tleft p:last-child {
 	margin-left: 30px;
 }
-.user .right .tleft span{
+
+.user .right .tleft span {
 	display: block;
 	float: left;
 	font-size: 12px;
@@ -1619,12 +1767,14 @@ footer section span{
 	padding: 1px 7px;
 	margin-right: 10px;
 }
-.user .right .tright{
+
+.user .right .tright {
 	float: left;
 	height: 75px;
 	margin-top: 15px;
 }
-.user .right .tright ul li{
+
+.user .right .tright ul li {
 	width: 120px;
 	float: left;
 	font-size: 14px;
@@ -1633,11 +1783,13 @@ footer section span{
 	cursor: pointer;
 	height: 75px;
 }
-.user .right .tright ul li img{
+
+.user .right .tright ul li img {
 	display: block;
 	margin: 6px auto 10px auto;
 }
-.user .right .tright ul li .recharge{
+
+.user .right .tright ul li .recharge {
 	width: 68px;
 	height: 21px;
 	text-align: center;
@@ -1648,73 +1800,90 @@ footer section span{
 	border-radius: 3px;
 	margin: 16px auto;
 }
+
 .user .right .tright ul li:last-child {
 	border-left: 1px dashed #eaeaea;
 }
-.user .right .tright ul li:last-child img{
+
+.user .right .tright ul li:last-child img {
 	margin-top: 10px;
 }
-.user .right .topBox{
+
+.user .right .topBox {
 	overflow: hidden;
 	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 22px;
 }
-.user .userbox{
+
+.user .userbox {
 	padding-top: 25px;
 }
-.user .userbox h1{
+
+.user .userbox h1 {
 	font-size: 20px;
 	width: 100%;
 	font-weight: bold;
 	border-bottom: 1px solid #e4e4e4;
 	padding-bottom: 15px;
 }
-.user .userbox h1 b{
+
+.user .userbox h1 b {
 	color: #1668d8;
 }
+
 .user .userbox ul {
 	margin: 20px 12px;
 	overflow: hidden;
 }
-.user .userbox ul li{
+
+.user .userbox ul li {
 	width: 100%;
 	font-size: 14px;
 	margin-bottom: 15px;
 	float: left;
 }
-.user .userbox ul li:last-child{
+
+.user .userbox ul li:last-child {
 	margin-bottom: 5px;
 }
-.user .userbox ul li p{
+
+.user .userbox ul li p {
 	color: #535353;
 	font-weight: bold;
 	float: left;
 	width: 150px;
 }
-.user .userbox ul li span{
+
+.user .userbox ul li span {
 	color: #3a3a3a;
 }
+
 .user .userbox table {
 	margin-top: 30px;
 }
-.user .userbox table tr{
+
+.user .userbox table tr {
 	height: 52px;
 	border-bottom: 1px solid #e2e2e2;
 	line-height: 52px;
 	text-align: center;
 	font-size: 16px;
 }
-.user .userbox table tr:nth-child(odd){
+
+.user .userbox table tr:nth-child(odd) {
 	background-color: #f5f5f5;
 }
-.user .userbox table tr:nth-child(even){
+
+.user .userbox table tr:nth-child(even) {
 	background-color: #faf9f9;
 }
-.user .userbox table tr td:nth-child(3){
+
+.user .userbox table tr td:nth-child(3) {
 	color: #1668d8;
 	font-weight: bold;
 }
-.user .usertitle{
+
+.user .usertitle {
 	width: 100%;
 	font-size: 24px !important;
 	color: #252525;
@@ -1723,35 +1892,42 @@ footer section span{
 	padding-left: 25px;
 	font-weight: bold;
 }
-.user .usertitle p{
+
+.user .usertitle p {
 	font-size: 12px;
 	color: #252525;
 	float: right;
 	font-weight: normal;
 	line-height: 35px;
 }
-.user .usertitle p a{
+
+.user .usertitle p a {
 	padding: 0 3px;
 }
 
+
 /* 个人信息 */
-.user .usermy section{
+
+.user .usermy section {
 	padding: 33px 23px;
 }
-.user .usermy .editImg{
+
+.user .usermy .editImg {
 	width: 136px;
 	height: 136px;
 	border: 1px solid #dddddd;
 	cursor: pointer;
 }
-.user .usermy .editImg img{
+
+.user .usermy .editImg img {
 	display: block;
 	margin: 0 auto;
 	margin-top: 8px;
 	width: 120px;
 	height: 120px;
 }
-.user .usermy .editphone{
+
+.user .usermy .editphone {
 	background-color: #1668d8;
 	color: #ffffff;
 	width: 136px;
@@ -1759,7 +1935,8 @@ footer section span{
 	margin-top: 15px;
 	border-radius: 3px;
 }
-.user .usermy h2{
+
+.user .usermy h2 {
 	font-size: 16px;
 	font-weight: bold;
 	color: #535353;
@@ -1768,68 +1945,81 @@ footer section span{
 	margin-top: 50px;
 	margin-bottom: 25px;
 }
-.user .usermy ul {
 
+.user .usermy ul {
 	overflow: hidden;
 }
-.user .usermy ul li{
+
+.user .usermy ul li {
 	width: 100%;
 	float: left;
 	margin-bottom: 20px;
 	line-height: 20px;
 }
-.user .usermy ul li p{
+
+.user .usermy ul li p {
 	font-size: 14px;
 	color: #2c2c2c;
 	float: left;
 	width: 74px;
 }
-.user .usermy ul li span{
+
+.user .usermy ul li span {
 	display: block;
 	float: left;
 	padding-left: 25px;
 	min-width: 280px;
 }
-.user .usermy ul li img{
+
+.user .usermy ul li img {
 	display: block;
 	margin-top: -7px;
 	cursor: pointer;
 }
+
+
 /* 修改手机号码 */
-.user .editPhone section{
+
+.user .editPhone section {
 	padding: 50px 0 400px 0;
 }
-.user .editPhone section label{
+
+.user .editPhone section label {
 	width: 95px;
-	padding:0;
+	padding: 0;
 	margin-right: 20px;
 	line-height: 35px;
-} 
-.user .editPhone section .layui-inline{
+}
+
+.user .editPhone section .layui-inline {
 	width: 100%;
 	margin-bottom: 15px;
 	font-size: 14px;
 	color: #252525;
 }
-.user .editPhone section input{
+
+.user .editPhone section input {
 	width: 260px;
 	height: 35px;
 }
-.user .editPhone section .layui-inline:nth-child(3) input{
+
+.user .editPhone section .layui-inline:nth-child(3) input {
 	width: 163px;
 	float: left;
 }
-.user .editPhone section .qrbut{
+
+.user .editPhone section .qrbut {
 	height: 35px;
 	line-height: 35px;
 	margin-left: 7px;
 	font-size: 14px;
 	width: 90px;
-    padding: 0;
+	padding: 0;
 	color: #ffffff;
 	background-color: #195edd;
 }
-.user .editPhone section .save{
+
+.user .editPhone section .save {
 	width: 260px;
 	height: 36px;
 	background-color: #195edd;
@@ -1837,45 +2027,55 @@ footer section span{
 	font-size: 16px;
 	letter-spacing: 3px;
 }
-.rechargeRecord{
+
+.rechargeRecord {
 	margin-bottom: 50px;
 	padding-top: 0 !important;
 }
-.rechargeRecord table{
+
+.rechargeRecord table {
 	margin-bottom: 40px;
 }
-.inform{
+
+.inform {
 	min-height: 700px;
 }
-.inform .top{
+
+.inform .top {
 	margin: 20px 15px;
 	line-height: 20px;
 	width: 100%;
 	overflow: hidden;
 }
-.inform .top h2{
+
+.inform .top h2 {
 	font-size: 15px;
 	font-weight: bold;
 	float: left;
 }
-.inform .top p{
+
+.inform .top p {
 	float: left;
 	font-size: 12px;
 	color: #4c4c4c;
 	padding-left: 5px;
 }
-.inform .top em{
+
+.inform .top em {
 	color: #1668d8;
 }
-.inform .top span{
+
+.inform .top span {
 	color: #c90000;
 	padding: 0 5px;
 }
-.inform ul{
+
+.inform ul {
 	margin-bottom: 40px;
 	overflow: hidden;
 }
-.inform ul li{
+
+.inform ul li {
 	width: 100%;
 	font-size: 12px;
 	color: #252525;
@@ -1885,41 +2085,51 @@ footer section span{
 	padding-left: 10px;
 	cursor: pointer;
 }
-.inform ul li:last-child{
+
+.inform ul li:last-child {
 	border: none;
 }
-.inform ul li p{
+
+.inform ul li p {
 	width: 460px;
 	float: left;
 }
-.inform ul .active p{
+
+.inform ul .active p {
 	color: #1668d8;
 }
-.inform .header{
+
+.inform .header {
 	background-color: #f0f0f0;
 	height: 36px;
 	line-height: 36px;
 }
-.inform .header p{
+
+.inform .header p {
 	width: 470px;
 	float: left;
 	padding-left: 15px;
 	color: #666;
 }
+
+
 /*购买标书*/
-.buyBook{
+
+.buyBook {
 	background-color: #FFFFFF;
 	height: 530px;
 	margin-bottom: 40px;
 	padding: 35px 52px;
 }
-.buyBook ul li{
+
+.buyBook ul li {
 	width: 100%;
 	overflow: hidden;
 	padding: 23px 0;
 	border-bottom: 1px solid #e4e4e4;
 }
-.buyBook ul li span{
+
+.buyBook ul li span {
 	font-size: 20px;
 	color: #333333;
 	display: block;
@@ -1928,7 +2138,8 @@ footer section span{
 	line-height: 26px;
 	height: 26px;
 }
-.buyBook ul li p{
+
+.buyBook ul li p {
 	float: left;
 	font-size: 18px;
 	color: #1668d8;
@@ -1936,7 +2147,8 @@ footer section span{
 	height: 26px;
 	padding-left: 10px;
 }
-.buyBook ul li b{
+
+.buyBook ul li b {
 	font-weight: normal;
 	font-size: 18px;
 	color: #1668d8;
@@ -1944,11 +2156,13 @@ footer section span{
 	line-height: 26px;
 	height: 26px;
 }
-.buyBook ul li:nth-child(2) span{
+
+.buyBook ul li:nth-child(2) span {
 	line-height: 48px;
 	height: 48px;
 }
-.buyBook ul li:nth-child(2) div{
+
+.buyBook ul li:nth-child(2) div {
 	width: 136px;
 	height: 48px;
 	border: 1px solid #666666;
@@ -1956,7 +2170,8 @@ footer section span{
 	margin-right: 60px;
 	cursor: pointer;
 }
-.buyBook ul li:nth-child(2) div span{
+
+.buyBook ul li:nth-child(2) div span {
 	font-size: 14px;
 	color: #666666;
 	display: block;
@@ -1964,49 +2179,59 @@ footer section span{
 	line-height: 48px;
 	padding-right: 0;
 }
-.buyBook ul li i{
+
+.buyBook ul li i {
 	display: block;
 	float: left;
 	width: 26px;
 	height: 23px;
 	margin-right: 5px;
 	margin-top: 12px;
-    margin-left: 32px;
+	margin-left: 32px;
 }
-.buyBook ul li:nth-child(2){
+
+.buyBook ul li:nth-child(2) {
 	padding: 30px 0;
 }
-.buyBook ul li:nth-child(2) .wicon{
+
+.buyBook ul li:nth-child(2) .wicon {
 	background: url(../img/wx1.png) no-repeat;
 	background-size: 100% 100%;
 }
-.buyBook ul li:nth-child(2) .zicon{
+
+.buyBook ul li:nth-child(2) .zicon {
 	background: url(../img/zfb1.png) no-repeat;
 	background-size: 100% 100%;
 }
-.buyBook ul li:nth-child(2) .active{
+
+.buyBook ul li:nth-child(2) .active {
 	background: url(../img/zfactive.png) no-repeat;
 	width: 137px;
 	height: 48px;
 	border: none;
 	background-size: 100% 100%;
 }
-.buyBook ul li:nth-child(2) .active span{
+
+.buyBook ul li:nth-child(2) .active span {
 	color: #FFFFFF;
 }
-.buyBook ul li:nth-child(2) .active .wicon{
+
+.buyBook ul li:nth-child(2) .active .wicon {
 	background: url(../img/wx2.png) no-repeat;
 	background-size: 100% 100%;
 }
-.buyBook ul li:nth-child(2) .active .zicon{
+
+.buyBook ul li:nth-child(2) .active .zicon {
 	background: url(../img/zfb2.png) no-repeat;
 	background-size: 100% 100%;
 }
-.buyBook ul li:nth-child(3){
+
+.buyBook ul li:nth-child(3) {
 	padding-top: 56px;
 	border-bottom: none;
 }
-.buyBook ul li:nth-child(3) .qrcode{
+
+.buyBook ul li:nth-child(3) .qrcode {
 	width: 148px;
 	height: 148px;
 	background: url(../img/qrk.png) no-repeat;
@@ -2015,30 +2240,35 @@ footer section span{
 	margin-right: 38px;
 	float: left;
 }
-.buyBook ul li:nth-child(3) .qrcode img{
+
+.buyBook ul li:nth-child(3) .qrcode img {
 	width: 136px;
 	height: 136px;
 	display: block;
 	margin: 0 auto;
 }
-.buyBook ul li:nth-child(3) p{
+
+.buyBook ul li:nth-child(3) p {
 	font-size: 18px;
 	color: #666666;
 	float: left;
 	padding-top: 12px;
 }
-.buyBook ul li:nth-child(3) .bottomImg{
+
+.buyBook ul li:nth-child(3) .bottomImg {
 	width: 100%;
 	float: left;
 	margin-left: 196px;
 	margin-top: -53px;
 }
-.buyBook ul li:nth-child(3) .bottomImg img{
+
+.buyBook ul li:nth-child(3) .bottomImg img {
 	display: block;
 	float: left;
 	margin-right: 21px;
-} 
-.buyBook ul li:nth-child(3)  em{
+}
+
+.buyBook ul li:nth-child(3) em {
 	font-size: 14px;
 	color: #666666;
 	width: 100%;
@@ -2046,14 +2276,18 @@ footer section span{
 	margin-left: 196px;
 	margin-top: -15px;
 }
+
+
 /*vip会员充值*/
-.userVip section ul li{
+
+.userVip section ul li {
 	width: 100%;
 	overflow: hidden;
 	padding: 33px 20px;
 	border-bottom: 1px solid #e4e4e4;
 }
-.userVip ul li:nth-child(1) > div{
+
+.userVip ul li:nth-child(1)>div {
 	width: 210px;
 	height: 100px;
 	border: 1px solid #666666;
@@ -2061,64 +2295,75 @@ footer section span{
 	float: left;
 	margin-right: 60px;
 	cursor: pointer;
-	
 }
-.userVip ul li:nth-child(1)>div:last-child{
+
+.userVip ul li:nth-child(1)>div:last-child {
 	margin-right: 0;
 }
-.userVip ul li:nth-child(1)>div h1{
+
+.userVip ul li:nth-child(1)>div h1 {
 	text-align: center;
 	font-size: 20px;
 	margin-top: 25px;
 	font-weight: bold;
 	color: #666666;
 }
-.userVip ul li:nth-child(1)>div h1 span{
+
+.userVip ul li:nth-child(1)>div h1 span {
 	font-size: 14px;
 	color: #666666;
 	margin-left: 5px;
 	font-weight: normal;
-	text-decoration:line-through
+	text-decoration: line-through
 }
-.userVip ul li:nth-child(1)>div p{
+
+.userVip ul li:nth-child(1)>div p {
 	text-align: center;
 	font-size: 14px;
 	color: #666666;
 }
-.userVip ul li:nth-child(1) .active{
+
+.userVip ul li:nth-child(1) .active {
 	background: url(../img/vipactive.png) no-repeat;
 	background-size: 100% 100%;
 	border: none;
 	height: 101px;
 }
-.userVip ul li:nth-child(1) .active h1{
+
+.userVip ul li:nth-child(1) .active h1 {
 	color: #FFFFFF;
 }
-.userVip ul li:nth-child(1) .active p{
+
+.userVip ul li:nth-child(1) .active p {
 	color: #FFFFFF;
 }
-.userVip ul li:nth-child(1) .active span{
+
+.userVip ul li:nth-child(1) .active span {
 	color: #FFFFFF;
 }
-.userVip ul li:nth-child(2) h2{
+
+.userVip ul li:nth-child(2) h2 {
 	font-size: 16px;
 	color: #333333;
 	font-weight: bold;
 	margin-bottom: 23px;
 }
-.userVip ul li:nth-child(2) h2 span{
+
+.userVip ul li:nth-child(2) h2 span {
 	color: #1668d8;
 }
-.userVip ul li:nth-child(2) i{
+
+.userVip ul li:nth-child(2) i {
 	display: block;
 	float: left;
 	width: 26px;
 	height: 23px;
 	margin-right: 5px;
 	margin-top: 12px;
-    margin-left: 32px;
+	margin-left: 32px;
 }
-.userVip ul li:nth-child(2) > div{
+
+.userVip ul li:nth-child(2)>div {
 	width: 136px;
 	height: 48px;
 	border: 1px solid #666666;
@@ -2126,7 +2371,8 @@ footer section span{
 	margin-right: 60px;
 	cursor: pointer;
 }
-.userVip ul li:nth-child(2) div span{
+
+.userVip ul li:nth-child(2) div span {
 	font-size: 14px;
 	color: #666666;
 	display: block;
@@ -2134,44 +2380,53 @@ footer section span{
 	line-height: 48px;
 	padding-right: 0;
 }
-.userVip ul li:nth-child(2) .wicon{
+
+.userVip ul li:nth-child(2) .wicon {
 	background: url(../img/wx1.png) no-repeat;
 	background-size: 100% 100%;
 }
-.userVip ul li:nth-child(2) .zicon{
+
+.userVip ul li:nth-child(2) .zicon {
 	background: url(../img/zfb1.png) no-repeat;
 	background-size: 100% 100%;
 }
-.userVip ul li:nth-child(2) .active{
+
+.userVip ul li:nth-child(2) .active {
 	background: url(../img/zfactive.png) no-repeat;
 	width: 137px;
 	height: 48px;
 	border: none;
 	background-size: 100% 100%;
 }
-.userVip ul li:nth-child(2) .active span{
+
+.userVip ul li:nth-child(2) .active span {
 	color: #FFFFFF;
 }
-.userVip ul li:nth-child(2) .active .wicon{
+
+.userVip ul li:nth-child(2) .active .wicon {
 	background: url(../img/wx2.png) no-repeat;
 	background-size: 100% 100%;
 }
-.userVip ul li:nth-child(2) .active .zicon{
+
+.userVip ul li:nth-child(2) .active .zicon {
 	background: url(../img/zfb2.png) no-repeat;
 	background-size: 100% 100%;
 }
-.userVip ul li:nth-child(3){
+
+.userVip ul li:nth-child(3) {
 	border: none;
 	padding-bottom: 60px;
 }
-.userVip ul li:nth-child(3) p{
+
+.userVip ul li:nth-child(3) p {
 	font-size: 14px;
 	color: #2c2c2c;
 	width: 100%;
 	margin-top: 13px;
 	margin-bottom: 22px;
 }
-.userVip ul li:nth-child(3) .qrcode{
+
+.userVip ul li:nth-child(3) .qrcode {
 	width: 148px;
 	height: 148px;
 	background: url(../img/qrk.png) no-repeat;
@@ -2180,17 +2435,20 @@ footer section span{
 	margin-right: 38px;
 	float: left;
 }
-.userVip ul li:nth-child(3) .qrcode img{
+
+.userVip ul li:nth-child(3) .qrcode img {
 	width: 136px;
 	height: 136px;
 	display: block;
 	margin: 0 auto;
 }
-.userVip ul li:nth-child(3) .ewm{
+
+.userVip ul li:nth-child(3) .ewm {
 	float: left;
 	height: 148px;
 }
-.userVip ul li:nth-child(3) .ewm p{
+
+.userVip ul li:nth-child(3) .ewm p {
 	font-size: 14px;
 	margin-top: 6px;
 	color: #0066cc;
@@ -2198,33 +2456,41 @@ footer section span{
 	width: 200px;
 	margin-bottom: 5px !important;
 }
-.userVip ul li:nth-child(3) .ewm h3{
+
+.userVip ul li:nth-child(3) .ewm h3 {
 	font-size: 40px;
 	color: #0066cc;
 	margin-bottom: 7px;
 }
-.userVip ul li:nth-child(3) .ewm i{
+
+.userVip ul li:nth-child(3) .ewm i {
 	font-size: 14px;
 	width: 200px;
 	float: left;
 	color: #666666;
 	margin-top: 10px;
 }
-.userVip ul li:nth-child(3) .ewm i a{
+
+.userVip ul li:nth-child(3) .ewm i a {
 	color: #0066cc;
 }
+
+
 /*购买成功*/
-.buySucceed{
+
+.buySucceed {
 	background-color: #FFFFFF;
 	height: 560px;
 	margin-bottom: 40px;
 	padding: 35px 52px;
 }
-.buySucceed img{
+
+.buySucceed img {
 	display: block;
 	margin: 80px auto 23px auto;
 }
-.buySucceed h1{
+
+.buySucceed h1 {
 	font-size: 18px;
 	color: #333333;
 	margin-bottom: 45px;
@@ -2232,16 +2498,19 @@ footer section span{
 	text-align: center;
 	font-weight: 500;
 }
+
 .buySucceed ul {
 	width: 330px;
 	margin: 0 auto;
 }
-.buySucceed ul li{
+
+.buySucceed ul li {
 	font-size: 14px;
 	color: #333333;
 	margin-bottom: 20px;
 }
-.buySucceed .download{
+
+.buySucceed .download {
 	width: 190px;
 	height: 50px;
 	line-height: 50px;
@@ -2254,13 +2523,17 @@ footer section span{
 	text-align: center;
 	border-radius: 2px;
 }
+
+
 /*药品信息*/
-.drugList .topSearch{
-	padding: 20px;	
+
+.drugList .topSearch {
+	padding: 20px;
 	background-color: #FFFFFF;
-	margin: 22px auto 38px auto;
+	margin: 30px auto 38px auto;
 }
-.drugList .topSearch li{
+
+.drugList .topSearch li {
 	width: 100%;
 	height: auto;
 	overflow: hidden;
@@ -2268,69 +2541,80 @@ footer section span{
 	color: #000000;
 	border-bottom: 1px solid #eeeeee;
 }
-.drugList .topSearch li:last-child{
+
+.drugList .topSearch li:last-child {
 	border-bottom: none;
 }
-.drugList .topSearch li p{
+
+.drugList .topSearch li p {
 	font-weight: bold;
 	float: left;
 	margin-right: 20px;
 	height: 58px;
 	line-height: 58px;
 }
-.drugList .topSearch li span{
+
+.drugList .topSearch li span {
 	display: block;
 	float: left;
 	padding: 0 20px;
 	cursor: pointer;
 	height: 58px;
 	line-height: 58px;
-	-webkit-user-select:none;
-   -moz-user-select:none;
-   -ms-user-select:none;
-   user-select:none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
-.drugList .topSearch li section{
+
+.drugList .topSearch li section {
 	width: 900px;
 	overflow: hidden;
 	float: left;
 	height: 58px;
 	transition: height 0.5s;
 }
-.drugList .topSearch li .sectionActive{
+
+.drugList .topSearch li .sectionActive {
 	height: auto !important;
 	transition: height 0.5s;
 }
-.drugList .topSearch li .active{
+
+.drugList .topSearch li .active {
 	color: #007DDB;
 }
-.drugList .topSearch li .operation{
+
+.drugList .topSearch li .operation {
 	float: right;
 	float: left;
 }
-.drugList .topSearch li .operation p{
+
+.drugList .topSearch li .operation p {
 	font-size: 14px;
 	font-weight: normal;
 	cursor: pointer;
 	float: left;
-	-webkit-user-select:none;
-   -moz-user-select:none;
-   -ms-user-select:none;
-   user-select:none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
-.drugList .topSearch li .unfoldActive i{
-	transform:rotate(180deg);
+
+.drugList .topSearch li .unfoldActive i {
+	transform: rotate(180deg);
 	transition: all 0.5s;
 }
-.drugList .topSearch li .operation i{
+
+.drugList .topSearch li .operation i {
 	color: #666666;
 	font-size: 14px;
-    margin-left: 3px;
-    display: block;
-    float: right;
-    transition: all 0.5s;
+	margin-left: 3px;
+	display: block;
+	float: right;
+	transition: all 0.5s;
 }
-.drugList .topSearch li .operation a{
+
+.drugList .topSearch li .operation a {
 	float: left;
 	font-size: 14px;
 	width: 52px;
@@ -2340,16 +2624,18 @@ footer section span{
 	line-height: 26px;
 	margin-top: 15px;
 	cursor: pointer;
-	-webkit-user-select:none;
-   -moz-user-select:none;
-   -ms-user-select:none;
-   user-select:none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
-.drugList .centreSearch{
+
+.drugList .centreSearch {
 	margin-bottom: 20px;
 	overflow: hidden;
 }
-.drugList .centreSearch label{
+
+.drugList .centreSearch label {
 	width: 260px;
 	height: 33px;
 	border: 1px solid #999999;
@@ -2358,7 +2644,8 @@ footer section span{
 	float: left;
 	margin-top: 2px;
 }
-.drugList .centreSearch label input{
+
+.drugList .centreSearch label input {
 	font-size: 12px;
 	color: #000000;
 	background-color: inherit;
@@ -2368,50 +2655,59 @@ footer section span{
 	margin-top: 1px;
 	padding-left: 15px;
 }
-.drugList .centreSearch label .search{
+
+.drugList .centreSearch label .search {
 	display: block;
 	float: right;
 	margin-right: 15px;
 	margin-top: 6px;
 	cursor: pointer;
 }
-.drugList .centreSearch .right{
+
+.drugList .centreSearch .right {
 	float: right;
 }
-.drugList .centreSearch .right p{
+
+.drugList .centreSearch .right p {
 	line-height: 36px;
 	font-size: 14px;
 	color: #0C0C0C;
 	float: left;
 }
-.drugList .centreSearch .right p span{
+
+.drugList .centreSearch .right p span {
 	color: #007DDB;
 	padding: 0 3px;
 }
-.drugList .centreSearch .right .fy{
+
+.drugList .centreSearch .right .fy {
 	background-color: #FFFFFF;
 	padding: 7px 8px;
 	overflow: hidden;
 	float: right;
 	margin-left: 10px;
 }
+
 .drugList .centreSearch .right .fy span {
 	display: block;
 	float: left;
 }
-.drugList .centreSearch .right .fy span i{
+
+.drugList .centreSearch .right .fy span i {
 	font-size: 12px;
 	display: block;
 	margin-top: 3px;
-    margin-left: 3.5px;
+	margin-left: 3.5px;
 }
-.drugList .centreSearch .right .fy span:nth-child(1){
+
+.drugList .centreSearch .right .fy span:nth-child(1) {
 	width: 22px;
 	height: 22px;
 	border: 1px solid #dddddd;
 	cursor: pointer;
 }
-.drugList .centreSearch .right .fy span:nth-child(2){
+
+.drugList .centreSearch .right .fy span:nth-child(2) {
 	width: 50px;
 	height: 22px;
 	border-top: 1px solid #dddddd;
@@ -2420,39 +2716,47 @@ footer section span{
 	line-height: 22px;
 	font-size: 12px;
 }
-.drugList .centreSearch .right .fy span:nth-child(3){
+
+.drugList .centreSearch .right .fy span:nth-child(3) {
 	width: 22px;
 	height: 22px;
 	border: 1px solid #dddddd;
 	cursor: pointer;
 }
-.drugList .centreSearch .right .fy span b{
+
+.drugList .centreSearch .right .fy span b {
 	color: #007DDB;
 	font-weight: normal;
 }
-.drugList .drugListMain{
+
+.drugList .drugListMain {
 	overflow: hidden;
 }
-.drugList .drugListMain ul li{
+
+.drugList .drugListMain ul li {
 	width: 379px;
 	height: 230px;
 	background-color: #ffffff;
 	float: left;
 }
-.drugList .drugListMain ul li{
+
+.drugList .drugListMain ul li {
 	margin-right: 16px;
 	margin-bottom: 16px;
 	padding: 30px 30px 0 30px;
 }
-.drugList .drugListMain ul li:nth-child(3n+3){
+
+.drugList .drugListMain ul li:nth-child(3n+3) {
 	margin-right: 0;
 }
-.drugList .drugListMain ul li .up{
+
+.drugList .drugListMain ul li .up {
 	border-bottom: 1px solid #eeeeee;
 	overflow: hidden;
 	padding-bottom: 15px;
 }
-.drugList .drugListMain ul li .up img{
+
+.drugList .drugListMain ul li .up img {
 	display: block;
 	float: left;
 	border: 1px solid #cbcbcb;
@@ -2460,30 +2764,36 @@ footer section span{
 	height: 90px;
 	margin-right: 13px;
 }
-.drugList .drugListMain ul li .up  h1{
+
+.drugList .drugListMain ul li .up h1 {
 	font-size: 14px;
 	color: #1668d8;
 	margin-bottom: 12px;
 	cursor: pointer;
 }
-.drugList .drugListMain ul li .up  p{
+
+.drugList .drugListMain ul li .up p {
 	font-size: 14px;
 	color: #3b3b3b;
 	margin-bottom: 5px;
 }
-.drugList .drugListMain ul li .down{
+
+.drugList .drugListMain ul li .down {
 	padding-top: 10px;
 }
-.drugList .drugListMain ul li .down p{
+
+.drugList .drugListMain ul li .down p {
 	width: 50%;
 	float: left;
 	color: #666666;
 	margin-bottom: 5px;
 }
-.drugList .drugListMain ul li .down p:nth-child(2){
+
+.drugList .drugListMain ul li .down p:nth-child(2) {
 	color: #8b8b8b;
 }
-.drugList .drugListMain ul li .down p span{
+
+.drugList .drugListMain ul li .down p span {
 	width: 85px;
 	height: 19px;
 	line-height: 19px;
@@ -2495,21 +2805,167 @@ footer section span{
 	background-color: #d6d0c0;
 	cursor: pointer;
 }
-.drugList .drugListMain ul li .down p i{
-	display:none;
+
+.drugList .drugListMain ul li .down p i {
+	display: none;
 }
-.drugList .drugListMain ul li .online span{
+
+.drugList .drugListMain ul li .online span {
 	display: none !important;
 }
-.drugList .drugListMain ul li .online p i{
+
+.drugList .drugListMain ul li .online p i {
 	display: inline;
 }
-.drugList .paging{
+
+.drugList .paging {
 	margin: 70px;
 }
-.drugList .layui-laypage-count{
+
+.drugList .layui-laypage-count {
 	background-color: inherit;
 }
-.drugList .layui-laypage-skip{
+
+.drugList .layui-laypage-skip {
 	background-color: inherit;
+}
+/*药品详情*/
+.drugDetails {
+	padding: 30px;
+	background-color: #FFFFFF;
+	margin: 30px auto;
+}
+.drugDetails .topDetail > div{
+	float: left;
+	min-height: 470px;
+}
+.drugDetails .topDetail .left{
+	width: 400px;	
+}
+.drugDetails .topDetail .left .maxImg {
+	width: 350px;
+	height: 310px;
+	overflow: hidden;
+}
+.drugDetails .topDetail .left .maxImg img{
+	display: block;
+	margin: 0 auto;
+	width: 100%;
+	height: 100%;
+}
+.drugDetails .topDetail .left p{
+	color: #666666;
+	font-size: 12px;
+	margin: 14px 0;
+}
+.drugDetails .wrap {
+	position: relative;
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 492px;
+}
+.drugDetails .imgs {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+.drugDetails .main {
+	position: relative;
+	overflow: hidden;
+	padding: 4px;
+	width: 350px;
+	height: 310px;
+	margin: 0;
+}
+.drugDetails .main img{
+	width: 100%;
+	height: 100%;
+}
+.drugDetails .smaller {
+	position: relative;
+	overflow: hidden;
+	width: 400px;
+	height: 82px;
+	margin-top: 10px;
+}
+.drugDetails .smaller li {
+	position: relative;
+	float: left;
+	padding: 2px;
+	width: 64px;
+	height: 64px;
+	border: 2px solid #FFFFFF;
+	margin-left: 10px;
+	padding: 3px;
+	cursor: pointer;
+}
+.drugDetails .smaller li  img{
+	width: 96%;
+	height: 96%;
+	margin: 2%;
+}
+.drugDetails .smaller li:first-child {
+	margin-left: 0;
+}
+.drugDetails .smaller .current {
+	border-color: #0994cf;
+}
+.drugDetails .biger {
+	position: absolute;
+	overflow: hidden;
+	display: none;
+	left: 350px;
+	width: 350px;
+	height: 310px;
+}
+.drugDetails .mask {
+	position: absolute;
+	display: none;
+	left: 0;
+	top: 0;
+	width: 100px;
+	height: 100px;
+	background: url('../img/mask-bg.png') repeat;
+	cursor: crosshair;
+}
+.drugDetails .biger img {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 200%;
+	height: 200%;
+}
+.drugDetails .right{
+	width: 710px;
+}
+.drugDetails .right h1{
+	color: #252525;
+	margin-bottom: 13px;
+	font-size: 27px;
+}
+.drugDetails .right p{
+	color: #333333;
+	margin-bottom: 14px;
+	font-size: 14.5px;
+}
+.drugDetails .right hr{
+	width: 100%;
+	margin-top: 15px;
+}
+.drugDetails .right p a{
+	color: #16cef4;
+	font-size: 16px;
+	margin-left: 10px;
+}
+.drugDetails .right p i{
+	color: #808080;
+	font-size: 14px;
+	margin-left: 15px;
+}
+.drugDetails .right button{
+	background-color: #306ee2;
+	margin-top: 15px;
 }

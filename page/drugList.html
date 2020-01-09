@@ -350,6 +350,7 @@
 			});
 			//设置单选和多选的值
 			$(".drugList .topSearch li .multiple").click(function(){
+				$(this).parent().siblings().find("span").removeClass('active')
 				if($(this).text() == '多选'){
 					$(this).text("单选").siblings(".multipleType").val("1");
 				}else{
