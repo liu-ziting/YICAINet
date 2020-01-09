@@ -74,7 +74,6 @@ button {
 	margin: 0 auto;
 	overflow: hidden
 }
-
 .row {
 	padding: 0;
 	margin: 0;
@@ -2835,6 +2834,9 @@ footer section span {
 	background-color: #FFFFFF;
 	margin: 30px auto;
 }
+.drugDetails .topDetail{
+	overflow: hidden;
+}
 .drugDetails .topDetail > div{
 	float: left;
 	min-height: 470px;
@@ -2863,7 +2865,7 @@ footer section span {
 	top: 0px;
 	left: 0px;
 	width: 400px;
-	height: 492px;
+	height: 470px;
 }
 .drugDetails .imgs {
 	position: absolute;
@@ -2968,4 +2970,101 @@ footer section span {
 .drugDetails .right button{
 	background-color: #306ee2;
 	margin-top: 15px;
+}
+.drugDetails .drugMain h1{
+    font-size: 24px;
+    width: 100%;
+    font-weight: bold;
+    border-bottom: 1px solid #e4e4e4;
+    padding-bottom: 15px;
+    color: #535353;
+}
+.drugDetails .drugMain h1 b{
+	color: #1668d8;
+}
+.drugDetails .drugMain li{
+	-webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);    
+    filter: blur(5px);
+}
+.drugDetails .drugMain h2{
+	-webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -ms-filter: blur(5px);    
+    filter: blur(5px);
+}
+.drugDetails .drugMain ul{
+	margin-top: 38px;
+	overflow: hidden;
+}
+.drugDetails .drugMain ul li{
+	width: 40%;
+	float: left;
+	font-size: 15px;
+	color: #0093ce;
+	margin-bottom: 15px;
+}
+.drugDetails .drugMain li p{
+	text-align: right;
+	width: 130px;
+	float: left;
+	color: #0093ce;
+}
+.drugDetails .drugMain li span{
+	color: #666666;
+	padding-left: 18px;
+	float: left;
+	display: block;
+}
+.drugDetails .drugMain h2{
+	font-size: 16px;
+	width: 100%;
+	padding-left: 25px;
+}
+.drugDetails .drugMain ol{
+	overflow: hidden;
+	margin-top: 15px;
+	width: 100%;
+}
+.drugDetails .drugMain ol li{
+	width: 100%;
+	overflow: hidden;
+	float: left;
+	margin-bottom: 15px;
+	font-size: 15px;
+}
+.drugDetails .drugMain section{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	position: relative;
+}
+.drugDetails .drugMain section .masking{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.9);
+	position: absolute;
+	top: 0;
+}
+.drugDetails .drugMain{
+	position: relative;
+}
+.drugDetails .drugMain button{
+	margin: 0 auto;
+	display: block;
+	background-color: #306ee2;
+	height: 46px;
+	padding: 0 20px;
+	position: absolute;
+	top: 170px;
+	left: 50%;
+	margin-left: -90px;
+	z-index: 99999;
+}
+.drugDetails .drugMain button i{
+	margin-left: 8px;
+	transform:rotate(90deg);
+	display: block;
+	float: right;
 }
