@@ -16,9 +16,11 @@
 				<div class="left">
 					<p>欢迎来到医采网！</p>
 					<img class="loginIcon" src="../img/user.png" />
-					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-					<a href="register.html">免费注册</a>
-					<a class="userTop" href="user.html">个人中心(登录可见)</a>
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
@@ -111,37 +113,44 @@
 					</div>
 					<button onclick="openUrl('editPhone.html')" type="button" class="layui-btn editphone">修改绑定手机</button>
 					<h2>修改个人资料</h2>
-					<ul>
-						<li>
-							<p>手机号码：</p>
-							<span>15367891234</span>
-						</li>
-						<li>
-							<p>姓名：</p>
-							<span>马冬梅</span>
-							<img class="editName" src="../img/edit.png" alt="">
-						</li>
-						<li>
-							<p>性别：</p>
-							<span>男</span>
-							<img src="../img/edit.png" alt="">
-						</li>
-						<li>
-							<p>办公电话</p>
-							<span>15712345678</span>
-							<img src="../img/edit.png" alt="">
-						</li>
-						<li>
-							<p>单位名称：</p>
-							<span>XX医疗器械科技有限公司</span>
-							<img src="../img/edit.png" alt="">
-						</li>
-						<li>
-							<p>单位地址：</p>
-							<span>XX省XX市XX区XX路98号</span>
-							<img src="../img/edit.png" alt="">
-						</li>
-					</ul>
+					<div id="view"></div>
+					<script id="userMyTpl" type="text/html">
+						<ul>
+							<li>
+								<p>手机号码：</p>
+								<span>{{d.phone}}</span>
+							</li>
+							<li>
+								<p>姓名：</p>
+								<input title="点击修改您的姓名" type="text" class="username"  value="{{d.username}}"  class="layui-input">  
+								<img class="editName" src="../img/edit.png" alt="">
+							</li>
+							<li>
+								<p>性别：</p>
+								<select title="点击修改您的性别" name="sex" class="sex" lay-reqtext="请选择您的性别">
+									<option value="">请选择您的性别</option>
+									<option value="1">男</option>
+									<option value="0">女</option>
+								</select>
+								<img src="../img/edit.png" alt="">
+							</li>
+							<li>
+								<p>办公电话</p>
+								<input title="点击修改您的办公电话" type="text" class="companyPhone" name="companyPhone" value="{{d.companyPhone}}"  class="layui-input">  
+								<img src="../img/edit.png" alt="">
+							</li>
+							<li>
+								<p>单位名称：</p>
+								<input title="点击修改您的单位名称" type="text" class="companyName" name="companyName" value="{{d.companyName}}"  class="layui-input">  
+								<img src="../img/edit.png" alt="">
+							</li>
+							<li>
+								<p>单位地址：</p>
+								<input title="点击修改您的单位地址" type="text" class="companyAddress" name="companyAddress" value="{{d.companyAddress}}"  class="layui-input">  
+								<img src="../img/edit.png" alt="">
+							</li>
+						</ul>
+					</script>
 				</section>
 				
 			</div>
@@ -152,16 +161,63 @@
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
+		// 用户详情
+		getuserinfo();
+		function getuserinfo(){
+			layui.use(['laypage', 'laytpl','layer'], function () {
+				var laytpl = layui.laytpl,
+				laypage = layui.laypage;
 
-		$(".usermy li img").click(function(){
-			var _text = $(this).siblings('p').text();
-			layer.prompt({title: '修改您的'+_text+'', formType: 2}, function(text, index){
-				layer.close(index);
-				layer.msg('修改成功', {icon: 1});
+				http.ajax({
+					url: 'user/get_user_info',
+					type: 'GET',
+					json: false,
+					mask: true,
+				}).then(function (data) {
+					if (data.code == 200) {
+						var data = data.data
+						var getTpl = userMyTpl.innerHTML
+							, view = document.getElementById('view');
+						laytpl(getTpl).render(data, function (html) {
+							view.innerHTML = html;
+						});
+						$(".sex").val(data.sex)
+
+						$(".usermy li img").click(function(){
+							userUpdate();
+						})
+					}
+				}, function (err) {
+					
+				});
 			});
-		})
-
+		}
 		
+		// 更新用户信息
+		function userUpdate(){
+			http.ajax({
+				url: 'user/update',
+				type: 'POST',
+				json: false,
+				mask: true,
+				data:{
+					username:$(".username").val(),
+					sex:$(".sex").val(),
+					companyPhone:$(".companyPhone").val(),
+					companyName:$(".companyName").val(),
+					companyAddress:$(".companyAddress").val(),
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					getuserinfo();
+					layer.msg('修改成功', {icon: 1});
+				}
+			}, function (err) {
+				
+			});
+		}
+
+
 	</script>
 </body>
 

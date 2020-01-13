@@ -16,9 +16,11 @@
 				<div class="left">
 					<p>欢迎来到医采网！</p>
 					<img class="loginIcon" src="../img/user.png" />
-					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-					<a href="register.html">免费注册</a>
-					<a class="userTop" href="user.html">个人中心(登录可见)</a>
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
@@ -96,98 +98,45 @@
 					<li onclick="openUrl('inform.html')">系统通知</li>
 					<li onclick="openUrl('userHelp.html')">服务帮助</li>
 				</ul>
-				<button type="button" onclick("openUrl='login.html')" class="layui-btn quit">退出</button>
+				<button type="button" onclick("openUrl='login.html' )" class="layui-btn quit">退出</button>
 			</div>
 		</div>
 		<div class="right">
 			<div class="userbox rechargeRecord">
 				<h1 class="usertitle">
 					充值记录
-					<p>当前位置：<a href="user.html">个人中心</a> >> <a href="#">财务中心</a>>> <a href="rechargeRecord.html">充值记录</a></p>
+					<p>当前位置：<a href="user.html">个人中心</a> >> <a href="#">财务中心</a>>> <a
+							href="rechargeRecord.html">充值记录</a></p>
 				</h1>
 				<section>
-					<table class="layui-table"  lay-skin="nob">
-						<colgroup>
-						</colgroup>
-						<tbody>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-							<tr>
-								<td>2020-01-05</td>
-								<td>支付宝充值</td>
-								<td>-1000</td>
-								<td>交易成功</td>
-							</tr>
-						</tbody>
-					</table>
+					<div id="view"></div>
+					<script id="rechargeRecordTpl" type="text/html">
+						<table class="layui-table"  lay-skin="nob">
+							<colgroup>
+							</colgroup>
+							<tbody>
+								{{#  layui.each(d.items, function(index, item){ }}
+								<tr>
+									<td>2020-01-05</td>
+									<td>支付宝充值</td>
+									<td>-1000</td>
+									<td>交易成功</td>
+								</tr>
+								{{#  }); }}
+								
+								{{#  if(d.items.length === 0){ }}
+								<tr>
+									<td>暂无数据</td>
+								</tr>
+								{{#  } }} 
+							</tbody>
+						</table>
+					</script>
 					<!--分页-->
 					<div id="paging" class="paging"></div>
 				</section>
 				
+
 			</div>
 		</div>
 	</div>
@@ -196,19 +145,48 @@
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
-		layui.use(['laypage', 'layer'], function() {
+		layui.use(['laypage', 'layer', 'laytpl'], function () {
 			var laypage = layui.laypage,
+				laytpl = layui.laytpl,
 				layer = layui.layer;
-			//下载中心分页
+
+			
+			//充值记录分页
 			laypage.render({
 				elem: 'paging',
-				count: 100,
-				layout: ['count', 'prev', 'page', 'next', 'limit',  'skip'],
-				jump: function(obj) {
+				layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+				jump: function (obj) {
 					console.log(obj)
+					recharge_records(obj.curr,obj.limit)
 				}
 			});
+
+			//充值记录
+			function recharge_records(pageNo,pageSize){
+				http.ajax({
+					url: 'user/recharge_records',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data:{
+						pageNo:pageNo,
+						pageSize:pageSize
+					}
+				}).then(function (data) {
+					if (data.code == 200) {
+						var data = data.data
+						var getTpl = rechargeRecordTpl.innerHTML
+							, view = document.getElementById('view');
+						laytpl(getTpl).render(data, function (html) {
+							view.innerHTML = html;
+						});
+					}
+				}, function (err) {
+				
+				})
+			}
 		});
+
 	</script>
 </body>
 

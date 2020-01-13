@@ -16,9 +16,11 @@
 				<div class="left">
 					<p>欢迎来到医采网！</p>
 					<img class="loginIcon" src="../img/user.png" />
-					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-					<a href="register.html">免费注册</a>
-					<a class="userTop" href="user.html">个人中心(登录可见)</a>
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
@@ -100,113 +102,153 @@
 			</div>
 		</div>
 		<div class="right">
-			<div class="topBox">
-				<div class="tleft">
-					<div class="txImg">
-						<img src="../img/temporary/20180518134730_vnJXa.jpeg" />
+			<div id="view"></div>
+			<script id="userTpl" type="text/html">
+				<div class="topBox">
+					<div class="tleft">
+						<div class="txImg">
+							<img src="../img/usermy.png" />
+						</div>
+						<h1>{{d.username}}</h1>
+						<h3>
+							<span>提示</span>
+							<p>当前登录IP:{{d.loginIp}}</p>
+							<p>上次登录时间:{{d.lastLoginTime}}</p>
+						</h3>
 					</div>
-					<h1>马冬梅</h1>
-					<h3>
-						<span>提示</span>
-						<p>当前登录IP:192.168.0.15</p>
-						<p>上次登录时间:2020-01-05 19:50</p>
-					</h3>
+					<div class="tright">
+						<ul>
+							<li onclick="openUrl('editPhone.html')">
+								<img src="../img/sj.png" alt="">
+								<p>修改手机</p>
+							</li>
+							<li onclick="openUrl('userVip.html')">
+								<img src="../img/vip.png" alt="">
+								<p class="recharge">立即充值</p>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="tright">
+				<div class="userbox">
+					<h1>个人<b>信息</b></h1>
 					<ul>
-						<li onclick="openUrl('editPhone.html')">
-							<img src="../img/sj.png" alt="">
-							<p>修改手机</p>
+						<li>
+							<p>绑定手机：</p>
+							<span>{{d.phone}}</span>
 						</li>
-						<li onclick="openUrl('userVip.html')">
-							<img src="../img/vip.png" alt="">
-							<p class="recharge">立即充值</p>
+						<li>
+							<p>真实姓名：</p>
+							<span>{{d.username}}</span>
+						</li>
+						<li>
+							<p>注册时间：</p>
+							<span>{{d.createTime}}</span>
+						</li>
+						<li>
+							<p>上次登录时间：</p>
+							<span>{{d.lastLoginTime}}</span>
+						</li>
+						<li>
+							<p>上次访问IP：</p>
+							<span>{{d.lastLoginIp}}</span>
 						</li>
 					</ul>
-				</div>
-			</div>
+					<h1>充值<b>记录</b></h1>
+					</script>
 			<div class="userbox">
-				<h1>个人<b>信息</b></h1>
-				<ul>
-					<li>
-						<p>绑定手机：</p>
-						<span>15367891234</span>
-					</li>
-					<li>
-						<p>真实姓名：</p>
-						<span>马冬梅</span>
-					</li>
-					<li>
-						<p>注册时间：</p>
-						<span>2020-01-02 17:50</span>
-					</li>
-					<li>
-						<p>上次登录时间：</p>
-						<span>2020-01-05 15:50</span>
-					</li>
-					<li>
-						<p>上次访问IP：</p>
-						<span>192.168.0.15</span>
-					</li>
-				</ul>
-				<h1>充值<b>记录</b></h1>
-				<table class="layui-table"  lay-skin="nob">
+				<div id="rview"></div>
+				<script id="rechargeRecordTpl" type="text/html">
+				<table class="layui-table" lay-skin="nob">
 					<colgroup>
 					</colgroup>
 					<tbody>
+						{{#  layui.each(d.items, function(index, item){ }}
 						<tr>
 							<td>2020-01-05</td>
 							<td>支付宝充值</td>
 							<td>-1000</td>
 							<td>交易成功</td>
 						</tr>
+						{{#  }); }}
+						
+						{{#  if(d.items.length === 0){ }}
 						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
+							<td>暂无数据</td>
 						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
-						<tr>
-							<td>2020-01-05</td>
-							<td>支付宝充值</td>
-							<td>-1000</td>
-							<td>交易成功</td>
-						</tr>
+						{{#  } }} 
 					</tbody>
 				</table>
+				</script>
 			</div>
+			<!--分页-->
+			<div id="paging" class="paging"></div>
 		</div>
+
+	</div>
 	</div>
 	<div id="footer"></div>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
-		
+		layui.use(['laypage', 'laytpl', 'layer'], function () {
+			var laytpl = layui.laytpl,
+				laypage = layui.laypage;
+			
+			//用户详情
+			http.ajax({
+				url: 'user/get_user_info',
+				type: 'GET',
+				json: false,
+				mask: true,
+			}).then(function (data) {
+				if (data.code == 200) {
+					var data = data.data
+					var getTpl = userTpl.innerHTML
+						, view = document.getElementById('view');
+					laytpl(getTpl).render(data, function (html) {
+						view.innerHTML = html;
+					});
+				}
+			}, function (err) {
+
+			});
+
+			//充值记录分页
+			laypage.render({
+				elem: 'paging',
+				layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+				jump: function (obj) {
+					console.log(obj)
+					recharge_records(obj.curr, obj.limit)
+				}
+			});
+
+			//充值记录
+			function recharge_records(pageNo, pageSize) {
+				http.ajax({
+					url: 'user/recharge_records',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						pageNo: pageNo,
+						pageSize: pageSize
+					}
+				}).then(function (data) {
+					if (data.code == 200) {
+						var data = data.data
+						var getTpl = rechargeRecordTpl.innerHTML
+							, view = document.getElementById('rview');
+						laytpl(getTpl).render(data, function (html) {
+							view.innerHTML = html;
+						});
+					}
+				}, function (err) {
+
+				})
+			}
+		});
 	</script>
 </body>
 

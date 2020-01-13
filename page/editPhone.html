@@ -16,9 +16,11 @@
 				<div class="left">
 					<p>欢迎来到医采网！</p>
 					<img class="loginIcon" src="../img/user.png" />
-					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-					<a href="register.html">免费注册</a>
-					<a class="userTop" href="user.html">个人中心(登录可见)</a>
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
@@ -110,20 +112,20 @@
 						<div class="layui-inline">
 							<label class="layui-form-label">原手机号码：</label>
 							<div class="layui-input-inline">
-							<input type="tel" name="yphone" lay-verify="required" lay-reqtext="请输入原手机号码"  autocomplete="off" class="layui-input" placeholder="请输入当前绑定手机号码">
+							<input type="tel" name="yphone" lay-verify="required" lay-reqtext="请输入原手机号码"  autocomplete="off" class="layui-input yphone" placeholder="请输入当前绑定手机号码">
 							</div>
 						</div>
 						<div class="layui-inline">
 							<label class="layui-form-label">新手机号码：</label>
 							<div class="layui-input-inline">
-							<input type="tel" name="sphone" lay-verify="required" lay-reqtext="请输入新手机号码"  autocomplete="off" class="layui-input" placeholder="请输入新的手机号码">
+							<input type="tel" name="xphone" lay-verify="required" lay-reqtext="请输入新手机号码"  autocomplete="off" class="layui-input xphone" placeholder="请输入新的手机号码">
 							</div>
 						</div>
 						<div class="layui-inline">
 							<label class="layui-form-label">验证码：</label>
 							<div class="layui-input-inline">
-							<input type="tel" name="qrcode"  lay-verify="required" lay-reqtext="请输入手机验证码"   autocomplete="off" class="layui-input" placeholder="请输入验证码">
-							<button type="button" class="layui-btn qrbut">获取验证码</button>
+							<input type="tel" name="code"  lay-verify="required" lay-reqtext="请输入手机验证码"   autocomplete="off" class="layui-input" placeholder="请输入验证码">
+							<button type="button" class="layui-btn qrbut getCode">获取验证码</button>
 							</div>
 						</div>	
 							<button type="button" class="layui-btn save" lay-submit="" lay-filter="register">保存</button>
@@ -139,18 +141,82 @@
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
 
-	layui.use(['form', 'layedit', 'laydate'], function () {
+		layui.use(['form', 'layedit', 'laydate'], function () {
 			var form = layui.form
 				, layer = layui.layer
 			//监听提交
 			form.on('submit(register)', function (data) {
-				layer.alert(JSON.stringify(data.field), {
-					title: '最终的提交信息'
-				})
+				var phone = sessionStorage.getItem("phone");
+				var yphone = $(".yphone").val();
+				var xphone = $(".xphone").val();
+				if(phone == yphone){
+					change_phone(xphone,data.field.code);
+				}else{
+					layer.msg('原手机号输入错误!', {
+						icon: 5
+					});
+				};
 				return false;
 			});
 			
 		});
+
+		//获取验证码
+		$(".getCode").click(function(){
+			var phone = $(".xphone").val();
+			if(!phone){
+				layer.msg('请先输入手机号码!', {
+					icon: 5
+				});
+			}else{
+				send_verify_code(phone,'changePhone')
+				countDownCode();
+			}
+		})
+		
+		//修改绑定手机号
+		function change_phone(phone,code){
+			http.ajax({
+				url: 'user/change_phone',
+				type: 'POST',
+				json: false,
+				mask: true,
+				data:{
+					phone:phone,
+					code:code
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					layer.msg('修改成功！', {
+						icon: 1
+					}, function() {
+						location.href = 'user.html';
+					});
+				}
+			}, function (err) {
+			
+			})
+		};
+
+		//检查手机号或用户名是否可注册
+		function check(data,type){
+			http.ajax({
+				url: 'user/check',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					data:data,
+					type:type,
+				}
+			}).then(function(data) {
+				if(data.code == 200){
+					send_verify_code(data,'changePhone')
+				}
+			},function(err) {
+				console.log(err);
+			})
+		};
 		
 	</script>
 </body>

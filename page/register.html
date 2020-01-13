@@ -16,9 +16,11 @@
 				<div class="left">
 					<p>欢迎来到医采网！</p>
 					<img class="loginIcon" src="../img/user.png" />
-					<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-					<a href="register.html">免费注册</a>
-					<a class="userTop" href="user.html">个人中心(登录可见)</a>
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
@@ -78,7 +80,7 @@
 			<label class="two">
 				<p>性别<i>*</i></p>
 				<div class="layui-input-inline">
-					<select name="quiz" lay-verify="required" lay-reqtext="请选择您的性别">
+					<select name="sex" lay-verify="required" lay-reqtext="请选择您的性别">
 						<option value="">请选择您的性别</option>
 						<option value="1">男</option>
 						<option value="0">女</option>
@@ -88,28 +90,28 @@
 			<label>
 				<p>联系电话<i>*</i></p>
 				<input type="tel" name="phone" lay-verify="required" lay-reqtext="请输入您的手机号码"
-					placeholder="请输入您的手机号码作为注册登录账号" autocomplete="off" class="layui-input">
+					placeholder="请输入您的手机号码作为注册登录账号" autocomplete="off" class="layui-input phone">
 			</label>
 			<label class="qrcodeBox">
 				<p>验证码<i>*</i></p>
-				<input type="tel" name="qrcode" lay-verify="required" lay-reqtext="请输入验证码" placeholder="请输入验证码"
+				<input type="tel" name="code" lay-verify="required" lay-reqtext="请输入验证码" placeholder="请输入验证码"
 					autocomplete="off" class="layui-input">
-				<button type="button" class="layui-btn layui-btn-normal">获取短信验证码</button>
+				<button type="button" class="layui-btn layui-btn-normal getCode">获取短信验证码</button>
 			</label>
 			<label>
 				<p>办公电话</p>
-				<input type="text" name="" placeholder="请输入办公电话" class="layui-input">
+				<input type="text" name="companyPhone" placeholder="请输入办公电话" class="layui-input">
 			</label>
 			<label>
 				<p>单位名称</p>
-				<input type="text" name="" placeholder="请输入单位名称" class="layui-input">
+				<input type="text" name="companyName" placeholder="请输入单位名称" class="layui-input">
 			</label>
 			<label>
 				<p>单位地址</p>
-				<input type="text" name="" placeholder="请输入单位地址" class="layui-input">
+				<input type="text" name="companyAddress" placeholder="请输入单位地址" class="layui-input">
 			</label>
 			<label class="inquiry">
-				<input type="checkbox" id="notice" lay-verify="notice" data-check="false" value="0" name="notice"
+				<input type="checkbox" id="notice" lay-verify="notice" data-check="false" value="0"
 					title="我已阅读并同意" lay-skin="primary">
 				<a id="openNotice" href="javascript:;">《平台协议》</a>
 				<p>带“<i>*</i>”为必填选项</p>
@@ -127,12 +129,9 @@
 				, layer = layui.layer
 			//监听提交
 			form.on('submit(register)', function (data) {
-				layer.alert(JSON.stringify(data.field), {
-					title: '最终的提交信息'
-				})
+				register(data.field)
 				return false;
 			});
-
 			//自定义验证规则
 			form.verify({
 				notice: function (value) {
@@ -165,8 +164,6 @@
 				}
 			});
 			
-			
-			
 		});
 		
 		//用户协议弹窗
@@ -179,7 +176,62 @@
 			  area: ['480px', '90%'],
 			  content: 'notice.html' 
 			}); 
+		});
+
+
+		//获取验证码
+		$(".getCode").click(function(){
+			var phone = $(".phone").val();
+			if(!phone){
+				layer.msg('请先输入手机号码!', {
+					icon: 5
+				});
+			}else{
+				countDownCode();
+				check(phone,'phone')
+			}
 		})
+		
+		//用户注册
+		function register(json){
+			http.ajax({
+				url: 'user/register',
+				type: 'POST',
+				json: true,
+				mask: true,
+				data: JSON.stringify(json)
+			}).then(function(data) {
+				if(data.code == 200){
+					layer.msg('恭喜您，用户注册成功！快去登录吧！', {
+						icon: 1
+					}, function() {
+						location.href = '../page/login.html';
+					});
+				}
+			},function(err) {
+				console.log(err);
+			})
+		};
+		
+		//检查手机号或用户名是否可注册
+		function check(data,type){
+			http.ajax({
+				url: 'user/check',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					data:data,
+					type:type,
+				}
+			}).then(function(data) {
+				if(data.code == 200){
+					send_verify_code(data,'register')
+				}
+			},function(err) {
+				console.log(err);
+			})
+		};
 	</script>
 </body>
 
