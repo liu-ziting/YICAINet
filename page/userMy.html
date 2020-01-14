@@ -188,7 +188,11 @@
 						})
 					}
 				}, function (err) {
-					
+					layer.msg('登录已失效！', {
+						icon: 5
+					},function(){
+						location.href = 'login.html';
+					});
 				});
 			});
 		}

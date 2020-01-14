@@ -211,19 +211,40 @@
 					});
 				}
 			}, function (err) {
-
-			});
-
-			//充值记录分页
-			laypage.render({
-				elem: 'paging',
-				layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
-				jump: function (obj) {
-					console.log(obj)
-					recharge_records(obj.curr, obj.limit)
+				console.log(err)
+				if(err.status == 403){
+					layer.msg('登录已失效！', {
+						icon: 5
+					},function(){
+						location.href = 'login.html';
+					});
 				}
 			});
-
+			
+			http.ajax({
+				url: 'user/recharge_records',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					pageNo: 1,
+					pageSize: 1
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					//充值记录分页
+					laypage.render({
+						elem: 'paging',
+						count: data.data.total, //数据总数，从服务端得到
+						layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+						jump: function (obj) {
+							console.log(obj)
+							recharge_records(obj.curr, obj.limit)
+						}
+					});
+				}
+			})
+			
 			//充值记录
 			function recharge_records(pageNo, pageSize) {
 				http.ajax({

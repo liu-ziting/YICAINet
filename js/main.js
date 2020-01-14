@@ -55,7 +55,6 @@ var http = {
 			//},
 			contentType: options.json ? 'application/json;charset=UTF-8' : 'application/x-www-form-urlencoded'
 		}).then(function (rsp) {
-			// console.log(xhr.getResponseHeader('Set-Cookie'));
 			def.resolve(rsp);
 			setTimeout(function () {
 				layer.close(loading);
@@ -71,11 +70,11 @@ var http = {
 				var emsg = err.message; // 错误内容提示（字符串）
 				switch (code) {
 					case 403: // 403 未登录
-						layer.msg('登录失效，请重新登录！', {
-							icon: 5
-						},function(){
-							// location.href = 'login.html';
-						});
+//						layer.msg('登录失效，请重新登录！', {
+//							icon: 5
+//						},function(){
+//							location.href = 'login.html';
+//						});
 						break;
 					case 401: // 401 登录失败
 						layer.msg('登录失败！', {
@@ -231,26 +230,11 @@ function get_user_info() {
 	})
 };
 
-//验证码倒计时
-function countDownCode() {
-    var num = 60;
-    var timer = setInterval(function () {
-        if (num > 1) {
-            num--;
-			$(".getCode").text("重新发送(" + num + ")").attr("disabled", "disabled");
-			$(".getCode").css('background', '#B8B8B8');
-        } else {
-			$(".getCode").text("获取短信验证码").removeAttr("disabled");
-			$(".getCode").css('background', '#195edd');
-            clearInterval(timer);
-        }
-    }, 1000)
-}
 
 //20分钟更新一次token
-setInterval(function () {
+//setInterval(function () {
 	update_token();
-},1000000);
+//},30000);
 
 function update_token(){
 	http.ajax({
@@ -265,4 +249,21 @@ function update_token(){
 	}, function (err) {
 	
 	})
+};
+
+//验证码倒计时
+function countDownCode(){
+    var num = 60;
+    var timer = setInterval(function () {
+        if (num > 1) {
+            num--;
+			$(".getCode").text("重新发送(" + num + ")").attr("disabled", "disabled");
+			$(".getCode").css('background', '#B8B8B8');
+        } else {
+			$(".getCode").text("获取短信验证码").removeAttr("disabled");
+			$(".getCode").css('background', '#195edd');
+            clearInterval(timer);
+        }
+    }, 1000)
 }
+

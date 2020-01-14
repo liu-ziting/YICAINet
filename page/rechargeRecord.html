@@ -1,193 +1,208 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-	<meta charset="UTF-8">
-	<title>医采网-充值记录</title>
-	<link rel="stylesheet" href="../layui/css/layui.css" />
-	<link rel="stylesheet" href="../css/index.css" />
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title>医采网-充值记录</title>
+		<link rel="stylesheet" href="../layui/css/layui.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+	</head>
 
-<body>
-	<!--头部-->
-	<header>
-		<div class="htop">
-			<div class="centered">
-				<div class="left">
-					<p>欢迎来到医采网！</p>
-					<img class="loginIcon" src="../img/user.png" />
-					<span class="topLoginBox">
+	<body>
+		<!--头部-->
+		<header>
+			<div class="htop">
+				<div class="centered">
+					<div class="left">
+						<p>欢迎来到医采网！</p>
+						<img class="loginIcon" src="../img/user.png" />
+						<span class="topLoginBox">
 						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
 						<a class="register" href="register.html">免费注册</a>
 						<a class="userTop" href="user.html">个人中心</a>
 					</span>
-				</div>
-				<div class="right">
-					<img src="../img/iPhone.png" />
-					<p>免费咨询热线：0550-3022569</p>
-					<span>|</span>
-					<p onclick="addFavorite()">收藏 </p>
-					<span>|</span>
-					<p>帮助</p>
+					</div>
+					<div class="right">
+						<img src="../img/iPhone.png" />
+						<p>免费咨询热线：0550-3022569</p>
+						<span>|</span>
+						<p onclick="addFavorite()">收藏 </p>
+						<span>|</span>
+						<p>帮助</p>
+					</div>
 				</div>
 			</div>
-		</div>
-		<div class="searchBox">
-			<div class="centered">
-				<a class="logo" href="../index.html">
-					<img src="../img/logo.png" />
-				</a>
-				<!--搜索-->
-				<div class="rightBox">
-					<div class="toptab">
-						<span class="active">查询药品</span>
-						<span>查询耗材</span>
-					</div>
-					<div class="search">
-						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
-							autocomplete="off" class="layui-input">
-						<span>
+			<div class="searchBox">
+				<div class="centered">
+					<a class="logo" href="../index.html">
+						<img src="../img/logo.png" />
+					</a>
+					<!--搜索-->
+					<div class="rightBox">
+						<div class="toptab">
+							<span class="active">查询药品</span>
+							<span>查询耗材</span>
+						</div>
+						<div class="search">
+							<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词" autocomplete="off" class="layui-input">
+							<span>
 							<img src="../img/ss.png" />
 						</span>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-		<!--导航-->
-		<nav>
-			<div class="centered">
-				<ul>
-					<li onclick="openUrl('../index.html')">首页</li>
-					<li onclick="openUrl('callForBids.html')">招标信息</li>
-					<li onclick="openUrl('drugList.html')">药品信息</li>
-					<li onclick="openUrl('materialsList.html')">耗材信息</li>
-					<li onclick="openUrl('facilityList.html')">设备信息</li>
-					<li onclick="openUrl('policy.html')">政策法规</li>
-					<li onclick="openUrl('download.html')">下载中心</li>
-				</ul>
-			</div>
-		</nav>
-	</header>
-	<div id="rechargeRecord" class="user centered">
-		<div class="left">
-			<h1 onclick="openUrl('user.html')">
+			<!--导航-->
+			<nav>
+				<div class="centered">
+					<ul>
+						<li onclick="openUrl('../index.html')">首页</li>
+						<li onclick="openUrl('callForBids.html')">招标信息</li>
+						<li onclick="openUrl('drugList.html')">药品信息</li>
+						<li onclick="openUrl('materialsList.html')">耗材信息</li>
+						<li onclick="openUrl('facilityList.html')">设备信息</li>
+						<li onclick="openUrl('policy.html')">政策法规</li>
+						<li onclick="openUrl('download.html')">下载中心</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div id="rechargeRecord" class="user centered">
+			<div class="left">
+				<h1 onclick="openUrl('user.html')">
 				<p>会员中心</p><span>My home page</span>
 			</h1>
-			<div class="leftTab">
-				<h2>
+				<div class="leftTab">
+					<h2>
 					<img src="../img/user1.png" />
 					<span>账户信息</span>
 				</h2>
-				<ul>
-					<li onclick="openUrl('userMy.html')">个人信息</li>
-					<li onclick="openUrl('editPhone.html')">修改绑定手机号</li>
-				</ul>
-				<h2>
+					<ul>
+						<li onclick="openUrl('userMy.html')">个人信息</li>
+						<li onclick="openUrl('editPhone.html')">修改绑定手机号</li>
+					</ul>
+					<h2>
 					<img src="../img/user2.png" />
 					<span>财务中心</span>
 				</h2>
-				<ul>
-					<li onclick="openUrl('userVip.html')">VIP会员充值</li>
-					<li class="active" onclick="openUrl('rechargeRecord.html')">充值记录</li>
-				</ul>
-				<h2>
+					<ul>
+						<li onclick="openUrl('userVip.html')">VIP会员充值</li>
+						<li class="active" onclick="openUrl('rechargeRecord.html')">充值记录</li>
+					</ul>
+					<h2>
 					<img src="../img/user2.png" />
 					<span>服务中心</span>
 				</h2>
-				<ul>
-					<li onclick="openUrl('inform.html')">系统通知</li>
-					<li onclick="openUrl('userHelp.html')">服务帮助</li>
-				</ul>
-				<button type="button" onclick("openUrl='login.html' )" class="layui-btn quit">退出</button>
+					<ul>
+						<li onclick="openUrl('inform.html')">系统通知</li>
+						<li onclick="openUrl('userHelp.html')">服务帮助</li>
+					</ul>
+					<button type="button" onclick( "openUrl='login.html' )" class="layui-btn quit">退出</button>
+				</div>
 			</div>
-		</div>
-		<div class="right">
-			<div class="userbox rechargeRecord">
-				<h1 class="usertitle">
+			<div class="right">
+				<div class="userbox rechargeRecord">
+					<h1 class="usertitle">
 					充值记录
 					<p>当前位置：<a href="user.html">个人中心</a> >> <a href="#">财务中心</a>>> <a
 							href="rechargeRecord.html">充值记录</a></p>
 				</h1>
-				<section>
-					<div id="view"></div>
-					<script id="rechargeRecordTpl" type="text/html">
-						<table class="layui-table"  lay-skin="nob">
-							<colgroup>
-							</colgroup>
-							<tbody>
-								{{#  layui.each(d.items, function(index, item){ }}
-								<tr>
-									<td>2020-01-05</td>
-									<td>支付宝充值</td>
-									<td>-1000</td>
-									<td>交易成功</td>
-								</tr>
-								{{#  }); }}
-								
-								{{#  if(d.items.length === 0){ }}
-								<tr>
-									<td>暂无数据</td>
-								</tr>
-								{{#  } }} 
-							</tbody>
-						</table>
-					</script>
-					<!--分页-->
-					<div id="paging" class="paging"></div>
-				</section>
-				
+					<section>
+						<div id="view"></div>
+						<script id="rechargeRecordTpl" type="text/html">
+							<table class="layui-table" lay-skin="nob">
+								<colgroup>
+								</colgroup>
+								<tbody>
+									{{# layui.each(d.items, function(index, item){ }}
+									<tr>
+										<td>2020-01-05</td>
+										<td>支付宝充值</td>
+										<td>-1000</td>
+										<td>交易成功</td>
+									</tr>
+									{{# }); }} {{# if(d.items.length === 0){ }}
+									<tr>
+										<td>暂无数据</td>
+									</tr>
+									{{# } }}
+								</tbody>
+							</table>
+						</script>
+						<!--分页-->
+						<div id="paging" class="paging"></div>
+					</section>
 
+				</div>
 			</div>
 		</div>
-	</div>
-	<div id="footer"></div>
-	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-	<script type="text/javascript" src="../layui/layui.all.js"></script>
-	<script type="text/javascript" src="../js/main.js"></script>
-	<script>
-		layui.use(['laypage', 'layer', 'laytpl'], function () {
-			var laypage = layui.laypage,
-				laytpl = layui.laytpl,
-				layer = layui.layer;
+		<div id="footer"></div>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script>
+			layui.use(['laypage', 'layer', 'laytpl'], function() {
+				var laypage = layui.laypage,
+					laytpl = layui.laytpl,
+					layer = layui.layer;
 
-			
-			//充值记录分页
-			laypage.render({
-				elem: 'paging',
-				layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
-				jump: function (obj) {
-					console.log(obj)
-					recharge_records(obj.curr,obj.limit)
-				}
-			});
-
-			//充值记录
-			function recharge_records(pageNo,pageSize){
 				http.ajax({
 					url: 'user/recharge_records',
 					type: 'GET',
 					json: false,
 					mask: true,
-					data:{
-						pageNo:pageNo,
-						pageSize:pageSize
+					data: {
+						pageNo: 1,
+						pageSize: 1
 					}
-				}).then(function (data) {
-					if (data.code == 200) {
-						var data = data.data
-						var getTpl = rechargeRecordTpl.innerHTML
-							, view = document.getElementById('view');
-						laytpl(getTpl).render(data, function (html) {
-							view.innerHTML = html;
+				}).then(function(data) {
+					if(data.code == 200) {
+						//充值记录分页
+						laypage.render({
+							elem: 'paging',
+							count: data.data.total, //数据总数，从服务端得到
+							layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+							jump: function(obj) {
+								console.log(obj)
+								recharge_records(obj.curr, obj.limit)
+							}
 						});
-					}
-				}, function (err) {
-				
-				})
-			}
-		});
 
-	</script>
-</body>
+					}
+				}, function(err) {
+					layer.msg('登录已失效！', {
+						icon: 5
+					}, function() {
+						location.href = 'login.html';
+					});
+				})
+
+				//充值记录
+				function recharge_records(pageNo, pageSize) {
+					http.ajax({
+						url: 'user/recharge_records',
+						type: 'GET',
+						json: false,
+						mask: true,
+						data: {
+							pageNo: pageNo,
+							pageSize: pageSize
+						}
+					}).then(function(data) {
+						if(data.code == 200) {
+							var data = data.data
+							var getTpl = rechargeRecordTpl.innerHTML,
+								view = document.getElementById('view');
+							laytpl(getTpl).render(data, function(html) {
+								view.innerHTML = html;
+							});
+						}
+					}, function(err) {
+
+					})
+				}
+			});
+		</script>
+	</body>
 
 </html>
