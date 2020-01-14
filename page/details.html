@@ -28,7 +28,7 @@
 		<script>
 			//新闻详情接口
 			$(function() {
-				var detailsId = sessionStorage.getItem("detailsId");
+				var detailsId = localStorage.getItem("detailsId");
 				console.log(detailsId);
 				document.getElementById("detailsBox").innerHTML="";
 				http.ajax({

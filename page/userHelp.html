@@ -200,7 +200,7 @@
 
 			//点击查看详情
 			function openDetails(id){
-				sessionStorage.setItem("detailsId", id);
+				localStorage.setItem("detailsId", id);
 				$("#details").show().load("details.html", function() {
 					$(".policyList").hide();
 				});
