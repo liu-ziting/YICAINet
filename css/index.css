@@ -1355,6 +1355,7 @@ footer section span {
 .download .right {
 	width: 887px;
 	height: auto;
+	min-height: 1280px;
 	background-color: #FFFFFF;
 	padding: 30px 18px;
 	padding-bottom: 80px;

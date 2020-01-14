@@ -71,21 +71,23 @@
 			<ul>
 			    <li>
 		    		<span>标书名称：</span>
-		    		<p>淮北市人民医院医用耗材采购标书</p>
-		    		<b>￥45.00</b>
+		    		<p id="title"></p>
+		    		<b id="realPrice"></b>
 			    </li>
 			    <li>
 		    		<span>支付方式：</span>
-		    		<div class="wechat active">
+		    		<div class="wechat">
 		    			<i class="wicon"></i>
 		    			<span>微信</span>
+		    			<input type="hidden" class="payChannel" value="wechat_pay_pc" />
 		    		</div>
 		    		<div class="alipay">
 		    			<i class="zicon"></i>
 		    			<span>支付宝</span>
+		    			<input type="hidden" class="payChannel" value="ali_pay_pc" />
 		    		</div>
 			    </li>
-			    <li>
+			    <li id="wxPayBox" style="display: none;">
 			    	<div class="qrcode">
 			    		<img src="../img/qrcode.png" />
 			    	</div>
@@ -96,6 +98,8 @@
 			    	</div>
 			    	<em>推荐使用微信、支付宝支付</em>
 			    </li>
+			    <!--支付宝支付跳转-->
+			    <div id="alipayBox"></div>
 			</ul>
 		</div>
 		<div class="centered main">
@@ -109,6 +113,7 @@
 		</div>
 		
 		<div id="footer"></div>
+		
 		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
@@ -116,11 +121,57 @@
 			//支付切换
 			$(".buyBook ul li:nth-child(2) div").click(function(){
 				$(this).addClass("active").siblings().removeClass("active");
+				getPayInfo();	
 			});
 			
-			setTimeout(function(){
-				openUrl('buySucceed.html')
-			},2000)
+			//获取标书详情和金额
+			getResource();
+			function getResource(){
+				http.ajax({
+					url: 'resource/get_resource',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						id:getQueryString("id")
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						$("#title").text(data.data.title);
+						$("#realPrice").text("￥"+data.data.realPrice);
+					}
+				}, function(err) {
+					
+				})
+			};
+			
+			//支付接口
+			function getPayInfo(){
+				var payChannel = $(".buyBook ul li:nth-child(2) .active .payChannel").val();
+				http.ajax({
+					url: 'goods/get_pay_info',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						id:getQueryString("id"),
+						payChannel:payChannel,
+						operationType:getQueryString("operationType"),
+						terminalType:'pc'
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						if(payChannel == 'ali_pay_pc'){
+							var json = JSON.parse(data.data);
+							$("#alipayBox").append(json.payUrl);
+						}else if(payChannel == 'wechat_pay_pc'){
+							$("#wxPayBox").show()
+						};
+					}
+				}, function(err) {
+					
+				})
+			};
 		</script>
 	</body>
 
