@@ -150,7 +150,7 @@
 						</li>
 						{{# }); }} {{# if(d.items.length === 0){ }}
 						<li>
-							<h2>暂无下载列表 </h2>
+							<h2>暂无相关文件 </h2>
 						</li>
 						{{# } }}
 						</script>
@@ -188,7 +188,7 @@
 							view.innerHTML = html;
 						});
 						$(".leftTab li:nth-child(1)").addClass("active");
-						
+						$(".right h1 b").text(data.items[0].name);
 						//下载中心左侧选项卡切换
 						$(".leftTab li").click(function(){
 							var leftText = $(this).find("p").text();
@@ -265,34 +265,7 @@
 					})
 				};
 				
-				//下载
-				function download(id){
-					http.ajax({
-						url: 'resource/download',
-						type: 'GET',
-						json: false,
-						mask: true,
-						data: {
-							id:id
-						}
-					}).then(function(data) {
-						if(data.code == 200) {
-							
-						}
-					}, function(err) {
-						if(err.status == 403){
-							layer.msg('请先登录！', {
-								icon: 5
-							},function(){
-								location.href = 'login.html';
-							});
-						}else if(err.status == 10007){
-							location.href = 'buyBook.html?id='+id+'&operationType=download';
-						}
-					})
-				};
-				
-				
+
 			});
 
 		</script>

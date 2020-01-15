@@ -181,13 +181,6 @@ $(".searchBox .toptab span").click(function () {
 	$(this).addClass("active").siblings().removeClass("active");
 });
 
-//当页面加载状态为完全结束时进入 
-document.onreadystatechange = function () {
-	if (document.readyState == "complete") {
-
-	}
-}
-
 //获取手机验证码
 function send_verify_code(phone, type) {
 	http.ajax({
@@ -215,7 +208,7 @@ function get_user_info() {
 		url: 'user/get_user_info',
 		type: 'GET',
 		json: false,
-		mask: true,
+		mask: false,
 	}).then(function (data) {
 		if (data.code == 200) {
 			$(".topLoginBox").show().find("a").hide();
@@ -230,18 +223,22 @@ function get_user_info() {
 	})
 };
 
-
-//20分钟更新一次token
-//setInterval(function () {
-	update_token();
-//},30000);
-
+//当页面加载状态为完全结束时进入 
+document.onreadystatechange = function () {
+	if (document.readyState == "complete") {
+	//20分钟更新一次token
+	//setInterval(function () {
+		update_token();
+	//},30000);
+	}
+}
+//更新用户token
 function update_token(){
 	http.ajax({
 		url: 'user/update_token',
 		type: 'GET',
 		json: false,
-		mask: true,
+		mask: false,
 	}).then(function (data) {
 		if (data.code == 200) {
 			
@@ -267,3 +264,29 @@ function countDownCode(){
     }, 1000)
 }
 
+//标书下载
+function download(id){
+	http.ajax({
+		url: 'resource/download',
+		type: 'GET',
+		json: false,
+		mask: true,
+		data: {
+			id:id
+		}
+	}).then(function(data) {
+		if(data.code == 200) {
+			
+		}
+	}, function(err) {
+		if(err.status == 403){
+			layer.msg('请先登录！', {
+				icon: 5
+			},function(){
+				location.href = 'login.html';
+			});
+		}else if(err.status == 10007){
+			location.href = 'buyBook.html?id='+id+'&operationType=download';
+		}
+	})
+};

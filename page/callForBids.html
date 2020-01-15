@@ -70,17 +70,17 @@
 		<div class="download centered">
 			<div class="left">
 				<h1>招标信息</h1>
-				<ul class="leftTab">
-					<li class="active">
-						<p>采购公告<span>>></span></p>
-					</li>
-					<li>
-						<p>中标公告<span>>></span></p>
-					</li>
-					<li>
-						<p>变更答疑<span>>></span></p>
-					</li>
-				</ul>
+				<div id="viewLeft"></div>
+				<script id="downloadLeftTpl" type="text/html">
+					<ul class="leftTab">
+						{{# layui.each(d.items, function(index, item){ }}
+						<li>
+							<input type="hidden" class="id" value="{{item.id}}" />
+							<p>{{item.name}}<span>>></span></p>
+						</li>
+						{{# }); }}
+					</ul>
+				</script>
 				<!--广告位-->
 				<div class="advertising">
 					<a href="#">
@@ -141,13 +141,22 @@
 				</h1>
 				<div class="policyList">
 					<ul>
+						<div id="viewRight"></div>
+						<script id="downloadRightTpl" type="text/html">
+						{{# layui.each(d.items, function(index, item){ }}
 						<li>
-							<h3>淮北市人民医院医用耗材采购招标公告<span>查看详情</span></h3>
-							<time>2020-01-03</time>
-							<p>受淮北市人民医院委托，安徽冲锋信息技术有限公司就淮北市人民医院临床使用的医用耗材及配送企业进行公开招标采购，欢迎符合相关条件的供应商参加...</p>
+							<h3>{{item.title}}<span onclick="openDetails({{item.id}})">查看详情</span></h3>
+							<time>{{item.createDate}}</time>
+							<p>{{item.content}}</p>
 							<a href="#"><img style="right: 80px;" src="../img/fc.png"/></a>
-							<i><img style="right: 80px;" src="../img/ll.png" /><em>122</em></i>
+							<i><img style="right: 80px;" src="../img/ll.png" /><em>{{item.hitCount}}</em></i>
 						</li>
+						{{# }); }} {{# if(d.items.length === 0){ }}
+						<li>
+							<h2>暂无招标信息 </h2>
+						</li>
+						{{# } }}
+						</script>
 					</ul>
 					<!--分页-->
 					<div id="paging" class="paging"></div>
@@ -161,38 +170,114 @@
 		<script type="text/javascript" src="../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
 		<script>
-			//点击查看详情
-			$(".policyList li span").click(function(){
-				sessionStorage.setItem("detailsId","1223");
-   				$("#details").show().load("bookDetails.html",function(){
-   					$(".policyList").hide();
-   				});
-			})
-			
-			//招标信息左侧选项卡切换
-			$(".download .leftTab li").click(function() {
-				$(".policyList").show();
-				$("#details").hide();
-				var leftText = $(this).find("p").text();
-				$(".crumbs").text(leftText.slice(0,leftText.length-2));
-				$(".right h1 b").text(leftText.slice(0,leftText.length-2))
-				$(this).addClass("active").siblings().removeClass("active");
-			});
-			
-			
-			layui.use(['laypage', 'layer'], function() {
+			layui.use(['laypage', 'layer', 'laytpl'], function() {
 				var laypage = layui.laypage,
+					laytpl = layui.laytpl,
 					layer = layui.layer;
-				//下载中心分页
-				laypage.render({
-					elem: 'paging',
-					count: 100,
-					layout: ['count', 'prev', 'page', 'next', 'limit',  'skip'],
-					jump: function(obj) {
-						console.log(obj)
+			
+				//获取招标信息左侧类型
+				http.ajax({
+					url: 'news/news_class_list',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						type: "招标信息"
 					}
-				});
+				}).then(function(data) {
+					if(data.code == 200) {
+						var data = data.data;
+						var getTpl = downloadLeftTpl.innerHTML,
+							view = document.getElementById('viewLeft');
+						laytpl(getTpl).render(data, function(html) {
+							view.innerHTML = html;
+						});
+						$(".leftTab li:nth-child(1)").addClass("active");
+						$(".right h1 b").text(data.items[0].name);
+						//下载中心左侧选项卡切换
+						$(".leftTab li").click(function(){
+							$(".policyList").show();
+							$("#details").html("");
+							var leftText = $(this).find("p").text();
+							$(".crumbs").text(leftText.slice(0,leftText.length-2));
+							$(".right h1 b").text(leftText.slice(0,leftText.length-2));
+							$(this).addClass("active").siblings().removeClass("active");
+							var typeId = $(this).find(".id").val();
+							oneGetList(typeId)
+						});
+						
+						//通过类型获取右侧列表
+						var typeId = data.items[0].id;
+						oneGetList(typeId)
+					}
+				}, function(err) {});
+				
+				//第一次加载列表，获取总数
+				function oneGetList(typeId){
+					http.ajax({
+						url: 'news/get_news_list_by_type_id',
+						type: 'GET',
+						json: false,
+						mask: true,
+						data: {
+							typeId:typeId,
+							pageNo: 1,
+							pageSize: 1
+						}
+					}).then(function(data) {
+						if(data.code == 200) {
+							//下载列表分页
+							laypage.render({
+								elem: 'paging',
+								count: data.data.total, //数据总数，从服务端得到
+								layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+								jump: function(obj) {
+									getlistbytypeid(typeId,obj.curr,obj.limit)
+								}
+							});
+						}
+					}, function(err) {
+						
+					})
+				}
+				
+				//根据类别id获取招标信息列表
+				function getlistbytypeid(typeId,pageNo,pageSize){
+					http.ajax({
+						url: 'news/get_news_list_by_type_id',
+						type: 'GET',
+						json: false,
+						mask: true,
+						data: {
+							typeId:typeId,
+							pageNo: pageNo,
+							pageSize: pageSize
+						}
+					}).then(function(data) {
+						if(data.code == 200) {
+							var data = data.data;
+							var getTpl = downloadRightTpl.innerHTML,
+								view = document.getElementById('viewRight');
+							laytpl(getTpl).render(data, function(html) {
+								view.innerHTML = html;
+							});
+						}
+					}, function(err) {
+
+					})
+				};
+
 			});
+			
+			//点击查看详情
+			function openDetails(id){
+				$(".policyList").hide();
+				localStorage.setItem("detailsId", id);
+				$("#details").show().load("details.html", function() {
+					$(".policyList").hide();
+					$("#details").show();
+				});
+			}
 		</script>
 	</body>
 
