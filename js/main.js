@@ -182,7 +182,7 @@ $(".searchBox .toptab span").click(function () {
 });
 
 //获取手机验证码
-function send_verify_code(phone, type) {
+function send_verify_code(phone,type) {
 	http.ajax({
 		url: 'user/send_verify_code',
 		type: 'POST',
