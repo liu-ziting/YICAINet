@@ -290,3 +290,21 @@ function download(id){
 		}
 	})
 };
+
+//退出登录接口
+function logout(){
+	http.ajax({
+		url: 'user/logout',
+		type: 'GET',
+		json: false,
+		mask: true,
+
+	}).then(function(data) {
+		if(data.code == 200) {
+			layer.msg('退出成功！');
+			location.href = 'login.html';
+		}
+	}, function(err) {
+		
+	})
+}
