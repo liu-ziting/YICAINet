@@ -378,6 +378,8 @@
 								$(this).removeClass("active");
 								document.getElementById("secondLevel").innerHTML='';
 								$("#secondLevel").parent("li").hide();
+								document.getElementById("threeLevel").innerHTML='';
+								$("#threeLevel").parent("li").hide();
 							}else{
 								$("#secondLevel").parent("li").show();
 								secondLevelList(id);
