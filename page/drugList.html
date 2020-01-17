@@ -71,49 +71,31 @@
 			<div class="topSearch">
 				<ul>
 					<li>
-						<p>设备分类:</p>
-						<section>
-							<span>诊断类设备</span>
-							<span>治疗类设备</span>
-							<span>辅助类设备</span>
+						<p>药品分类:</p>
+						<section id="stair">
+							<span>查询中...</span>
 						</section>
 					</li>
-					<li>
-						<p>设备功能:</p>
-						<section>
-							<span>X射线诊断设备</span>
-							<span>超声诊断设备</span>
-							<span>功能检查设备</span>
-							<span>内窥镜检查设备</span>
-							<span>实验诊断设备</span>
-							<span>核医学设备</span>
-							<span>X射线诊断设备</span>
-							<span>超声诊断设备</span>
-							<span>功能检查设备</span>
-							<span>内窥镜检查设备</span>
-							<span>实验诊断设备</span>
-							<span>核医学设备</span>
+					<li style="display: none;">
+						<p>药品功能:</p>
+						<section id="secondLevel">
+							
 						</section>
 						<div class="operation">
 							<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
-							<a class="multiple">多选</a>
-							<input type="hidden" class="multipleType" value="2" />
+							<a class="multiple">单选</a>
+							<input type="hidden" class="multipleType" value="1" />
 						</div>
 					</li>
-					<li>
-						<p>具体设备:</p>
-						<section>
-							<span>接触治疗机</span>
-							<span>浅层治疗机</span>
-							<span>深度治疗机</span>
-							<span>加速器</span>
-							<span>60钴治疗机</span>
-							<span>镭或137铯腔内治疗及后装装置治疗</span>
+					<li style="display: none;">
+						<p>药品类型:</p>
+						<section id="threeLevel">
+							
 						</section>
 						<div class="operation">
 							<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
-							<a class="multiple">多选</a>
-							<input type="hidden" class="multipleType" value="2" />
+							<a class="multiple">单选</a>
+							<input type="hidden" class="multipleType" value="1" />
 						</div>
 					</li>
 				</ul>
@@ -337,19 +319,6 @@
 		<script type="text/javascript" src="../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
 		<script>
-			
-			//点击和取消点击
-			$(".drugList .topSearch li span").click(function(){
-				if($(this).hasClass("active")){
-					$(this).removeClass("active")
-				}else{
-					if($(this).parent().siblings().find(".multipleType").val() == 2){
-						$(this).addClass("active")
-					}else{
-						$(this).addClass("active").siblings().removeClass("active");
-					}
-				}
-			});
 			//设置单选和多选的值
 			$(".drugList .topSearch li .multiple").click(function(){
 				$(this).parent().siblings().find("span").removeClass('active')
@@ -382,6 +351,125 @@
 					}
 				});
 			});
+			
+			
+			//一级分类
+			stairList();
+			function stairList(){
+				document.getElementById("stair").innerHTML="";
+				http.ajax({
+					url: 'product/get_product_type_by_type',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						type:'drug',
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						var innerHtml = "";
+						for (var i = 0; i < data.data.items.length; i++) {
+							innerHtml +='<span id="'+data.data.items[i].id+'">'+data.data.items[i].name+'</span>'
+						}
+						$("#stair").append(innerHtml);
+						$("#stair span").click(function(){
+							var id = $(this).attr("id");
+							if($(this).hasClass("active")){
+								$(this).removeClass("active");
+								document.getElementById("secondLevel").innerHTML='';
+								$("#secondLevel").parent("li").hide();
+							}else{
+								$("#secondLevel").parent("li").show();
+								secondLevelList(id);
+								if($(this).parent().siblings().find(".multipleType").val() == 2){
+									$(this).addClass("active");
+								}else{
+									$(this).addClass("active").siblings().removeClass("active");
+								}
+							}
+						});
+					}
+				}, function(err) {
+
+				})
+			};
+			
+			
+			//二级分类
+			function secondLevelList(id){
+				document.getElementById("secondLevel").innerHTML='';
+				http.ajax({
+					url: 'product/get_product_type_by_parent_id',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						id:id,
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						var innerHtml = "";
+						for (var i = 0; i < data.data.items.length; i++) {
+							innerHtml +='<span id="'+data.data.items[i].id+'">'+data.data.items[i].name+'</span>'
+						}
+						$("#secondLevel").append(innerHtml);
+						$("#secondLevel span").click(function(){
+							var id = $(this).attr("id");
+							if($(this).hasClass("active")){
+								$(this).removeClass("active");
+								$("#threeLevel").parent("li").hide();
+								document.getElementById("threeLevel").innerHTML='';
+							}else{
+								$("#threeLevel").parent("li").show();
+								threeLevelList(id);
+								if($(this).parent().siblings().find(".multipleType").val() == 2){
+									$(this).addClass("active");
+								}else{
+									$(this).addClass("active").siblings().removeClass("active");
+								}
+							}
+						});
+					}
+				}, function(err) {
+
+				})
+			};
+			
+			//三级分类
+			function threeLevelList(id){
+				document.getElementById("threeLevel").innerHTML='';
+				http.ajax({
+					url: 'product/get_product_type_by_parent_id',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						id:id,
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						var innerHtml = "";
+						for (var i = 0; i < data.data.items.length; i++) {
+							innerHtml +='<span id="'+data.data.items[i].id+'">'+data.data.items[i].name+'</span>'
+						}
+						$("#threeLevel").append(innerHtml);
+						$("#threeLevel span").click(function(){
+							var id = $(this).attr("id");
+							if($(this).hasClass("active")){
+								$(this).removeClass("active");
+							}else{
+								if($(this).parent().siblings().find(".multipleType").val() == 2){
+									$(this).addClass("active");
+								}else{
+									$(this).addClass("active").siblings().removeClass("active");
+								}
+							}
+						});
+					}
+				}, function(err) {
+
+				})
+			};
 		</script>
 	</body>
 
