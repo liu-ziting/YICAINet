@@ -16,7 +16,7 @@ function getQueryString(name) {
 };
 
 /* 打开新页面 */
-function openUrl(url, type) {
+function openUrl(url,type) {
 	if (!type) {
 		window.location.href = url;
 	} else {
@@ -31,9 +31,9 @@ function openUrl(url, type) {
     data: 请求参数
  */
 var http = {
-	ajax(options) {
+	ajax:function(options){
 		var loading = '';
-		let def = $.Deferred();
+		var def = $.Deferred();
 		if (options.mask) {
 			loading = layer.msg('加载中，请稍后...', {
 				icon: 16,
@@ -48,12 +48,7 @@ var http = {
 			xhrFields:{
 				withCredentials:true 
 			},
-			//dataType : "jsonp",//数据类型为jsonp  
-			//jsonp: "jsonpCallback",//服务端用于接收callback调用的function名的参数
-			//headers: {
-			//	'x-auth-token': ''
-			//},
-			contentType: options.json ? 'application/json;charset=UTF-8' : 'application/x-www-form-urlencoded'
+			contentType: options.json ? 'application/json;charset=UTF-8' : 'application/x-www-form-urlencoded',
 		}).then(function (rsp) {
 			def.resolve(rsp);
 			setTimeout(function () {
