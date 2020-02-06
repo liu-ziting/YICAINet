@@ -57,7 +57,7 @@
 				<div class="centered">
 					<ul>
 						<li onclick="openUrl('../index.html')">首页</li>
-						<li class="active" onclick="openUrl('callForBids.html')">招标信息</li>
+						<li class="active" onclick="openUrl('callForBids.html')">招标采购信息</li>
 						<li onclick="openUrl('drugList.html')">药品信息</li>
 						<li onclick="openUrl('materialsList.html')">耗材信息</li>
 						<li onclick="openUrl('facilityList.html')">设备信息</li>
@@ -134,35 +134,59 @@
 					</ul>
 				</div>
 			</div>
-			<div class="right">
-				<h1>
-					<b>采购公告</b>
-					<p>当前位置：<a href="policy.html">招标信息</a> >> <a class="crumbs" href="javascript:;">采购公告</a></p>
-				</h1>
-				<div class="policyList">
-					<ul>
-						<div id="viewRight"></div>
-						<script id="downloadRightTpl" type="text/html">
-						{{# layui.each(d.items, function(index, item){ }}
-						<li>
-							<h3>{{item.title}}<span onclick="openDetails({{item.id}})">查看详情</span></h3>
-							<time>{{item.createDate}}</time>
-							<p>{{item.content}}</p>
-							<a href="#"><img style="right: 80px;" src="../img/fc.png"/></a>
-							<i><img style="right: 80px;" src="../img/ll.png" /><em>{{item.hitCount}}</em></i>
-						</li>
-						{{# }); }} {{# if(d.items.length === 0){ }}
-						<li>
-							<h2>暂无招标信息 </h2>
-						</li>
-						{{# } }}
-						</script>
-					</ul>
-					<!--分页-->
-					<div id="paging" class="paging"></div>
+			<div class="right" style="padding:0;">
+				<div class="topSearchBox">
+					<form class="layui-form" action="">
+						<div class="topBox">
+							<select name="interest" lay-filter="">
+								<option value="" >报名状态</option>
+								<option value="0" >正在报名</option>
+								<option value="1" >报名结束</option>
+							</select>
+						</div>
+						<div class="topBox">
+							<input type="text" name="date1" id="date1" lay-verify="date" placeholder="截止日期" autocomplete="off" class="layui-input">
+						</div>
+						<div class="topBox">
+							<input type="text" name="date2" id="date2" lay-verify="date" placeholder="开标日期" autocomplete="off" class="layui-input">
+						</div>
+						<div class="topBox">
+							<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入关键字" class="layui-input tinput">
+						</div>
+						
+						<button type="button" class="layui-btn layui-btn-normal topBoxBut">查询</button>
+					</form>
 				</div>
-				<!--详情-->
-				<div id="details" class="hide"></div>
+				<div class="cgNewBox">
+					<h1>
+						<b>采购公告</b>
+						<p>当前位置：<a href="policy.html">招标信息</a> >> <a class="crumbs" href="javascript:;">采购公告</a></p>
+					</h1>
+					<div class="policyList">
+						<ul>
+							<div id="viewRight"></div>
+							<script id="downloadRightTpl" type="text/html">
+							{{# layui.each(d.items, function(index, item){ }}
+							<li>
+								<h3>{{item.title}}<span onclick="openDetails({{item.id}})">查看详情</span></h3>
+								<time>{{item.createDate}}</time>
+								<p>{{item.content}}</p>
+								<a href="#"><img style="right: 80px;" src="../img/fc.png"/></a>
+								<i><img style="right: 80px;" src="../img/ll.png" /><em>{{item.hitCount}}</em></i>
+							</li>
+							{{# }); }} {{# if(d.items.length === 0){ }}
+							<li>
+								<h2>暂无招标信息 </h2>
+							</li>
+							{{# } }}
+							</script>
+						</ul>
+						<!--分页-->
+						<div id="paging" class="paging"></div>
+					</div>
+					<!--详情-->
+					<div id="details" class="hide"></div>
+				</div>
 			</div>
 		</div>
 		<div id="footer"></div>
@@ -170,10 +194,19 @@
 		<script type="text/javascript" src="../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
 		<script>
-			layui.use(['laypage', 'layer', 'laytpl'], function() {
+			layui.use(['laypage', 'layer', 'laytpl','laydate'], function() {
 				var laypage = layui.laypage,
 					laytpl = layui.laytpl,
+					laydate = layui.laydate;
 					layer = layui.layer;
+					
+				 //日期
+				laydate.render({
+					elem: '#date1'
+				});
+				laydate.render({
+					elem: '#date2'
+				});
 			
 				//获取招标信息左侧类型
 				http.ajax({

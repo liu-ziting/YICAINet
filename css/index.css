@@ -283,8 +283,9 @@ header nav ul li {
 	font-size: 16px;
 	color: #FFFFFF;
 	margin-left: 76px;
-	padding: 0 20px;
+	padding: 0 19px;
 	cursor: pointer;
+	margin-left: 65px;
 	transition: all 0.2s;
 }
 
@@ -468,7 +469,7 @@ header nav ul .active {
 	width: 100%;
 	height: 50px;
 	background-color: #f4f4f4;
-	margin-bottom: 22px;
+	margin-bottom: 12px;
 }
 
 .main .purchaseTab .layui-tab-title {
@@ -483,7 +484,9 @@ header nav ul .active {
 	line-height: 50px;
 	margin-left: 35px;
 }
-
+.main .purchaseTab li:first-child{
+	margin-left: 15px;
+}
 .main .purchaseTab .layui-this {
 	color: #1668d8;
 	font-weight: bold;
@@ -492,7 +495,7 @@ header nav ul .active {
 .main .purchaseTab .layui-this:after {
 	left: 16px;
 	height: 50px;
-	width: 67%;
+	width: 70%;
 	border-bottom: 2px solid #1668d8;
 }
 
@@ -502,126 +505,89 @@ header nav ul .active {
 
 .main .purchaseBox ul {
 	float: left;
-	width: 534px;
+	width: 100%;
 }
 
 .main .purchaseBox li {
 	float: left;
-	width: 534px;
-	height: 60px;
-	position: relative;
-	padding: 10px;
+	width: 100%;
+	height: 45px;
+	line-height: 45px;
 	cursor: pointer;
-	list-style-type: square;
-	list-style-position: inside;
 	margin-bottom: 5px;
 	border: 1px solid #FFFFFF;
 	transition: all 0.2s;
+	font-size: 16px;
 }
 
-.main .purchaseBox h2 {
-	width: 316px;
-	font-size: 14px;
-	color: #252525;
-	-webkit-line-clamp: 2;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
-	line-height: 22px;
-	margin-top: -18px;
-	margin-left: 12px;
+.main .purchaseBox li span{
+	display: block;
+	float: left;
+	margin-right: 15px;
+	color: #F13333;
+	padding-left: 22px;
 }
-
-.main .purchaseBox li time {
+.main .purchaseBox li:hover{
+	background-color:#F4F4F4;
+}
+.main .purchaseBox li p{
+	float: left;
+	margin-right: 15px;
+	color: #333333;
+}
+.main .purchaseBox li time{
 	float: right;
-	position: absolute;
-	top: 12px;
-	right: 10px;
-	height: 60px;
+	color: #666666;
+	padding-right: 15px;
 }
-
-.main .purchaseBox li time i {
+.main .purchaseBox li time i{
+	margin-left: 36px;
+}
+.main .purchaseBox li time img{
 	display: block;
 	float: left;
-	margin-right: 4px;
-}
-
-.main .purchaseBox li time span {
-	font-size: 14px;
-	color: #8e8e8e;
-}
-
-.main .purchaseBox li time a {
-	font-size: 14px;
-	color: #1668d8;
-	float: right;
-	margin-top: 3px;
-}
-
-.main .purchaseBox ul:nth-child(1) {
-	margin-right: 42px;
-}
-
-.main .purchaseBox li:hover {
-	background-color: #f4f4f4;
-	border: 1px solid #666;
-	transition: all 0.2s;
-}
-
-.main .purchaseBox li:hover h2 {
-	color: #1668d8;
-}
-
-.main .purchaseBox .oneopen {
-	list-style: none;
-	height: 190px;
-}
-
-.main .purchaseBox .oneopen h2 {
-	font-size: 18px;
-	color: #252525;
-	width: 100%;
-	margin: 0;
-	margin-bottom: 9px;
-}
-
-.main .purchaseBox .oneopen span {
-	font-size: 14px;
-	color: #8e8e8e;
-	display: block;
-	float: left;
-	margin-right: 45px;
-	height: 20px;
-	line-height: 20px;
-}
-
-.main .purchaseBox .oneopen span img {
-	display: block;
-	float: left;
+	margin-top: 15px;
 	margin-right: 10px;
-	margin-top: 3px;
+	width: 15px;
 }
+.topSearchBox{
+	width: 100%;
+	height: 70px;
+	border-bottom: 10px solid #f5f5f5;
+	padding: 12px 25px;
 
-.main .purchaseBox .oneopen p {
+}
+.topSearchBox .topBox{
+	width: 100px;
+	float: left;
+	margin-right: 15px;
+}
+.topSearchBox .topBox input{
+	border: none;
+}
+.topSearchBox .topBox .tinput{
+	width:191px;
+	height:33px;
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(153,153,153,1);
+	border-radius:17px;
 	font-size: 14px;
-	color: #8e8e8e;
-	line-height: 25px;
-	margin-top: 10px;
-	-webkit-line-clamp: 4;
-	display: -webkit-box;
-	-webkit-box-orient: vertical;
-	overflow: hidden;
+	padding-left: 20px;
+	margin-top: 2px;
 }
-
-.main .purchaseBox .oneopen a {
-	font-size: 14px;
-	color: #1668d8;
+.topBoxBut{
 	float: right;
-	margin-top: -23px;
-	float: right;
+	width:73px;
+	height:26px;
+	line-height: 26px;
+	background:rgba(41,86,246,1);
+	border-radius:2px;
+	padding: 0;
+	margin-top: 5px;
 }
-
-
+.cgNewBox{
+	padding: 30px 18px;
+}
 /*广告*/
 
 .main .advertisement {
