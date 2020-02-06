@@ -1,478 +1,455 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>医采网-药品信息</title>
-		<link rel="stylesheet" href="../layui/css/layui.css" />
-		<link rel="stylesheet" href="../css/index.css" />
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<title>医采网-药品信息</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
 
-	<body>
-		<!--头部-->
-		<header>
-			<div class="htop">
-				<div class="centered">
-					<div class="left">
-						<p>欢迎来到医采网！</p>
-						<img class="loginIcon" src="../img/user.png" />
-						<span class="topLoginBox">
-							<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-							<a class="register" href="register.html">免费注册</a>
-							<a class="userTop" href="user.html">个人中心</a>
+<body>
+	<!--头部-->
+	<header>
+		<div class="htop">
+			<div class="centered">
+				<div class="left">
+					<p>欢迎来到医采网！</p>
+					<img class="loginIcon" src="../img/user.png" />
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
+				</div>
+				<div class="right">
+					<img src="../img/iPhone.png" />
+					<p>免费咨询热线：0550-3022569</p>
+					<span>|</span>
+					<p onclick="addFavorite()">收藏 </p>
+					<span>|</span>
+					<p>帮助</p>
+				</div>
+			</div>
+		</div>
+		<div class="searchBox">
+			<div class="centered">
+				<a class="logo" href="../index.html">
+					<img src="../img/logo.png" />
+				</a>
+				<!--搜索-->
+				<div class="rightBox">
+					<div class="toptab">
+						<span class="active">查询药品</span>
+						<span>查询耗材</span>
+					</div>
+					<div class="search">
+						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
+							autocomplete="off" class="layui-input">
+						<span>
+							<img src="../img/ss.png" />
 						</span>
 					</div>
-					<div class="right">
-						<img src="../img/iPhone.png" />
-						<p>免费咨询热线：0550-3022569</p>
-						<span>|</span>
-						<p onclick="addFavorite()">收藏 </p>
-						<span>|</span>
-						<p>帮助</p>
-					</div>
 				</div>
 			</div>
-			<div class="searchBox">
-				<div class="centered">
-					<a class="logo" href="../index.html">
-						<img src="../img/logo.png" />
-					</a>
-					<!--搜索-->
-					<div class="rightBox">
-						<div class="toptab">
-							<span class="active">查询药品</span>
-							<span>查询耗材</span>
-						</div>
-						<div class="search">
-							<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词" autocomplete="off" class="layui-input">
-							<span>
-								<img src="../img/ss.png" />
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--导航-->
-			<nav>
-				<div class="centered">
-					<ul>
-						<li onclick="openUrl('../index.html')">首页</li>
-						<li onclick="openUrl('callForBids.html')">招标采购信息</li>
-						<li class="active" onclick="openUrl('drugList.html')">药品信息</li>
-						<li onclick="openUrl('materialsList.html')">耗材信息</li>
-						<li onclick="openUrl('facilityList.html')">设备信息</li>
-						<li onclick="openUrl('policy.html')">政策法规</li>
-						<li onclick="openUrl('download.html')">下载中心</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<div class="drugList centered">
-			<div class="topSearch">
-				<ul>
-					<li>
-						<p>药品分类:</p>
-						<section id="stair">
-							<span>查询中...</span>
-						</section>
-					</li>
-					<li style="display: none;">
-						<p>药品功能:</p>
-						<section id="secondLevel">
-							
-						</section>
-						<div class="operation">
-							<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
-							<a class="multiple">单选</a>
-							<input type="hidden" class="multipleType" value="1" />
-						</div>
-					</li>
-					<li style="display: none;">
-						<p>药品类型:</p>
-						<section id="threeLevel">
-							
-						</section>
-						<div class="operation">
-							<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
-							<a class="multiple">单选</a>
-							<input type="hidden" class="multipleType" value="1" />
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="centreSearch">
-				<label>
-					<input type="text" placeholder="请输入关键词进行搜索"/>
-					<img class="search" src="../img/centreSearch.png" />
-				</label>
-				<div class="right">
-					<p>共<span>1578</span>个商品</p>
-					<div class="fy">
-						<span><i class="layui-icon layui-icon-left"></i></span>
-						<span><b>1</b> / 234</span>
-						<span><i class="layui-icon layui-icon-right"></i></span>
-					</div>
-				</div>
-			</div>
-			<section class="drugListMain">
-				<ul>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-					<li>
-						<div class="up">
-							<img src="../img/temporary/ypic.png"/>
-							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
-							<p>供应商：医采网</p>
-							<p>生产厂家：四川依科制药有限公司</p>
-						</div>
-						<div class="down ">
-							<p>采购价：<span>登录可见</span><i>123455</i></p>
-							<p>规格：9g*10丸</p>
-							<p>零售价：****</p>
-							<p>有效期至：2020-01-07</p>
-							<p>是否拆零：否</p>
-							<p>中包装：1</p>
-						</div>
-					</li>
-				</ul>
-			</section>
-			<!--分页-->
-			<div id="paging" class="paging"></div>
 		</div>
-		
-		<div id="footer"></div>
-		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="../layui/layui.all.js"></script>
-		<script type="text/javascript" src="../js/main.js"></script>
-		<script>
-			//设置单选和多选的值
-			$(".drugList .topSearch li .multiple").click(function(){
-				$(this).parent().siblings().find("span").removeClass('active')
-				if($(this).text() == '多选'){
-					$(this).text("单选").siblings(".multipleType").val("1");
-				}else{
-					$(this).text("多选").siblings(".multipleType").val("2");
-				};
-			});
-			
-			//点击展开
-			$(".drugList .topSearch li .unfold").click(function(){
-				if($(this).hasClass("unfoldActive")){
-					$(this).removeClass("unfoldActive").parent().siblings("section").removeClass("sectionActive")
-				}else{
-					$(this).addClass("unfoldActive").parent().siblings("section").addClass("sectionActive")
-				};
+		<!--导航-->
+		<nav>
+			<div class="centered">
+				<ul>
+					<li onclick="openUrl('../index.html')">首页</li>
+					<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+					<li class="active" onclick="openUrl('drugList.html')">药品信息</li>
+					<li onclick="openUrl('materialsList.html')">耗材信息</li>
+					<li onclick="openUrl('facilityList.html')">设备信息</li>
+					<li onclick="openUrl('policy.html')">政策法规</li>
+					<li onclick="openUrl('download.html')">下载中心</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div class="drugList centered">
+		<div class="topSearch">
+			<ul>
+				<li>
+					<p>药品分类:</p>
+					<section id="stair">
+						<span>查询中...</span>
+					</section>
+				</li>
+				<li style="display: none;">
+					<p>药品功能:</p>
+					<section id="secondLevel">
+
+					</section>
+					<div class="operation">
+						<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
+						<a class="multiple">单选</a>
+						<input type="hidden" class="multipleType" value="1" />
+					</div>
+				</li>
+				<li style="display: none;">
+					<p>药品类型:</p>
+					<section id="threeLevel">
+
+					</section>
+					<div class="operation">
+						<p class="unfold">展开<i class="layui-icon layui-icon-down"></i></p>
+						<a class="multiple">单选</a>
+						<input type="hidden" class="multipleType" value="1" />
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="centreSearch">
+			<label>
+				<input type="text" placeholder="请输入关键词进行搜索" />
+				<img class="search" src="../img/centreSearch.png" />
+			</label>
+			<div class="right">
+				<p>共<span>1578</span>个商品</p>
+				<div class="fy">
+					<span><i class="layui-icon layui-icon-left"></i></span>
+					<span><b>1</b> / 234</span>
+					<span><i class="layui-icon layui-icon-right"></i></span>
+				</div>
+			</div>
+		</div>
+		<section class="drugListMain">
+			<ul>
+				<!-- <li>
+						<div class="up">
+							<img src="../img/temporary/ypic.png"/>
+							<h1 onclick="openUrl('drugDetails.html')">三九感冒灵</h1>
+							<p>供应商：医采网</p>
+							<p>生产厂家：四川依科制药有限公司</p>
+						</div>
+						<div class="down ">
+							<p>采购价：<span>登录可见</span><i>123455</i></p>
+							<p>规格：9g*10丸</p>
+							<p>零售价：****</p>
+							<p>有效期至：2020-01-07</p>
+							<p>是否拆零：否</p>
+							<p>中包装：1</p>
+						</div>
+					</li> -->
+				<div id="viewList"></div>
+				<script id="drugListTpl" type="text/html">
+						{{# layui.each(d.items, function(index, item){ }}
+						<li>
+							<div class="up">
+								<img src="../img/temporary/ypic.png"/>
+								<h1 onclick="openUrl('drugDetails.html?id={{item.id}}')">{{item.commonName}}</h1>
+								<p>商品名称：{{item.productName}}</p>
+								<p>生产厂家：{{JSON.parse(item.manufacturer).name}}</p>
+							</div>
+							<div class="down">
+								<p>价格：
+									<span onclick="openUrl('login.html')">登录可见</span>
+									<i>{{item.marketPrice}}</i>
+								</p>
+								<p>规格：{{item.specification}}</p>
+								<p>剂型：{{item.dosageForm}}</p>
+								<p>包装：{{item.largePackage}}</p>
+							</div>
+						</li>
+						{{# }); }} {{# if(d.items.length === 0){ }}
+						<li>
+							暂无药品
+						</li>
+						{{# } }}
+					</script>
+			</ul>
+		</section>
+		<!--分页-->
+		<div id="paging" class="paging"></div>
+	</div>
+
+	<div id="footer"></div>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+		//设置单选和多选的值
+		$(".drugList .topSearch li .multiple").click(function () {
+			$(this).parent().siblings().find("span").removeClass('active')
+			if ($(this).text() == '多选') {
+				$(this).text("单选").siblings(".multipleType").val("1");
+			} else {
+				$(this).text("多选").siblings(".multipleType").val("2");
+			};
+		});
+
+		//点击展开
+		$(".drugList .topSearch li .unfold").click(function () {
+			if ($(this).hasClass("unfoldActive")) {
+				$(this).removeClass("unfoldActive").parent().siblings("section").removeClass("sectionActive")
+			} else {
+				$(this).addClass("unfoldActive").parent().siblings("section").addClass("sectionActive")
+			};
+		});
+
+		layui.use(['laypage', 'laytpl', 'layer'], function () {
+			var laypage = layui.laypage,
+				laytpl = layui.laytpl,
+				layer = layui.layer;
+			//下载中心分页
+			laypage.render({
+				elem: 'paging',
+				count: 100,
+				layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+				jump: function (obj) {
+					console.log(obj)
+				}
 			});
 
-			layui.use(['laypage', 'layer'], function() {
-				var laypage = layui.laypage,
-					layer = layui.layer;
-				//下载中心分页
-				laypage.render({
-					elem: 'paging',
-					count: 100,
-					layout: ['count', 'prev', 'page', 'next', 'limit',  'skip'],
-					jump: function(obj) {
-						console.log(obj)
+			//第一次加载列表，获取总数
+			var queryDrug = {
+				"key": "",
+				"pageNo": "1",
+				"pageSize": "20",
+				"pruductTypeIdList": []
+			}
+			oneDrug_list(queryDrug, []);
+			function oneDrug_list(queryDrug, pruductTypeIdList) {
+				http.ajax({
+					url: 'product/drug_list',
+					type: 'POST',
+					json: true,
+					mask: true,
+					data: JSON.stringify(queryDrug)
+				}).then(function (data) {
+					if (data.code == 200) {
+						//下载列表分页
+						laypage.render({
+							elem: 'paging',
+							count: data.data.total, //数据总数，从服务端得到
+							layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
+							jump: function (obj) {
+								drug_list(queryDrug, obj.curr, obj.limit, pruductTypeIdList)
+							}
+						});
 					}
-				});
-			});
-			
-			
+				}, function (err) {
+
+				})
+			};
+
+			//获取药品列表
+			function drug_list(queryDrug, pageNo, pageSize, pruductTypeIdList) {
+				var queryDrug = {
+					"key": "",
+					"pageNo": pageNo,
+					"pageSize": pageSize,
+					"pruductTypeIdList": pruductTypeIdList
+				}
+				http.ajax({
+					url: 'product/drug_list',
+					type: 'POST',
+					json: true,
+					mask: true,
+					data: JSON.stringify(queryDrug)
+				}).then(function (data) {
+					var result = data;
+					if (data.code == 200) {
+						var data = data.data;
+						var getTpl = drugListTpl.innerHTML,
+							view = document.getElementById('viewList');
+						laytpl(getTpl).render(data, function (html) {
+							view.innerHTML = html;
+							if (result.login) {
+								$(".down span").hide()
+							} else {
+								$(".down i").hide()
+							}
+						});
+
+					}
+				}, function (err) {
+
+				})
+			};
+
+
+
+
 			//一级分类
 			stairList();
-			function stairList(){
-				document.getElementById("stair").innerHTML="";
+			function stairList() {
+				document.getElementById("stair").innerHTML = "";
 				http.ajax({
 					url: 'product/get_product_type_by_type',
 					type: 'GET',
 					json: false,
 					mask: true,
 					data: {
-						type:'drug',
+						type: 'drug',
 					}
-				}).then(function(data) {
-					if(data.code == 200) {
+				}).then(function (data) {
+					if (data.code == 200) {
 						var innerHtml = "";
 						for (var i = 0; i < data.data.items.length; i++) {
-							innerHtml +='<span id="'+data.data.items[i].id+'">'+data.data.items[i].name+'</span>'
+							innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
 						}
 						$("#stair").append(innerHtml);
-						$("#stair span").click(function(){
+						$("#stair span").click(function () {
+							//点击查询列表
 							var id = $(this).attr("id");
-							if($(this).hasClass("active")){
+							if ($(this).hasClass("active")) {
 								$(this).removeClass("active");
-								document.getElementById("secondLevel").innerHTML='';
+								document.getElementById("secondLevel").innerHTML = '';
 								$("#secondLevel").parent("li").hide();
-								document.getElementById("threeLevel").innerHTML='';
+								document.getElementById("threeLevel").innerHTML = '';
 								$("#threeLevel").parent("li").hide();
-							}else{
+
+								var queryDrug = {
+									"key": "",
+									"pageNo": "1",
+									"pageSize": "20",
+									"pruductTypeIdList": []
+								};
+								oneDrug_list(queryDrug, []);
+
+							} else {
 								$("#secondLevel").parent("li").show();
 								secondLevelList(id);
-								if($(this).parent().siblings().find(".multipleType").val() == 2){
+								if ($(this).parent().siblings().find(".multipleType").val() == 2) {
 									$(this).addClass("active");
-								}else{
+								} else {
 									$(this).addClass("active").siblings().removeClass("active");
-								}
-							}
+								};
+								var queryDrug = {
+									"key": "",
+									"pageNo": "1",
+									"pageSize": "20",
+									"pruductTypeIdList": [id]
+								};
+								oneDrug_list(queryDrug, [id]);
+							};
+
 						});
 					}
-				}, function(err) {
+				}, function (err) {
 
 				})
 			};
-			
-			
+
 			//二级分类
-			function secondLevelList(id){
-				document.getElementById("secondLevel").innerHTML='';
+			function secondLevelList(id) {
+				document.getElementById("secondLevel").innerHTML = '';
 				http.ajax({
 					url: 'product/get_product_type_by_parent_id',
 					type: 'GET',
 					json: false,
 					mask: true,
 					data: {
-						id:id,
+						id: id,
 					}
-				}).then(function(data) {
-					if(data.code == 200) {
+				}).then(function (data) {
+					if (data.code == 200) {
 						var innerHtml = "";
 						for (var i = 0; i < data.data.items.length; i++) {
-							innerHtml +='<span id="'+data.data.items[i].id+'">'+data.data.items[i].name+'</span>'
+							innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
 						}
 						$("#secondLevel").append(innerHtml);
-						$("#secondLevel span").click(function(){
+
+						$("#secondLevel span").click(function () {
 							var id = $(this).attr("id");
-							if($(this).hasClass("active")){
+							if ($(this).hasClass("active")) {
 								$(this).removeClass("active");
 								$("#threeLevel").parent("li").hide();
-								document.getElementById("threeLevel").innerHTML='';
-							}else{
+								document.getElementById("threeLevel").innerHTML = '';
+
+								var pruductTypeIdList = [];
+								for (var i = 0; i < $("#secondLevel .active").length; i++) {
+									pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
+								};
+							} else {
 								$("#threeLevel").parent("li").show();
 								threeLevelList(id);
-								if($(this).parent().siblings().find(".multipleType").val() == 2){
+								if ($(this).parent().siblings().find(".multipleType").val() == 2) {
 									$(this).addClass("active");
-								}else{
+									var pruductTypeIdList = [];
+									for (var i = 0; i < $("#secondLevel .active").length; i++) {
+										pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
+									};
+								} else {
 									$(this).addClass("active").siblings().removeClass("active");
-								}
-							}
+
+									var pruductTypeIdList = [];
+									for (var i = 0; i < $("#secondLevel .active").length; i++) {
+										pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
+									};
+								};
+							};
+
+							var queryDrug = {
+								"key": "",
+								"pageNo": "1",
+								"pageSize": "20",
+								"pruductTypeIdList": pruductTypeIdList
+							};
+							oneDrug_list(queryDrug, pruductTypeIdList);
 						});
 					}
-				}, function(err) {
+				}, function (err) {
 
 				})
 			};
-			
+
 			//三级分类
-			function threeLevelList(id){
-				document.getElementById("threeLevel").innerHTML='';
+			function threeLevelList(id) {
+				document.getElementById("threeLevel").innerHTML = '';
 				http.ajax({
 					url: 'product/get_product_type_by_parent_id',
 					type: 'GET',
 					json: false,
 					mask: true,
 					data: {
-						id:id,
+						id: id,
 					}
-				}).then(function(data) {
-					if(data.code == 200) {
+				}).then(function (data) {
+					if (data.code == 200) {
 						var innerHtml = "";
 						for (var i = 0; i < data.data.items.length; i++) {
-							innerHtml +='<span id="'+data.data.items[i].id+'">'+data.data.items[i].name+'</span>'
+							innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
 						}
 						$("#threeLevel").append(innerHtml);
-						$("#threeLevel span").click(function(){
+						$("#threeLevel span").click(function () {
 							var id = $(this).attr("id");
-							if($(this).hasClass("active")){
+							if ($(this).hasClass("active")) {
 								$(this).removeClass("active");
-							}else{
-								if($(this).parent().siblings().find(".multipleType").val() == 2){
+								var pruductTypeIdList = [];
+								for (var i = 0; i < $("#threeLevel .active").length; i++) {
+									pruductTypeIdList.push($("#threeLevel .active").eq(i).attr('id'))
+								};
+							} else {
+								if ($(this).parent().siblings().find(".multipleType").val() == 2) {
 									$(this).addClass("active");
-								}else{
+								} else {
 									$(this).addClass("active").siblings().removeClass("active");
 								}
-							}
+								var pruductTypeIdList = [];
+								for (var i = 0; i < $("#threeLevel .active").length; i++) {
+									pruductTypeIdList.push($("#threeLevel .active").eq(i).attr('id'))
+								};
+							};
+							var queryDrug = {
+								"key": "",
+								"pageNo": "1",
+								"pageSize": "20",
+								"pruductTypeIdList": pruductTypeIdList
+							};
+							oneDrug_list(queryDrug, pruductTypeIdList);
 						});
 					}
-				}, function(err) {
+				}, function (err) {
 
 				})
 			};
-		</script>
-	</body>
+
+		});
+	</script>
+</body>
 
 </html>

@@ -1,5 +1,5 @@
 var App = {
-	apiBasePath: "http://www.chenkaix.cn:8088/", 	//接口地址
+	apiBasePath: "http://okyc-business.utools.club/", 	//接口地址
 	rootPath: getRootPath() + "/YICAINet/",				//项目根目录地址
 	filePath: getRootPath(),									//附件地址
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
@@ -211,10 +211,10 @@ function get_user_info() {
 			sessionStorage.setItem("phone",data.data.phone);
 		}
 	}, function (err) {
-		if (err.status) {
+//		if (err.status) {
 			$(".topLoginBox").show().find("a").show();
 			$(".userTop").hide();
-		}
+//		}
 	})
 };
 
