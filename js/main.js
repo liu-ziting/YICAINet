@@ -176,6 +176,25 @@ $(".searchBox .toptab span").click(function () {
 	$(this).addClass("active").siblings().removeClass("active");
 });
 
+//处理返回的数据为null时候，设置为暂无
+function beNull(data) {
+	for (let x in data) {
+		if (data[x] === null) { // 如果是null 把直接内容转为 '暂无'
+		data[x] = '暂无';
+		} else {
+		if (Array.isArray(data[x])) { // 是数组遍历数组 递归继续处理
+			data[x] = data[x].map(z => {
+			return beNull(z);
+			});
+		}
+		if(typeof(data[x]) === 'object'){ // 是json 递归继续处理
+			data[x] = beNull(data[x])
+		}
+		}
+	}
+	return data;
+};
+
 //获取手机验证码
 function send_verify_code(phone,type) {
 	http.ajax({

@@ -72,7 +72,8 @@ button {
 .centered {
 	width: 1170px;
 	margin: 0 auto;
-	overflow: hidden
+	overflow: hidden;
+	min-height: 1000px;
 }
 .row {
 	padding: 0;
@@ -3071,4 +3072,5 @@ footer section span {
 	margin: 15px 0;
 	line-height: 29px;
 	padding-left: 25px;
+	filter: blur(5px);
 }

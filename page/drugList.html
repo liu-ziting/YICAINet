@@ -103,16 +103,16 @@
 		</div>
 		<div class="centreSearch">
 			<label>
-				<input type="text" placeholder="请输入关键词进行搜索" />
+				<input id="key" type="text" placeholder="请输入关键词进行搜索" />
 				<img class="search" src="../img/centreSearch.png" />
 			</label>
 			<div class="right">
-				<p>共<span>1578</span>个商品</p>
-				<div class="fy">
+				<p>共<span class="total">-</span>个商品</p>
+				<!-- <div class="fy">
 					<span><i class="layui-icon layui-icon-left"></i></span>
 					<span><b>1</b> / 234</span>
 					<span><i class="layui-icon layui-icon-right"></i></span>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<section class="drugListMain">
@@ -189,60 +189,23 @@
 			};
 		});
 
-		layui.use(['laypage', 'laytpl', 'layer'], function () {
-			var laypage = layui.laypage,
-				laytpl = layui.laytpl,
-				layer = layui.layer;
-			//下载中心分页
-			laypage.render({
-				elem: 'paging',
-				count: 100,
-				layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
-				jump: function (obj) {
-					console.log(obj)
-				}
-			});
 
-			//第一次加载列表，获取总数
+		//药品列表
+		var pageNo = 1;
+		var pageSize = 20;
+		oneDrug_list();
+		function oneDrug_list(pruductTypeIdList){
+			document.getElementById("viewList").innerHTML="";
 			var queryDrug = {
-				"key": "",
-				"pageNo": "1",
-				"pageSize": "20",
-				"pruductTypeIdList": []
-			}
-			oneDrug_list(queryDrug, []);
-			function oneDrug_list(queryDrug, pruductTypeIdList) {
-				http.ajax({
-					url: 'product/drug_list',
-					type: 'POST',
-					json: true,
-					mask: true,
-					data: JSON.stringify(queryDrug)
-				}).then(function (data) {
-					if (data.code == 200) {
-						//下载列表分页
-						laypage.render({
-							elem: 'paging',
-							count: data.data.total, //数据总数，从服务端得到
-							layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
-							jump: function (obj) {
-								drug_list(queryDrug, obj.curr, obj.limit, pruductTypeIdList)
-							}
-						});
-					}
-				}, function (err) {
-
-				})
+				"key": $("#key").val(),
+				"pageNo":pageNo,
+				"pageSize":pageSize,
+				"pruductTypeIdList": pruductTypeIdList
 			};
-
-			//获取药品列表
-			function drug_list(queryDrug, pageNo, pageSize, pruductTypeIdList) {
-				var queryDrug = {
-					"key": "",
-					"pageNo": pageNo,
-					"pageSize": pageSize,
-					"pruductTypeIdList": pruductTypeIdList
-				}
+			layui.use(['laypage', 'layer', 'laytpl'], function () {
+				var laypage = layui.laypage,
+					laytpl = layui.laytpl,
+					layer = layui.layer;
 				http.ajax({
 					url: 'product/drug_list',
 					type: 'POST',
@@ -251,8 +214,11 @@
 					data: JSON.stringify(queryDrug)
 				}).then(function (data) {
 					var result = data;
+					var totalList = data.data.total;
+					$(".total").text(totalList);
 					if (data.code == 200) {
-						var data = data.data;
+						// 数据渲染
+						var data = beNull(data.data);
 						var getTpl = drugListTpl.innerHTML,
 							view = document.getElementById('viewList');
 						laytpl(getTpl).render(data, function (html) {
@@ -263,192 +229,201 @@
 								$(".down i").hide()
 							}
 						});
-
-					}
-				}, function (err) {
-
-				})
-			};
-
-
-
-
-			//一级分类
-			stairList();
-			function stairList() {
-				document.getElementById("stair").innerHTML = "";
-				http.ajax({
-					url: 'product/get_product_type_by_type',
-					type: 'GET',
-					json: false,
-					mask: true,
-					data: {
-						type: 'drug',
-					}
-				}).then(function (data) {
-					if (data.code == 200) {
-						var innerHtml = "";
-						for (var i = 0; i < data.data.items.length; i++) {
-							innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
-						}
-						$("#stair").append(innerHtml);
-						$("#stair span").click(function () {
-							//点击查询列表
-							var id = $(this).attr("id");
-							if ($(this).hasClass("active")) {
-								$(this).removeClass("active");
-								document.getElementById("secondLevel").innerHTML = '';
-								$("#secondLevel").parent("li").hide();
-								document.getElementById("threeLevel").innerHTML = '';
-								$("#threeLevel").parent("li").hide();
-
-								var queryDrug = {
-									"key": "",
-									"pageNo": "1",
-									"pageSize": "20",
-									"pruductTypeIdList": []
-								};
-								oneDrug_list(queryDrug, []);
-
-							} else {
-								$("#secondLevel").parent("li").show();
-								secondLevelList(id);
-								if ($(this).parent().siblings().find(".multipleType").val() == 2) {
-									$(this).addClass("active");
-								} else {
-									$(this).addClass("active").siblings().removeClass("active");
-								};
-								var queryDrug = {
-									"key": "",
-									"pageNo": "1",
-									"pageSize": "20",
-									"pruductTypeIdList": [id]
-								};
-								oneDrug_list(queryDrug, [id]);
-							};
-
+						//分页
+						laypage.render({
+							elem: 'paging'
+							, curr: queryDrug.pageNo
+							, limit: queryDrug.pageSize
+							, count: totalList
+							, layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+							, jump: function (obj, first) { //触发分页后的回调
+								if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+									pageNo = obj.curr;
+									pageSize = obj.limit;
+									oneDrug_list(pruductTypeIdList);
+								}
+							}
 						});
+
 					}
 				}, function (err) {
 
 				})
-			};
+			});
+		};
 
-			//二级分类
-			function secondLevelList(id) {
-				document.getElementById("secondLevel").innerHTML = '';
-				http.ajax({
-					url: 'product/get_product_type_by_parent_id',
-					type: 'GET',
-					json: false,
-					mask: true,
-					data: {
-						id: id,
+
+		//点击搜索
+		$(".search").click(function () {
+			oneDrug_list();
+		});
+		$(document).keypress(function (e) {
+			if (e.keyCode == 13) {
+				oneDrug_list();
+			}
+		});
+
+		//一级分类
+		stairList();
+		function stairList() {
+			document.getElementById("stair").innerHTML = "";
+			http.ajax({
+				url: 'product/get_product_type_by_type',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					type: 'drug',
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					var innerHtml = "";
+					for (var i = 0; i < data.data.items.length; i++) {
+						innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
 					}
-				}).then(function (data) {
-					if (data.code == 200) {
-						var innerHtml = "";
-						for (var i = 0; i < data.data.items.length; i++) {
-							innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
-						}
-						$("#secondLevel").append(innerHtml);
+					$("#stair").append(innerHtml);
+					$("#stair span").click(function () {
+						$("#key").val("");
+						//点击查询列表
+						var id = $(this).attr("id");
+						if ($(this).hasClass("active")) {
+							$(this).removeClass("active");
+							document.getElementById("secondLevel").innerHTML = '';
+							$("#secondLevel").parent("li").hide();
+							document.getElementById("threeLevel").innerHTML = '';
+							$("#threeLevel").parent("li").hide();
 
-						$("#secondLevel span").click(function () {
-							var id = $(this).attr("id");
-							if ($(this).hasClass("active")) {
-								$(this).removeClass("active");
-								$("#threeLevel").parent("li").hide();
-								document.getElementById("threeLevel").innerHTML = '';
+							oneDrug_list([]);
 
+						} else {
+							$("#secondLevel").parent("li").show();
+							secondLevelList(id);
+							if ($(this).parent().siblings().find(".multipleType").val() == 2) {
+								$(this).addClass("active");
+							} else {
+								$(this).addClass("active").siblings().removeClass("active");
+							};
+	
+							oneDrug_list([id]);
+						};
+
+					});
+				}
+			}, function (err) {
+
+			})
+		};
+
+		//二级分类
+		function secondLevelList(id) {
+			document.getElementById("secondLevel").innerHTML = '';
+			http.ajax({
+				url: 'product/get_product_type_by_parent_id',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					id: id,
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					var innerHtml = "";
+					for (var i = 0; i < data.data.items.length; i++) {
+						innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
+					}
+					$("#secondLevel").append(innerHtml);
+
+					$("#secondLevel span").click(function () {
+						var id = $(this).attr("id");
+						$("#key").val("");
+						if ($(this).hasClass("active")) {
+							$(this).removeClass("active");
+							$("#threeLevel").parent("li").hide();
+							document.getElementById("threeLevel").innerHTML = '';
+
+							var pruductTypeIdList = [];
+							for (var i = 0; i < $("#secondLevel .active").length; i++) {
+								pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
+							};
+						} else {
+							$("#threeLevel").parent("li").show();
+							threeLevelList(id);
+							if ($(this).parent().siblings().find(".multipleType").val() == 2) {
+								$(this).addClass("active");
 								var pruductTypeIdList = [];
 								for (var i = 0; i < $("#secondLevel .active").length; i++) {
 									pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
 								};
 							} else {
-								$("#threeLevel").parent("li").show();
-								threeLevelList(id);
-								if ($(this).parent().siblings().find(".multipleType").val() == 2) {
-									$(this).addClass("active");
-									var pruductTypeIdList = [];
-									for (var i = 0; i < $("#secondLevel .active").length; i++) {
-										pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
-									};
-								} else {
-									$(this).addClass("active").siblings().removeClass("active");
+								$(this).addClass("active").siblings().removeClass("active");
 
-									var pruductTypeIdList = [];
-									for (var i = 0; i < $("#secondLevel .active").length; i++) {
-										pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
-									};
-								};
-							};
-
-							var queryDrug = {
-								"key": "",
-								"pageNo": "1",
-								"pageSize": "20",
-								"pruductTypeIdList": pruductTypeIdList
-							};
-							oneDrug_list(queryDrug, pruductTypeIdList);
-						});
-					}
-				}, function (err) {
-
-				})
-			};
-
-			//三级分类
-			function threeLevelList(id) {
-				document.getElementById("threeLevel").innerHTML = '';
-				http.ajax({
-					url: 'product/get_product_type_by_parent_id',
-					type: 'GET',
-					json: false,
-					mask: true,
-					data: {
-						id: id,
-					}
-				}).then(function (data) {
-					if (data.code == 200) {
-						var innerHtml = "";
-						for (var i = 0; i < data.data.items.length; i++) {
-							innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
-						}
-						$("#threeLevel").append(innerHtml);
-						$("#threeLevel span").click(function () {
-							var id = $(this).attr("id");
-							if ($(this).hasClass("active")) {
-								$(this).removeClass("active");
 								var pruductTypeIdList = [];
-								for (var i = 0; i < $("#threeLevel .active").length; i++) {
-									pruductTypeIdList.push($("#threeLevel .active").eq(i).attr('id'))
+								for (var i = 0; i < $("#secondLevel .active").length; i++) {
+									pruductTypeIdList.push($("#secondLevel .active").eq(i).attr('id'))
 								};
+							};
+						};
+
+						oneDrug_list(pruductTypeIdList);
+					});
+				}
+			}, function (err) {
+
+			})
+		};
+
+		//三级分类
+		function threeLevelList(id) {
+			document.getElementById("threeLevel").innerHTML = '';
+			http.ajax({
+				url: 'product/get_product_type_by_parent_id',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					id: id,
+				}
+			}).then(function (data) {
+				if(data.data.items == ""){
+					$("#threeLevel").html('<p style="line-height: 58px;margin-left: 20px;" >暂无</p>')
+					$("#threeLevel").siblings(".operation").hide();
+				}
+				if (data.code == 200) {
+					var innerHtml = "";
+					for (var i = 0; i < data.data.items.length; i++) {
+						innerHtml += '<span id="' + data.data.items[i].id + '">' + data.data.items[i].name + '</span>'
+					}
+					$("#threeLevel").append(innerHtml);
+					$("#threeLevel span").click(function () {
+						var id = $(this).attr("id");
+						$("#key").val("");
+						if ($(this).hasClass("active")) {
+							$(this).removeClass("active");
+							var pruductTypeIdList = [];
+							for (var i = 0; i < $("#threeLevel .active").length; i++) {
+								pruductTypeIdList.push($("#threeLevel .active").eq(i).attr('id'))
+							};
+						} else {
+							if ($(this).parent().siblings().find(".multipleType").val() == 2) {
+								$(this).addClass("active");
 							} else {
-								if ($(this).parent().siblings().find(".multipleType").val() == 2) {
-									$(this).addClass("active");
-								} else {
-									$(this).addClass("active").siblings().removeClass("active");
-								}
-								var pruductTypeIdList = [];
-								for (var i = 0; i < $("#threeLevel .active").length; i++) {
-									pruductTypeIdList.push($("#threeLevel .active").eq(i).attr('id'))
-								};
+								$(this).addClass("active").siblings().removeClass("active");
+							}
+							var pruductTypeIdList = [];
+							for (var i = 0; i < $("#threeLevel .active").length; i++) {
+								pruductTypeIdList.push($("#threeLevel .active").eq(i).attr('id'))
 							};
-							var queryDrug = {
-								"key": "",
-								"pageNo": "1",
-								"pageSize": "20",
-								"pruductTypeIdList": pruductTypeIdList
-							};
-							oneDrug_list(queryDrug, pruductTypeIdList);
-						});
-					}
-				}, function (err) {
+						};
 
-				})
-			};
+						oneDrug_list(pruductTypeIdList);
+					});
+				}
+			}, function (err) {
 
-		});
+			})
+		};
+
+
 	</script>
 </body>
 

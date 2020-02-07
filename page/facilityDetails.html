@@ -1,303 +1,275 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>医采网-设备信息</title>
-		<link rel="stylesheet" href="../layui/css/layui.css" />
-		<link rel="stylesheet" href="../css/index.css" />
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<title>医采网-设备信息</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
 
-	<body>
-		<!--头部-->
-		<header>
-			<div class="htop">
-				<div class="centered">
-					<div class="left">
-						<p>欢迎来到医采网！</p>
-						<img class="loginIcon" src="../img/user.png" />
-						<span class="topLoginBox">
-							<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-							<a class="register" href="register.html">免费注册</a>
-							<a class="userTop" href="user.html">个人中心</a>
-						</span>
-					</div>
-					<div class="right">
-						<img src="../img/iPhone.png" />
-						<p>免费咨询热线：0550-3022569</p>
-						<span>|</span>
-						<p onclick="addFavorite()">收藏 </p>
-						<span>|</span>
-						<p>帮助</p>
-					</div>
-				</div>
-			</div>
-			<div class="searchBox">
-				<div class="centered">
-					<a class="logo" href="../index.html">
-						<img src="../img/logo.png" />
-					</a>
-					<!--搜索-->
-					<div class="rightBox">
-						<div class="toptab">
-							<span class="active">查询药品</span>
-							<span>查询耗材</span>
-						</div>
-						<div class="search">
-							<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词" autocomplete="off" class="layui-input">
-							<span>
-								<img src="../img/ss.png" />
-							</span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!--导航-->
-			<nav>
-				<div class="centered">
-					<ul>
-						<li onclick="openUrl('../index.html')">首页</li>
-						<li onclick="openUrl('callForBids.html')">招标采购信息</li>
-						<li onclick="openUrl('drugList.html')">药品信息</li>
-						<li onclick="openUrl('materialsList.html')">耗材信息</li>
-						<li class="active" onclick="openUrl('facilityList.html')">设备信息</li>
-						<li onclick="openUrl('policy.html')">政策法规</li>
-						<li onclick="openUrl('download.html')">下载中心</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<div class="drugDetails centered">
-			<div class="topDetail">
+<body>
+	<!--头部-->
+	<header>
+		<div class="htop">
+			<div class="centered">
 				<div class="left">
-					<div class="wrap">
-						<div class="biger" id="biger"></div>
-						<div class="imgs">
-							<div class="main" id="main">
-								<div class="mask" id="mask"></div>
-							</div>
-							<p>*图片仅供参考，以实际标准为准</p>
-							<ul class="smaller" id="smaller"></ul>
-						</div>
-					</div>
+					<p>欢迎来到医采网！</p>
+					<img class="loginIcon" src="../img/user.png" />
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
 				</div>
 				<div class="right">
-					<h1>脑立清胶囊</h1>
-					<p>生产厂家：河北XXX制药有限公司</p>
-					<p>批准文号：Z23456243</p>
-					<p>批准号/序列号：23455</p>
-					<p>有限期至：2020年6月29</p>
-					<p>规格/型号：9g*10丸</p>
-					<p>中&nbsp;&nbsp;包&nbsp;&nbsp;装：1盒 不可拆零 （大包装一盒）</p>
-					<hr />
-					<p>采&nbsp;&nbsp;购&nbsp;&nbsp;价：<span></span><a href="login.html">登录可见</a></p>
-					<p>零&nbsp;&nbsp;售&nbsp;&nbsp;价：<span>￥890</span><i>(零售价仅供参考)</i></p>
-					<button onclick="openUrl('login.html')" type="button" class="layui-btn">
-					  <i class="layui-icon">&#xe66f;</i> 马上登录
-					</button>
+					<img src="../img/iPhone.png" />
+					<p>免费咨询热线：0550-3022569</p>
+					<span>|</span>
+					<p onclick="addFavorite()">收藏 </p>
+					<span>|</span>
+					<p>帮助</p>
 				</div>
 			</div>
-			<div class="drugMain">
-				<h1>药品<b>信息</b></h1>
-				<button onclick="openUrl('login.html')" type="button" class="layui-btn">
-				  登录查看完整信息<i class="layui-icon">&#xe62f;</i> 
-				</button>
-				<section>
+		</div>
+		<div class="searchBox">
+			<div class="centered">
+				<a class="logo" href="../index.html">
+					<img src="../img/logo.png" />
+				</a>
+				<!--搜索-->
+				<div class="rightBox">
+					<div class="toptab">
+						<span class="active">查询药品</span>
+						<span>查询耗材</span>
+					</div>
+					<div class="search">
+						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
+							autocomplete="off" class="layui-input">
+						<span>
+							<img src="../img/ss.png" />
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--导航-->
+		<nav>
+			<div class="centered">
+				<ul>
+					<li onclick="openUrl('../index.html')">首页</li>
+					<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+					<li onclick="openUrl('drugList.html')">药品信息</li>
+					<li onclick="openUrl('materialsList.html')">耗材信息</li>
+					<li class="active" onclick="openUrl('facilityList.html')">设备信息</li>
+					<li onclick="openUrl('policy.html')">政策法规</li>
+					<li onclick="openUrl('download.html')">下载中心</li>
+				</ul>
+			</div>
+		</nav>
+	</header>
+	<div id="viewDetails"></div>
+	<script id="drugDetailsTpl" type="text/html">
+	<div class="drugDetails centered">
+		<div class="topDetail">
+			<div class="left">
+				<div class="wrap">
+					<div class="biger" id="biger"></div>
+					<div class="imgs">
+						<div class="main" id="main">
+							<div class="mask" id="mask"></div>
+						</div>
+						<p>*图片仅供参考，以实际标准为准</p>
+						<ul class="smaller" id="smaller"></ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="right">
+					<h1>{{d.equipmentName}}</h1>
+					<p>设备型号：{{d.model}}</p>
+					<p>设备品牌：{{d.brand}}</p>
+					<hr />
+					<p>市场售价：<span>￥{{d.marketPrice}}</span><a href="login.html">登录可见</a></p>
+					<button onclick="openUrl('login.html')" type="button" class="layui-btn">
+					<i class="layui-icon">&#xe66f;</i> 马上登录
+					</button>
+			</div>
+		</div>
+		<div class="drugMain">
+			<h1>设备<b>信息</b></h1>
+			<button onclick="openUrl('login.html')" type="button" class="layui-btn">
+				登录查看完整信息<i class="layui-icon">&#xe62f;</i>
+			</button>
+			<section>
 				<div class="masking"></div>
 				<ul>
 					<li>
-						<p>通用名/化学名：</p>
-						<span>脑立清胶囊</span>
+						<p>设备名称：</p>
+						<span>{{d.equipmentName}}</span>
+					</li>
+					<li>
+						<p>品牌：</p>
+						<span>{{d.brand}}</span>
+					</li>
+					<li>
+						<p>型号：</p>
+						<span>{{d.model}}</span>
 					</li>
 					<li>
 						<p>生产厂家：</p>
-						<span>河北XXX制药有限公司</span>
-					</li>
-					<li>
-						<p>别名：</p>
-						<span>暂无</span>
+						<span>{{JSON.parse(d.manufacturer).name}}</span>
 					</li>
 					<li>
 						<p>生产地址：</p>
-						<span>浙江省杭州市XXXXXX</span>
+						<span>{{JSON.parse(d.manufacturer).address}}</span>
 					</li>
 					<li>
-						<p>基本单位：</p>
-						<span>盒</span>
-					</li>
-					<li>
-						<p>批准文号：</p>
-						<span>1213444234</span>
-					</li>
-					<li>
-						<p>规格/型号：</p>
-						<span>9g*10丸</span>
-					</li>
-					<li>
-						<p>产地：</p>
-						<span>国产</span>
-					</li>
-					<li>
-						<p>大包装数量：</p>
-						<span>1</span>
-					</li>
-					<li>
-						<p>生产日期：</p>
-						<span>2019-04-25</span>
-					</li>
-					<li>
-						<p>中包装数量：</p>
-						<span>2</span>
-					</li>
-					<li>
-						<p>有效期至：</p>
-						<span>2020-01-09</span>
-					</li>
-					<li>
-						<p>是否拆零销售：</p>
-						<span>否</span>
-					</li>
-					<li>
-						<p>一级分类：</p>
-						<span>中成药</span>
-					</li>
-					<li>
-						<p>类型：</p>
-						<span>处方药</span>
-					</li>
-					<li>
-						<p>二级分类：</p>
-						<span>心脑三高</span>
-					</li>
-					<li>
-						<p>剂型：</p>
-						<span>胶囊型</span>
+						<p>联系电话：</p>
+						<span>{{JSON.parse(d.manufacturer).tel}}</span>
 					</li>
 				</ul>
-				<h2>商品说明书</h2>
-				<ol>
-					<li>
-						<p>存储条件：</p>
-						<span>常温</span>
-					</li>
-					<li>
-						<p>适应症：</p>
-						<span>适应症适应症适应症适应症适应症适应症适应症</span>
-					</li>
-					<li>
-						<p>不良反映：</p>
-						<span>不良反映不良反映不良反映不良反映不良反映不良反映</span>
-					</li>
-					<li>
-						<p>存储注意事项：</p>
-						<span>存储注意事项存储注意事项存储注意事项</span>
-					</li>
-					<li>
-						<p>用法与用量：</p>
-						<span>用法与用量用法与用量</span>
-					</li>
-					<li>
-						<p>禁忌症：</p>
-						<span>禁忌症禁忌症禁忌症</span>
-					</li>
-					<li>
-						<p>保质期：</p>
-						<span>24个月</span>
-					</li>
-					<li>
-						<p>注意事项：</p>
-						<span>注意事项注意事项注意事项注意事项注意事项注意事项注意事项注意事项注意事项注意事项注意事项注意事项注意事项</span>
-					</li>
-				</ol>
-				</section>
-			</div>
+				<h2>主要参数</h2>
+				<p class="instructions">{{d.parameters}}</p>
+			</section>
 		</div>
-		
-		<div id="footer"></div>
-		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="../layui/layui.all.js"></script>
-		<script type="text/javascript" src="../js/main.js"></script>
-		<script>
-			window.onload=function(){
-			    var biger=document.getElementById('biger');
-			    var main=document.getElementById('main');
-			    var smaller=document.getElementById('smaller');
-			    var mask=document.getElementById('mask');
-			    var wrap=biger.parentNode;
-			    var imgArr=[
-			        {"path":"../img/temporary/duli.png"},
-			        {"path":"../img/temporary/dimg1.jpg"},
-			        {"path":"../img/temporary/dimg2.jpg"},
-			        {"path":"../img/temporary/dimg3.jpg"},
-			    ];
-			    var imgSum=imgArr.length;
-			    if(imgSum>5){
-			        imgSum=5;
-			    }
-			    for (var i=0;i<imgSum;i++) {
-			        var lis=document.createElement('li');
-			        var imgs=document.createElement('img');
-			        imgs.src=imgArr[i].path;
-			        lis.appendChild(imgs);
-			        smaller.appendChild(lis);
-			    }
-			    var mainImg=document.createElement('img');
-			    var bigImg=document.createElement('img');
-			    var liArr=smaller.children;
-			    bigImg.src=mainImg.src=liArr[0].children[0].src;
-			    main.insertBefore(mainImg,mask);
-			    biger.appendChild(bigImg);
-			    var bigPic=biger.children[0];
-			    liArr[0].className='current';
-			    for (var i=0;i<liArr.length;i++) {
-			        liArr[i].index=i;
-			        liArr[i].onclick=function(){
-			            this.className='current';
-			            bigPic.src=main.children[0].src=this.children[0].src;
-			            for (var j = 0; j < liArr.length; j++) {
-			                if(this!=liArr[j]){
-			                    liArr[j].removeAttribute('class');
-			                    liArr[j].removeAttribute('className');
-			                }
-			            }
-			        }
-			    }
-			    main.onmouseenter=function(){
-			        mask.style.display='block';
-			        biger.style.display='block';
-			    }
-			     main.onmouseleave=function(){
-			        mask.style.display='none';
-			        biger.style.display='none';
-			    }
-			    main.onmousemove=function(e){
-			        var e = e || window.event;
-			        var pagex=e.pageX || scroll().left+e.clientX;
-			        var pagey=e.pageY || scroll().top+e.clientY;
-			        pagex=pagex-wrap.offsetLeft-mask.offsetWidth/2;;
-			        pagey=pagey-wrap.offsetTop-mask.offsetHeight/2;
-			        if(pagex<0){
-			            pagex=0;
-			        }
-			        if(pagey<0){
-			            pagey=0;
-			        }
-			        if(pagex>main.offsetWidth-mask.offsetWidth){
-			            pagex=main.offsetWidth-mask.offsetWidth;
-			        }
-			         if(pagey>main.offsetHeight-mask.offsetHeight){
-			            pagey=main.offsetHeight-mask.offsetHeight;
-			        }
-			        mask.style.left=pagex+'px';
-			        mask.style.top=pagey+'px';
-			        var scale=(bigPic.offsetWidth-biger.offsetWidth)/(main.offsetWidth-mask.offsetWidth);
-			        var xx=pagex*scale;
-			        var yy=pagey*scale;
-			        bigPic.style.left=-xx+'px';
-			        bigPic.style.top=-yy+'px';
-			    }
+	</div>
+	</script>
+
+	<div id="footer"></div>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+		layui.use(['laytpl', 'layer'], function () {
+			var laytpl = layui.laytpl;
+			//获取设备详情
+			http.ajax({
+				url: 'product/equipment_detail',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					id: getQueryString("id")
+				}
+			}).then(function (data) {
+				var result = data;
+				if (data.code == 200) {
+					var data = beNull(data.data);
+					var getTpl = drugDetailsTpl.innerHTML
+						, view = document.getElementById('viewDetails');
+					laytpl(getTpl).render(data, function (html) {
+						console.log(data)
+						view.innerHTML = html;
+						if (result.login) {
+							$("#viewDetails a").hide();
+							$("button").hide();
+							$(".masking").hide();
+							$(".drugDetails .drugMain li").css("filter", "inherit");
+							$(".drugDetails .drugMain h2").css("filter", "inherit");
+							$(".drugDetails .instructions").css("filter", "inherit");
+						} else {
+							$("#viewDetails span").hide();
+						};
+
+						imgList();
+					});
+				}
+			}, function (err) {
+				console.log(err)
+				if (err.status == 403) {
+					layer.msg('登录已失效！', {
+						icon: 5
+					}, function () {
+						location.href = 'login.html';
+					});
+				}
+			});
+
+		});
+
+
+		function imgList() {
+			var biger = document.getElementById('biger');
+			var main = document.getElementById('main');
+			var smaller = document.getElementById('smaller');
+			var mask = document.getElementById('mask');
+			var wrap = biger.parentNode;
+			var imgArr = [
+				{ "path": "../img/temporary/duli.png" },
+				{ "path": "../img/temporary/dimg1.jpg" },
+				{ "path": "../img/temporary/dimg2.jpg" },
+				{ "path": "../img/temporary/dimg3.jpg" },
+			];
+			var imgSum = imgArr.length;
+			if (imgSum > 5) {
+				imgSum = 5;
 			}
-		</script>
-	</body>
+			for (var i = 0; i < imgSum; i++) {
+				var lis = document.createElement('li');
+				var imgs = document.createElement('img');
+				imgs.src = imgArr[i].path;
+				lis.appendChild(imgs);
+				smaller.appendChild(lis);
+			}
+			var mainImg = document.createElement('img');
+			var bigImg = document.createElement('img');
+			var liArr = smaller.children;
+			bigImg.src = mainImg.src = liArr[0].children[0].src;
+			main.insertBefore(mainImg, mask);
+			biger.appendChild(bigImg);
+			var bigPic = biger.children[0];
+			liArr[0].className = 'current';
+			for (var i = 0; i < liArr.length; i++) {
+				liArr[i].index = i;
+				liArr[i].onclick = function () {
+					this.className = 'current';
+					bigPic.src = main.children[0].src = this.children[0].src;
+					for (var j = 0; j < liArr.length; j++) {
+						if (this != liArr[j]) {
+							liArr[j].removeAttribute('class');
+							liArr[j].removeAttribute('className');
+						}
+					}
+				}
+			}
+			main.onmouseenter = function () {
+				mask.style.display = 'block';
+				biger.style.display = 'block';
+			}
+			main.onmouseleave = function () {
+				mask.style.display = 'none';
+				biger.style.display = 'none';
+			}
+			main.onmousemove = function (e) {
+				var e = e || window.event;
+				var pagex = e.pageX || scroll().left + e.clientX;
+				var pagey = e.pageY || scroll().top + e.clientY;
+				pagex = pagex - wrap.offsetLeft - mask.offsetWidth / 2;;
+				pagey = pagey - wrap.offsetTop - mask.offsetHeight / 2;
+				if (pagex < 0) {
+					pagex = 0;
+				}
+				if (pagey < 0) {
+					pagey = 0;
+				}
+				if (pagex > main.offsetWidth - mask.offsetWidth) {
+					pagex = main.offsetWidth - mask.offsetWidth;
+				}
+				if (pagey > main.offsetHeight - mask.offsetHeight) {
+					pagey = main.offsetHeight - mask.offsetHeight;
+				}
+				mask.style.left = pagex + 'px';
+				mask.style.top = pagey + 'px';
+				var scale = (bigPic.offsetWidth - biger.offsetWidth) / (main.offsetWidth - mask.offsetWidth);
+				var xx = pagex * scale;
+				var yy = pagey * scale;
+				bigPic.style.left = -xx + 'px';
+				bigPic.style.top = -yy + 'px';
+			}
+		}
+
+	</script>
+</body>
 
 </html>

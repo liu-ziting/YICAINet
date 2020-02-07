@@ -112,14 +112,12 @@
 				<div class="masking"></div>
 				<ul>
 					<li>
-						<p>医保支付价格：</p>
-						<span>{{d.healthInsurancePrice}}</span>
-					</li>
-				</ul>
-				<ul>
-					<li>
 						<p>通用名/化学名：</p>
 						<span>{{d.commonName}}</span>
+					</li>
+					<li>
+						<p>医保支付价格：</p>
+						<span>{{d.healthInsurancePrice}}</span>
 					</li>
 					<li>
 						<p>生产厂家：</p>
@@ -176,10 +174,11 @@
 			}).then(function (data) {
 				var result = data;
 				if (data.code == 200) {
-					var data = data.data
+					var data = beNull(data.data);
 					var getTpl = drugDetailsTpl.innerHTML
 						, view = document.getElementById('viewDetails');
 					laytpl(getTpl).render(data, function (html) {
+						console.log(data)
 						view.innerHTML = html;
 						if (result.login) {
 							$("#viewDetails a").hide();
@@ -187,6 +186,7 @@
 							$(".masking").hide();
 							$(".drugDetails .drugMain li").css("filter", "inherit");
 							$(".drugDetails .drugMain h2").css("filter", "inherit");
+							$(".drugDetails .instructions").css("filter", "inherit");
 						} else {
 							$("#viewDetails span").hide();
 						};
@@ -206,6 +206,7 @@
 			});
 
 		});
+
 
 		function imgList() {
 			var biger = document.getElementById('biger');
