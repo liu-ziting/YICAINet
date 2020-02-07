@@ -321,4 +321,29 @@ function logout(){
 	}, function(err) {
 		
 	})
-}
+};
+
+//友情链接
+friendLinkList();
+function friendLinkList(){
+	http.ajax({
+		url: 'friend_link/list',
+		type: 'GET',
+		json: false,
+		mask: true,
+		data: {
+			pageNo:'1',
+			pageSize:'7'
+		}
+	}).then(function(data) {
+		if(data.code == 200) {
+			var innerHTML = ""
+			for (var i = 0; i < data.data.items.length; i++) {
+				innerHTML +='<a target="_blank" href="'+data.data.items[i].url+'">'+data.data.items[i].webName+'</a>';
+			};
+			$("#linkList").append(innerHTML);
+		}
+	}, function(err) {
+		
+	})
+};
