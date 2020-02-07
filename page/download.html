@@ -1,77 +1,78 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="UTF-8">
-		<title>医采网-下载中心</title>
-		<link rel="stylesheet" href="../layui/css/layui.css" />
-		<link rel="stylesheet" href="../css/index.css" />
-	</head>
+<head>
+	<meta charset="UTF-8">
+	<title>医采网-下载中心</title>
+	<link rel="stylesheet" href="../layui/css/layui.css" />
+	<link rel="stylesheet" href="../css/index.css" />
+</head>
 
-	<body>
-		<!--头部-->
-		<header>
-			<div class="htop">
-				<div class="centered">
-					<div class="left">
-						<p>欢迎来到医采网！</p>
-						<img class="loginIcon" src="../img/user.png" />
-						<span class="topLoginBox">
-							<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
-							<a class="register" href="register.html">免费注册</a>
-							<a class="userTop" href="user.html">个人中心</a>
+<body>
+	<!--头部-->
+	<header>
+		<div class="htop">
+			<div class="centered">
+				<div class="left">
+					<p>欢迎来到医采网！</p>
+					<img class="loginIcon" src="../img/user.png" />
+					<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
+				</div>
+				<div class="right">
+					<img src="../img/iPhone.png" />
+					<p>免费咨询热线：0550-3022569</p>
+					<span>|</span>
+					<p onclick="addFavorite()">收藏 </p>
+					<span>|</span>
+					<p>帮助</p>
+				</div>
+			</div>
+		</div>
+		<div class="searchBox">
+			<div class="centered">
+				<a class="logo" href="../index.html">
+					<img src="../img/logo.png" />
+				</a>
+				<!--搜索-->
+				<div class="rightBox">
+					<div class="toptab">
+						<span class="active">查询药品</span>
+						<span>查询耗材</span>
+					</div>
+					<div class="search">
+						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
+							autocomplete="off" class="layui-input">
+						<span>
+							<img src="../img/ss.png" />
 						</span>
 					</div>
-					<div class="right">
-						<img src="../img/iPhone.png" />
-						<p>免费咨询热线：0550-3022569</p>
-						<span>|</span>
-						<p onclick="addFavorite()">收藏 </p>
-						<span>|</span>
-						<p>帮助</p>
-					</div>
 				</div>
 			</div>
-			<div class="searchBox">
-				<div class="centered">
-					<a class="logo" href="../index.html">
-						<img src="../img/logo.png" />
-					</a>
-					<!--搜索-->
-					<div class="rightBox">
-						<div class="toptab">
-							<span class="active">查询药品</span>
-							<span>查询耗材</span>
-						</div>
-						<div class="search">
-							<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词" autocomplete="off" class="layui-input">
-							<span>
-								<img src="../img/ss.png" />
-							</span>
-						</div>
-					</div>
-				</div>
+		</div>
+		<!--导航-->
+		<nav>
+			<div class="centered">
+				<ul>
+					<li onclick="openUrl('../index.html')">首页</li>
+					<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+					<li onclick="openUrl('drugList.html')">药品信息</li>
+					<li onclick="openUrl('materialsList.html')">耗材信息</li>
+					<li onclick="openUrl('facilityList.html')">设备信息</li>
+					<li onclick="openUrl('policy.html')">政策法规</li>
+					<li class="active" onclick="openUrl('download.html')">下载中心</li>
+				</ul>
 			</div>
-			<!--导航-->
-			<nav>
-				<div class="centered">
-					<ul>
-						<li onclick="openUrl('../index.html')">首页</li>
-						<li onclick="openUrl('callForBids.html')">招标采购信息</li>
-						<li onclick="openUrl('drugList.html')">药品信息</li>
-						<li onclick="openUrl('materialsList.html')">耗材信息</li>
-						<li onclick="openUrl('facilityList.html')">设备信息</li>
-						<li onclick="openUrl('policy.html')">政策法规</li>
-						<li class="active" onclick="openUrl('download.html')">下载中心</li>
-					</ul>
-				</div>
-			</nav>
-		</header>
-		<div class="download centered">
-			<div class="left">
-				<h1>下载中心</h1>
-				<div id="viewLeft"></div>
-				<script id="downloadLeftTpl" type="text/html">
+		</nav>
+	</header>
+	<div class="download centered">
+		<div class="left">
+			<h1>下载中心</h1>
+			<div id="viewLeft"></div>
+			<script id="downloadLeftTpl" type="text/html">
 					<ul class="leftTab">
 						{{# layui.each(d.items, function(index, item){ }}
 						<li>
@@ -81,68 +82,68 @@
 						{{# }); }}
 					</ul>
 				</script>
-				<!--广告位-->
-				<div class="advertising">
-					<a href="#">
-						<img src="../img/gg.png" />
-					</a>
-				</div>
-				<!--采购活动-->
-				<div class="cgactivity">
-					<h1 class="title">采购<b>活动</b></h1>
-					<ul>
-						<li>
-							<span>01</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>02</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>03</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>04</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>05</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>06</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>07</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>08</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>09</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-						<li>
-							<span>10</span>
-							<p>滁州一男子居然做出这种事情</p>
-						</li>
-					</ul>
-				</div>
+			<!--广告位-->
+			<div class="advertising">
+				<a href="#">
+					<img src="../img/gg.png" />
+				</a>
 			</div>
-			<div class="right">
-				<h1>
-					<b>药品招标相关文件</b>
-					<p>当前位置：<a href="download.html">下载中心</a> >> <a class="crumbs" href="#">药品招标相关文件</a></p>
-				</h1>
-				<div class="rightList">
-					<ul>
-						<div id="viewRight"></div>
-						<script id="downloadRightTpl" type="text/html">
+			<!--采购活动-->
+			<div class="cgactivity">
+				<h1 class="title">采购<b>活动</b></h1>
+				<ul>
+					<li>
+						<span>01</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>02</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>03</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>04</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>05</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>06</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>07</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>08</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>09</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+					<li>
+						<span>10</span>
+						<p>滁州一男子居然做出这种事情</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="right">
+			<h1>
+				<b>药品招标相关文件</b>
+				<p>当前位置：<a href="download.html">下载中心</a> >> <a class="crumbs" href="#">药品招标相关文件</a></p>
+			</h1>
+			<div class="rightList">
+				<ul>
+					<div id="viewRight"></div>
+					<script id="downloadRightTpl" type="text/html">
 						{{# layui.each(d.items, function(index, item){ }}
 						<li>
 							<h2>{{item.title}}<span class="dlBox">下载<input type="hidden" class="id" value="{{item.id}}" /></span></h2>
@@ -154,121 +155,120 @@
 						</li>
 						{{# } }}
 						</script>
-					</ul>
-					<!--分页-->
-					<div id="paging" class="paging"></div>
-				</div>
+				</ul>
+				<!--分页-->
+				<div id="paging" class="paging"></div>
 			</div>
 		</div>
-		<div id="footer"></div>
-		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="../layui/layui.all.js"></script>
-		<script type="text/javascript" src="../js/main.js"></script>
-		<script>
-			layui.use(['laypage', 'layer', 'laytpl'], function() {
-				var laypage = layui.laypage,
-					laytpl = layui.laytpl,
-					layer = layui.layer;
-			
-				//获取下载中心左侧类型
-				http.ajax({
-					url: 'news/news_class_list',
-					type: 'GET',
-					json: false,
-					mask: false,
-					data: {
-						type: "下载中心"
-					}
-				}).then(function(data) {
-					if(data.code == 200) {
-						var data = data.data;
-						var getTpl = downloadLeftTpl.innerHTML,
-							view = document.getElementById('viewLeft');
-						laytpl(getTpl).render(data, function(html) {
-							view.innerHTML = html;
-						});
-						$(".leftTab li:nth-child(1)").addClass("active");
-						$(".right h1 b").text(data.items[0].name);
-						//下载中心左侧选项卡切换
-						$(".leftTab li").click(function(){
-							var leftText = $(this).find("p").text();
-							$(".crumbs").text(leftText.slice(0, leftText.length - 2));
-							$(".right h1 b").text(leftText.slice(0, leftText.length - 2));
-							$(this).addClass("active").siblings().removeClass("active");
-							var typeId = $(this).find(".id").val();
-							oneGetList(typeId)
-						});
-						
-						//通过类型获取右侧列表
-						var typeId = data.items[0].id;
-						oneGetList(typeId)
-					}
-				}, function(err) {});
-				
-				//第一次加载列表，获取总数
-				function oneGetList(typeId){
+	</div>
+	<div id="footer"></div>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+		layui.use(['laypage', 'layer', 'laytpl'], function () {
+			var laypage = layui.laypage,
+				laytpl = layui.laytpl,
+				layer = layui.layer;
+
+			//获取下载中心左侧类型
+			http.ajax({
+				url: 'news/news_class_list',
+				type: 'GET',
+				json: false,
+				mask: false,
+				data: {
+					type: "下载中心"
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					var data = data.data;
+					var getTpl = downloadLeftTpl.innerHTML,
+						view = document.getElementById('viewLeft');
+					laytpl(getTpl).render(data, function (html) {
+						view.innerHTML = html;
+					});
+					$(".leftTab li:nth-child(1)").addClass("active");
+					$(".right h1 b").text(data.items[0].name);
+					//下载中心左侧选项卡切换
+					$(".leftTab li").click(function () {
+						var leftText = $(this).find("p").text();
+						$(".crumbs").text(leftText.slice(0, leftText.length - 2));
+						$(".right h1 b").text(leftText.slice(0, leftText.length - 2));
+						$(this).addClass("active").siblings().removeClass("active");
+						var typeId = $(this).find(".id").val();
+						get_resource_list_by_type_id(typeId);
+					});
+
+					//通过类型获取右侧列表
+					var typeId = data.items[0].id;
+					get_resource_list_by_type_id(typeId);
+				}
+			}, function (err) { });
+
+
+			//药品列表
+			var pageNo = 1;
+			var pageSize = 20;
+			function get_resource_list_by_type_id(typeId) {
+				document.getElementById("viewRight").innerHTML = "";
+				layui.use(['laypage', 'layer', 'laytpl'], function () {
+					var laypage = layui.laypage,
+						laytpl = layui.laytpl,
+						layer = layui.layer;
 					http.ajax({
 						url: 'resource/get_resource_list_by_type_id',
 						type: 'GET',
 						json: false,
 						mask: false,
 						data: {
-							typeId:typeId,
-							pageNo: 1,
-							pageSize: 1
-						}
-					}).then(function(data) {
-						if(data.code == 200) {
-							//下载列表分页
-							laypage.render({
-								elem: 'paging',
-								count: data.data.total, //数据总数，从服务端得到
-								layout: ['count', 'prev', 'page', 'next', 'limit', 'skip'],
-								jump: function(obj) {
-									getlistbytypeid(typeId,obj.curr,obj.limit)
-								}
-							});
-						}
-					}, function(err) {
-						
-					})
-				}
-				
-				//根据类别id获取下载内容列表
-				function getlistbytypeid(typeId,pageNo,pageSize){
-					http.ajax({
-						url: 'resource/get_resource_list_by_type_id',
-						type: 'GET',
-						json: false,
-						mask: true,
-						data: {
-							typeId:typeId,
+							typeId: typeId,
 							pageNo: pageNo,
 							pageSize: pageSize
 						}
-					}).then(function(data) {
-						if(data.code == 200) {
+					}).then(function (data) {
+						var result = data;
+						var totalList = data.data.total;
+						$(".total").text(totalList);
+						if (data.code == 200) {
+							// 数据渲染
 							var data = data.data;
 							var getTpl = downloadRightTpl.innerHTML,
 								view = document.getElementById('viewRight');
-							laytpl(getTpl).render(data, function(html) {
+							laytpl(getTpl).render(data, function (html) {
 								view.innerHTML = html;
 							});
 							//点击下载
-							$(".rightList li .dlBox").click(function(){
+							$(".rightList li .dlBox").click(function () {
 								var typeId = $(this).find(".id").val();
 								download(typeId);
 							})
+							//分页
+							laypage.render({
+								elem: 'paging'
+								, curr: pageNo
+								, limit: pageSize
+								, count: totalList
+								, layout: ['count', 'prev', 'page', 'next', 'limit', 'skip']
+								, jump: function (obj, first) { //触发分页后的回调
+									if (!first) { //点击跳页触发函数自身，并传递当前页：obj.curr
+										pageNo = obj.curr;
+										pageSize = obj.limit;
+										get_resource_list_by_type_id(typeId);
+									}
+								}
+							});
+
 						}
-					}, function(err) {
+					}, function (err) {
 
 					})
-				};
-				
+				});
+			};
 
-			});
+		});
 
-		</script>
-	</body>
+	</script>
+</body>
 
 </html>
