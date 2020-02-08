@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>医采网-招标信息</title>
+	<title>医采网-招标采购信息</title>
 	<link rel="stylesheet" href="../layui/css/layui.css" />
 	<link rel="stylesheet" href="../css/index.css" />
 </head>
@@ -75,10 +75,24 @@
 			<script id="downloadLeftTpl" type="text/html">
 					<ul class="leftTab">
 						{{# layui.each(d.items, function(index, item){ }}
-						<li>
-							<input type="hidden" class="id" value="{{item.id}}" />
-							<p>{{item.name}}<span>>></span></p>
-						</li>
+
+						{{#  
+						var fn = function(){
+							var typeIdUrl = getQueryString("typeId");
+							return typeIdUrl;
+						}; 
+						}}
+						   
+						  {{#  if(fn() == item.id ){ }}
+							 <li class="active">
+							
+						  {{#  } else { }}
+						  <li>
+							
+						  {{#  } }}    
+						  <input type="hidden" class="id" value="{{item.id}}" />
+						  <p>{{item.name}}<span>>></span></p>
+						  </li>
 						{{# }); }}
 					</ul>
 				</script>
@@ -128,7 +142,7 @@
 			<div class="cgNewBox">
 				<h1>
 					<b>采购公告</b>
-					<p>当前位置：<a href="policy.html">招标信息</a> >> <a class="crumbs" href="javascript:;">采购公告</a></p>
+					<p>当前位置：<a href="policy.html">招标信息</a> >> <a class="crumbs" href="javascript:;">招标采购公告</a></p>
 				</h1>
 				<div class="policyList">
 					<ul>
@@ -138,19 +152,33 @@
 							<li>
 								<h3>{{item.title}}
 									 
-									{{#  if(item.purchaseStatus == '正在报名'){ }}
-									<em style="color: #DC824D;">【正在报名】</em>
+									{{#  if(item.purchaseStatus == '' ||item.purchaseStatus == null){ }}
+									{{#  if(item.questionType == '更正公告'){ }}
+									<em style="color: #DC824D;">【{{item.questionType}}】</em> 
+									{{#  } }} 
+									{{#  if(item.questionType == '澄清及答复公告'){ }}
+									<em style="color: #F13333;">【{{item.questionType}}】</em> 
+									{{#  } }} 
 									{{#  } else { }}
-									<em style="color: #D43B4A;">【报名结束】</em>
-									{{#  } }}   	
+									{{#  if(item.purchaseStatus == '正在报名'){ }}
+									<em style="color: #DC824D;">【{{item.purchaseStatus}}】</em> 
+									{{#  } }} 
+									{{#  if(item.purchaseStatus == '报名结束'){ }}
+									<em style="color: #F13333;">【{{item.purchaseStatus}}】</em> 
+									{{#  } }} 
+									{{#  } }}  
 									<span  id="{{item.id}}">查看详情</span>
 								</h3>
 								<time>
 									发布：{{item.createDate}}&nbsp;&nbsp;&nbsp;
+									{{#  if(item.purchaseStatus == '' ||item.purchaseStatus == null){ }}
+									{{#  } else { }}
 									截止：{{item.endTime}}&nbsp;&nbsp;&nbsp;
 									开标：{{item.openTime}}
+									{{#  } }}  
+									
 								</time>
-								<p>{{item.content}}</p>
+								<p>{{item.remark}}</p>
 								<a href="#"><img style="right: 80px;" src="../img/fc.png"/></a>
 								<i><img style="right: 80px;" src="../img/ll.png" /><em>{{item.hitCount}}</em></i>
 							</li>
@@ -210,11 +238,17 @@
 					laytpl(getTpl).render(data, function (html) {
 						view.innerHTML = html;
 					});
-					$(".leftTab li:nth-child(1)").addClass("active");
-					$(".right h1 b").text(data.items[0].name);
+					var typeIdUrl = getQueryString("typeId");
+					if(!typeIdUrl){
+						$(".leftTab li:nth-child(1)").addClass("active");
+						$(".right h1 b").text(data.items[0].name);
+					}else{
+						var leftText = $(".leftTab .active p").text()
+						$(".right h1 b").text(leftText.slice(0, leftText.length - 2));
+						$(".crumbs").text(leftText.slice(0, leftText.length - 2));
+					};
 					//下载中心左侧选项卡切换
 					$(".leftTab li").click(function () {
-
 						$("#purchaseStatus").val(""),//招标信息状态
 							$("#openTime").val(""),//开标时间
 							$("#endTime").val(""),//截至时间
@@ -235,11 +269,7 @@
 					get_news_list_by_type_id(typeId)
 				}
 			}, function (err) { });
-
-
 		});
-
-
 		//招标采购信息列表
 		var pageNo = 1;
 		var pageSize = 20;
@@ -319,15 +349,16 @@
 
 		// 其他页面跳转到详情
 		var purchaseId = getQueryString("purchaseId");
-		if(purchaseId){
+		if (purchaseId) {
 			var id = purchaseId;
 			$(".policyList").hide();
 			localStorage.setItem("detailsId", id);
-			$("#details").show().load("details.html", function() {
+			$("#details").show().load("details.html", function () {
 				$(".policyList").hide();
 				$("#details").show();
 			});
 		}
+
 	</script>
 </body>
 

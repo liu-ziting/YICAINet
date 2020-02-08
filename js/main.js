@@ -175,6 +175,22 @@ $("#footer").load("../page/footer.html");
 $(".searchBox .toptab span").click(function () {
 	$(this).addClass("active").siblings().removeClass("active");
 });
+// 点击头部搜索
+$(".searchBox .search span").click(function () {
+	var key = $(".searchBox .search input").val();
+	if(key){
+		if($(".searchBox .toptab .active").index() == 0){
+			openUrl('drugList.html?key='+encodeURI(encodeURI(key))+'')
+		}else{
+			openUrl('materialsList.html?key='+encodeURI(encodeURI(key))+'')
+		}
+	}else{
+		layer.msg('请先输入关键词！', {
+			icon: 5
+		});
+	}
+	
+})
 
 //表单重新渲染
 function renderForm() {
@@ -427,3 +443,4 @@ function biddingAcAtivities(){
 		
 	})
 };
+

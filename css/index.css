@@ -246,7 +246,7 @@ header .rightBox .search input {
 	background-color: inherit;
 	border: none;
 	float: left;
-	width: 200px;
+	width: 300px;
 	height: 36px;
 }
 
@@ -535,6 +535,11 @@ header nav ul .active {
 	float: left;
 	margin-right: 15px;
 	color: #333333;
+	-webkit-line-clamp: 1;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+	overflow: hidden;
+	width: 450px;
 }
 .main .purchaseBox li time{
 	float: right;
@@ -543,6 +548,9 @@ header nav ul .active {
 }
 .main .purchaseBox li time i{
 	margin-left: 36px;
+}
+.main .purchaseBox li time i:first-child{
+	margin-left: 0;
 }
 .main .purchaseBox li time img{
 	display: block;
@@ -899,6 +907,10 @@ header nav ul .active {
 	text-indent: 2em;
 	line-height: 25px;
 	margin-bottom: 8px;
+	-webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .main .policy .left time {

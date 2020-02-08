@@ -189,6 +189,12 @@
 			};
 		});
 
+		// 头部搜索
+		var key = getQueryString("key");
+		if(key){
+			$("#key").val(decodeURI(decodeURI(key)));
+			oneDrug_list();
+		}
 
 		//药品列表
 		var pageNo = 1;
@@ -254,7 +260,7 @@
 
 
 		//点击搜索
-		$(".search").click(function () {
+		$(".centreSearch .search").click(function () {
 			oneDrug_list();
 		});
 		$(document).keypress(function (e) {
@@ -422,6 +428,7 @@
 
 			})
 		};
+		
 
 
 	</script>

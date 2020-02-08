@@ -115,7 +115,7 @@
 							</div>
 							<h3>{{item.title}}<span id="{{item.id}}">查看详情</span></h3>
 							<time>{{item.createDate}}</time>
-							<p>{{item.content}}</p>
+							<p>{{item.remark}}</p>
 							<a href="#"><img src="../img/fc.png"/></a>
 						</li>
 						{{# }); }} {{# if(d.items.length === 0){ }}
@@ -189,7 +189,7 @@
 
 		//政策法规列表
 		var pageNo = 1;
-		var pageSize = 20;
+		var pageSize = 10;
 		function get_news_list_by_type_id(typeId) {
 			document.getElementById("viewRight").innerHTML = "";
 			layui.use(['laypage', 'layer', 'laytpl'], function () {
@@ -256,6 +256,17 @@
 			});
 		};
 
+		// 其他页面跳转到详情
+		var policyId = getQueryString("policyId");
+		if(policyId){
+			var id = policyId;
+			$(".policyList").hide();
+			localStorage.setItem("detailsId", id);
+			$("#details").show().load("details.html", function() {
+				$(".policyList").hide();
+				$("#details").show();
+			});
+		}
 	</script>
 </body>
 
