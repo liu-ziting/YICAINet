@@ -146,7 +146,7 @@
 				, layer = layui.layer
 			//监听提交
 			form.on('submit(register)', function (data) {
-				var phone = sessionStorage.getItem("phone");
+				var phone = localStorage.getItem("phone");
 				var yphone = $(".yphone").val();
 				var xphone = $(".xphone").val();
 				if(phone == yphone){

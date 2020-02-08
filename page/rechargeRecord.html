@@ -173,11 +173,6 @@
 						laytpl(getTpl).render(data, function (html) {
 							view.innerHTML = html;
 						});
-						//点击下载
-						$(".rightList li .dlBox").click(function () {
-							var typeId = $(this).find(".id").val();
-							download(typeId);
-						})
 						//分页
 						laypage.render({
 							elem: 'paging'

@@ -113,7 +113,7 @@
 							<ul>
 								{{# layui.each(d.items, function(index, item){ }}
 								<li>
-									<h3>{{item.title}}<span onclick="openDetails({{item.id}})">查看详情</span></h3>
+									<h3>{{item.title}}<span  id="{{item.id}}">查看详情</span></h3>
 									<time>{{item.createDate}}</time>
 									<p>{{item.content}}</p>
 									<a href="#"><img style="right: 80px;" src="../img/fc.png" /></a>
@@ -170,11 +170,6 @@
 						laytpl(getTpl).render(data, function (html) {
 							view.innerHTML = html;
 						});
-						//点击下载
-						$(".rightList li .dlBox").click(function () {
-							var typeId = $(this).find(".id").val();
-							download(typeId);
-						})
 						//分页
 						laypage.render({
 							elem: 'paging'
@@ -190,6 +185,16 @@
 								}
 							}
 						});
+						//点击查看详情
+						$("li h3 span").click(function(){
+							var id = $(this).attr("id");
+							$(".policyList").hide();
+							localStorage.setItem("detailsId", id);
+							$("#details").show().load("details.html", function() {
+								$(".policyList").hide();
+								$("#details").show();
+							});
+						});
 
 					}
 				}, function (err) {
@@ -199,13 +204,6 @@
 		};
 
 
-		//点击查看详情
-		function openDetails(id) {
-			localStorage.setItem("detailsId", id);
-			$("#details").show().load("details.html", function () {
-				$(".policyList").hide();
-			});
-		}
 	</script>
 </body>
 

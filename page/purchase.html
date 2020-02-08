@@ -91,47 +91,7 @@
 			<!--采购活动-->
 			<div class="cgactivity">
 				<h1 class="title">招标<b>信息</b></h1>
-				<ul>
-					<li>
-						<span>01</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>02</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>03</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>04</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>05</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>06</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>07</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>08</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>09</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
-					<li>
-						<span>10</span>
-						<p>2019习近平地方考察的温情瞬间字述2019</p>
-					</li>
+				<ul id="rchasingActivitiesList">
 				</ul>
 			</div>
 		</div>
@@ -149,7 +109,7 @@
 							<div class="imgbox">
 								<img src="../img/temporary/zcfg.png" />	
 							</div>
-							<h3>{{item.title}}<span onclick="openDetails({{item.id}})">查看详情</span></h3>
+							<h3>{{item.title}}<span id="{{item.id}}">查看详情</span></h3>
 							<time>{{item.createDate}}</time>
 							<p>{{item.content}}</p>
 							<a href="#"><img src="../img/fc.png"/></a>
@@ -173,7 +133,9 @@
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
-
+		//招标活动
+		biddingAcAtivities();
+		
 		layui.use(['laypage', 'layer', 'laytpl'], function () {
 			var laypage = layui.laypage,
 				laytpl = layui.laytpl,
@@ -235,7 +197,11 @@
 					data: {
 						typeId: typeId,
 						pageNo: pageNo,
-						pageSize: pageSize
+						pageSize: pageSize,
+						purchaseStatus:"",
+						openTime:"",
+						endTime:"",
+						searchkey:""
 					}
 				}).then(function (data) {
 					var result = data;
@@ -249,11 +215,6 @@
 						laytpl(getTpl).render(data, function (html) {
 							view.innerHTML = html;
 						});
-						//点击下载
-						$(".rightList li .dlBox").click(function () {
-							var typeId = $(this).find(".id").val();
-							download(typeId);
-						})
 						//分页
 						laypage.render({
 							elem: 'paging'
@@ -270,6 +231,18 @@
 							}
 						});
 
+						//点击查看详情
+						$("li h3 span").click(function(){
+							var id = $(this).attr("id");
+							$(".policyList").hide();
+							localStorage.setItem("detailsId", id);
+							$("#details").show().load("details.html", function() {
+								$(".policyList").hide();
+								$("#details").show();
+							});
+						});
+						
+
 					}
 				}, function (err) {
 
@@ -277,12 +250,13 @@
 			});
 		};
 
-
-		//点击查看详情
-		function openDetails(id) {
+		// 其他页面跳转到详情
+		var purchaseId = getQueryString("purchaseId");
+		if(purchaseId){
+			var id = purchaseId;
 			$(".policyList").hide();
 			localStorage.setItem("detailsId", id);
-			$("#details").show().load("details.html", function () {
+			$("#details").show().load("details.html", function() {
 				$(".policyList").hide();
 				$("#details").show();
 			});

@@ -176,6 +176,14 @@ $(".searchBox .toptab span").click(function () {
 	$(this).addClass("active").siblings().removeClass("active");
 });
 
+//表单重新渲染
+function renderForm() {
+	layui.use('form', function() {
+		var form = layui.form;
+		form.render();
+	});
+};
+
 //处理返回的数据为null时候，设置为暂无
 function beNull(data) {
 	for (let x in data) {
@@ -216,7 +224,13 @@ function send_verify_code(phone,type) {
 };
 
 //获取用户详情
-get_user_info();
+if(localStorage.getItem("phone")){
+	$(".topLoginBox").show().find("a").hide();
+	$(".userTop").show().css("margin-left","0");
+}else{
+	get_user_info();
+}
+
 function get_user_info() {
 	http.ajax({
 		url: 'user/get_user_info',
@@ -227,13 +241,13 @@ function get_user_info() {
 		if (data.code == 200) {
 			$(".topLoginBox").show().find("a").hide();
 			$(".userTop").show().css("margin-left","0");
-			sessionStorage.setItem("phone",data.data.phone);
+			localStorage.setItem("phone",data.data.phone);
 		}
 	}, function (err) {
-//		if (err.status) {
+		if (err.status) {
 			$(".topLoginBox").show().find("a").show();
 			$(".userTop").hide();
-//		}
+		}
 	})
 };
 
@@ -330,7 +344,7 @@ function friendLinkList(){
 		url: 'friend_link/list',
 		type: 'GET',
 		json: false,
-		mask: true,
+		mask: false,
 		data: {
 			pageNo:'1',
 			pageSize:'7'
@@ -342,6 +356,72 @@ function friendLinkList(){
 				innerHTML +='<a target="_blank" href="'+data.data.items[i].url+'">'+data.data.items[i].webName+'</a>';
 			};
 			$("#linkList").append(innerHTML);
+		}
+	}, function(err) {
+		
+	})
+};
+
+//采购活动
+function rchasingActivities(){
+	http.ajax({
+		url: 'news/get_news_list_by_type_id',
+		type: 'GET',
+		json: false,
+		mask: false,
+		data: {
+			typeId: 20,
+			pageNo: 1,
+			pageSize: 10,
+			purchaseStatus:"",
+			openTime:"",
+			endTime:"",
+			searchkey:""
+		}
+	}).then(function(data) {
+		if(data.code == 200) {
+			var innerHTML = ""
+			for (var i = 0; i < data.data.items.length; i++) {
+				innerHTML +='<li id="'+data.data.items[i].id+'"><span>'+(i+1)+'</span><p>'+data.data.items[i].title+'</p></li>'
+			};
+			$("#rchasingActivitiesList").append(innerHTML);
+			$("#rchasingActivitiesList li").click(function(){
+				var purchaseId = $(this).attr("id");
+				openUrl('purchase.html?purchaseId='+purchaseId+'');
+			})
+		}
+	}, function(err) {
+		
+	})
+};
+
+//采购活动
+function biddingAcAtivities(){
+	http.ajax({
+		url: 'news/get_news_list_by_type_id',
+		type: 'GET',
+		json: false,
+		mask: false,
+		data: {
+			typeId: 7,
+			pageNo: 1,
+			pageSize: 10,
+			purchaseStatus:"",
+			openTime:"",
+			endTime:"",
+			searchkey:""
+		}
+	}).then(function(data) {
+		if(data.code == 200) {
+			var innerHTML = ""
+			for (var i = 0; i < data.data.items.length; i++) {
+				innerHTML +='<li id="'+data.data.items[i].id+'"><span>'+(i+1)+'</span><p>'+data.data.items[i].title+'</p></li>'
+			};
+			$("#rchasingActivitiesList").append(innerHTML);
+			$("#rchasingActivitiesList li").click(function(){
+				var purchaseId = $(this).attr("id");
+				openUrl('callForBids.html?purchaseId='+purchaseId+'');
+			})
 		}
 	}, function(err) {
 		

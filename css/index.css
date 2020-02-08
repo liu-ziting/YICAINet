@@ -73,7 +73,7 @@ button {
 	width: 1170px;
 	margin: 0 auto;
 	overflow: hidden;
-	min-height: 1000px;
+	min-height: 800px;
 }
 .row {
 	padding: 0;
@@ -1480,10 +1480,10 @@ footer section span {
 
 .policyList ul li time {
 	color: #8D8D8D;
-	font-size: 15px;
+	font-size: 14px;
 	display: block;
 	width: 100%;
-	margin: 3px 5px;
+	margin: 3px 0;
 }
 
 .policyList ul li p {
