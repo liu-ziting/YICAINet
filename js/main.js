@@ -188,8 +188,7 @@ $(".searchBox .search span").click(function () {
 		layer.msg('请先输入关键词！', {
 			icon: 5
 		});
-	}
-	
+	};
 })
 
 //表单重新渲染
@@ -206,11 +205,11 @@ function beNull(data) {
 		if (data[x] === null) { // 如果是null 把直接内容转为 '暂无'
 		data[x] = '暂无';
 		} else {
-		if (Array.isArray(data[x])) { // 是数组遍历数组 递归继续处理
-			data[x] = data[x].map(z => {
-			return beNull(z);
-			});
-		}
+		// if (Array.isArray(data[x])) { // 是数组遍历数组 递归继续处理
+		// 	data[x] = data[x].map(z => {
+		// 	return beNull(z);
+		// 	});
+		// }
 		if(typeof(data[x]) === 'object'){ // 是json 递归继续处理
 			data[x] = beNull(data[x])
 		}
@@ -240,12 +239,12 @@ function send_verify_code(phone,type) {
 };
 
 //获取用户详情
-if(localStorage.getItem("phone")){
-	$(".topLoginBox").show().find("a").hide();
-	$(".userTop").show().css("margin-left","0");
-}else{
+// if(localStorage.getItem("phone")){
+// 	$(".topLoginBox").show().find("a").hide();
+// 	$(".userTop").show().css("margin-left","0");
+// }else{
 	get_user_info();
-}
+// }
 
 function get_user_info() {
 	http.ajax({
@@ -288,7 +287,10 @@ function update_token(){
 			
 		}
 	}, function (err) {
-	
+		if(err.status == 403){
+			$(".topLoginBox").show().find("a").show();
+			$(".userTop").hide();
+		}
 	})
 };
 
@@ -411,7 +413,7 @@ function rchasingActivities(){
 	})
 };
 
-//采购活动
+//招标信息
 function biddingAcAtivities(){
 	http.ajax({
 		url: 'news/get_news_list_by_type_id',
