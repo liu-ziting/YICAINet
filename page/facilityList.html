@@ -122,7 +122,11 @@
 						{{# layui.each(d.items, function(index, item){ }}
 						<li>
 							<div class="up">
-								<img src="../img/temporary/ypic.png"/>
+								{{#  if(item.image){ }}
+								<img onerror="imgError(this)" src={{App.filePath+item.image.newFilename}} />	
+								{{#  } else { }}
+								
+								{{#  } }} 
 								<h1 onclick="openUrl('facilityDetails.html?id={{item.id}}')">{{item.equipmentName}}</h1>
 								<p>设备型号：{{item.model}}</p>
 								<p>生产企业：{{JSON.parse(item.manufacturer).name}}</p>

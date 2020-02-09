@@ -107,7 +107,11 @@
 						{{# layui.each(d.items, function(index, item){ }}
 						<li>
 							<div class="imgbox">
-								<img src="../img/temporary/zcfg.png" />	
+								{{#  if(item.image){ }}
+								<img onerror="imgError(this)" src={{App.filePath+item.image.newFilename}} />	
+								{{#  } else { }}
+								<img onerror="imgError(this)" src={{App.filePath+item.image}} />
+								{{#  } }}  		 	
 							</div>
 							<h3>{{item.title}}<span id="{{item.id}}">查看详情</span></h3>
 							<time>{{item.createDate}}</time>

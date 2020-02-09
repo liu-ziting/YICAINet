@@ -138,7 +138,11 @@
 						{{# layui.each(d.items, function(index, item){ }}
 						<li>
 							<div class="up">
-								<img src="../img/temporary/ypic.png"/>
+								{{#  if(item.image){ }}
+								<img onerror="imgError(this)" src={{App.filePath+item.image.newFilename}} />	
+								{{#  } else { }}
+								
+								{{#  } }}  	
 								<h1 onclick="openUrl('drugDetails.html?id={{item.id}}')">{{item.commonName}}</h1>
 								<p>商品名称：{{item.productName}}</p>
 								<p>生产厂家：{{JSON.parse(item.manufacturer).name}}</p>

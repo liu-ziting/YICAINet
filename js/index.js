@@ -31,7 +31,7 @@ function bannerList() {
             var result = data.data.items;
             var iHTML = ""
             for (var i = 0; i < result.length; i++) {
-                iHTML += '<div><img src="img/temporary/banner1.png"/></div>'
+                iHTML += '<div><a href="'+ result[i].url+'"><img src="'+ App.filePath+result[i].image.newFilename+'"/></a></div>'
             };
             $("#bannerList").append(iHTML);
             layui.use(['carousel'], function () {
@@ -165,7 +165,7 @@ function appliance_list() {
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
-                    // "<img src=\"img/temporary/ypic.png\" />"+
+                    "<img onerror='imgError(this)' src=\"" + App.filePath+result[i].image.newFilename + "\" />"+
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/materialsDetails.html?id=" + result[i].id + "\')\">" + result[i].applianceName + "</h3>" +
@@ -206,7 +206,7 @@ function drug_list() {
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
-                    // "<img src=\"img/temporary/ypic.png\" />"+
+                    "<img onerror='imgError(this)' src=\"" + App.filePath+result[i].image.newFilename + "\" />"+
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/drugDetails.html?id=" + result[i].id + "\')\">" + result[i].commonName + "</h3>" +
@@ -246,7 +246,7 @@ function equipment_list() {
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
-                    // "<img src=\"img/temporary/ypic.png\" />"+
+                    "<img onerror='imgError(this)' src=\""+App.filePath+result[i].image.newFilename+"\" />"+
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/facilityDetails.html?id=" + result[i].id + "\')\">" + result[i].equipmentName + "</h3>" +
@@ -341,7 +341,7 @@ function purchasingActivities() {
             for (var i = 0; i < 3; i++) {
                 leftHTML += "<div>" +
                     "<div class='imgLeftBox'>" +
-                    // "<img src='img/temporary/cghd.png'/>"+
+                    "<img onerror='imgError(this)' src="+App.filePath+result[i].image.newFilename+"/>"+
                     "</div>" +
                     "<h4 id=" + result[i].id + ">" + result[i].title + "</h4>" +
                     "<p>" + result[i].remark + "</p>" +
@@ -350,7 +350,7 @@ function purchasingActivities() {
             for (var i = 3; i < result.length; i++) {
                 rightHTML += "<li id=" + result[i].id + ">" +
                     "<div class='imgbox'>" +
-                    // "<img src='img/temporary/cggg.png' />"+
+                    "<img onerror='imgError(this)' src="+App.filePath+result[i].image.newFilename+"/>"+
                     "</div>" +
                     "<p>" + result[i].title + "</p>" +
                     // "<span><img class='dz' src='img/dz.png'/>0</span>"+

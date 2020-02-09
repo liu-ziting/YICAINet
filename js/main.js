@@ -1,7 +1,8 @@
 var App = {
 	apiBasePath: "http://okyc-business.utools.club/", 	//接口地址
 	rootPath: getRootPath() + "/YICAINet/",				//项目根目录地址
-	filePath: getRootPath(),									//附件地址
+	// filePath: getRootPath(),									//附件地址
+	filePath: 'http://okyc-business.utools.club/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
 
@@ -14,7 +15,10 @@ function getQueryString(name) {
 	}
 	return null;
 };
-
+// 使用jQuery处理:  
+function imgError(image){  
+    $(image).attr("src", "../img/kong.png");  
+}  
 /* 打开新页面 */
 function openUrl(url,type) {
 	if (!type) {
