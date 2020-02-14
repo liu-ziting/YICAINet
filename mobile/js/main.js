@@ -151,6 +151,14 @@ function getRootPath() {
 // 引入公共的底部
 $("#footer").load("../page/footer.html");
 
+// 展开导航栏
+$(".header .more").click(function () {
+	if ($(this).siblings("section").hasClass("openBox")) {
+		$(this).siblings("section").removeClass("openBox")
+	} else {
+		$(this).siblings("section").addClass("openBox")
+	}
+});
 
 //表单重新渲染
 function renderForm() {
