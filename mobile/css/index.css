@@ -1146,3 +1146,327 @@ footer p:last-child{
 .myPage .payment .layui-form-radio>i:hover, .layui-form-radioed>i{
 	color: #195edd;
 }
+.myPage .newList li{
+	width: 100%;
+	padding-top: 0.5rem;
+}
+.myPage .newList h1{
+	font-size:0.3rem;
+	font-weight:400;
+	color:rgba(51,51,51,1);
+	line-height:0.5rem;
+}
+.myPage .newList .active h1{
+	color: #195EDD;
+}
+.myPage .newList h1 span{
+	font-size:0.36rem;
+	font-weight:400;
+	color:rgba(248,124,15,1);
+}
+.myPage .newList  p{
+	font-size:0.28rem;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	margin-top: 0.27rem;
+	line-height:0.5rem;
+}
+.myPage .newList  time{
+	display: block;
+	float: right;
+	font-size:0.24rem;
+	font-weight:400;
+	color:rgba(102,102,102,1);
+	line-height: 1rem;
+}
+/* 药品信息 */
+.drugListPage .ssBox{
+	width:7.5rem;
+	height: 1.15rem;
+	background:rgba(255,255,255,1);
+	padding: 0 0.3rem;
+	border-bottom: 0.2rem solid #f1f1f2;
+	position: fixed;
+}
+.drugListPage .ssBox label {
+    width:5.16rem;
+	height:0.59rem;
+    border: 1px solid #999;
+    border-radius: 0.5rem;
+    display: block;
+	float: left;
+	margin-top: 0.17rem;
+}
+.drugListPage .ssBox label input{
+	height:0.59rem;
+	border: none;
+	height: 0.56rem;
+	line-height: 0.59rem;
+	margin-left: 0.3rem;
+	float: left;
+	color: #666666;
+	font-size:0.22rem;
+	background-color: inherit;
+}
+.drugListPage .ssBox label img{
+	float: right;
+	margin-right: 0.3rem;
+	margin-top: 0.1rem;
+}
+.drugListPage .ssBox .screen{
+	float: right;
+	font-size:0.24rem;
+	color:rgba(102,102,102,1);
+	margin-top: 0.24rem;
+}
+.drugListPage .ssBox .screen span{
+	display: block;
+	float: left;
+	font-size:0.25rem;
+	margin-right: 0.1rem;
+}
+.drugListPage .ssBox .screen img{
+	display: block;
+	float: left;
+	width:0.25rem;
+	height:0.28rem;
+	margin-top: 0.04rem;
+}
+.drugListPage .blackBox{
+	padding-top: 1.15rem;
+}
+.drugListPage .blackBox li{
+	padding: 0.4rem 0;
+	overflow: hidden;
+	margin: 0 0.26rem;
+	border-bottom: 1px solid #f1f1f2
+}
+.drugListPage .blackBox .left{
+	width:2.51rem;
+	height:2.51rem;
+	float: left;
+}
+.drugListPage .blackBox .left img{
+	width: 100%;
+}
+.drugListPage .blackBox .right{
+	width: 4.4rem;
+	float: left;
+	padding-left: 0.38rem;
+}
+.drugListPage .blackBox .right h1{
+	color: #1668D8;
+	font-size:0.26rem;
+	width: 100%;
+	margin-bottom: 0.26rem;
+}
+.drugListPage .blackBox .right p{
+	color: #3F3F3F;
+	font-size: 0.24rem;
+	margin-bottom: 0.1rem;
+}
+.drugListPage .blackBox .right p span{
+	color:#F17B33;
+}
+.maskLayer{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.7);
+	top: 0.88rem;
+	display: none;
+}
+.maskLayer section{
+	width:5.46rem;
+	height:100%;
+	right: -5.46rem;
+	z-index: 99999;
+	background:rgba(255,255,255,1);
+	position: absolute;
+	box-shadow:-2px 1px 6px 0px #f1f1f1 ;
+	-webkit-box-shadow:-2px 1px 6px 0px #f1f1f1 ;
+	-moz-box-shadow:-2px 1px 6px 0px #f1f1f1 ;
+	padding: 0.35rem 0.39rem;
+	transition: all 1s;
+}
+.maskLayer .hideBox{
+	width:4.64rem;
+	height:100%;
+	left: 0;
+	position: absolute;
+}
+.activeMask{
+	display: block;
+}
+.activeMask section{
+	transition: all 1s;
+	right: 0rem;
+	overflow-y: scroll;
+}
+.maskLayer section h1{
+	width:100%;
+	font-size:0.26rem;
+	font-family:Microsoft YaHei;
+	font-weight:bold;
+	color:rgba(51,51,51,1);
+	margin-bottom: 0.4rem;
+	float: left;
+}
+.maskLayer section h1 i{
+	display: block;
+	float: right;
+}
+.maskLayer section div{
+	margin-bottom: 0.4rem;
+	width: 100%;
+	overflow: hidden;
+}
+.maskLayer section ul li div{
+	height: auto;
+}
+.maskLayer section ul li .sectionActive{
+	height: 0.8rem;
+}
+.maskLayer section ul li i{
+	transition: all 0.5s;
+	margin-top: 0.05rem;
+}
+.unfoldActive i{
+	transform: rotate(180deg);
+	transition: all 0.5s;
+}
+.maskLayer section div  span{
+	height:0.73rem;
+	padding: 0 0.34rem;
+	line-height: 0.73rem;
+	height: 0.73rem;
+	background:rgba(230,230,230,1);
+	border-radius:0rem;
+	text-align: center;
+	font-size: 0.24rem;
+	color: #333333;
+	display: block;
+	border-radius: 1rem;
+	float: left;
+	margin-bottom: 0.25rem;
+	margin-right: 0.15rem;
+}
+.maskLayer section div .active{
+	background-color: #195EDD;
+	color: #fff;
+}
+.maskLayer section .butList{
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 1.2rem;
+	background-color: #fff;
+	margin: 0;
+	padding-top: 0.15rem;
+	box-shadow:0px -3px 7px 0px #f1f1f1 ;
+	-webkit-box-shadow:0px -3px 7px 0px #f1f1f1 ;
+	-moz-box-shadow:0px -3px 7px 0px #f1f1f1 ;
+	margin-left: -0.39rem;
+    padding-left: 0.39rem;
+}
+.maskLayer section .butList button{
+	float: left;
+	width: 2.1rem;
+	height:0.88rem;
+	background:rgba(255,255,255,1);
+	border:1px solid rgba(204,204,204,1);
+	border-radius:1rem;
+	color: black;
+}
+.maskLayer section .topList{
+	padding-bottom: 1.5rem;
+}
+.maskLayer section .butList button:last-child{
+	background-color: #195EDD;
+	color: #fff;
+	border: none;
+	margin-left: 0.3rem;
+}
+.drugDetailsPage .swiper-container {
+    width: 100%;
+    height:6.19rem;
+}  
+.drugDetailsPage .swiper-container img{
+	width: 100%;
+}
+.drugDetailsPage .topDetails{
+	padding: 0.4rem 0.28rem;
+}
+.drugDetailsPage .topDetails h1{
+	width:100%;
+	height:0.rem;
+	font-size:0.36rem;
+	color:rgba(51,51,51,1);
+	line-height:0.42rem;
+	margin-bottom: 0.24rem;
+}
+.drugDetailsPage .topDetails p{
+	width:100%;
+	font-size: 0.3rem;
+	margin-bottom: 0.1rem;
+	color:rgba(51,51,51,1);
+}
+.drugDetailsPage .topDetails p span{
+	width:1.1rem;
+	height:0.36rem;
+	border: 1px solid #195EDD;
+	font-size:0.22rem;
+	color: #195EDD;
+	padding: 0.06rem 0.1rem;
+}
+.drugDetailsPage .wlogin{
+	width: 100%;
+	height:1rem;
+	line-height: 1rem;
+	position: fixed;
+	bottom: 0;
+	text-align: center;
+	font-size:0.3rem;
+	color: #ffffff;
+	background-color: #195EDD;
+}
+.drugDetailsPage .indetail{
+    border-top: 0.2rem solid #f1f1f2;
+}
+.drugDetailsPage .indetail ul{
+	padding: 0.2rem 0.28rem;
+}
+.drugDetailsPage .indetail .titlebg {
+    width: 100%;
+    font-size: 0.3rem;
+    height: 0.28rem;
+    line-height: 0.28rem;
+    color: #535353;
+    background: url(../img/h1title.png) no-repeat;
+    background-size: 100%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+	margin-top: 0.31rem;
+	margin-bottom: 0.3rem;
+}
+.drugDetailsPage .indetail ul li{
+	width: 100%;
+	overflow: hidden;
+	margin-bottom: 0.3rem;
+}
+.drugDetailsPage .indetail ul li p{
+	color: #16CEF4;
+	float: left;
+	font-size: 0.28rem;
+}
+.drugDetailsPage .indetail ul li span{
+	color: #666666;
+	float: left;
+	font-size: 0.28rem;
+}
+.drugDetailsPage .indetail .specification{
+	padding: 0.2rem 0.28rem;
+	font-size: 0.28rem;
+	line-height: 0.5rem;
+}

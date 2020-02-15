@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	<title>医采网-药品信息</title>
+	<link rel="stylesheet" href="../../layui/css/layui.css" />
+	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">    
+	<link rel="stylesheet" href="../css/index.css" />
+	<script type="text/javascript" src="../js/rem.js"></script>
+</head>
+
+<body class="drugDetailsPage">
+	<header class="header">
+		<a href="index.html">
+			<img src="../img/mlogo.png" />
+		</a>
+		<p>药品信息</p>
+		<img class="more" src="../img/gd.png" />
+		<section class="">
+			<ul>
+				<li onclick="openUrl('../index.html')">首页</li>
+				<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+				<li onclick="openUrl('purchase.html')">采购活动</li>
+				<li class="active" onclick="openUrl('drugList.html')">药品信息</li>
+				<li onclick="openUrl('materialsList.html')">耗材信息</li>
+				<li onclick="openUrl('facilityList.html')">设备信息</li>
+				<li onclick="openUrl('policy.html')">政策法规</li>
+				<li onclick="openUrl('download.html')">下载中心</li>
+				<li onclick="openUrl('my.html')">个人中心</li>
+			</ul>
+		</section>
+	</header>
+	<div class="main">
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="../../img/temporary/duli.png"/></div>
+				<div class="swiper-slide"><img src="../../img/temporary/duli.png"/></div>
+				<div class="swiper-slide"><img src="../../img/temporary/duli.png"/></div>
+			</div>
+			<!-- 如果需要分页器 -->
+			<div class="swiper-pagination"></div>
+		</div>
+		<div class="topDetails">
+			<h1>脑立清胶囊</h1>
+			<p>生产厂家：河北万岁药业有限公司</p>
+			<p>批准文号：Z13020142</p>
+			<p>批次号/序列号：190312</p>
+			<p>有效期至：2021年12月01日</p>
+			<p>规格/型号：0.33g*24s </p>
+			<p>采购价：<span>登录可见</span> </p>
+		</div>
+		<div class="indetail">
+			<h1 class="titlebg" >
+				药品<span>信息</span>
+			</h1>
+			<ul>
+				<li>
+					<p>通用名/化学名：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>医保支付价格：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>生产厂家：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>生产地址：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>联系电话：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>批准文号：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>规格/型号：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>包装：</p>
+					<span>啊哈哈哈</span>
+				</li>
+				<li>
+					<p>剂型：</p>
+					<span>啊哈哈哈</span>
+				</li>
+			</ul>
+		</div>
+		<div class="indetail">
+			<h1 class="titlebg" >
+				商品说明书
+			</h1>
+			<div class="specification">平肝潜阳，醒脑安神。用于肝阳上亢，头晕目眩，耳鸣口 苦，心烦难寐；高血压。</div>
+		</div>
+		<br><br><br>
+		<!-- <a class="wlogin" href="login.html">登陆查看采购价及完整信息</a> -->
+	</div>
+	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../../layui/layui.all.js"></script>
+	<script src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			pagination: {
+				el: '.swiper-pagination',
+			},
+		});    
+	</script>
+</body>
+
+</html>
