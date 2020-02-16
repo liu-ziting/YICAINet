@@ -38,15 +38,17 @@
 		<div class="myTop">
 			<div class="topbg"> </div>
 			<section>
-				<img class="tx" src="../../img/usermy.png"/>
-				<div class="right">
-					<h1>马冬梅</h1>
-					<p>15367891234</p>
-					<p>注册时间：2019-09-09</p>
-					<p>栖霞医疗器械有限公司</p>
-					<span><img src="../img/VIP.png"/>vip充值</span>
-				</div>
-				
+				<div id="view"></div>
+				<script id="userTpl" type="text/html">
+					<img class="tx" src="../../img/usermy.png"/>
+					<div class="right">
+						<h1>{{d.username}}</h1>
+						<p>{{d.phone}}</p>
+						<p>注册时间：{{d.createTime}}</p>
+						<p>{{d.companyName}}</p>
+						<span><img src="../img/VIP.png"/>vip充值</span>
+					</div>
+				</script>
 			</section>
 		</div>
 		<ul class="linkList">
@@ -65,6 +67,38 @@
 	<script type="text/javascript" src="../../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
+		layui.use(['laypage', 'laytpl', 'layer'], function () {
+			var laytpl = layui.laytpl,
+				laypage = layui.laypage;
+
+			//用户详情
+			http.ajax({
+				url: 'user/get_user_info',
+				type: 'GET',
+				json: false,
+				mask: true,
+			}).then(function (data) {
+				if (data.code == 200) {
+					var data = data.data
+					var getTpl = userTpl.innerHTML
+						, view = document.getElementById('view');
+					laytpl(getTpl).render(data, function (html) {
+						view.innerHTML = html;
+					});
+				}
+			}, function (err) {
+				console.log(err)
+				if (err.status == 403) {
+					layer.msg('登录已失效！', {
+						icon: 5
+					}, function () {
+						location.href = 'login.html';
+					});
+				}
+			});
+
+		});
+
 	</script>
 </body>
 

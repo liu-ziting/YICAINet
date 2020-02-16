@@ -34,24 +34,20 @@
 			</ul>
 		</section>
 	</header>
-	<div class="main">
-		<h1>相山区南黎街道社区卫生服务中心医疗设备招标公告</h1>
+	<div class="main" id="detailsBox">
+		<!-- <h1 class="title"></h1>
 		<div class="spanList">
 			<span><img src="../img/rl.png">2019-10-05</span>
 			<span class="ly"><img src="../img/ly.png">医采网</span>
 			<span class="yj"><img src="../img/yj.png">2343</span>
 		</div>
 		<div class="content">
-			<p>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中 心委托以公开招标方式，对其拟采购 DR直接数字影像机、彩色 多普勒超声诊断系统进行采购，项目编号：CF19005，欢迎合 格的投标人参加投标。</p>
-			<img src="../../img/temporary/cghd.png"/>
-			<p>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中 心委托以公开招标方式，对其拟采购 DR直接数字影像机、彩色 多普勒超声诊断系统进行采购，项目编号：CF19005，欢迎合 格的投标人参加投标。</p>
-			<p>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中 心委托以公开招标方式，对其拟采购 DR直接数字影像机、彩色 多普勒超声诊断系统进行采购，项目编号：CF19005，欢迎合 格的投标人参加投标。</p>
-			<p>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中 心委托以公开招标方式，对其拟采购 DR直接数字影像机、彩色 多普勒超声诊断系统进行采购，项目编号：CF19005，欢迎合 格的投标人参加投标。</p>
-		</div>
+			
+		</div> -->
 	</div>
 	<!-- 下载标书 -->
-	<div class="downloadBox">
-		下载<br/>标书
+	<div class="downloadBox" style="display: none;">
+		下载<br />标书
 	</div>
 
 	<div id="footer"></div>
@@ -59,6 +55,44 @@
 	<script type="text/javascript" src="../../layui/layui.all.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
+		//新闻详情接口
+		$(function() {
+			http.ajax({
+				url: 'news/news_detail',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					id: getQueryString("id")
+				}
+			}).then(function(data) {
+				if(data.code == 200) {
+					var data = data.data;
+					var innerHTML = "";
+					innerHTML +='<h1>'+data.title+'</h1>'+
+					'<div class="spanList">'+
+					'<span><img src="../img/rl.png">'+data.createDate.slice(0, data.createDate.length - 9)+'</span>'+
+					'<span class="ly"><img src="../img/ly.png">'+data.source+'</span>'+
+					'<span class="yj"><img src="../img/yj.png">'+data.hitCount+'</span>'+
+					'</div>'+
+					'<div class="content">'+data.content+'</div>';
+					
+					//如果有标书可以下载
+					if(data.resources){
+						$(".downloadBox").show()
+					}
+					$("#detailsBox").append(innerHTML);
+
+					//如果有标书就下载
+					$(".dlBook").click(function(){
+						download(data.id);
+					})
+
+				};
+			}, function(err) {
+
+			})
+		});
 	</script>
 </body>
 

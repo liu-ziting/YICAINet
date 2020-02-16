@@ -81,7 +81,100 @@
 		<script type="text/javascript" src="../../layui/layui.all.js" ></script>
 		<script type="text/javascript" src="../js/main.js" ></script>
 		<script>
+			layui.use(['form', 'layedit', 'laydate'], function () {
+				var form = layui.form
+					, layer = layui.layer
+				//监听提交
+				form.on('submit(register)', function (data) {
+					register(data.field)
+					return false;
+				});
+				//自定义验证规则
+				form.verify({
+					notice: function (value) {
+						if (value == 0) {
+							return '请先勾选平台协议！';
+						}
+					}
+				});
+				form.on('checkbox()', function (data) {
+					console.log(data.elem.checked)
+				});
 
+				$('#notice').on('click', function () {
+					var xuanzhong = $(this).attr('data-check');
+					if (xuanzhong == "false") {
+						$('#notice').each(function (i, input) {
+							$(input).attr('data-check', "false");
+						})
+						$(this).attr('data-check', "true");
+						$(this).prop('checked', true);
+						$("#notice").val(1)
+						layui.form.render();
+					} else {
+						$('#notice').each(function (i, input) {
+							$(input).attr('data-check', "false");
+						})
+						$(this).prop('checked', false);
+						$("#notice").val(0)
+						layui.form.render();
+					}
+				});
+				
+			});
+			//获取验证码
+			$(".getCode").click(function(){
+				var phone = $(".phone").val();
+				if(!phone){
+					layer.msg('请先输入手机号码!', {
+						icon: 5
+					});
+				}else{
+					countDownCode();
+					check(phone,'phone')
+				}
+			})
+			
+			//用户注册
+			function register(json){
+				http.ajax({
+					url: 'user/register',
+					type: 'POST',
+					json: true,
+					mask: true,
+					data: JSON.stringify(json)
+				}).then(function(data) {
+					if(data.code == 200){
+						layer.msg('恭喜您，用户注册成功！快去登录吧！', {
+							icon: 1
+						}, function() {
+							location.href = '../page/login.html';
+						});
+					}
+				},function(err) {
+					console.log(err);
+				})
+			};
+			
+			//检查手机号或用户名是否可注册
+			function check(phone,type){
+				http.ajax({
+					url: 'user/check',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						data:phone,
+						type:type,
+					}
+				}).then(function(data) {
+					if(data.code == 200){
+						send_verify_code(phone,'register')
+					}
+				},function(err) {
+					console.log(err);
+				})
+			};
 			//用户协议弹窗
 			$("#openNotice").click(function(){
 				layer.open({

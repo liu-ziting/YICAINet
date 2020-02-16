@@ -1,10 +1,18 @@
 var App = {
 	apiBasePath: "http://okyc-business.utools.club/", 	//接口地址
-	rootPath: getRootPath() + "/YICAINet/",				//项目根目录地址
+	rootPath: getRootPath(),				//项目根目录地址
 	filePath: 'http://okyc-business.utools.club/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
-
+// H5调试工具
+// $.ajax({
+// 	url: App.rootPath + '/mobile/js/eruda.js',
+// 	async: false,
+// 	dataType: "script",
+// 	success: function () {
+// 		eruda.init();
+// 	}
+// });
 /* 获取url地址参数  */
 function getQueryString(name) {
 	var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
@@ -57,6 +65,8 @@ var http = {
 			setTimeout(function () {
 				layer.close(loading);
 			}, 100)
+			// 引入公共的底部
+			$("#footer").load("../page/footer.html");
 		}, function (error) {
 			if (error.status == 504) {
 				layer.msg('请求超时，请重试!', {
@@ -109,11 +119,13 @@ var http = {
 			def.reject(error);
 			setTimeout(function () {
 				layer.close(loading);
-			}, 100)
+			}, 100);
+			
 		});
 		return def;
 	}
 }
+
 
 /* 获取当前的日期时间 格式“yyyy-MM-dd HH:MM:SS” */
 function getNowFormatDate() {
@@ -148,8 +160,6 @@ function getRootPath() {
 	return (localhostPaht + projectName);
 };
 
-// 引入公共的底部
-$("#footer").load("../page/footer.html");
 
 // 展开导航栏
 $(".header .more").click(function () {
@@ -212,7 +222,7 @@ function send_verify_code(phone,type) {
 // 	$(".topLoginBox").show().find("a").hide();
 // 	$(".userTop").show().css("margin-left","0");
 // }else{
-	get_user_info();
+// get_user_info();
 // }
 
 function get_user_info() {

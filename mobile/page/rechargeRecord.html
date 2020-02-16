@@ -43,25 +43,15 @@
 		</div>
 		<div class="myList">
 			<h2>全部消息</h2>
-			<ul class="newList">
-				<li>
+			<ul class="newList flow-default" id="flowList">
+				<!-- <li>
 					<h1>订单号：4587846754685<span>￥80.00</span></h1>
 					<p>成功充值购买季度会员</p>
 					<time>2020-01-03 </time>
-				</li>
-				<li>
-					<h1>订单号：4587846754685<span>￥80.00</span></h1>
-					<p>成功充值购买季度会员</p>
-					<time>2020-01-03 </time>
-				</li>
-				<li>
-					<h1>订单号：4587846754685<span>￥80.00</span></h1>
-					<p>成功充值购买季度会员</p>
-					<time>2020-01-03 </time>
-				</li>
+				</li> -->
 			</ul>
 		</div>
-
+		
 	</div>
 	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.all.js"></script>
@@ -78,6 +68,47 @@
 			});
 		});
 
+		//充值记录列表
+		var pageNo = 1;
+		var pageSize = 20;
+		layui.use('flow', function(){
+			var flow = layui.flow;
+			
+			flow.load({
+				elem: '#flowList' //流加载容器
+				,scrollElem: '#flowList' //滚动条所在元素，一般不用填，此处只是演示需要。
+				,done: function(page, next){ //执行下一页的回调
+				http.ajax({
+					url: 'user/recharge_records',
+					type: 'GET',
+					json: false,
+					mask: false,
+					data: {
+						pageNo: page,
+						pageSize: pageSize
+					}
+				}).then(function (data) {
+					var result = data;
+					var innerHTML = "";
+					if (data.code == 200) {
+						if (data.code == 200) {
+						var lis = [];
+						for (var i = 0; i < result.data.items.length; i++) {
+							lis.push('<li><h1>订单号：4587846754685<span>￥80.00</span></h1><p>成功充值购买季度会员</p><time>2020-01-03 </time></li>')
+						};
+						next(lis.join(''), page < result.data.total/pageSize); 
+					
+					}
+					}
+				}, function (err) {
+
+				})
+
+				}
+			});
+		});
+
+		
 	</script>
 </body>
 

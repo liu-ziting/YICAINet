@@ -43,29 +43,32 @@
 		</div>
 		<div class="myList">
 			<h2>用户个人信息</h2>
+			<div id="view"></div>
+			<script id="userMyTpl" type="text/html">
 			<ul>
-				<li>
-					<p>姓名:</p>
-					<span>刘子腾</span>
-				</li>
-				<li>
-					<p>性别:</p>
-					<span>男</span>
-				</li>
-				<li>
-					<p>办公电话:</p>
-					<span>15755055889</span>
-				</li>
-				<li>
-					<p>公司名称:</p>
-					<span>杭州孚立计算器有限公司</span>
-				</li>
-				<li>
-					<p>公司地址:</p>
-					<span>杭州市拱墅区嘻嘻可船员</span>
-				</li>
+					<li>
+						<p>姓名:</p>
+						<span>{{d.username}}</span>
+					</li>
+					<li>
+						<p>性别:</p>
+						<span>{{d.sex == 1 ? '男' : '女'}}</span>
+					</li>
+					<li>
+						<p>办公电话:</p>
+						<span>{{d.phone}}</span>
+					</li>
+					<li>
+						<p>公司名称:</p>
+						<span>{{d.companyName}}</span>
+					</li>
+					<li>
+						<p>公司地址:</p>
+						<span>{{d.companyAddress}}</span>
+					</li>
 			</ul>
 			<button type="button"  onclick="openUrl('userEdit.html')" class="layui-btn edit">修改个人信息</button>
+		</script>
 		</div>
 	</div>
 	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
@@ -82,6 +85,37 @@
 				, indicator: 'none'
 			});
 		});
+
+		// 用户详情
+		getuserinfo();
+		function getuserinfo() {
+			layui.use(['laypage', 'laytpl', 'layer'], function () {
+				var laytpl = layui.laytpl,
+					laypage = layui.laypage;
+
+				http.ajax({
+					url: 'user/get_user_info',
+					type: 'GET',
+					json: false,
+					mask: true,
+				}).then(function (data) {
+					if (data.code == 200) {
+						var data = data.data
+						var getTpl = userMyTpl.innerHTML
+							, view = document.getElementById('view');
+						laytpl(getTpl).render(data, function (html) {
+							view.innerHTML = html;
+						});
+					}
+				}, function (err) {
+					layer.msg('登录已失效！', {
+						icon: 5
+					}, function () {
+						location.href = 'login.html';
+					});
+				});
+			});
+		}
 	</script>
 </body>
 

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<title>医采网-服务帮助</title>
+	<title>医采网-支付成功</title>
 	<link rel="stylesheet" href="../../layui/css/layui.css" />
 	<link rel="stylesheet" href="../css/index.css" />
 	<script type="text/javascript" src="../js/rem.js"></script>
@@ -18,7 +18,7 @@
 		<a href="index.html">
 			<img src="../img/mlogo.png" />
 		</a>
-		<p>服务帮助</p>
+		<p>个人信息</p>
 		<img class="more" src="../img/gd.png" />
 		<section class="">
 			<ul>
@@ -30,7 +30,7 @@
 				<li onclick="openUrl('facilityList.html')">设备信息</li>
 				<li onclick="openUrl('policy.html')">政策法规</li>
 				<li onclick="openUrl('download.html')">下载中心</li>
-				<li class="active" onclick="openUrl('my.html')">个人中心</li>
+				<li onclick="openUrl('my.html')">个人中心</li>
 			</ul>
 		</section>
 	</header>
@@ -41,17 +41,16 @@
 				<div><a href="#"><img src="../img/myban.png" /></a></div>
 			</div>
 		</div>
-		<div class="myList">
-			<h2>全部帮助</h2>
-			<ul class="newList flow-default" id="flowList">
-				<!-- <li>
-					<h1>关于采购会员的相关费用说明</h1>
-					<p>采购会员采用三种会员制度，月度会员、季度会员、年度会员。 阅读会员原价35元，季度会员原价105元，年度会员原价……</p>
-					<time>2020-01-03 </time>
-				</li> -->
+		<div class="buySucceed">
+			<img src="../../img/check.png">
+			<h1>支付成功</h1>
+			<ul>
+				<li>订单名称：淮北市人民医院医用耗材采购标书</li>
+				<li>支付方式：微信扫码支付</li>
+				<li>支付金额：￥45.00</li>
 			</ul>
+			<button type="button" onclick="window.location.href='http://tc.lihail.cn/接口文档模板.doc'" class="layui-btn download">下载标书</button>
 		</div>
-
 	</div>
 	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.all.js"></script>
@@ -68,49 +67,7 @@
 			});
 		});
 
-		//全部帮助列表
-		var pageNo = 1;
-		var pageSize = 20;
 		
-		layui.use('flow', function(){
-			var flow = layui.flow;
-			flow.load({
-				elem: '#flowList' //流加载容器
-				,scrollElem: '#flowList' //滚动条所在元素，一般不用填，此处只是演示需要。
-				,done: function(page, next){ //执行下一页的回调
-				http.ajax({
-					url: 'user/service_help',
-					type: 'GET',
-					json: false,
-					mask: false,
-					data: {
-						pageNo: page,
-						pageSize: pageSize
-					}
-				}).then(function (data) {
-					var result = data;
-					var innerHTML = "";
-					if (data.code == 200) {
-						var lis = [];
-						//某个时间在当前时间的多久前
-						for (var i = 0; i < result.data.items.length; i++) {
-							lis.push('<li id="'+result.data.items[i].id+'"><h1>'+result.data.items[i].title+'</h1><p>'+result.data.items[i].remark+'</p><time>'+result.data.items[i].createDate+'</time></li>')
-						};
-						next(lis.join(''), page < result.data.total/pageSize); 
-					}
-
-					//点击查看详情
-					$("li").click(function(){
-						var id = $(this).attr("id");
-						openUrl("details.html?id="+id+"");
-					});
-				}, function (err) {
-
-				})
-
-				}
-			});
-		});
 	</script>
 </body>
 

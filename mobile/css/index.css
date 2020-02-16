@@ -327,6 +327,7 @@ button {
 .main{
 	width: 100%;
 	height: auto;
+	min-height: 600px;
 	margin-top: 0.88rem;
 }
 .main .titlebg {
@@ -412,7 +413,7 @@ button {
 }
 /* 招标采购信息 */
 .indexPage .purchase{
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 }
 .indexPage .purchaseTab{
 	margin-top: 0.4rem;
@@ -494,7 +495,7 @@ button {
 }
 /* 耗材信息 */
 .indexPage .consumableBox{
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 }
 .indexPage .boxList{
 	overflow: hidden;
@@ -537,16 +538,16 @@ button {
 }
 /* 设备信息 */
 .indexPage .drugBox{
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 }
 
 /* 药品信息 */
 .indexPage .facilityBox{
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 }
 /* 广告 */
 .advertisement {
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 }
 .advertisement img{
 	display: block;
@@ -555,7 +556,7 @@ button {
 }
 /* 采购活动 */
 .activities {
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 }
 .indexPage .boxList .textBox h2{
 	font-size:0.27rem;
@@ -646,7 +647,7 @@ footer p:last-child{
 	width: 100%;
 	height: auto;
 	padding-top: 0.2rem;
-	border-bottom: 0.3rem solid #f1f1f2;
+	border-bottom: 0.2rem solid #f1f1f2;
 	margin: 0;
 	font-size:0.27rem;
 	color:rgba(102,102,102,1);
@@ -705,7 +706,7 @@ footer p:last-child{
 	display: block;
 	float: left;
 	width:0.3rem;
-	margin-right: 0.2rem;
+	margin-right: 0.14rem;
 }
 .purchasePage .boxList .ly {
 	margin-left: 0.6rem;
@@ -722,6 +723,9 @@ footer p:last-child{
 	padding: 0.5rem 0.4rem;
 	overflow: hidden;
 	border-bottom: 1px solid rgba(241,241,242,1);
+}
+.purchasePage .boxList li:first-child{
+	padding-top: 0;
 }
 .purchasePage .boxList .imgBox{
 	width:2.51rem;
@@ -858,6 +862,7 @@ footer p:last-child{
 	font-size:0.3rem;
 	overflow: hidden;
 	line-height:0.44rem;
+	min-height: 500px;
 }
 .detailsPage .main .content img{
 	width: 100%;
@@ -1469,4 +1474,50 @@ footer p:last-child{
 	padding: 0.2rem 0.28rem;
 	font-size: 0.28rem;
 	line-height: 0.5rem;
+}
+/* 购买成功 */
+.buySucceed {
+	background-color: #FFFFFF;
+	margin-bottom: 0.4rem;
+	padding: 0.35rem 0.52rem;
+}
+
+.buySucceed img {
+	display: block;
+	margin: 0.8rem auto 0.33rem auto;
+}
+
+.buySucceed h1 {
+	font-size: 0.35rem;
+	color: #333333;
+	margin-bottom: 1.6rem;
+	width: 100%;
+	text-align: center;
+	font-weight: 500;
+}
+
+.buySucceed ul {
+	width:5.48rem;
+	margin: 0 auto;
+}
+
+.buySucceed ul li {
+	font-size: 0.28rem;
+	color: #333333;
+	margin-bottom: 0.2rem;
+}
+
+.buySucceed .download {
+	width:5rem;
+	height:0.88rem;
+	line-height: 0.88rem;
+	color: #FFFFFF;
+	background-color: #195edd;
+	margin: 1.5rem auto;
+	margin-bottom: 0;
+	font-size: 0.26rem;
+	display: block;
+	padding: 0;
+	text-align: center;
+	border-radius: 2px;
 }

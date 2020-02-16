@@ -36,43 +36,47 @@
 	</header>
 	<div class="main">
 		<form class="layui-form" action="">
+			<div id="view"></div>
+			<script id="userMyTpl" type="text/html">
 			<div class="layui-form-item">
 				<label class="layui-form-label">姓名:</label>
 				<div class="layui-input-block">
-					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入姓名"
-						class="layui-input">
+					<input type="text" name="username" lay-verify="required" lay-reqtext="请输入您的真实姓名"
+						placeholder="请输入您的真实姓名" value="{{d.username}}" autocomplete="off" class="layui-input username">
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label">性别:</label>
 				<div class="layui-input-block">
-					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入姓名"
-						class="layui-input">
+					<select class="sex" name="sex" lay-verify="required" lay-reqtext="请选择您的性别">
+						<option value="">请选择您的性别</option>
+						<option value="1">男</option>
+						<option value="0">女</option>
+					</select>
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label">办公电话:</label>
 				<div class="layui-input-block">
-					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入办公电话"
-						class="layui-input">
+					<input type="text" name="companyPhone" value="{{d.companyPhone}}"  placeholder="请输入办公电话" class="layui-input companyPhone">
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label">公司名称:</label>
 				<div class="layui-input-block">
-					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入公司名称"
-						class="layui-input">
+					<input type="text" name="companyName" value="{{d.companyName}}"  placeholder="请输入单位名称" class="layui-input companyName">
 				</div>
 			</div>
 			<div class="layui-form-item">
 				<label class="layui-form-label">公司地址:</label>
 				<div class="layui-input-block">
-					<input type="text" name="title" lay-verify="title" autocomplete="off" placeholder="请输入公司地址"
-						class="layui-input">
+					<input type="text" name="companyAddress" value="{{d.companyAddress}}" placeholder="请输入单位地址" class="layui-input companyAddress">
 				</div>
 			</div>
+			<button type="button" class="layui-btn edit" lay-submit="" lay-filter="register">保存修改</button>
+			</script>
 		</form>
-		<button type="button" class="layui-btn edit">保存修改</button>
+		
 	</div>
 	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../../layui/layui.all.js"></script>
@@ -88,6 +92,79 @@
 				, indicator: 'none'
 			});
 		});
+
+		// 用户详情
+		getuserinfo();
+		function getuserinfo() {
+			layui.use(['form','laypage', 'laytpl', 'layer'], function () {
+				var form = layui.form,
+					laytpl = layui.laytpl,
+					laypage = layui.laypage;
+
+				http.ajax({
+					url: 'user/get_user_info',
+					type: 'GET',
+					json: false,
+					mask: true,
+				}).then(function (data) {
+					if (data.code == 200) {
+						var data = data.data
+						var getTpl = userMyTpl.innerHTML
+							, view = document.getElementById('view');
+						laytpl(getTpl).render(data, function (html) {
+							view.innerHTML = html;
+						});
+						$(".sex").val(data.sex);
+						renderForm()
+					}
+				}, function (err) {
+					layer.msg('登录已失效！', {
+						icon: 5
+					}, function () {
+						location.href = 'login.html';
+					});
+				});
+			});
+		}
+
+
+
+
+		layui.use(['form', 'layedit', 'laydate'], function () {
+			var form = layui.form
+				, layer = layui.layer
+			//监听提交
+			form.on('submit(register)', function (data) {
+				userUpdate();
+				return false;
+			});
+		});
+
+		// 更新用户信息
+		function userUpdate(){
+			http.ajax({
+				url: 'user/update',
+				type: 'POST',
+				json: false,
+				mask: true,
+				data:{
+					username:$(".username").val(),
+					sex:$(".sex").val(),
+					companyPhone:$(".companyPhone").val(),
+					companyName:$(".companyName").val(),
+					companyAddress:$(".companyAddress").val(),
+				}
+			}).then(function (data) {
+				if (data.code == 200) {
+					getuserinfo();
+					layer.msg('修改成功', {icon: 1});
+				}
+			}, function (err) {
+				
+			});
+		}
+
+		
 	</script>
 </body>
 
