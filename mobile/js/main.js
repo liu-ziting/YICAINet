@@ -66,7 +66,7 @@ var http = {
 				layer.close(loading);
 			}, 100)
 			// 引入公共的底部
-			$("#footer").load("../page/footer.html");
+			$("#footer").load("footerH5.html");
 		}, function (error) {
 			if (error.status == 504) {
 				layer.msg('请求超时，请重试!', {

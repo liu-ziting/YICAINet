@@ -25,7 +25,7 @@
 			<ul>
 				<li class="active" onclick="openUrl('index.html')">首页</li>
 				<li onclick="openUrl('page/callForBids.html')">招标采购信息</li>
-				<li onclick="openUrl('page/purchase.html')">招标采购活动</li>
+				<li onclick="openUrl('page/purchase.html')">采购活动</li>
 				<li onclick="openUrl('page/drugList.html')">药品信息</li>
 				<li onclick="openUrl('page/materialsList.html')">耗材信息</li>
 				<li onclick="openUrl('page/facilityList.html')">设备信息</li>
@@ -39,10 +39,10 @@
 		<div class="banner">
 			<!--轮播图-->
 			<div class="swiper-container">
-				<div class="swiper-wrapper">
+				<div class="swiper-wrapper" id="bannerList">
+					<!-- <div class="swiper-slide"><img src="img/b1.png" /></div>
 					<div class="swiper-slide"><img src="img/b1.png" /></div>
-					<div class="swiper-slide"><img src="img/b1.png" /></div>
-					<div class="swiper-slide"><img src="img/b1.png" /></div>
+					<div class="swiper-slide"><img src="img/b1.png" /></div> -->
 				</div>
 			</div>
 		</div>
@@ -73,16 +73,16 @@
 				招标采购<span>信息</span>
 			</h1>
 			<div class="layui-tab layui-tab-brief purchaseTab">
-				<ul class="layui-tab-title" id="pfTitleList">
-					<li class="layui-this">招标采购公告</li>
+				<ul class="layui-tab-title" id="pfTitleList" style="width: 100%;overflow-x: scroll;margin-top: 0.1rem;">
+					<!-- <li class="layui-this">招标采购公告</li>
 					<li>变更答疑</li>
 					<li>中标成交公告</li>
-					<li>项目异常公告</li>
+					<li>项目异常公告</li> -->
 				</ul>
 			</div>
 			<div class="purchaseBox">
 				<ul id="pfList">
-					<li>
+					<!-- <li>
 						<h1>安徽省应急管理宣传教育中心主题快闪宣传活动项目成交公告</h1>
 						<p>
 							安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中心委托以
@@ -96,40 +96,10 @@
 							<p>截止：2019-12-28</p>
 							<p>开标：2019-12-28</p>
 						</time>
-					</li>
-					<li>
-						<h1>安徽省应急管理宣传教育中心主题快闪宣传活动项目成交公告</h1>
-						<p>
-							安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中心委托以
-							公开招标方式对其拟采购 DR直接数字影像机、彩色多普勒超声诊断系
-							统进行采购，项CF19005欢迎合格的投标人参加投标。、招标内容：包
-							1：DR直接数字影像机 套（详细参数要求见招标文件）包2：彩色 超声
-							诊...
-						</p>
-						<time>
-							<span>正在报名</span>
-							<p>截止：2019-12-28</p>
-							<p>开标：2019-12-28</p>
-						</time>
-					</li>
-					<li>
-						<h1>安徽省应急管理宣传教育中心主题快闪宣传活动项目成交公告</h1>
-						<p>
-							安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中心委托以
-							公开招标方式对其拟采购 DR直接数字影像机、彩色多普勒超声诊断系
-							统进行采购，项CF19005欢迎合格的投标人参加投标。、招标内容：包
-							1：DR直接数字影像机 套（详细参数要求见招标文件）包2：彩色 超声
-							诊...
-						</p>
-						<time>
-							<span>正在报名</span>
-							<p>截止：2019-12-28</p>
-							<p>开标：2019-12-28</p>
-						</time>
-					</li>
+					</li> -->
 				</ul>
 			</div>
-			<div class="seeMore"> 查看更多>> </div>
+			<div onclick="openUrl('page/callForBids.html')" class="seeMore"> 查看更多>> </div>
 		</div>
 
 		<!-- 耗材信息 -->
@@ -137,8 +107,8 @@
 			<h1 class="titlebg" onclick="openUrl('page/callForBids.html')">
 				耗材<span>信息</span>
 			</h1>
-			<ul class="boxList">
-				<li>
+			<ul class="boxList" id="consumableBox">
+				<!-- <li>
 					<div class="imgBox">
 						<img src="../img/temporary/duli.png" />
 					</div>
@@ -148,20 +118,9 @@
 						<p>批次号/序列号：123181201</p>
 						<P>生产日期：0002年11月30日</P>
 					</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/duli.png" />
-					</div>
-					<div class="textBox">
-						<h1>男宝抗菌凝胶</h1>
-						<p>批准文号：国药准字H31020678</p>
-						<p>批次号/序列号：123181201</p>
-						<P>生产日期：0002年11月30日</P>
-					</div>
-				</li>
+				</li> -->
 			</ul>
-			<div class="seeMore"> 查看更多>> </div>
+			<div onclick="openUrl('page/materialsList.html')" class="seeMore"> 查看更多>> </div>
 		</div>
 
 		<!-- 药品信息 -->
@@ -169,31 +128,10 @@
 			<h1 class="titlebg" onclick="openUrl('page/callForBids.html')">
 				药品<span>信息</span>
 			</h1>
-			<ul class="boxList">
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/duli.png" />
-					</div>
-					<div class="textBox">
-						<h1>男宝抗菌凝胶</h1>
-						<p>批准文号：国药准字H31020678</p>
-						<p>批次号/序列号：123181201</p>
-						<P>生产日期：0002年11月30日</P>
-					</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/duli.png" />
-					</div>
-					<div class="textBox">
-						<h1>男宝抗菌凝胶</h1>
-						<p>批准文号：国药准字H31020678</p>
-						<p>批次号/序列号：123181201</p>
-						<P>生产日期：0002年11月30日</P>
-					</div>
-				</li>
+			<ul class="boxList" id="drugBox">
+
 			</ul>
-			<div class="seeMore"> 查看更多>> </div>
+			<div onclick="openUrl('page/drugList.html')" class="seeMore"> 查看更多>> </div>
 		</div>
 
 		<!-- 设备信息 -->
@@ -201,31 +139,11 @@
 			<h1 class="titlebg" onclick="openUrl('page/callForBids.html')">
 				设备<span>信息</span>
 			</h1>
-			<ul class="boxList">
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/duli.png" />
-					</div>
-					<div class="textBox">
-						<h1>男宝抗菌凝胶</h1>
-						<p>批准文号：国药准字H31020678</p>
-						<p>批次号/序列号：123181201</p>
-						<P>生产日期：0002年11月30日</P>
-					</div>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/duli.png" />
-					</div>
-					<div class="textBox">
-						<h1>男宝抗菌凝胶</h1>
-						<p>批准文号：国药准字H31020678</p>
-						<p>批次号/序列号：123181201</p>
-						<P>生产日期：0002年11月30日</P>
-					</div>
-				</li>
-				<div class="seeMore"> 查看更多>> </div>
+			<ul class="boxList" id="equipmentBox">
+				
+				
 			</ul>
+			<div onclick="openUrl('page/facilityList.html')" class="seeMore"> 查看更多>> </div>
 		</div>
 
 		<!-- 广告 -->
@@ -238,10 +156,10 @@
 		<!-- 招标采购活动 -->
 		<div class="activities">
 			<h1 class="titlebg" onclick="openUrl('page/callForBids.html')">
-				招标采购<span>活动</span>
+				采购<span>活动</span>
 			</h1>
-			<ul class="boxList">
-				<li>
+			<ul class="boxList" id="activitiesList">
+				<!-- <li>
 					<div class="imgBox">
 						<img src="../img/temporary/cghd.png" />
 					</div>
@@ -253,65 +171,24 @@
 					<span><img src="img/rl.png" />2019-10-05</span>
 					<span class="ly"><img src="img/ly.png" />医采网</span>
 					<span class="yj"><img src="img/yj.png" />2343</span>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/cghd.png" />
-					</div>
-					<div class="textBox">
-						<h2>安徽省图书馆2020年度外文及港台</h2>
-						<h3>安徽冲锋信息技术有限公司受相山区南黎 街道社区卫生服务中心委托以公开招标方 式对其拟采购 DR直接数字影像机、彩色 多普勒超声诊断系统进行采购，项CF190
-							05欢迎合格的投标人参加投标。……</h3>
-					</div>
-					<span><img src="img/rl.png" />2019-10-05</span>
-					<span class="ly"><img src="img/ly.png" />医采网</span>
-					<span class="yj"><img src="img/yj.png" />2343</span>
-				</li>
-				<li>
-					<div class="imgBox">
-						<img src="../img/temporary/cghd.png" />
-					</div>
-					<div class="textBox">
-						<h2>安徽省图书馆2020年度外文及港台</h2>
-						<h3>安徽冲锋信息技术有限公司受相山区南黎 街道社区卫生服务中心委托以公开招标方 式对其拟采购 DR直接数字影像机、彩色 多普勒超声诊断系统进行采购，项CF190
-							05欢迎合格的投标人参加投标。……</h3>
-					</div>
-					<br>
-					<span><img src="img/rl.png" />2019-10-05</span>
-					<span class="ly"><img src="img/ly.png" />医采网</span>
-					<span class="yj"><img src="img/yj.png" />2343</span>
-				</li>
+				</li> -->
 			</ul>
-			<div class="seeMore"> 查看更多>> </div>
+			<div onclick="openUrl('page/purchase.html')" class="seeMore"> 查看更多>> </div>
 		</div>
 		<!-- 政策 -->
 		<div class="policy">
 			<h1 class="titlebg" onclick="openUrl('page/callForBids.html')">
 				政策<span>法规</span>
 			</h1>
-			<ul class="boxList">
-				<li>
+			<ul class="boxList" id="policyList">
+				<!-- <li>
 					<h4>2014年淮北市医疗卫生机构</h4>
 					<h5>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中心</h5>
 					<span><img src="img/ly.png" />医采网</span>
 					<span class="yj"><img src="img/yj.png" />2343</span>
-				</li>
-				<li>
-					<h4>2014年淮北市医疗卫生机构</h4>
-					<h5>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中心委托以 公开招标方式对其拟采购 DR直接数字影像机、彩色多普勒超声诊断系
-						统进行采购，项CF19005欢迎合格的投标人参加投标。、招标内容：包 1：DR直接数字影像机 套（详细参数要求见招标文件）包2</h5>
-					<span><img src="img/ly.png" />医采网</span>
-					<span class="yj"><img src="img/yj.png" />2343</span>
-				</li>
-				<li>
-					<h4>2014年淮北市医疗卫生机构</h4>
-					<h5>安徽冲锋信息技术有限公司受相山区南黎街道社区卫生服务中心委托以 公开招标方式对其拟采购 DR直接数字影像机、彩色多普勒超声诊断系
-						统进行采购，项CF19005欢迎合格的投标人参加投标。、招标内容：包 1：DR直接数字影像机 套（详细参数要求见招标文件）包2</h5>
-					<span><img src="img/ly.png" />医采网</span>
-					<span class="yj"><img src="img/yj.png" />2343</span>
-				</li>
+				</li> -->
 			</ul>
-			<div class="seeMore"> 查看更多>> </div>
+			<div onclick="openUrl('page/policy.html')" class="seeMore"> 查看更多>> </div>
 		</div>
 	</div>
 	<div id="footer"></div>
@@ -320,15 +197,11 @@
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
 	<script type="text/javascript" src="https://unpkg.com/swiper/js/swiper.min.js"> </script>
 	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
 	<script>
 
-		$("#footer").load("page/footer.html");
+		$("#footer").load("page/footerH5.html");
 
-		var swiper = new Swiper('.swiper-container', {
-			pagination: {
-				el: '.swiper-pagination',
-			},
-		}); 
 	</script>
 </body>
 

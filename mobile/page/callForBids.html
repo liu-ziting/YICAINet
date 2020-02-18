@@ -135,7 +135,7 @@
 								for (var i = 0; i < result.data.items.length; i++) {
 									lis.push('<li id='+result.data.items[i].id+'><h1>'+result.data.items[i].title+'</h1><p>'+result.data.items[i].remark+'</p>')
 									if(result.data.items[i].purchaseStatus == '' ||result.data.items[i].purchaseStatus == null){
-										if(result.data.items[i].questiidonType == '更正公告'){
+										if(result.data.items[i].questionType == '更正公告'){
 											lis.push('<time><span style="color: #DC824D;">'+result.data.items[i].questionType+'</span><p>发布：'+result.data.items[i].createDate.slice(0, result.data.items[i].createDate.length - 9)+'</p></time>')
 										};
 										if(result.data.items[i].questionType == '澄清及答复公告'){
