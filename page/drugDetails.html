@@ -97,6 +97,14 @@
 					<p>生产厂家：{{JSON.parse(d.manufacturer).name}}</p>
 					<hr />
 					<p>市场售价：<span>￥{{d.marketPrice}}</span><a href="login.html">登录可见</a></p>
+
+					{{#  if( d.otherPrice == '暂无'){ }}
+					{{#  } else { }}
+					{{#  for (var i = 0; i < JSON.parse(d.otherPrice).length; i++) { }}
+					<p>名称：{{JSON.parse(d.otherPrice)[i].name}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：{{JSON.parse(d.otherPrice)[i].price}}</p> -->
+					{{#  } }}  
+					{{#  } }} 
+				
 					<button onclick="openUrl('login.html')" type="button" class="layui-btn">
 					<i class="layui-icon">&#xe66f;</i> 马上登录
 					</button>
@@ -191,7 +199,21 @@
 							$("#viewDetails span").hide();
 						};
 
-						imgList();
+						// 图片列表
+						var imgArr = []
+						if(result.login == true){
+							if(result.data.images == '暂无' || result.data.images == null || result.data.images == undefined){
+								imgArr = [App.filePath+result.data.image.newFilename]
+							}else{
+								for (var i = 0; i < result.data.images.length; i++) {
+									imgArr.push(App.filePath+result.data.images[i].newFilename)
+								}
+							}
+							
+						}else{
+							imgArr = [App.filePath+result.data.image.newFilename,'../img/moreimg.png']
+						}
+						imgList(imgArr);
 					});
 				}
 			}, function (err) {
@@ -208,18 +230,13 @@
 		});
 
 
-		function imgList() {
+		function imgList(imgArr) {
 			var biger = document.getElementById('biger');
 			var main = document.getElementById('main');
 			var smaller = document.getElementById('smaller');
 			var mask = document.getElementById('mask');
 			var wrap = biger.parentNode;
-			var imgArr = [
-				{ "path": "../img/temporary/duli.png" },
-				{ "path": "../img/temporary/dimg1.jpg" },
-				{ "path": "../img/temporary/dimg2.jpg" },
-				{ "path": "../img/temporary/dimg3.jpg" },
-			];
+			var imgArr = imgArr;
 			var imgSum = imgArr.length;
 			if (imgSum > 5) {
 				imgSum = 5;
@@ -227,7 +244,7 @@
 			for (var i = 0; i < imgSum; i++) {
 				var lis = document.createElement('li');
 				var imgs = document.createElement('img');
-				imgs.src = imgArr[i].path;
+				imgs.src =imgArr[i]
 				lis.appendChild(imgs);
 				smaller.appendChild(lis);
 			}
@@ -252,6 +269,8 @@
 					}
 				}
 			}
+			$("#main img").attr("onerror","imgError(this)");
+			$("#smaller img").attr("onerror","imgError(this)")
 			main.onmouseenter = function () {
 				mask.style.display = 'block';
 				biger.style.display = 'block';
@@ -285,9 +304,11 @@
 				var yy = pagey * scale;
 				bigPic.style.left = -xx + 'px';
 				bigPic.style.top = -yy + 'px';
-			}
-		}
+			};
 
+			
+		}
+		
 	</script>
 </body>
 

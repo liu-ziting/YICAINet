@@ -141,7 +141,7 @@
 								{{#  if(item.image){ }}
 								<img onerror="imgError(this)" src={{App.filePath+item.image.newFilename}} />	
 								{{#  } else { }}
-								
+								<img onerror="imgError(this)" src={{App.filePath+item.image}} />	
 								{{#  } }}  	
 								<h1 onclick="openUrl('drugDetails.html?id={{item.id}}')">{{item.commonName}}</h1>
 								<p>商品名称：{{item.productName}}</p>
@@ -154,7 +154,7 @@
 								</p>
 								<p>规格：{{item.specification}}</p>
 								<p>剂型：{{item.dosageForm}}</p>
-								<p>包装：{{item.largePackage}}</p>
+								<p>包装：{{item.pack}}</p>
 							</div>
 						</li>
 						{{# }); }} {{# if(d.items.length === 0){ }}
@@ -202,7 +202,7 @@
 
 		//药品列表
 		var pageNo = 1;
-		var pageSize = 20;
+		var pageSize = 12;
 		oneDrug_list();
 		function oneDrug_list(pruductTypeIdList){
 			document.getElementById("viewList").innerHTML="";

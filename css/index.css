@@ -1249,6 +1249,7 @@ footer section span {
 	background-color: #FFFFFF;
 	z-index: 999;
 	position: relative;
+	margin-bottom: 25px;
 }
 #viewLeft{
 	min-height: 100px;
@@ -1306,8 +1307,8 @@ footer section span {
 
 .download .left .advertising {
 	width: 100%;
-	height: 205px;
-	margin: 25px 0;
+	max-height: 205px;
+	/* margin: 25px 0; */
 }
 
 .download .left .advertising img {
@@ -1318,6 +1319,7 @@ footer section span {
 .download .left .cgactivity {
 	background-color: #FFFFFF;
 	padding: 20px;
+	margin-top: 25px;
 }
 
 .download .left .cgactivity h1 {

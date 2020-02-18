@@ -31,7 +31,7 @@ function bannerList() {
             var result = data.data.items;
             var iHTML = ""
             for (var i = 0; i < result.length; i++) {
-                iHTML += '<div><a href="'+ result[i].url+'"><img src="'+ App.filePath+result[i].image.newFilename+'"/></a></div>'
+                iHTML += '<div><a target="blank" href="'+ result[i].url+'"><img src="'+ App.filePath+result[i].image.newFilename+'"/></a></div>'
             };
             $("#bannerList").append(iHTML);
             layui.use(['carousel'], function () {
@@ -45,6 +45,49 @@ function bannerList() {
                     , indicator: 'none'
                 });
             });
+        }
+    }, function (err) {
+
+    });
+};
+//广告
+advertising();
+function advertising() {
+    http.ajax({
+        url: 'ad/ad_list',
+        type: 'GET',
+        json: false,
+        mask: false,
+        data: {
+            type: "首页",//首页','采购信息页','购买标书页','支付成功页','政策信息页','招标信息页','下载中心页
+            pageNo: 1,
+            pageSize: 5,
+        }
+    }).then(function (data) {
+        if (data.code == 200) {
+            var result = data.data.items;
+            var iHTML = '';
+            for (var i = 0; i < result.length; i++) {
+                iHTML += "<div><a title=\"" + result[i].title + "\" target=\"blank\" href=\"" + result[i].url + "\" >" +
+                    "<img src=\"" + App.filePath + result[i].image.newFilename + "\" /><span>广告</span>" +
+                    "</a></div>";
+            };
+            if (result.length == 0) {
+                $(".advertising").hide();
+            }
+            $("#advertisingListBox").append(iHTML);
+            layui.use(['carousel'], function () {
+                var carousel = layui.carousel
+                //常规轮播
+                carousel.render({
+                    elem: '#advertisingList',
+                    arrow: 'hover',
+                    width: '100%',
+                    height: '120px',
+                    autoplay: true,
+                    indicator: 'none',
+                });
+            })
         }
     }, function (err) {
 

@@ -1,6 +1,7 @@
 var App = {
 	apiBasePath: "http://okyc-business.utools.club/", 	//接口地址
 	rootPath: getRootPath(),				//项目根目录地址
+	pagePath:getRootPath()+'/mobile/page/',
 	filePath: 'http://okyc-business.utools.club/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
@@ -66,7 +67,7 @@ var http = {
 				layer.close(loading);
 			}, 100)
 			// 引入公共的底部
-			$("#footer").load("footerH5.html");
+			$("#footer").load(App.pagePath+"footerH5.html");
 		}, function (error) {
 			if (error.status == 504) {
 				layer.msg('请求超时，请重试!', {

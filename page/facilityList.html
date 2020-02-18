@@ -125,7 +125,7 @@
 								{{#  if(item.image){ }}
 								<img onerror="imgError(this)" src={{App.filePath+item.image.newFilename}} />	
 								{{#  } else { }}
-								
+								<img onerror="imgError(this)" src={{App.filePath+item.image}} />	
 								{{#  } }} 
 								<h1 onclick="openUrl('facilityDetails.html?id={{item.id}}')">{{item.equipmentName}}</h1>
 								<p>设备型号：{{item.model}}</p>
@@ -179,7 +179,7 @@
 
 		//设备列表
 		var pageNo = 1;
-		var pageSize = 20;
+		var pageSize = 12;
 		oneDrug_list([]);
 		function oneDrug_list(pruductTypeIdList){
 			document.getElementById("viewList").innerHTML="";
