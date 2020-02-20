@@ -99,7 +99,7 @@
 			    	<em>推荐使用微信、支付宝支付</em>
 			    </li>
 			    <!--支付宝支付跳转-->
-			    <div id="alipayBox"></div>
+			    <div id="aliPayForm"></div>
 			</ul>
 		</div>
 		<div class="centered main">
@@ -111,9 +111,7 @@
 				</a>
 			</div>
 		</div>
-		
 		<div id="footer"></div>
-		
 		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 		<script type="text/javascript" src="../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
@@ -163,7 +161,13 @@
 					if(data.code == 200) {
 						if(payChannel == 'ali_pay_pc'){
 							var json = JSON.parse(data.data);
-							$("#alipayBox").append(json.payUrl);
+//							$("#alipayBox").append(json.payUrl);
+							var payNo = json.payNo;
+							var payUrl = json.payUrl;
+							localStorage.setItem("payUrl",payUrl);
+							localStorage.setItem("payNo",payNo);
+							window.open('pay.html');
+//							getPayResult(payNo);
 						}else if(payChannel == 'wechat_pay_pc'){
 							$("#wxPayBox").show()
 						};
@@ -172,6 +176,49 @@
 					
 				})
 			};
+			
+			//查询支付结果
+        	var payNo = localStorage.getItem("payNo")
+        	if(payNo){
+        		getPayResult(payNo)
+        	}
+			function getPayResult(payNo){
+				http.ajax({
+					url: 'goods/get_pay_result',
+					type: 'GET',
+					json: false,
+					mask: false,
+					data: {
+						payNo:payNo
+					}
+				}).then(function(data) {
+					var payChannel = $(".buyBook ul li:nth-child(2) .active .payChannel").val();
+					if(data.code == 200) {
+						if(data.data == "wait_pay"){
+							//等待支付
+//							getPayResult(payNo);
+						}else if(data.data == "wait_confirm"){
+							//等待用户确认
+						}else if(data.data == "wait_pay_result"){
+							//等待支付结果
+						}else if(data.data == "success"){
+							//支付成功
+							openUrl('buySucceed.html?id='+getQueryString("id")+'&payChannel='+payChannel+'')
+						}else if(data.data == "failed"){
+							//支付失败
+							layer.msg('支付失败！', {
+								icon: 5
+							},function(){
+								window.location.reload();
+							});
+						}
+					}
+				}, function(err) {
+					
+				})
+			};
+			
+			
 		</script>
 	</body>
 
