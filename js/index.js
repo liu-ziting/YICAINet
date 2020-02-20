@@ -73,7 +73,7 @@ function advertising() {
                     "</a></div>";
             };
             if (result.length == 0) {
-                $(".advertising").hide();
+                $("#advertisingListBox").hide();
             }
             $("#advertisingListBox").append(iHTML);
             layui.use(['carousel'], function () {

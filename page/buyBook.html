@@ -102,13 +102,18 @@
 			    <div id="aliPayForm"></div>
 			</ul>
 		</div>
-		<div class="centered main">
+		<div class="centered main"  style="min-height: 200px;">
 			<!--广告-->
 			<div class="advertisement">
-				<a href="#">
-					<img src="../img/temporary/gg.png" />
-					<span>广告</span>
-				</a>
+				<div class="layui-carousel" id="advertisingList" lay-filter="advertisingList">
+					<div carousel-item="" id="advertisingListBox">
+						<!-- <div>
+							<a href="#">
+								<img src="../img/gg.png" />
+							</a>
+						</div> -->
+					</div>
+				</div>
 			</div>
 		</div>
 		<div id="footer"></div>
@@ -167,7 +172,7 @@
 							localStorage.setItem("payUrl",payUrl);
 							localStorage.setItem("payNo",payNo);
 							window.open('pay.html');
-//							getPayResult(payNo);
+							getPayResult(payNo);
 						}else if(payChannel == 'wechat_pay_pc'){
 							$("#wxPayBox").show()
 						};
@@ -176,7 +181,6 @@
 					
 				})
 			};
-			
 			//查询支付结果
 			function getPayResult(payNo){
 				http.ajax({
@@ -190,14 +194,7 @@
 				}).then(function(data) {
 					var payChannel = $(".buyBook ul li:nth-child(2) .active .payChannel").val();
 					if(data.code == 200) {
-						if(data.data == "wait_pay"){
-							//等待支付
-//							getPayResult(payNo);
-						}else if(data.data == "wait_confirm"){
-							//等待用户确认
-						}else if(data.data == "wait_pay_result"){
-							//等待支付结果
-						}else if(data.data == "success"){
+						if(data.data == "success"){
 							//支付成功
 							openUrl('buySucceed.html?id='+getQueryString("id")+'&payChannel='+payChannel+'')
 						}else if(data.data == "failed"){
@@ -207,6 +204,8 @@
 							},function(){
 								window.location.reload();
 							});
+						}else{
+							getPayResult(payNo);
 						}
 					}
 				}, function(err) {
@@ -214,7 +213,49 @@
 				})
 			};
 			
+			//广告
+			advertising();
+			function advertising() {
+			    http.ajax({
+			        url: 'ad/ad_list',
+			        type: 'GET',
+			        json: false,
+			        mask: false,
+			        data: {
+			            type: "支付成功页",//首页','采购信息页','购买标书页','支付成功页','政策信息页','招标信息页','下载中心页
+			            pageNo: 1,
+			            pageSize: 5,
+			        }
+			    }).then(function (data) {
+			        if (data.code == 200) {
+			            var result = data.data.items;
+			            var iHTML = '';
+			            for (var i = 0; i < result.length; i++) {
+			                iHTML += "<div><a title=\"" + result[i].title + "\" target=\"blank\" href=\"" + result[i].url + "\" >" +
+			                    "<img src=\"" + App.filePath + result[i].image.newFilename + "\" /><span>广告</span>" +
+			                    "</a></div>";
+			            };
+			            if (result.length == 0) {
+			                $("#advertisingListBox").hide();
+			            }
+			            $("#advertisingListBox").append(iHTML);
+			            layui.use(['carousel'], function () {
+			                var carousel = layui.carousel
+			                //常规轮播
+			                carousel.render({
+			                    elem: '#advertisingList',
+			                    arrow: 'hover',
+			                    width: '100%',
+			                    height: '120px',
+			                    autoplay: true,
+			                    indicator: 'none',
+			                });
+			            })
+			        }
+			    }, function (err) {
 			
+			    });
+			};
 		</script>
 	</body>
 

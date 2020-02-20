@@ -65,7 +65,7 @@ var http = {
 			} else if (error.responseText) {
 				var err = JSON.parse(error.responseText);
 				var code = err.code; // 错误码
-				var emsg = err.message; // 错误内容提示（字符串）
+				var emsg = err.msg; // 错误内容提示（字符串）
 				switch (code) {
 					case 500: // 500 服务器错误
 						layer.msg('服务器发生错误，请联系管理员！', {
@@ -106,6 +106,11 @@ var http = {
 						break;
 					case 10004: // 10004 更新失败
 						layer.msg('更新失败', {
+							icon: 5
+						});
+						break;
+					case 10009: // 10009 创建支付信息失败
+						layer.msg(emsg+'，请联系管理员！', {
 							icon: 5
 						});
 						break;
@@ -341,6 +346,8 @@ function download(id){
 			});
 		}else if(err.status == 10007){
 			location.href = 'buyBook.html?id='+id+'&operationType=download';
+		}else if(err.status == 0){
+			location.href = ''+App.apiBasePath+'resource/download?id='+id+'';
 		}
 	})
 };

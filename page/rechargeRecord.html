@@ -117,10 +117,14 @@
 								<tbody>
 									{{# layui.each(d.items, function(index, item){ }}
 									<tr>
-										<td>2020-01-05</td>
-										<td>支付宝充值</td>
-										<td>-1000</td>
+										<td>{{item.payTime }}</td>
+										<td>{{ item.remark }}</td>
+										<td>-{{item.consumeAmount}}</td>
+										{{#  if(item.status === "success"){ }}
 										<td>交易成功</td>
+										{{#  } else { }}
+											<td>交易失败</td>
+									  	{{#  } }} 
 									</tr>
 									{{# }); }} {{# if(d.items.length === 0){ }}
 									<tr>
