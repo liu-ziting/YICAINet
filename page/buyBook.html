@@ -178,10 +178,6 @@
 			};
 			
 			//查询支付结果
-        	var payNo = localStorage.getItem("payNo")
-        	if(payNo){
-        		getPayResult(payNo)
-        	}
 			function getPayResult(payNo){
 				http.ajax({
 					url: 'goods/get_pay_result',
