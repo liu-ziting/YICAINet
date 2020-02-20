@@ -1,8 +1,8 @@
 var App = {
-	apiBasePath: "http://okyc-business.utools.club/", 	//接口地址
+	apiBasePath: "http://www.chenkaix.cn:8088/", 	//接口地址
 	rootPath: getRootPath(),				//项目根目录地址
 	pagePath:getRootPath()+'/mobile/page/',
-	filePath: 'http://okyc-business.utools.club/',
+	filePath: 'http://www.chenkaix.cn:8088/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
 // H5调试工具

@@ -92,8 +92,12 @@
 					layer.msg('登录已失效！', {
 						icon: 5
 					}, function () {
-						location.href = 'login.html';
+						
 					});
+					setTimeout(function(){
+						location.href = 'login.html';
+					},1000)
+					
 				}
 			});
 
