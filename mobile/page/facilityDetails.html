@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<title>医采网-药品信息</title>
+	<title>医采网-设备信息</title>
 	<link rel="stylesheet" href="../../layui/css/layui.css" />
 	<link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css">    
 	<link rel="stylesheet" href="../css/index.css" />
@@ -19,16 +19,16 @@
 		<a href="index.html">
 			<img src="../img/mlogo.png" />
 		</a>
-		<p>药品信息</p>
+		<p>设备信息</p>
 		<img class="more" src="../img/gd.png" />
 		<section class="">
 			<ul>
 				<li onclick="openUrl('../index.html')">首页</li>
 				<li onclick="openUrl('callForBids.html')">招标采购信息</li>
 				<li onclick="openUrl('purchase.html')">采购活动</li>
-				<li class="active" onclick="openUrl('drugList.html')">药品信息</li>
+				<li onclick="openUrl('drugList.html')">药品信息</li>
 				<li onclick="openUrl('materialsList.html')">耗材信息</li>
-				<li onclick="openUrl('facilityList.html')">设备信息</li>
+				<li class="active" onclick="openUrl('facilityList.html')">设备信息</li>
 				<li onclick="openUrl('policy.html')">政策法规</li>
 				<li onclick="openUrl('download.html')">下载中心</li>
 				<li onclick="openUrl('my.html')">个人中心</li>
@@ -47,18 +47,11 @@
 		<div id="viewDetails"></div>
 		<script id="drugDetailsTpl" type="text/html">
 		<div class="topDetails">
-			<h1>{{d.commonName}}</h1>
-			<p>药品代码：{{d.drugCode}}</p>
-			<p>批准文号：{{d.approvalNumber}}</p>
-			<p>商品名称：{{d.productName}}</p>
-			<p>剂型：{{d.dosageForm}}</p>
-			<p>规格/型号：{{d.specification}}</p>
-			<p>包装：{{d.largePackage}}</p>
-			<p>最小使用单位：{{d.minimumUseUnit}}</p>
-			<p>生产厂家：{{JSON.parse(d.manufacturer).name}}</p>
+			<h1>{{d.equipmentName}}</h1>
+			<p>设备型号：{{d.model}}</p>
+			<p>设备品牌：{{d.brand}}</p>
 			<hr />
 			<p>市场售价：<span>登录可见</span><em>￥{{d.marketPrice}}</em></p>
-		
 		</div>
 		<div class="indetail">
 			<h1 class="titlebg" >
@@ -66,12 +59,16 @@
 			</h1>
 			<ul>
 				<li>
-					<p>通用名/化学名：</p>
-					<span>{{d.commonName}}</span>
+					<p>设备名称：</p>
+					<span>{{d.equipmentName}}</span>
 				</li>
 				<li>
-					<p>医保支付价格：</p>
-					<span>{{d.healthInsurancePrice}}</span>
+					<p>品牌：</p>
+					<span>{{d.brand}}</span>
+				</li>
+				<li>
+					<p>型号：</p>
+					<span>{{d.model}}</span>
 				</li>
 				<li>
 					<p>生产厂家：</p>
@@ -85,25 +82,6 @@
 					<p>联系电话：</p>
 					<span>{{JSON.parse(d.manufacturer).tel}}</span>
 				</li>
-				<li>
-					<p>批准文号：</p>
-					<span>{{d.approvalNumber}}</span>
-				</li>
-				<li>
-					<p>规格/型号：</p>
-					<span>{{d.specification}}</span>
-				</li>
-				<li>
-					<p>包装：</p>
-					<span>{{d.largePackage}}</span>
-				</li>
-				<li>
-					<p>剂型：</p>
-					<span>{{d.dosageForm}}</span>
-				</li>
-				<li>
-					<p>其他售价：</p>
-				</li>
 				{{#  if( d.otherPrice == '暂无'){ }}
 				{{#  } else { }}
 				{{#  for (var i = 0; i < JSON.parse(d.otherPrice).length; i++) { }}
@@ -116,7 +94,7 @@
 			<h1 class="titlebg" >
 				商品说明书
 			</h1>
-			<div class="specification">{{d.instructions}}</div>
+			<div class="specification">{{d.description}}</div>
 		</div>
 		<br><br><br>
 		<a class="wlogin" href="login.html">登陆查看采购价及完整信息</a>
@@ -131,9 +109,9 @@
 		
 		layui.use(['laytpl', 'layer'], function () {
 			var laytpl = layui.laytpl;
-			//获取药品详情
+			//获取设备详情
 			http.ajax({
-				url: 'product/drug_detail',
+				url: 'product/equipment_detail',
 				type: 'GET',
 				json: false,
 				mask: true,

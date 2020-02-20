@@ -233,7 +233,7 @@ function appliance_list() {
                 "<img onerror='imgError(this)' src=\"" + App.filePath+result[i].image.newFilename + "\" />"+
                 "</div>"+
                 "<div class=\"textBox\">"+
-                "<h1>男宝抗菌凝胶</h1>"+
+                "<h1>" + result[i].applianceName + "</h1>"+
                 "<p>批准文号：" + result[i].approvalNumber + "</p>"+
                 "<p>生产厂家：" + JSON.parse(result[i].manufacturer).name + "</p>"+
                 "<P>型号：" + result[i].model + "</P>"+

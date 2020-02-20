@@ -94,7 +94,7 @@
 					{{#  if( d.otherPrice == '暂无'){ }}
 					{{#  } else { }}
 					{{#  for (var i = 0; i < JSON.parse(d.otherPrice).length; i++) { }}
-					<p>时间：{{JSON.parse(d.otherPrice)[i].date}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：{{JSON.parse(d.otherPrice)[i].price}}</p> -->
+					<p>时间：{{JSON.parse(d.otherPrice)[i].date}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：{{JSON.parse(d.otherPrice)[i].price}}</p> 
 					{{#  } }}  
 					{{#  } }} 
 					<button onclick="openUrl('login.html')" type="button" class="layui-btn">

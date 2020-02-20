@@ -67,6 +67,11 @@ var http = {
 				var code = err.code; // 错误码
 				var emsg = err.message; // 错误内容提示（字符串）
 				switch (code) {
+					case 500: // 500 服务器错误
+						layer.msg('服务器发生错误，请联系管理员！', {
+							icon: 5
+						});
+						break;
 					case 403: // 403 未登录
 //						layer.msg('登录失效，请重新登录！', {
 //							icon: 5
