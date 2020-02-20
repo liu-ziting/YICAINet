@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<title>医采网-支付</title>
+		<link rel="stylesheet" href="../../layui/css/layui.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+		<script type="text/javascript" src="../js/rem.js"></script>
+	</head>
+
+	<body class="myPage">
+		<header class="header">
+			<a href="index.html">
+				<img src="../img/mlogo.png" />
+			</a>
+			<p>支付</p>
+			<img class="more" src="../img/gd.png" />
+			<section class="">
+				<ul>
+					<li onclick="openUrl('../index.html')">首页</li>
+					<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+					<li onclick="openUrl('purchase.html')">采购活动</li>
+					<li onclick="openUrl('drugList.html')">药品信息</li>
+					<li onclick="openUrl('materialsList.html')">耗材信息</li>
+					<li onclick="openUrl('facilityList.html')">设备信息</li>
+					<li onclick="openUrl('policy.html')">政策法规</li>
+					<li onclick="openUrl('download.html')">下载中心</li>
+					<li class="active" onclick="openUrl('my.html')">个人中心</li>
+				</ul>
+			</section>
+		</header>
+		<div class="main">
+			<!--轮播图-->
+			<div class="layui-carousel" id="banner" lay-filter="banner">
+				<div carousel-item="" id="bannerList">
+					<div>
+						<a href="#"><img src="../img/myban.png" /></a>
+					</div>
+				</div>
+			</div>
+			<div class="myList">
+				<h2>请选择支付方式</h2>
+				<section class="vipList">
+					<p class="title">标书名称：<span id="title"></span></p>
+				</section>
+				<h2>支付方式</h2>
+				<section class="payment">
+					<form class="layui-form" id="IsPurchased" action="">
+						<label>
+						<p><img src="../img/zfb.png"/>支付宝支付</p>
+						<input type="radio" class="payChannel" name="pay" value="ali_pay_pc"  checked="">
+					</label>
+						<label>
+						<p><img src="../img/wx.png"/>微信支付</p>
+						<input type="radio" class="payChannel" name="pay" value="wechat_pay_pc" >
+					</label>
+					</form>
+				</section>
+				<button type="button" class="layui-btn edit" id="realPrice"></button>
+			</div>
+		</div>
+		<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script>
+			layui.use(['carousel'], function() {
+				var carousel = layui.carousel
+				//个人中心轮播
+				carousel.render({
+					elem: '#banner',
+					arrow: 'hover',
+					width: '100%',
+					indicator: 'none'
+				});
+			});
+
+			$("#realPrice").click(function() {
+				getPayInfo()
+			})
+
+			//获取标书详情和金额
+			getResource();
+
+			function getResource() {
+				http.ajax({
+					url: 'resource/get_resource',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						id: getQueryString("id")
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						$("#title").text(data.data.title);
+						$("#realPrice").text('支付' + data.data.realPrice + '元并开通');
+					}
+				}, function(err) {
+
+				})
+			};
+
+			//支付接口
+			function getPayInfo() {
+				var payChannel = $('#IsPurchased input[name="pay"]:checked ').val()
+				http.ajax({
+					url: 'goods/get_pay_info',
+					type: 'GET',
+					json: false,
+					mask: true,
+					data: {
+						id: getQueryString("id"),
+						payChannel: payChannel,
+						operationType: getQueryString("operationType"),
+						terminalType: 'h5'
+					}
+				}).then(function(data) {
+					if(data.code == 200) {
+						if(payChannel == 'ali_pay_pc') {
+							var json = JSON.parse(data.data);
+							//							$("#alipayBox").append(json.payUrl);
+							var payNo = json.payNo;
+							var payUrl = json.payUrl;
+							localStorage.setItem("payUrl", payUrl);
+							localStorage.setItem("payNo", payNo);
+							window.open('pay.html');
+							getPayResult(payNo);
+						} else if(payChannel == 'wechat_pay_pc') {
+							$("#wxPayBox").show()
+						};
+					}
+				}, function(err) {
+
+				})
+			};
+			//查询支付结果
+			function getPayResult(payNo) {
+				http.ajax({
+					url: 'goods/get_pay_result',
+					type: 'GET',
+					json: false,
+					mask: false,
+					data: {
+						payNo: payNo
+					}
+				}).then(function(data) {
+					var payChannel = $(".buyBook ul li:nth-child(2) .active .payChannel").val();
+					if(data.code == 200) {
+						if(data.data == "success") {
+							//支付成功
+							openUrl('buySucceed.html?id=' + getQueryString("id") + '&payChannel=' + payChannel + '')
+						} else if(data.data == "failed") {
+							//支付失败
+							layer.msg('支付失败！', {
+								icon: 5
+							}, function() {
+								window.location.reload();
+							});
+						} else {
+							getPayResult(payNo);
+						}
+					}
+				}, function(err) {
+
+				})
+			};
+
+			//会员切换
+			$(".vipList  div").click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>支付</title>
+	</head>
+	<body>
+		<div id="payUrl"></div>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script>
+			$("#payUrl").append(localStorage.getItem("payUrl"))	
+		</script>
+	</body>
+</html>

@@ -128,10 +128,17 @@
 								<img src="../img/sj.png" alt="">
 								<p>修改手机</p>
 							</li>
-							<li onclick="openUrl('userVip.html')">
-								<img src="../img/vip.png" alt="">
-								<p class="recharge">立即充值</p>
-							</li>
+							{{#  if(d.vipStatus == 'normal'){ }}
+								<li onclick="openUrl('userVip.html')">
+									<img src="../img/vipm.png" alt="">
+									<p style="background-color: #195edd;" class="recharge">VIP会员</p>
+								</li>
+							{{#  } else { }}
+								<li onclick="openUrl('userVip.html')">
+									<img src="../img/vip.png" alt="">
+									<p class="recharge">立即充值</p>
+								</li>
+						  	{{#  } }} 
 						</ul>
 					</div>
 				</div>

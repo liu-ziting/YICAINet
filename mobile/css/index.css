@@ -1082,6 +1082,10 @@ footer p:last-child{
 	overflow: hidden;
     margin-bottom: 0.52rem;
 }
+.myPage .vipList .title{
+	margin-bottom: 15px;
+    font-size: 0.3rem;
+}
 .myPage .vipList > div{
 	width:2.16rem;
 	height:2.17rem;

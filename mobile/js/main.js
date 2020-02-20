@@ -324,6 +324,8 @@ function download(id){
 			});
 		}else if(err.status == 10007){
 			location.href = 'buyBook.html?id='+id+'&operationType=download';
+		}else if(err.status == 0){
+			location.href = ''+App.apiBasePath+'resource/download?id='+id+'';
 		}
 	})
 };
