@@ -1441,18 +1441,32 @@ footer section span {
 	width: 100%;
 	display: block;
 	margin-top: 15px;
+	position: relative;
 }
 
 .download .right .rightList ul li time a {
 	float: right;
 }
 
-.download .right .rightList ul li time a img {
-	width: 25px;
+.download .right .rightList ul li time a img  {
 	display: block;
 	float: right;
+	width: 20px;
+	bottom: 8px;
+	top: 0px;
 }
-
+.download .right .rightList ul li time a img:nth-child(1){
+	right: 60px;
+	position: absolute;
+}
+.download .right .rightList ul li time a img:nth-child(2){
+	right: 30px;
+	position: absolute;
+}
+.download .right .rightList ul li time a img:nth-child(3){
+	right: 0;
+	position: absolute;
+}
 .download .right .rightList ul li:hover h2 {
 	color: #1668d8;
 }
@@ -1564,12 +1578,21 @@ footer section span {
 .policyList ul li a img {
 	display: block;
 	float: right;
-	width: 25px;
+	width: 20px;
 	bottom: 8px;
+}
+.policyList ul li a img:nth-child(1){
+	right: 60px;
+	position: absolute;
+}
+.policyList ul li a img:nth-child(2){
+	right: 30px;
+	position: absolute;
+}
+.policyList ul li a img:nth-child(3){
 	right: 0;
 	position: absolute;
 }
-
 .policyList ul li i {
 	display: block;
 	float: right;

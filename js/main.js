@@ -475,4 +475,38 @@ function IsPC(){
     }
     return flag;
 }
- 
+
+//分享到微信
+function weixin(_this) {
+	var url = App.rootPath+$(_this).attr("id");
+    layer.open({
+        type: 1,
+        skin: 'layui-layer-demo', //样式类名
+        closeBtn: 1, //不显示关闭按钮
+        anim: 1,
+        title: '扫一扫分享朋友圈', //不显示标题
+        shadeClose: true, //开启遮罩关闭
+        content: ' <div id="code" style="padding: 10px;"></div>'
+    });
+    $('#code').qrcode({text: url});
+}
+
+
+//分享到新浪微博
+function shareToXl(_this) {
+	var title = $(_this).attr("bt");
+	var url = App.rootPath+$(_this).attr("id");
+	var picurl = $(_this).parent(".imgbox").find("img").attr("src");
+    var sharesinastring = 'http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url + '&content=utf-8&sourceUrl=' + url + '&pic=' + picurl;
+    window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
+}
+
+//分享到qq空间
+function shareToQq(_this) {
+	var title = $(_this).attr("bt");
+	var url = App.rootPath+$(_this).attr("id");
+	var picurl = $(_this).parent(".imgbox").find("img").attr("src");
+	var summary = $(_this).parent("p").text();
+    var shareqqzonestring = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary=' + summary + '&title=' + title + '&url=' + url + '&pics=' + picurl;
+    window.open(shareqqzonestring, 'newwindow', 'height=400,width=400,top=100,left=100');
+}

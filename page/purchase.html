@@ -122,7 +122,11 @@
 							<h3>{{item.title}}<span id="{{item.id}}">查看详情</span></h3>
 							<time>{{item.createDate}}</time>
 							<p>{{item.remark}}</p>
-							<a href="#"><img src="../img/fc.png"/></a>
+							<a href="javascript:;" >
+								<img onclick="weixin(this)" id="/mobile/page/details.html?id={{item.id}}" src="../img/c19-05.png"/>
+								<img onclick="shareToXl(this)"  id="/mobile/page/details.html?id={{item.id}}" bt="{{item.title}}" src="../img/c19-06.png"/>
+								<img onclick="shareToQq(this)" id="/mobile/page/details.html?id={{item.id}}" bt="{{item.title}}" src="../img/c19-07.png"/>
+							</a>
 						</li>
 						{{# }); }} {{# if(d.items.length === 0){ }}
 						<li>
@@ -141,6 +145,7 @@
 	<div id="footer"></div>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/jquery.qrcode.min.js" ></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
 		//招标活动

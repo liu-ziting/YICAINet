@@ -117,7 +117,13 @@
 						{{# layui.each(d.items, function(index, item){ }}
 						<li>
 							<h2>{{item.title}}<span class="dlBox">下载<input type="hidden" class="id" value="{{item.id}}" /></span></h2>
-							<time>{{item.createDate}}<a href="#"><img src="../img/fc.png"/></a></time>
+							<time>{{item.createDate}}
+							<a href="javascript:;" >
+								<img onclick="weixin(this)" id="/mobile/page/buyBook.html?id={{item.id}}&operationType=download" src="../img/c19-05.png"/>
+								<img onclick="shareToXl(this)"  id="/mobile/page/buyBook.html?id={{item.id}}&operationType=download" bt="{{item.title}}" src="../img/c19-06.png"/>
+								<img onclick="shareToQq(this)" id="/mobile/page/buyBook.html?id={{item.id}}&operationType=download" bt="{{item.title}}" src="../img/c19-07.png"/>
+							</a>
+							</time>
 						</li>
 						{{# }); }} {{# if(d.items.length === 0){ }}
 						<li>
@@ -134,6 +140,7 @@
 	<div id="footer"></div>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/jquery.qrcode.min.js" ></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
 		//采购活动

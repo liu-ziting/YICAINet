@@ -185,7 +185,11 @@
 									
 								</time>
 								<p>{{item.remark}}</p>
-								<a href="#"><img style="right: 80px;" src="../img/fc.png"/></a>
+								<a href="javascript:;" style="right: 80px;right: 74px;position: absolute;bottom: 4px;" >
+									<img onclick="weixin(this)" id="/mobile/page/details.html?id={{item.id}}" src="../img/c19-05.png"/>
+									<img onclick="shareToXl(this)"  id="/mobile/page/details.html?id={{item.id}}" bt="{{item.title}}" src="../img/c19-06.png"/>
+									<img onclick="shareToQq(this)" id="/mobile/page/details.html?id={{item.id}}" bt="{{item.title}}" src="../img/c19-07.png"/>
+								</a>
 								<i><img style="right: 80px;" src="../img/ll.png" /><em>{{item.hitCount}}</em></i>
 							</li>
 							{{# }); }} {{# if(d.items.length === 0){ }}
@@ -206,6 +210,7 @@
 	<div id="footer"></div>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/jquery.qrcode.min.js" ></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
 		//采购活动

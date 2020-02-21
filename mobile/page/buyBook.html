@@ -130,7 +130,17 @@
 						};
 					}
 				}, function(err) {
-
+					if (err.status == 403) {
+						layer.msg('未登录，不可下载！', {
+							icon: 5
+						}, function () {
+							
+						});
+						setTimeout(function(){
+							location.href = 'login.html';
+						},1000)
+						
+					}
 				})
 			};
 			

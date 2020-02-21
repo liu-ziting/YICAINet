@@ -189,7 +189,7 @@ function purchasingInformationList(typeId) {
     });
 }
 //耗材信息
-// appliance_list();
+ appliance_list();
 function appliance_list() {
     var queryDrug = {
         "key": "",
