@@ -45,11 +45,11 @@
 			<img src="../../img/check.png">
 			<h1>支付成功</h1>
 			<ul>
-				<li>订单名称：淮北市人民医院医用耗材采购标书</li>
-				<li>支付方式：微信扫码支付</li>
-				<li>支付金额：￥45.00</li>
+				<li>订单名称：<span id="title"></span></li>
+				<li>支付方式：<span id="payChannel"></span></li>
+				<li>支付金额：<span id="realPrice"></span></li>
 			</ul>
-			<button type="button" onclick="window.location.href='http://tc.lihail.cn/接口文档模板.doc'" class="layui-btn download">下载标书</button>
+			<button type="button"  class="layui-btn download">下载标书</button>
 		</div>
 	</div>
 	<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
@@ -67,7 +67,36 @@
 			});
 		});
 
+		//获取标书详情和金额
+		getResource();
+		function getResource(){
+			http.ajax({
+				url: 'resource/get_resource',
+				type: 'GET',
+				json: false,
+				mask: true,
+				data: {
+					id:getQueryString("id")
+				}
+			}).then(function(data) {
+				if(data.code == 200) {
+					$("#title").text(data.data.title);
+					$("#realPrice").text("￥"+data.data.realPrice);
+					if(getQueryString("payChannel") == 'ali_pay_pc'){
+						$("#payChannel").text("支付宝扫码支付")
+					}else{
+						$("#payChannel").text("微信扫码支付")
+					}
+				}
+			}, function(err) {
+				
+			})
+		};
 		
+		//下载标书
+		$(".download").click(function(){
+			location.href = ''+App.apiBasePath+'resource/download?id='+getQueryString("id")+'';
+		})
 	</script>
 </body>
 

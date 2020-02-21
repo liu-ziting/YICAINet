@@ -44,9 +44,9 @@
 		<div class="myList">
 			<h2>全部消息</h2>
 			<ul class="newList flow-default" id="flowList">
-				<!-- <li>
-					<h1>订单号：4587846754685<span>￥80.00</span></h1>
-					<p>成功充值购买季度会员</p>
+				 <!--<li>
+					<h1>订单号：4587846754685</h1>
+					<p><span>￥80.00</span>成功充值购买季度会员</p>
 					<time>2020-01-03 </time>
 				</li> -->
 			</ul>
@@ -94,7 +94,7 @@
 						if (data.code == 200) {
 						var lis = [];
 						for (var i = 0; i < result.data.items.length; i++) {
-							lis.push('<li><h1>订单号：4587846754685<span>￥80.00</span></h1><p>成功充值购买季度会员</p><time>2020-01-03 </time></li>')
+							lis.push('<li><h1>订单号：'+result.data.items[i].thirdNo+'</h1><p><span>￥'+result.data.items[i].consumeAmount+'</span>'+result.data.items[i].remark+'</p><time>'+result.data.items[i].payTime+'</time></li>')
 						};
 						next(lis.join(''), page < result.data.total/pageSize); 
 					

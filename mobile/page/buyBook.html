@@ -30,7 +30,7 @@
 					<li onclick="openUrl('facilityList.html')">设备信息</li>
 					<li onclick="openUrl('policy.html')">政策法规</li>
 					<li onclick="openUrl('download.html')">下载中心</li>
-					<li class="active" onclick="openUrl('my.html')">个人中心</li>
+					<li onclick="openUrl('my.html')">个人中心</li>
 				</ul>
 			</section>
 		</header>
@@ -53,11 +53,11 @@
 					<form class="layui-form" id="IsPurchased" action="">
 						<label>
 						<p><img src="../img/zfb.png"/>支付宝支付</p>
-						<input type="radio" class="payChannel" name="pay" value="ali_pay_pc"  checked="">
+						<input type="radio" class="payChannel" name="pay" value="ali_pay_h5"  checked="">
 					</label>
 						<label>
 						<p><img src="../img/wx.png"/>微信支付</p>
-						<input type="radio" class="payChannel" name="pay" value="wechat_pay_pc" >
+						<input type="radio" class="payChannel" name="pay" value="wechat_pay_h5" >
 					</label>
 					</form>
 				</section>
@@ -121,16 +121,11 @@
 					}
 				}).then(function(data) {
 					if(data.code == 200) {
-						if(payChannel == 'ali_pay_pc') {
-							var json = JSON.parse(data.data);
-							//							$("#alipayBox").append(json.payUrl);
-							var payNo = json.payNo;
-							var payUrl = json.payUrl;
+						if(payChannel == 'ali_pay_h5') {
+							var payUrl = data.data;
 							localStorage.setItem("payUrl", payUrl);
-							localStorage.setItem("payNo", payNo);
-							window.open('pay.html');
-							getPayResult(payNo);
-						} else if(payChannel == 'wechat_pay_pc') {
+							window.location.href = 'pay.html';
+						} else if(payChannel == 'wechat_pay_h5') {
 							$("#wxPayBox").show()
 						};
 					}
@@ -138,38 +133,7 @@
 
 				})
 			};
-			//查询支付结果
-			function getPayResult(payNo) {
-				http.ajax({
-					url: 'goods/get_pay_result',
-					type: 'GET',
-					json: false,
-					mask: false,
-					data: {
-						payNo: payNo
-					}
-				}).then(function(data) {
-					var payChannel = $(".buyBook ul li:nth-child(2) .active .payChannel").val();
-					if(data.code == 200) {
-						if(data.data == "success") {
-							//支付成功
-							openUrl('buySucceed.html?id=' + getQueryString("id") + '&payChannel=' + payChannel + '')
-						} else if(data.data == "failed") {
-							//支付失败
-							layer.msg('支付失败！', {
-								icon: 5
-							}, function() {
-								window.location.reload();
-							});
-						} else {
-							getPayResult(payNo);
-						}
-					}
-				}, function(err) {
-
-				})
-			};
-
+			
 			//会员切换
 			$(".vipList  div").click(function() {
 				$(this).addClass("active").siblings().removeClass("active");

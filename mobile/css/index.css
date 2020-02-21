@@ -1032,6 +1032,13 @@ footer p:last-child{
 .myPage .myList li p{
 	float: left;
 }
+.myPage .myList li p span{
+	font-size: 0.36rem;
+    font-weight: 400;
+    color: rgba(248,124,15,1);
+    float: left;
+    margin-right: 0.2rem;
+}
 .myPage .myList li span{
 	float: right;
 }
@@ -1189,7 +1196,9 @@ footer p:last-child{
 	font-size:0.24rem;
 	font-weight:400;
 	color:rgba(102,102,102,1);
-	line-height: 1rem;
+	line-height: 0.5rem;
+	 margin-top: 0.28rem;
+    margin-bottom: 0.5rem;
 }
 /* 药品信息 */
 .drugListPage .ssBox{

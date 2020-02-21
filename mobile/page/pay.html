@@ -2,15 +2,22 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 		<title>支付</title>
 	</head>
 	<body>
+		<p>正在跳转支付，请稍等...</p>
 		<div id="payUrl"></div>
-		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../../layui/layui.all.js"></script>
 		<script type="text/javascript" src="../js/main.js"></script>
 		<script>
 			$("#payUrl").append(localStorage.getItem("payUrl"))	
+			
+			console.log(localStorage.getItem("payUrl"))
 		</script>
 	</body>
 </html>
