@@ -1,3 +1,6 @@
+if(IsPC() ==false){
+	window.location.href = App.rootPath+'/mobile/index.html';
+}
 // 搜索
 $(".searchBox .search span").click(function () {
     var key = $(".searchBox .search input").val();

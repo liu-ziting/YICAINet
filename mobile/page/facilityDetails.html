@@ -82,7 +82,7 @@
 					<p>联系电话：</p>
 					<span>{{JSON.parse(d.manufacturer).tel}}</span>
 				</li>
-				{{#  if( d.otherPrice == '暂无'){ }}
+				{{#  if( d.otherPrice == '会员可见'){ }}
 				{{#  } else { }}
 				{{#  for (var i = 0; i < JSON.parse(d.otherPrice).length; i++) { }}
 				<li>名称：{{JSON.parse(d.otherPrice)[i].name}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：￥{{JSON.parse(d.otherPrice)[i].price}}</layui-icon-add-1>
@@ -140,7 +140,7 @@
 					var imgHTML = '';
 					// 图片列表
 					if(result.login == true){
-						if(result.data.images == '暂无' || result.data.images == null || result.data.images == undefined){
+						if(result.data.images == '会员可见' || result.data.images == null || result.data.images == undefined){
 							imgHTML +='<div class="swiper-slide"><img onerror="imgError(this)" src="'+App.filePath+result.data.image.newFilename+'"/></div>';
 						}else{
 							for (var i = 0; i < result.data.images.length; i++) {

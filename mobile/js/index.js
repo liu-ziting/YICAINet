@@ -1,3 +1,6 @@
+if(IsPC() ==true){
+	window.location.href = App.rootPath+'/index.html';
+}
 //轮播图
 bannerList();
 function bannerList() {

@@ -91,7 +91,7 @@
 					<p>设备品牌：{{d.brand}}</p>
 					<hr />
 					<p>市场售价：<span>￥{{d.marketPrice}}</span><a href="login.html">登录可见</a></p>
-					{{#  if( d.otherPrice == '暂无'){ }}
+					{{#  if( d.otherPrice == '会员可见'){ }}
 					{{#  } else { }}
 					{{#  for (var i = 0; i < JSON.parse(d.otherPrice).length; i++) { }}
 					<p>时间：{{JSON.parse(d.otherPrice)[i].date}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：{{JSON.parse(d.otherPrice)[i].price}}</p> 
@@ -181,7 +181,7 @@
 						// 图片列表
 						var imgArr = []
 						if(result.login == true){
-							if(result.data.images == '暂无' || result.data.images == null || result.data.images == undefined){
+							if(result.data.images == '会员可见' || result.data.images == null || result.data.images == undefined){
 								imgArr = [App.filePath+result.data.image.newFilename]
 							}else{
 								for (var i = 0; i < result.data.images.length; i++) {

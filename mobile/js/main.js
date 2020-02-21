@@ -194,7 +194,7 @@ function renderForm() {
 function beNull(data) {
 	for (let x in data) {
 		if (data[x] === null) { // 如果是null 把直接内容转为 '暂无'
-		data[x] = '暂无';
+		data[x] = '会员可见';
 		} else {
 		// if (Array.isArray(data[x])) { // 是数组遍历数组 递归继续处理
 		// 	data[x] = data[x].map(z => {
@@ -348,4 +348,18 @@ function logout(){
 	})
 };
 
-
+function IsPC(){
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+ 
