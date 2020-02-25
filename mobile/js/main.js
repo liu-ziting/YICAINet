@@ -1,7 +1,7 @@
 var App = {
 	apiBasePath: "http://www.chenkaix.cn:8088/", 	//接口地址
 	rootPath: getRootPath(),				//项目根目录地址
-	pagePath:getRootPath()+'/mobile/page/',
+	pagePath:getRootPath()+'/page/',
 	filePath: 'http://www.chenkaix.cn:8088/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
@@ -25,8 +25,10 @@ function getQueryString(name) {
 };
 // 使用jQuery处理:  
 function imgError(image){  
-    $(image).attr("src", getRootPath()+"/img/kong.png");  
+	$(image).attr("src","http://tc.lihail.cn/kong.png"); 
 }  
+// 引入公共的底部
+$("#footer").load(App.pagePath+"footerH5.html");
 /* 打开新页面 */
 function openUrl(url,type) {
 	if (!type) {
@@ -66,9 +68,6 @@ var http = {
 			setTimeout(function () {
 				layer.close(loading);
 			}, 100)
-			// 引入公共的底部
-			$("#footer").load(App.pagePath+"footerH5.html");
-			console.log(App.pagePath+"footerH5.html")
 		}, function (error) {
 			if (error.status == 504) {
 				layer.msg('请求超时，请重试!', {
@@ -258,14 +257,14 @@ function get_user_info() {
 };
 
 //当页面加载状态为完全结束时进入 
-document.onreadystatechange = function () {
-	if (document.readyState == "complete") {
+// document.onreadystatechange = function () {
+	// if (document.readyState == "complete") {
 	//20分钟更新一次token
 	//setInterval(function () {
 		update_token();
 	//},30000);
-	}
-}
+	// }
+// }
 //更新用户token
 function update_token(){
 	http.ajax({

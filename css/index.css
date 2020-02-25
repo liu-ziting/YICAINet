@@ -964,14 +964,13 @@ header nav ul .active {
 
 .main .policy .middle {
 	float: left;
-	width: 420px;
+	width: 691px;
 	height: 235px;
-	margin-right: 38px;
 	margin-left: 38px;
 }
 
 .main .policy .middle ul li {
-	width: 100%;
+	width: 50%;
 	font-size: 14px;
 	color: #252525;
 	height: 20px;
@@ -979,8 +978,11 @@ header nav ul .active {
 	margin-bottom: 14px;
 	cursor: pointer;
 	transition: all 0.3s;
+	float: left;
 }
-
+.main .policy .middle ul li:first-child{
+	width: 100%;
+}
 .main .policy .middle ul li span {
 	float: right;
 	color: #666363;
@@ -1536,6 +1538,7 @@ footer section span {
 	color: #1668d8;
 	line-height: 36px;
 	font-weight: 500;
+	cursor: pointer;
 }
 
 .policyList ul li h3 span {
@@ -1922,11 +1925,13 @@ footer section span {
 .user .userbox ul li span {
 	color: #3a3a3a;
 }
-
-.user .userbox table {
-	/* margin-top: 30px; */
+.user .userbox table tr td{
+	width: 25%;
 }
-
+.user .userbox table tr td:first-child{
+	text-align: left;
+	padding-left: 40px;
+}
 .user .userbox table tr {
 	height: 52px;
 	border-bottom: 1px solid #e2e2e2;
@@ -2050,9 +2055,9 @@ footer section span {
 }
 .user .usermy ul li select{
 	float: left;
-    width: 305px;
+    width: 284px;
     border: none;
-    padding-left: 21px;
+	margin-left: 21px;
 }
 
 

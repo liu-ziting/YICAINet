@@ -1,6 +1,18 @@
 if(IsPC() ==false){
-	window.location.href = App.rootPath+'/mobile/index.html';
+	window.location.href = localhostPaht()+'/mobile/index.html';
 }
+function localhostPaht() {
+	// 获取当前网址
+	var curWwwPath = window.document.location.href;
+	// 获取主机地址之后的目录
+	var pathName = window.document.location.pathname;
+	var pos = curWwwPath.indexOf(pathName);
+	// 获取主机地址
+	var localhostPaht = curWwwPath.substring(0, pos);
+	// 获取带"/"的项目名
+	var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+	return (localhostPaht);
+};
 // 搜索
 $(".searchBox .search span").click(function () {
     var key = $(".searchBox .search input").val();
@@ -320,7 +332,7 @@ function lawsAndRegulations() {
         data: {
             typeId: 10,
             pageNo: 1,
-            pageSize: 6,
+            pageSize: 9,
             purchaseStatus: "",
             openTime: "",
             endTime: "",
@@ -340,7 +352,7 @@ function lawsAndRegulations() {
                 "</time>";
 
             for (var i = 1; i < result.length; i++) {
-                iHTML += '<li id=' + result[i].id + '><i>▪</i>' + result[i].title + '<span>' + result[0].createDate.slice(0, 10) + '</span><p>' + result[i].remark + '</p></li>'
+                iHTML += '<li id=' + result[i].id + '><i>▪</i>' + result[i].title + '<p>' + result[i].remark + '</p></li>'
             };
             $(".policy .left").append(leftHTML);
             $(".policy .middle ul").append(iHTML);

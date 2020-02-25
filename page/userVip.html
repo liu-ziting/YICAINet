@@ -241,6 +241,7 @@
 						layer.msg('恭喜您，充值成功！', {
 							icon: 1
 						}, function() {
+							update_token();
 							location.href = 'user.html';
 						});
 					}else if(data.data == "failed"){

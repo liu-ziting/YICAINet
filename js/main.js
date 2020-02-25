@@ -16,7 +16,7 @@ function getQueryString(name) {
 };
 // 使用jQuery处理:  
 function imgError(image){  
-	$(image).attr("src",App.rootPath+"/img/kong.png"); 
+	$(image).attr("src","http://tc.lihail.cn/kong.png"); 
 }  
 /* 打开新页面 */
 function openUrl(url,type) {
@@ -280,14 +280,14 @@ function get_user_info() {
 };
 
 //当页面加载状态为完全结束时进入 
-document.onreadystatechange = function () {
-	if (document.readyState == "complete") {
+// document.onreadystatechange = function () {
+// 	if (document.readyState == "complete") {
 	//20分钟更新一次token
 	//setInterval(function () {
 		update_token();
 	//},30000);
-	}
-}
+	// }
+// }
 //更新用户token
 function update_token(){
 	http.ajax({
@@ -309,18 +309,18 @@ function update_token(){
 
 //验证码倒计时
 function countDownCode(){
-    var num = 60;
-    var timer = setInterval(function () {
-        if (num > 1) {
-            num--;
+    var num = 60;
+    var timer = setInterval(function () {
+        if (num > 1) {
+            num--;
 			$(".getCode").text("重新发送(" + num + ")").attr("disabled", "disabled");
 			$(".getCode").css('background', '#B8B8B8');
-        } else {
+        } else {
 			$(".getCode").text("获取短信验证码").removeAttr("disabled");
 			$(".getCode").css('background', '#195edd');
-            clearInterval(timer);
-        }
-    }, 1000)
+            clearInterval(timer);
+        }
+    }, 1000)
 }
 
 //标书下载

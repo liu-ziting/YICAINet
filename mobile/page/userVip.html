@@ -114,6 +114,7 @@
 					if(payChannel == 'ali_pay_h5') {
 						var payUrl = data.data;
 						localStorage.setItem("payUrl", payUrl);
+						update_token();
 						window.location.href = 'pay.html';
 					} else if(payChannel == 'wechat_pay_h5') {
 						$("#wxPayBox").show()

@@ -119,7 +119,7 @@
 								<img onerror="imgError(this)" src={{App.filePath+item.image}} />
 								{{#  } }}  		 	
 							</div>
-							<h3>{{item.title}}<span id="{{item.id}}">查看详情</span></h3>
+							<h3 id="{{item.id}}">{{item.title}}<span>查看详情</span></h3>
 							<time>{{item.createDate}}</time>
 							<p>{{item.remark}}</p>
 							<a href="javascript:;" >
@@ -247,7 +247,7 @@
 						});
 
 						//点击查看详情
-						$("li h3 span").click(function(){
+						$("li h3").click(function(){
 							var id = $(this).attr("id");
 							$(".policyList").hide();
 							localStorage.setItem("detailsId", id);

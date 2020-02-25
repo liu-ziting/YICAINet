@@ -156,7 +156,7 @@
 						<script id="downloadRightTpl" type="text/html">
 							{{# layui.each(d.items, function(index, item){ }}
 							<li>
-								<h3>{{item.title}}
+								<h3 id="{{item.id}}">{{item.title}}
 									 
 									{{#  if(item.purchaseStatus == '' ||item.purchaseStatus == null){ }}
 									{{#  if(item.questionType == '更正公告'){ }}
@@ -173,7 +173,7 @@
 									<em style="color: #F13333;">【{{item.purchaseStatus}}】</em> 
 									{{#  } }} 
 									{{#  } }}  
-									<span  id="{{item.id}}">查看详情</span>
+									<span  >查看详情</span>
 								</h3>
 								<time>
 									发布：{{item.createDate}}&nbsp;&nbsp;&nbsp;
@@ -333,7 +333,7 @@
 						});
 
 						//点击查看详情
-						$("li h3 span").click(function () {
+						$("li h3").click(function () {
 							var id = $(this).attr("id");
 							$(".policyList").hide();
 							localStorage.setItem("detailsId", id);
