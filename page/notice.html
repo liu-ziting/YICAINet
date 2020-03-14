@@ -1,19 +1,39 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
 
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		<div class="container">
-			<h3>用户协议</h3>
-			
-		</div>
-		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
-		<script type="text/javascript" src="../layui/layui.all.js"></script>
-		<script type="text/javascript" src="../js/main.js"></script>
-		
-	</body>
+<body>
+	<div class="container">
+		<h3></h3>
+		<div id="content"></div>
+	</div>
+	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="../layui/layui.all.js"></script>
+	<script type="text/javascript" src="../js/main.js"></script>
+	<script>
+		http.ajax({
+			url: 'news/get_news_list_by_type_name',
+			type: 'GET',
+			json: false,
+			mask: false,
+			data: {
+				typeName: '用户协议',
+				pageNo: 1,
+				pageSize: 1,
+			}
+		}).then(function (data) {
+			var result = data;
+			if (data.code == 200) {
+				$("h3").html(result.data.items[0].title);
+				$("#content").html(result.data.items[0].content);
+			}
+		}, function (err) {
+
+		})
+	</script>
+</body>
 
 </html>
