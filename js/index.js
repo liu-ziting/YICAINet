@@ -13,6 +13,16 @@ function localhostPaht() {
 	var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
 	return (localhostPaht);
 };
+//查看帮助
+$(".right p:last-child ").click(function(){
+	if(localStorage.getItem("userErr") == 403){
+		layer.msg('请登录后查看！', {
+			icon: 5
+		});
+	}else{
+		openUrl('page/userHelp.html');
+	}
+})
 // 搜索
 $(".searchBox .search span").click(function () {
     var key = $(".searchBox .search input").val();

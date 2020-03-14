@@ -24,7 +24,7 @@
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
-					<p>免费咨询热线：0550-3022569</p>
+					<p>免费咨询热线：0551-65311145</p>
 					<span>|</span>
 					<p onclick="addFavorite()">收藏 </p>
 					<span>|</span>
@@ -210,7 +210,7 @@
 	<div id="footer"></div>
 	<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="../layui/layui.all.js"></script>
-	<script type="text/javascript" src="../js/jquery.qrcode.min.js" ></script>
+	<script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
 	<script type="text/javascript" src="../js/main.js"></script>
 	<script>
 		//采购活动
@@ -264,6 +264,8 @@
 							$("#openTime").val(""),//开标时间
 							$("#endTime").val(""),//截至时间
 							$("#searchkey").val("")//搜索关键字
+					
+						
 						renderForm();
 						$(".policyList").show();
 						$("#details").html("");
@@ -273,6 +275,8 @@
 						$(this).addClass("active").siblings().removeClass("active");
 						var typeId = $(this).find(".id").val();
 						get_news_list_by_type_id(typeId);
+
+						$("title").html(leftText.slice(0, leftText.length - 2));
 					});
 
 					//通过类型获取右侧列表

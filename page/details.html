@@ -41,6 +41,7 @@
 					}
 				}).then(function(data) {
 					if(data.code == 200) {
+						
 						var data = data.data
 						var html = ''
 						html += '<h5>'+data.title+'';
@@ -51,6 +52,8 @@
 						html += '<time><span>浏览量：'+data.hitCount+'</span><span>来源：'+data.source+'</span><span>'+data.createDate+'</span></time>';
 						html += '<div class="content">'+data.content+'</div>';
 						$("#detailsBox").append(html);
+						
+						$("title").html(data.title);
 					};
 					//如果有标书就下载
 					$(".dlBook").click(function(){

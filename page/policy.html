@@ -24,7 +24,7 @@
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
-					<p>免费咨询热线：0550-3022569</p>
+					<p>免费咨询热线：0551-65311145</p>
 					<span>|</span>
 					<p onclick="addFavorite()">收藏 </p>
 					<span>|</span>
@@ -124,7 +124,7 @@
 								{{#  } }}  		
 							</div>
 							<h3 id="{{item.id}}">{{item.title}}<span>查看详情</span></h3>
-							<time>{{item.createDate}}</time>
+							<!-- <time>{{item.createDate}}</time> -->
 							<p>{{item.remark}}</p>
 							<a href="javascript:;">
 								<img onclick="weixin(this)" id="/mobile/page/details.html?id={{item.id}}" src="../img/c19-05.png"/>
@@ -191,6 +191,7 @@
 						$(this).addClass("active").siblings().removeClass("active");
 						var typeId = $(this).find(".id").val();
 						get_news_list_by_type_id(typeId)
+						$("title").html(leftText.slice(0, leftText.length - 2));
 					});
 
 					//通过类型获取右侧列表

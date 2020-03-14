@@ -1,7 +1,7 @@
 var App = {
-	apiBasePath: "http://www.chenkaix.cn:8088/", 	//接口地址
+	apiBasePath: "http://okyc-business.utools.club/api/", 	//接口地址
 	rootPath: getRootPath(),				//项目根目录地址
-	filePath: 'http://www.chenkaix.cn:8088/',
+	filePath: 'http://okyc-business.utools.club/api/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
 
@@ -14,6 +14,16 @@ function getQueryString(name) {
 	}
 	return null;
 };
+//查看帮助
+$(".right p:last-child ").click(function(){
+	if(localStorage.getItem("userErr") == 403){
+		layer.msg('请登录后查看！', {
+			icon: 5
+		});
+	}else{
+		openUrl('userHelp.html');
+	}
+})
 // 使用jQuery处理:  
 function imgError(image){  
 	$(image).attr("src","http://tc.lihail.cn/kong.png"); 
@@ -273,6 +283,7 @@ function get_user_info() {
 		}
 	}, function (err) {
 		if (err.status) {
+			localStorage.setItem("userErr",err.status);
 			$(".topLoginBox").show().find("a").show();
 			$(".userTop").hide();
 		}

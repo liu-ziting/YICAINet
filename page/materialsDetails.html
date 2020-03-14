@@ -24,7 +24,7 @@
 				</div>
 				<div class="right">
 					<img src="../img/iPhone.png" />
-					<p>免费咨询热线：0550-3022569</p>
+					<p>免费咨询热线：0551-65311145</p>
 					<span>|</span>
 					<p onclick="addFavorite()">收藏 </p>
 					<span>|</span>
@@ -184,6 +184,7 @@
 				var result = data;
 				if (data.code == 200) {
 					var data = beNull(data.data);
+					$("title").html(data.applianceName);
 					var getTpl = drugDetailsTpl.innerHTML
 						, view = document.getElementById('viewDetails');
 					laytpl(getTpl).render(data, function (html) {
