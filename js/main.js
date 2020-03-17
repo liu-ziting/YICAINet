@@ -297,6 +297,7 @@ function get_user_info() {
 			$(".topLoginBox").show().find("a").hide();
 			$(".userTop").show().css("margin-left","0");
 			localStorage.setItem("phone",data.data.phone);
+			localStorage.removeItem("userErr");
 		}
 	}, function (err) {
 		if (err.status) {
