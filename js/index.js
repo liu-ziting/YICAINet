@@ -1,27 +1,27 @@
-if(IsPC() ==false){
-	window.location.href = localhostPaht()+'/mobile/index.html';
+if (IsPC() == false) {
+    window.location.href = localhostPaht() + '/mobile/index.html';
 }
 function localhostPaht() {
-	// 获取当前网址
-	var curWwwPath = window.document.location.href;
-	// 获取主机地址之后的目录
-	var pathName = window.document.location.pathname;
-	var pos = curWwwPath.indexOf(pathName);
-	// 获取主机地址
-	var localhostPaht = curWwwPath.substring(0, pos);
-	// 获取带"/"的项目名
-	var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
-	return (localhostPaht);
+    // 获取当前网址
+    var curWwwPath = window.document.location.href;
+    // 获取主机地址之后的目录
+    var pathName = window.document.location.pathname;
+    var pos = curWwwPath.indexOf(pathName);
+    // 获取主机地址
+    var localhostPaht = curWwwPath.substring(0, pos);
+    // 获取带"/"的项目名
+    var projectName = pathName.substring(0, pathName.substr(1).indexOf('/') + 1);
+    return (localhostPaht);
 };
 //查看帮助
-$(".right p:last-child ").click(function(){
-	if(localStorage.getItem("userErr") == 403){
-		layer.msg('请登录后查看！', {
-			icon: 5
-		});
-	}else{
-		openUrl('page/userHelp.html');
-	}
+$(".right p:last-child ").click(function () {
+    if (localStorage.getItem("userErr") == 403) {
+        layer.msg('请登录后查看！', {
+            icon: 5
+        });
+    } else {
+        openUrl('page/userHelp.html');
+    }
 })
 // 搜索
 $(".searchBox .search span").click(function () {
@@ -56,7 +56,7 @@ function bannerList() {
             var result = data.data.items;
             var iHTML = ""
             for (var i = 0; i < result.length; i++) {
-                iHTML += '<div><a target="blank" href="'+ result[i].url+'"><img src="'+ App.filePath+result[i].image.newFilename+'"/></a></div>'
+                iHTML += '<div><a target="blank" href="' + result[i].url + '"><img src="' + App.filePath + result[i].image.newFilename + '"/></a></div>'
             };
             $("#bannerList").append(iHTML);
             layui.use(['carousel'], function () {
@@ -171,6 +171,11 @@ function purchasingInformationList(typeId) {
             layer.close(indexLoad);
             var iHTML = "";
             var result = data.data.items;
+            if (data.data.total == 0) {
+                iHTML += "<li>";
+                iHTML += "<p>暂无信息</p>";
+                iHTML += "</li>";
+            }
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<li id=" + result[i].id + ">";
                 if (result[i].purchaseStatus == '' || result[i].purchaseStatus == null) {
@@ -195,11 +200,21 @@ function purchasingInformationList(typeId) {
                 iHTML += "<p>" + result[i].title + "</p><time>";
                 iHTML += "<i><img src=\"img/rq.png\" />发布：" + result[i].createDate.slice(0, 10) + "</i>";
                 if (typeId == '23' || typeId == '24') { } else {
-                    iHTML += "<i>截至：" + result[i].endTime.slice(0, 10) + "</i>";
-                    iHTML += "<i>开标：" + result[i].openTime.slice(0, 10) + "</i>";
+                    iHTML += "<i>截至：";
+                    if (result[i].endTime) {
+                        iHTML += "" + result[i].endTime.slice(0, 10) + "</i>";
+                    } else {
+                        iHTML += "暂无</i>";
+                    }
+                    iHTML += "<i>开标：";
+                    if (result[i].openTime) {
+                        iHTML += "" + result[i].openTime.slice(0, 10) + "</i>";
+                    } else {
+                        iHTML += "暂无</i>";
+                    }
                 };
                 iHTML += " </time></li>";
-            };
+            }
             $("#pfList").append(iHTML);
             $("#pfList li").click(function () {
                 var purchaseId = $(this).attr("id");
@@ -211,7 +226,7 @@ function purchasingInformationList(typeId) {
     });
 }
 //耗材信息
- appliance_list();
+appliance_list();
 function appliance_list() {
     var queryDrug = {
         "key": "",
@@ -233,7 +248,7 @@ function appliance_list() {
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
-                    "<img onerror='imgError(this)' src=\"" + App.filePath+result[i].image.newFilename + "\" />"+
+                    "<img onerror='imgError(this)' src=\"" + App.filePath + result[i].image.newFilename + "\" />" +
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/materialsDetails.html?id=" + result[i].id + "\')\">" + result[i].applianceName + "</h3>" +
@@ -243,6 +258,11 @@ function appliance_list() {
                     "</div>" +
                     "</div>";
             };
+            if (data.data.total == 0) {
+                iHTML += "<div class=\"box\">";
+                iHTML += "<p>暂无耗材</p>";
+                iHTML += "</div>";
+            }
             $("#consumableBox").append(iHTML);
 
         }
@@ -274,7 +294,7 @@ function drug_list() {
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
-                    "<img onerror='imgError(this)' src=\"" + App.filePath+result[i].image.newFilename + "\" />"+
+                    "<img onerror='imgError(this)' src=\"" + App.filePath + result[i].image.newFilename + "\" />" +
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/drugDetails.html?id=" + result[i].id + "\')\">" + result[i].commonName + "</h3>" +
@@ -284,6 +304,11 @@ function drug_list() {
                     "</div>" +
                     "</div>";
             };
+            if (data.data.total == 0) {
+                iHTML += "<div class=\"box\">";
+                iHTML += "<p>暂无药品</p>";
+                iHTML += "</div>";
+            }
             $("#drugBox").append(iHTML);
         }
     }, function (err) {
@@ -314,7 +339,7 @@ function equipment_list() {
             for (var i = 0; i < result.length; i++) {
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
-                    "<img onerror='imgError(this)' src=\""+App.filePath+result[i].image.newFilename+"\" />"+
+                    "<img onerror='imgError(this)' src=\"" + App.filePath + result[i].image.newFilename + "\" />" +
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/facilityDetails.html?id=" + result[i].id + "\')\">" + result[i].equipmentName + "</h3>" +
@@ -324,6 +349,11 @@ function equipment_list() {
                     "</div>" +
                     "</div>";
             };
+            if (data.data.total == 0) {
+                iHTML += "<div class=\"box\">";
+                iHTML += "<p>暂无设备</p>";
+                iHTML += "</div>";
+            }
             $("#equipmentBox").append(iHTML);
         }
     }, function (err) {
@@ -351,19 +381,24 @@ function lawsAndRegulations() {
     }).then(function (data) {
         var data = beNull(data);
         if (data.code == 200) {
+
             var iHTML = "";
             var leftHTML = "";
             var result = data.data.items;
-            leftHTML += "<h1>" + result[0].title + "</h1>" +
-                "<p>" + result[0].remark + "</p>" +
-                "<time><i class=\"layui-icon layui-icon-date\"></i>  " +
-                "<span>" + result[0].createDate.slice(0, 10) + "</span><br />" +
-                "<a href='page/policy.html?policyId=" + result[0].id + "'><img src=\"img/xq.png\"/>查看详情</a>" +
-                "</time>";
+            if (result.length > 0) {
+                leftHTML += "<h1>" + result[0].title + "</h1>" +
+                    "<p>" + result[0].remark + "</p>" +
+                    "<time><i class=\"layui-icon layui-icon-date\"></i>  " +
+                    "<span>" + result[0].createDate.slice(0, 10) + "</span><br />" +
+                    "<a href='page/policy.html?policyId=" + result[0].id + "'><img src=\"img/xq.png\"/>查看详情</a>" +
+                    "</time>";
 
-            for (var i = 1; i < result.length; i++) {
-                iHTML += '<li id=' + result[i].id + '><i>▪</i>' + result[i].title + '<p>' + result[i].remark + '</p></li>'
-            };
+                for (var i = 1; i < result.length; i++) {
+                    iHTML += '<li id=' + result[i].id + '><i>▪</i>' + result[i].title + '<p>' + result[i].remark + '</p></li>'
+                };
+            } else if(data.data.total == 0){
+                iHTML += '<li><i>▪</i><p>暂无政策法规</p></li>';
+            }
             $(".policy .left").append(leftHTML);
             $(".policy .middle ul").append(iHTML);
             $(".policy .middle ul li:nth-child(1)").addClass("active");
@@ -405,11 +440,14 @@ function purchasingActivities() {
             var leftHTML = "";
             var rightHTML = "";
             var result = data.data.items;
-
-            for (var i = 0; i < 3; i++) {
+            var leftNum = 3;
+            if (result.length <= 3) {
+                leftNum = result.length
+            }
+            for (var i = 0; i < leftNum; i++) {
                 leftHTML += "<div>" +
                     "<div class='imgLeftBox'>" +
-                    "<img onerror='imgError(this)' src="+App.filePath+result[i].image.newFilename+"/>"+
+                    "<img onerror='imgError(this)' src=" + App.filePath + result[i].image.newFilename + "/>" +
                     "</div>" +
                     "<h4 id=" + result[i].id + ">" + result[i].title + "</h4>" +
                     "<p>" + result[i].remark + "</p>" +
@@ -418,7 +456,7 @@ function purchasingActivities() {
             for (var i = 3; i < result.length; i++) {
                 rightHTML += "<li id=" + result[i].id + ">" +
                     "<div class='imgbox'>" +
-                    "<img onerror='imgError(this)' src="+App.filePath+result[i].image.newFilename+"/>"+
+                    "<img onerror='imgError(this)' src=" + App.filePath + result[i].image.newFilename + "/>" +
                     "</div>" +
                     "<p>" + result[i].title + "</p>" +
                     // "<span><img class='dz' src='img/dz.png'/>0</span>"+
