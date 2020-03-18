@@ -397,7 +397,7 @@ function lawsAndRegulations() {
                     iHTML += '<li id=' + result[i].id + '><i>▪</i>' + result[i].title + '<p>' + result[i].remark + '</p></li>'
                 };
             } else if(data.data.total == 0){
-                iHTML += '<li><i>▪</i><p>暂无政策法规</p></li>';
+                iHTML += '<div><p>暂无政策法规</p></div>';
             }
             $(".policy .left").append(leftHTML);
             $(".policy .middle ul").append(iHTML);
@@ -445,7 +445,7 @@ function purchasingActivities() {
                 leftNum = result.length
             }
             for (var i = 0; i < leftNum; i++) {
-                leftHTML += "<div>" +
+                leftHTML += "<div id=" + result[i].id + ">" +
                     "<div class='imgLeftBox'>" +
                     "<img onerror='imgError(this)' src=" + App.filePath + result[i].image.newFilename + "/>" +
                     "</div>" +
@@ -482,7 +482,7 @@ function purchasingActivities() {
                 var purchaseId = $(this).attr("id");
                 openUrl('page/purchase.html?purchaseId=' + purchaseId + '');
             })
-            $("#activitiesLeft h4").click(function () {
+            $("#activitiesLeft > div").click(function () {
                 var purchaseId = $(this).attr("id");
                 openUrl('page/purchase.html?purchaseId=' + purchaseId + '');
             });

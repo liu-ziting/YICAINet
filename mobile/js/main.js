@@ -1,19 +1,10 @@
 var App = {
-	apiBasePath: "http://www.chenkaix.cn:8088/", 	//接口地址
+	apiBasePath: "/api/", 	//接口地址
 	rootPath: getRootPath(),				//项目根目录地址
+	filePath: '/upload/',
 	pagePath:getRootPath()+'/page/',
-	filePath: 'http://www.chenkaix.cn:8088/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
 };
-// H5调试工具
-   $.ajax({
-   	url: App.rootPath + '/mobile/js/eruda.js',
-   	async: false,
-   	dataType: "script",
-   	success: function () {
-   		eruda.init();
-   	}
-   });
 /* 获取url地址参数  */
 function getQueryString(name) {
 	var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i');
@@ -207,7 +198,23 @@ function beNull(data) {
 	}
 	return data;
 };
-
+function FunNull(data) {
+	for (let x in data) {
+		if (data[x] === null) { // 如果是null 把直接内容转为 '暂无'
+		data[x] = '暂无';
+		} else {
+		// if (Array.isArray(data[x])) { // 是数组遍历数组 递归继续处理
+		// 	data[x] = data[x].map(z => {
+		// 	return beNull(z);
+		// 	});
+		// }
+		if(typeof(data[x]) === 'object'){ // 是json 递归继续处理
+			data[x] = FunNull(data[x])
+		}
+		}
+	}
+	return data;
+};
 //获取手机验证码
 function send_verify_code(phone,type) {
 	http.ajax({

@@ -104,7 +104,7 @@
 
 		//招标采购信息列表
 		var pageNo = 1;
-		var pageSize = 20;
+		var pageSize = 10;
 		function get_news_list_by_type_id(typeId) {
 			layui.use('flow', function () {
 				var flow = layui.flow;
@@ -127,7 +127,7 @@
 								searchkey: ""
 							}
 						}).then(function (data) {
-							var result = data;
+							var result = FunNull(data);
 							var innerHTML = "";
 							console.log(result)
 							if (data.code == 200) {
@@ -143,10 +143,10 @@
 										};
 									}else{
 										if(result.data.items[i].purchaseStatus == '正在报名'){
-											lis.push('<time><span style="color: #DC824D;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime.slice(0, result.data.items[i].endTime.length - 9)+'</p><p>开标：'+result.data.items[i].openTime.slice(0, result.data.items[i].openTime.length - 9)+'</p></time>')
+											lis.push('<time><span style="color: #DC824D;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime+'</p><p>开标：'+result.data.items[i].openTime+'</p></time>')
 										};
 										if(result.data.items[i].purchaseStatus == '报名结束'){
-											lis.push('<time><span style="color: #F13333;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime.slice(0, result.data.items[i].endTime.length - 9)+'</p><p>开标：'+result.data.items[i].openTime.slice(0, result.data.items[i].openTime.length - 9)+'</p></time>')
+											lis.push('<time><span style="color: #F13333;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime+'</p><p>开标：'+result.data.items[i].openTime+'</p></time>')
 										};
 									}
 									lis.push('</li>')

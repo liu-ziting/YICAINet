@@ -42,7 +42,7 @@
 				}).then(function(data) {
 					if(data.code == 200) {
 						
-						var data = data.data
+						var data = FunNull(data.data);
 						var html = ''
 						html += '<h5>'+data.title+'';
 						if(data.resources){

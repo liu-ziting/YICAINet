@@ -122,7 +122,7 @@
 							searchkey:""
 					}
 					}).then(function (data) {
-						var result = data;
+						var result = FunNull(data);
 						var innerHTML = "";
 						console.log(result)
 						if (data.code == 200) {

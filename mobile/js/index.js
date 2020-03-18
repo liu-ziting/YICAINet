@@ -96,8 +96,12 @@ function purchasingInformationList(typeId) {
         if (data.code == 200) {
             layer.close(indexLoad);
             var iHTML = "";
-            var result = data.data.items;
-            for (var i = 0; i < result.length; i++) {
+            var result = FunNull(data.data.items);
+            var leftNum = 3;
+            if (result.length <= 3) {
+                leftNum = result.length
+            }
+            for (var i = 0; i < leftNum; i++) {
                 iHTML +='<li id='+result[i].id+'>';
                 iHTML +='<h1>'+result[i].title+'</h1>';
                 iHTML +='<p>'+result[i].remark+'</p>';
@@ -111,14 +115,21 @@ function purchasingInformationList(typeId) {
                     };
                 }else{
                     if(result[i].purchaseStatus == '正在报名'){
-                        iHTML +='<time><span style="color: #DC824D;">'+result[i].purchaseStatus+'</span><p>截止：'+result[i].endTime.slice(0, result[i].endTime.length - 9)+'</p><p>开标：'+result[i].openTime.slice(0, result[i].openTime.length - 9)+'</p></time>';
+                        iHTML +='<time><span style="color: #DC824D;">'+result[i].purchaseStatus+'</span><p>截止：'+result[i].endTime+'</p><p>开标：'+result[i].openTime+'</p></time>';
                     };
+                    console.log(result[i].endTime)
                     if(result[i].purchaseStatus == '报名结束'){
-                        iHTML +='<time><span style="color: #F13333;">'+result[i].purchaseStatus+'</span><p>截止：'+result[i].endTime.slice(0, result[i].endTime.length - 9)+'</p><p>开标：'+result[i].openTime.slice(0, result[i].openTime.length - 9)+'</p></time>';
+                        iHTML +='<time><span style="color: #F13333;">'+result[i].purchaseStatus+'</span>';
+                        iHTML +='<p>截止：'+result[i].endTime+'</p><p>开标：'+result[i].openTime+'</p></time>';
                     };
                 }
                 iHTML +='</li>';
             };
+            if (data.data.total == 0) {
+                iHTML += "<li>";
+                iHTML += "<h1>暂无信息</h1>";
+                iHTML += "</li>";
+            }
             $("#pfList").append(iHTML);
             $("#pfList li").click(function () {
                 var purchaseId = $(this).attr("id");
@@ -148,11 +159,15 @@ function purchasingActivities() {
             searchkey: ""
         }
     }).then(function (data) {
-        var data = beNull(data);
+        var data = FunNull(data);
         if (data.code == 200) {
             var iHTML = "";
             var result = data.data.items;
-            for (var i = 0; i < 3; i++) {
+            var leftNum = 3;
+            if (result.length <= 3) {
+                leftNum = result.length
+            }
+            for (var i = 0; i < leftNum; i++) {
                 iHTML += '<li id='+result[i].id+'>';
                 iHTML += '<div class="imgBox">';
                 iHTML += '<img onerror="imgError(this)"  src="'+App.filePath+result[i].image.newFilename+'" />';
@@ -165,8 +180,7 @@ function purchasingActivities() {
                 iHTML += '<span class="ly"><img src="img/ly.png" />'+result[i].source+'</span>';
                 iHTML += '<span class="yj"><img src="img/yj.png" />'+result[i].hitCount+'</span>';
                 iHTML += '</li>';
-            };
-
+            }; 
             $("#activitiesList").append(iHTML);
 
             $("#activitiesList li").click(function () {
@@ -210,7 +224,9 @@ function lawsAndRegulations() {
                 iHTML += '</li>';
             };
             $("#policyList").append(iHTML);
-
+            if (data.data.total == 0) {
+                $(".policy .seeMore").text("暂无政策法规")
+            }
             //政策法规
             $("#policyList li").click(function () {
                 var policyId = $(this).attr("id");
@@ -255,6 +271,9 @@ function appliance_list() {
                 "</div>"+
                 "</li>";
             };
+            if (data.data.total == 0) {
+               $(".consumableBox .seeMore").text("暂无耗材")
+            }
             $("#consumableBox").append(iHTML);
 
         }
@@ -296,6 +315,9 @@ function drug_list() {
                     "</div>"+
                     "</li>";
             };
+            if (data.data.total == 0) {
+                $(".drugBox .seeMore").text("暂无药品")
+            }
             $("#drugBox").append(iHTML);
         }
     }, function (err) {
@@ -336,6 +358,9 @@ function equipment_list() {
                     "</div>"+
                     "</li>";
             };
+            if (data.data.total == 0) {
+                $(".facilityBox .seeMore").text("暂无设备")
+            }
             $("#equipmentBox").append(iHTML);
         }
     }, function (err) {
