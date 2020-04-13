@@ -167,10 +167,10 @@
 									{{#  } }} 
 									{{#  } else { }}
 									{{#  if(item.purchaseStatus == '正在报名'){ }}
-									<em style="color: #DC824D;">【{{item.purchaseStatus}}】</em> 
+									<em style="color: #F13333;font-weight: bold;">【{{item.purchaseStatus}}】</em> 
 									{{#  } }} 
 									{{#  if(item.purchaseStatus == '报名结束'){ }}
-									<em style="color: #F13333;">【{{item.purchaseStatus}}】</em> 
+									<em style="color: #666666;">【{{item.purchaseStatus}}】</em> 
 									{{#  } }} 
 									{{#  } }}  
 									<span  >查看详情</span>
@@ -260,10 +260,10 @@
 					};
 					//下载中心左侧选项卡切换
 					$(".leftTab li").click(function () {
-						$("#purchaseStatus").val(""),//招标信息状态
-							$("#openTime").val(""),//开标时间
-							$("#endTime").val(""),//截至时间
-							$("#searchkey").val("")//搜索关键字
+						// $("#purchaseStatus").val(""),//招标信息状态
+						// 	$("#openTime").val(""),//开标时间
+						// 	$("#endTime").val(""),//截至时间
+						// 	$("#searchkey").val("")//搜索关键字
 					
 						
 						renderForm();

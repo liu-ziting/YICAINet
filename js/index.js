@@ -150,6 +150,7 @@ function purchasingInformation() {
 };
 //采购信息列表
 function purchasingInformationList(typeId) {
+   
     document.getElementById("pfList").innerHTML = "";
     var indexLoad = layer.load(2, { shade: false });
     http.ajax({
@@ -188,9 +189,9 @@ function purchasingInformationList(typeId) {
                     }
                 } else if (result[i].questionType == '' || result[i].questionType == null) {
                     if (result[i].purchaseStatus == '正在报名') {
-                        iHTML += "<span style='color: #DC824D;'>【" + result[i].purchaseStatus + "】</span>";
+                        iHTML += "<span style='color: #F13333;font-weight: bold;'>【" + result[i].purchaseStatus + "】</span>";
                     } else {
-                        iHTML += "<span style='color: #F13333;'>【" + result[i].purchaseStatus + "】</span>";
+                        iHTML += "<span style='color: #666666;'>【" + result[i].purchaseStatus + "】</span>";
                     }
                 } else if (result[i].questionType == null || result[i].purchaseStatus == null) {
                     alert(1)
@@ -216,6 +217,10 @@ function purchasingInformationList(typeId) {
                 iHTML += " </time></li>";
             }
             $("#pfList").append(iHTML);
+            if(typeId == 23 || typeId == 24){
+                console.log(typeId)
+                $(".main .purchaseBox li p").css("width",'850px');
+            }
             $("#pfList li").click(function () {
                 var purchaseId = $(this).attr("id");
                 openUrl('page/callForBids.html?purchaseId=' + purchaseId + '&typeId=' + typeId + '');

@@ -115,11 +115,11 @@ function purchasingInformationList(typeId) {
                     };
                 }else{
                     if(result[i].purchaseStatus == '正在报名'){
-                        iHTML +='<time><span style="color: #DC824D;">'+result[i].purchaseStatus+'</span><p>截止：'+result[i].endTime+'</p><p>开标：'+result[i].openTime+'</p></time>';
+                        iHTML +='<time><span style="color: #F13333;font-weight: bold;">'+result[i].purchaseStatus+'</span><p>截止：'+result[i].endTime+'</p><p>开标：'+result[i].openTime+'</p></time>';
                     };
                     console.log(result[i].endTime)
                     if(result[i].purchaseStatus == '报名结束'){
-                        iHTML +='<time><span style="color: #F13333;">'+result[i].purchaseStatus+'</span>';
+                        iHTML +='<time><span style="color: #666666;border: 1px solid #666666;">'+result[i].purchaseStatus+'</span>';
                         iHTML +='<p>截止：'+result[i].endTime+'</p><p>开标：'+result[i].openTime+'</p></time>';
                     };
                 }

@@ -143,10 +143,10 @@
 										};
 									}else{
 										if(result.data.items[i].purchaseStatus == '正在报名'){
-											lis.push('<time><span style="color: #DC824D;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime+'</p><p>开标：'+result.data.items[i].openTime+'</p></time>')
+											lis.push('<time><span style="color: #F13333;font-weight: bold;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime+'</p><p>开标：'+result.data.items[i].openTime+'</p></time>')
 										};
 										if(result.data.items[i].purchaseStatus == '报名结束'){
-											lis.push('<time><span style="color: #F13333;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime+'</p><p>开标：'+result.data.items[i].openTime+'</p></time>')
+											lis.push('<time><span style="color: #666666;border: 1px solid #666666;">'+result.data.items[i].purchaseStatus+'</span><p>截止：'+result.data.items[i].endTime+'</p><p>开标：'+result.data.items[i].openTime+'</p></time>')
 										};
 									}
 									lis.push('</li>')
