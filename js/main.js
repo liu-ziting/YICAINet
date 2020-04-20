@@ -1,6 +1,6 @@
 var App = {
-	apiBasePath: "/api/", 	//接口地址
-	// apiBasePath:"http://okyc-bus.utools.club/api/",
+	// apiBasePath: "/api/", 	//接口地址
+	apiBasePath:"http://okyc-bus.utools.club/api/",
 	rootPath: getRootPath(),				//项目根目录地址
 	filePath: '/upload/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
