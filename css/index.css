@@ -175,7 +175,7 @@ header .rightBox .toptab span {
 	display:block;
 	float:left;
 	font-size:14px;
-	color:#195edd;
+	color:#999999;
 	width:100px;
 	height:32px;
 	line-height:32px;
@@ -184,15 +184,15 @@ header .rightBox .toptab span {
 	transition:all .5s
 }
 header .rightBox .toptab .active {
-	background-color:#195edd;
-	color:#fff;
+	background-color: #E6E8EC;
+    color: #666666;
 	border-top-left-radius:10px;
 	border-top-right-radius:10px
 }
 header .rightBox .search {
 	width:410px;
 	height:40px;
-	border:2px solid #195edd
+	border:2px solid #E6E8EC;
 }
 header .rightBox .search input {
 	background-color:inherit;
@@ -202,12 +202,14 @@ header .rightBox .search input {
 	height:36px
 }
 header .rightBox .search span {
-	display:block;
-	width:60px;
-	height:38px;
-	background-color:#195edd;
-	float:right;
-	cursor:pointer
+	display: block;
+    width: 60px;
+    height: 38px;
+    background-color: #195edd;
+    float: right;
+    margin-top: -1px;
+    margin-right: -1px;
+    cursor: pointer;
 }
 header .rightBox .search span img {
 	width:25px;
