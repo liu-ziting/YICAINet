@@ -122,7 +122,7 @@
 		<div class="right" style="padding:0;">
 			<div class="topSearchBox">
 				<form class="layui-form" action="">
-					<div class="topBox">
+					<!-- <div class="topBox">
 						<select id="purchaseStatus" name="interest" lay-filter="">
 							<option value="">报名状态</option>
 							<option value="正在报名">正在报名</option>
@@ -136,7 +136,7 @@
 					<div class="topBox">
 						<input type="text" name="openTime" id="openTime" lay-verify="date" placeholder="开标日期"
 							autocomplete="off" class="layui-input" style="width: 85px;">
-					</div>
+					</div> -->
 					<div class="topBox">
 						<input type="text" name="searchkey" id="searchkey" lay-verify="title" autocomplete="off"
 							placeholder="请输入关键字" class="layui-input tinput">
@@ -179,8 +179,8 @@
 									发布：{{item.createDate}}&nbsp;&nbsp;&nbsp;
 									{{#  if(item.purchaseStatus == '' ||item.purchaseStatus == null){ }}
 									{{#  } else { }}
-									截止：{{item.endTime}}&nbsp;&nbsp;&nbsp;
-									开标：{{item.openTime}}
+									<span class="endTime">截止：{{item.endTime}}&nbsp;&nbsp;&nbsp;</span>
+									<span class="openTime">开标：{{item.openTime}}</sp
 									{{#  } }}  
 									
 								</time>
@@ -264,8 +264,7 @@
 						// 	$("#openTime").val(""),//开标时间
 						// 	$("#endTime").val(""),//截至时间
 						// 	$("#searchkey").val("")//搜索关键字
-					
-						
+						var typeId = $(this).find(".id").val();
 						renderForm();
 						$(".policyList").show();
 						$("#details").html("");
@@ -273,7 +272,7 @@
 						$(".crumbs").text(leftText.slice(0, leftText.length - 2));
 						$(".right h1 b").text(leftText.slice(0, leftText.length - 2));
 						$(this).addClass("active").siblings().removeClass("active");
-						var typeId = $(this).find(".id").val();
+						
 						get_news_list_by_type_id(typeId);
 
 						$("title").html(leftText.slice(0, leftText.length - 2));
@@ -335,6 +334,11 @@
 								}
 							}
 						});
+						
+						if(typeId == 9 || typeId == 23 || typeId == 24){
+							$(".endTime").hide();
+							$(".openTime").hide();
+						}
 
 						//点击查看详情
 						$("li h3").click(function () {

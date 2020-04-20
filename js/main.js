@@ -1,5 +1,6 @@
 var App = {
 	apiBasePath: "/api/", 	//接口地址
+	// apiBasePath:"http://okyc-bus.utools.club/api/",
 	rootPath: getRootPath(),				//项目根目录地址
 	filePath: '/upload/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
@@ -67,6 +68,17 @@ var http = {
 			setTimeout(function () {
 				layer.close(loading);
 			}, 100)
+			if(rsp.code == 200){
+				def.resolve(rsp);
+			}else if(rsp.code == 403) {
+				localStorage.setItem("userErr",rsp.code);
+				$(".topLoginBox").show().find("a").show();
+				$(".userTop").hide();
+			}else{
+				layer.msg(rsp.msg, {
+					icon: 5
+				});
+			}
 		}, function (error) {
 			if (error.status == 504) {
 				layer.msg('请求超时，请重试!', {
@@ -272,6 +284,10 @@ function send_verify_code(phone,type) {
 	}).then(function (data) {
 		if (data.code == 200) {
 			layer.msg('验证码发送成功！');
+		}else{
+			layer.msg(data.msg, {
+				icon: 5
+			});
 		}
 	}, function (err) {
 		console.log(err);
@@ -300,11 +316,7 @@ function get_user_info() {
 			localStorage.removeItem("userErr");
 		}
 	}, function (err) {
-		if (err.status) {
-			localStorage.setItem("userErr",err.status);
-			$(".topLoginBox").show().find("a").show();
-			$(".userTop").hide();
-		}
+		
 	})
 };
 
@@ -363,21 +375,40 @@ function download(id){
 			id:id
 		}
 	}).then(function(data) {
-		if(data.code == 200) {
+		if(data.code == 200) {//直接输出资源文件
 			
-		}
-	}, function(err) {
-		if(err.status == 403){
+		}else if(data.code == 403){
 			layer.msg('请先登录！', {
 				icon: 5
 			},function(){
 				location.href = 'login.html';
 			});
-		}else if(err.status == 10007){
+		}else if(data.code == 10007){
 			location.href = 'buyBook.html?id='+id+'&operationType=download';
-		}else if(err.status == 0){
+		}else if(data.code == 0){
 			location.href = ''+App.apiBasePath+'resource/download?id='+id+'';
+		}else if(data.code == 10011){//未提交报名材料,跳转到报名材料提交页
+			layer.open({
+				type: 1,
+				shade: false,
+				title: '申请下载', //不显示标题
+				area: ['550px'], //宽高
+				content: $('.application'), //捕获的元素，注意：最好该指定的元素要存放在body最外层，否则可能被其它的相对元素所影响
+				cancel: function(){
+					
+				}
+			});
+		}else if(data.code == 10012){//报名材料审核中
+			layer.msg(data.msg, {
+				icon: 5
+			});
+		}else{
+			layer.msg(data.msg, {
+				icon: 5
+			});
 		}
+	}, function(err) {
+		
 	})
 };
 
@@ -393,6 +424,10 @@ function logout(){
 		if(data.code == 200) {
 			layer.msg('退出成功！');
 			location.href = 'login.html';
+		}else{
+			layer.msg(data.msg, {
+				icon: 5
+			});
 		}
 	}, function(err) {
 		
