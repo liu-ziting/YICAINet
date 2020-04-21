@@ -81,6 +81,10 @@
 						}, function() {
 							location.href = '../index.html';
 						});
+					}else{
+						layer.msg(data.msg, {
+							icon: 5
+						});
 					}
 				},function(err) {
 					console.log(err);

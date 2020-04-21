@@ -129,19 +129,19 @@
 				    			<input type="hidden" class="payChannel" value="ali_pay_pc" />
 				    		</div>
 						</li>
-						<!--<li>
+						<li id="wxPayBox" style="display: none;">
 							<p>扫描二维码进行支付：</p>
 							<div class="ewm">
 								<div class="qrcode">
-						    		<img src="../img/qrcode.png" />
+						    		<img src="" />
 						    	</div>
-						    	<p>已为您优惠5元</p>
-						    	<h3>￥30.00</h3>
-						    	<i>推荐使用微信、支付宝支付</i>
-						    	<i>会员相关请阅读<a id="openNotice" href="javascript:;">《会员须知》</a></i>
+						    	<!-- <p>已为您优惠5元</p>
+						    	<h3>￥30.00</h3> -->
+						    	<!-- <i>推荐使用微信支付</i>
+						    	<i>会员相关请阅读<a id="openNotice" href="javascript:;">《会员须知》</a></i> -->
 							</div>
 						</li>
-					-->
+					
 					</ul>
 				</section>
 			</div>
@@ -176,16 +176,19 @@
 				}
 			}).then(function(data) {
 				if(data.code == 200) {
-					if(payChannel == 'ali_pay_pc'){
-						var json = JSON.parse(data.data);
+					var json = JSON.parse(data.data);
 						var payNo = json.payNo;
 						var payUrl = json.payUrl;
+					if(payChannel == 'ali_pay_pc'){
+						
 						localStorage.setItem("payUrl",payUrl);
 						localStorage.setItem("payNo",payNo);
 						window.open('pay.html');
 						getPayResult(payNo);
 					}else if(payChannel == 'wechat_pay_pc'){
-						$("#wxPayBox").show()
+						$("#wxPayBox").show();
+						$(".qrcode img").attr("src",payUrl);
+						getPayResult(payNo);
 					};
 				}
 			}, function(err) {

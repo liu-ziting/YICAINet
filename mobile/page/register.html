@@ -150,6 +150,10 @@
 						}, function() {
 							location.href = '../page/login.html';
 						});
+					}else{
+						layer.msg(data.msg, {
+							icon: 5
+						});
 					}
 				},function(err) {
 					console.log(err);
@@ -170,6 +174,10 @@
 				}).then(function(data) {
 					if(data.code == 200){
 						send_verify_code(phone,'register')
+					}else{
+						layer.msg(data.msg, {
+							icon: 5
+						});
 					}
 				},function(err) {
 					console.log(err);

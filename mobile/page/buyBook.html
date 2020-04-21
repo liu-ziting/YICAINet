@@ -121,12 +121,16 @@
 					}
 				}).then(function(data) {
 					if(data.code == 200) {
+						var payUrl = data.data;
 						if(payChannel == 'ali_pay_h5') {
-							var payUrl = data.data;
 							localStorage.setItem("payUrl", payUrl);
 							window.location.href = 'pay.html';
 						} else if(payChannel == 'wechat_pay_h5') {
-							$("#wxPayBox").show()
+							var json = JSON.parse(data.data);
+							var payNo = json.payNo;
+							window.location.href = json.mweb_url;
+							getPayResult(payNo)
+							// window.location.href = ' https://wx.tenpay.com/cgi-bin/mmpayweb-bin/checkmweb?prepay_id='+payUrl.prepay_id+'&package='+payUrl.package+'&redirect_url=';
 						};
 					}
 				}, function(err) {
@@ -148,6 +152,38 @@
 			$(".vipList  div").click(function() {
 				$(this).addClass("active").siblings().removeClass("active");
 			});
+
+			//查询支付结果
+			function getPayResult(payNo){
+				http.ajax({
+					url: 'goods/get_pay_result',
+					type: 'GET',
+					json: false,
+					mask: false,
+					data: {
+						payNo:payNo
+					}
+				}).then(function(data) {
+					var payChannel = $('#IsPurchased input[name="pay"]:checked ').val();
+					if(data.code == 200) {
+						if(data.data == "success"){
+							//支付成功
+							openUrl('buySucceed.html?id='+getQueryString("id")+'&payChannel='+payChannel+'')
+						}else if(data.data == "failed"){
+							//支付失败
+							layer.msg('支付失败！', {
+								icon: 5
+							},function(){
+								window.location.reload();
+							});
+						}else{
+							getPayResult(payNo);
+						}
+					}
+				}, function(err) {
+					
+				})
+			};
 		</script>
 	</body>
 

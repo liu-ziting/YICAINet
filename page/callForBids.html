@@ -6,6 +6,11 @@
 	<title>医采网-招标采购信息</title>
 	<link rel="stylesheet" href="../layui/css/layui.css" />
 	<link rel="stylesheet" href="../css/index.css" />
+	<style>
+		.oneBox{
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -122,21 +127,21 @@
 		<div class="right" style="padding:0;">
 			<div class="topSearchBox">
 				<form class="layui-form" action="">
-					<!-- <div class="topBox">
+					<div class="topBox oneBox">
 						<select id="purchaseStatus" name="interest" lay-filter="">
 							<option value="">报名状态</option>
 							<option value="正在报名">正在报名</option>
 							<option value="报名结束">报名结束</option>
 						</select>
 					</div>
-					<div class="topBox">
+					<div class="topBox oneBox">
 						<input type="text" name="endTime" id="endTime" lay-verify="date" placeholder="截止日期"
 							autocomplete="off" class="layui-input" style="width: 85px;">
 					</div>
-					<div class="topBox">
+					<div class="topBox oneBox">
 						<input type="text" name="openTime" id="openTime" lay-verify="date" placeholder="开标日期"
 							autocomplete="off" class="layui-input" style="width: 85px;">
-					</div> -->
+					</div>
 					<div class="topBox">
 						<input type="text" name="searchkey" id="searchkey" lay-verify="title" autocomplete="off"
 							placeholder="请输入关键字" class="layui-input tinput">
@@ -338,6 +343,9 @@
 						if(typeId == 9 || typeId == 23 || typeId == 24){
 							$(".endTime").hide();
 							$(".openTime").hide();
+							$(".oneBox").hide();
+						}else{
+							$(".oneBox").show();
 						}
 
 						//点击查看详情

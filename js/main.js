@@ -1,6 +1,6 @@
 var App = {
-	// apiBasePath: "/api/", 	//接口地址
-	apiBasePath:"http://okyc-bus.utools.club/api/",
+	apiBasePath: "/api/", 	//接口地址
+	// apiBasePath:"http://okyc-bus.utools.club/api/",
 	rootPath: getRootPath(),				//项目根目录地址
 	filePath: '/upload/',
 	timestamp: ((Date.parse(new Date())) / 1000).toString(),	//时间戳
@@ -376,7 +376,7 @@ function download(id){
 		}
 	}).then(function(data) {
 		if(data.code == 200) {//直接输出资源文件
-			
+			window.location.href = '../api/resource/download?id='+id
 		}else if(data.code == 403){
 			layer.msg('请先登录！', {
 				icon: 5

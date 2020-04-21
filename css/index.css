@@ -199,7 +199,8 @@ header .rightBox .search input {
 	border:none;
 	float:left;
 	width:300px;
-	height:36px
+	height:36px;
+	padding-left: 15px;
 }
 header .rightBox .search span {
 	display: block;
@@ -1980,19 +1981,20 @@ footer section span {
 	width:136px;
 	height:136px;
 	display:block;
-	margin:0 auto
+	margin:0 auto;
+	transform: scale(1.355);
 }
 .buyBook ul li:nth-child(3) p {
 	font-size:18px;
 	color:#666;
 	float:left;
-	padding-top:12px
+	padding-top: 5px;
 }
 .buyBook ul li:nth-child(3) .bottomImg {
 	width:100%;
 	float:left;
 	margin-left:196px;
-	margin-top:-53px
+	margin-top:-60px
 }
 .buyBook ul li:nth-child(3) .bottomImg img {
 	display:block;
@@ -2005,7 +2007,7 @@ footer section span {
 	width:100%;
 	float:left;
 	margin-left:196px;
-	margin-top:-15px
+	margin-top:-20px
 }
 .userVip section ul li {
 	width:100%;
@@ -2143,7 +2145,8 @@ footer section span {
 	width:136px;
 	height:136px;
 	display:block;
-	margin:0 auto
+	margin:0 auto;
+	transform: scale(1.355);
 }
 .userVip ul li:nth-child(3) .ewm {
 	float:left;

@@ -89,14 +89,14 @@
 			    </li>
 			    <li id="wxPayBox" style="display: none;">
 			    	<div class="qrcode">
-			    		<img src="../img/qrcode.png" />
+			    		<img src="" />
 			    	</div>
 			    	<p>请扫描二维码进行付款</p>
 			    	<div class="bottomImg">
 			    		<img src="../img/wx3.png" />
-			    		<img src="../img/zfb3.png" />
+			    		<!-- <img src="../img/zfb3.png" /> -->
 			    	</div>
-			    	<em>推荐使用微信、支付宝支付</em>
+			    	<em>推荐使用微信进行支付</em>
 			    </li>
 			    <!--支付宝支付跳转-->
 			    <div id="aliPayForm"></div>
@@ -164,17 +164,19 @@
 					}
 				}).then(function(data) {
 					if(data.code == 200) {
+						var json = JSON.parse(data.data);
+						var payNo = json.payNo;
+						var payUrl = json.payUrl;
 						if(payChannel == 'ali_pay_pc'){
-							var json = JSON.parse(data.data);
 //							$("#alipayBox").append(json.payUrl);
-							var payNo = json.payNo;
-							var payUrl = json.payUrl;
 							localStorage.setItem("payUrl",payUrl);
 							localStorage.setItem("payNo",payNo);
 							window.open('pay.html');
 							getPayResult(payNo);
 						}else if(payChannel == 'wechat_pay_pc'){
-							$("#wxPayBox").show()
+							$("#wxPayBox").show();
+							$(".qrcode img").attr("src",payUrl);
+							getPayResult(payNo);
 						};
 					}
 				}, function(err) {

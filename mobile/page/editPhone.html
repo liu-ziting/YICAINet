@@ -126,6 +126,10 @@
 					}, function() {
 						location.href = 'my.html';
 					});
+				}else{
+					layer.msg(data.msg, {
+						icon: 5
+					});
 				}
 			}, function (err) {
 			
@@ -146,6 +150,10 @@
 			}).then(function(data) {
 				if(data.code == 200){
 					send_verify_code(data,'changePhone')
+				}else{
+					layer.msg(data.msg, {
+						icon: 5
+					});
 				}
 			},function(err) {
 				console.log(err);
