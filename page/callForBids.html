@@ -266,10 +266,10 @@
 					};
 					//下载中心左侧选项卡切换
 					$(".leftTab li").click(function () {
-						// $("#purchaseStatus").val(""),//招标信息状态
-						// 	$("#openTime").val(""),//开标时间
-						// 	$("#endTime").val(""),//截至时间
-						// 	$("#searchkey").val("")//搜索关键字
+						$("#purchaseStatus").val(""),//招标信息状态
+						$("#openTime").val(""),//开标时间
+						$("#endTime").val(""),//截至时间
+						$("#searchkey").val("")//搜索关键字
 						var typeId = $(this).find(".id").val();
 						renderForm();
 						$(".policyList").show();
