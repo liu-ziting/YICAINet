@@ -391,7 +391,7 @@ function lawsAndRegulations() {
             var leftHTML = "";
             var result = data.data.items;
             if (result.length > 0) {
-                leftHTML += "<h1 title=" + result[0].title + " >" + result[0].title + "</h1>" +
+                leftHTML += "<h1>" + result[0].title + "</h1>" +
                     "<p>" + result[0].remark + "</p>" +
                     "<time><i class=\"layui-icon layui-icon-date\"></i>  " +
                     "<span>" + result[0].createDate.slice(0, 10) + "</span><br />" +
@@ -399,7 +399,7 @@ function lawsAndRegulations() {
                     "</time>";
 
                 for (var i = 1; i < result.length; i++) {
-                    iHTML += '<li id=' + result[i].id + '><i>▪</i>' + result[i].title + '<p>' + result[i].remark + '</p></li>'
+                    iHTML += '<li title=' + result[0].title + '  id=' + result[i].id + '><i>▪</i>' + result[i].title + '<p>' + result[i].remark + '</p></li>'
                 };
             } else if(data.data.total == 0){
                 iHTML += '<div><p>暂无政策法规</p></div>';
