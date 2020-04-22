@@ -409,9 +409,9 @@ function lawsAndRegulations() {
             $(".policy .middle ul li:nth-child(1)").addClass("active");
 
             //政策法规鼠标悬停
-            $(".policy .middle li").hover(function () {
-                $(this).addClass("active").siblings().removeClass("active");
-            })
+//          $(".policy .middle li").hover(function () {
+//              $(this).addClass("active").siblings().removeClass("active");
+//          })
             $(".policy .middle ul li").click(function () {
                 var policyId = $(this).attr("id");
                 openUrl('page/policy.html?policyId=' + policyId + '');
