@@ -391,7 +391,7 @@ function lawsAndRegulations() {
             var leftHTML = "";
             var result = data.data.items;
             if (result.length > 0) {
-                leftHTML += "<h1>" + result[0].title + "</h1>" +
+                leftHTML += "<h1 title=" + result[0].title + " >" + result[0].title + "</h1>" +
                     "<p>" + result[0].remark + "</p>" +
                     "<time><i class=\"layui-icon layui-icon-date\"></i>  " +
                     "<span>" + result[0].createDate.slice(0, 10) + "</span><br />" +
