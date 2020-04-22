@@ -376,7 +376,7 @@ function download(id){
 		}
 	}).then(function(data) {
 		if(data.code == 200) {//直接输出资源文件
-			window.location.href = '../api/resource/download?id='+id
+			location.href = ''+App.apiBasePath+'resource/download?id='+id+'';
 		}else if(data.code == 403){
 			layer.msg('请先登录！', {
 				icon: 5

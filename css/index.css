@@ -236,7 +236,7 @@ header nav ul li {
 	margin-left:76px;
 	padding:0 19px;
 	cursor:pointer;
-	margin-left:65px;
+	margin-left:50px;
 	transition:all .2s
 }
 header nav ul li:first-child {
@@ -2722,4 +2722,66 @@ footer section span {
 	line-height:29px;
 	padding-left:25px;
 	filter:blur(5px)
+}
+/*联系我们*/
+.contactUs .contactus {
+	width: 100%;
+	padding: 0;
+	margin: 0 auto;
+	position: relative;
+	padding: 20px 0 100px 0;
+}
+.contactUs{
+	background-color: #FFFFFF
+}
+.contactUs .my-map {
+	margin: 0 auto;
+	width: 1170px;
+	height: 600px;
+}
+
+.contactUs .my-map .icon {
+	background: url(http://lbs.amap.com/console/public/show/marker.png) no-repeat;
+}
+
+.contactUs .my-map .icon-cir {
+	height: 31px;
+	width: 28px;
+}
+
+.contactUs .my-map .icon-cir-red {
+	background-position: -11px -5px;
+}
+
+.contactUs .amap-container {
+	height: 100%;
+}
+
+.contactUs .contactus section {
+	width: 600px;
+	height: 220px;
+	background-color: #FFFFFF;
+	position: absolute;
+	top: 54%;
+    left: 50%;
+    margin-left: -300px;
+	border-left:2px solid #ee2a28 ;
+	padding: 32px;
+}
+.contactUs .contactus section ul li{
+	font-size: 14px;
+	color: #222222;
+	margin-bottom: 24px;
+}
+.contactUs .contactus section ul li span{
+	margin-right: 28px;
+	width: 15px;
+	height: 15px;
+	display: block;
+	float: left;
+}
+.contactUs h1{
+	width: 1170px;
+	margin: 0 auto;
+	margin-bottom: 30px;
 }

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>医采网-下载中心</title>
+		<link rel="stylesheet" href="../layui/css/layui.css" />
+		<link rel="stylesheet" href="../css/index.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header>
+			<div class="htop">
+				<div class="centered">
+					<div class="left">
+						<p>欢迎来到医采网！</p>
+						<img class="loginIcon" src="../img/user.png" />
+						<span class="topLoginBox">
+						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
+						<a class="register" href="register.html">免费注册</a>
+						<a class="userTop" href="user.html">个人中心</a>
+					</span>
+					</div>
+					<div class="right">
+						<img src="../img/iPhone.png" />
+						<p>免费咨询热线：0551-65311145</p>
+						<span>|</span>
+						<p onclick="addFavorite()">收藏 </p>
+						<span>|</span>
+						<p>帮助</p>
+					</div>
+				</div>
+			</div>
+			<div class="searchBox">
+				<div class="centered">
+					<a class="logo" href="../index.html">
+						<img src="../img/logo.png" />
+					</a>
+					<!--搜索-->
+					<div class="rightBox">
+						<div class="toptab">
+							<span class="active">查询药品</span>
+							<span>查询耗材</span>
+						</div>
+						<div class="search">
+							<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词" autocomplete="off" class="layui-input">
+							<span>
+							<img src="../img/ss.png" />
+						</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--导航-->
+			<nav>
+				<div class="centered">
+					<ul>
+						<li onclick="openUrl('../index.html')">首页</li>
+						<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+						<li onclick="openUrl('drugList.html')">药品信息</li>
+						<li onclick="openUrl('materialsList.html')">耗材信息</li>
+						<li onclick="openUrl('facilityList.html')">设备信息</li>
+						<li onclick="openUrl('policy.html')">政策法规</li>
+						<li onclick="openUrl('download.html')">下载中心</li>
+						<li class="active" onclick="openUrl('contactUs.html')">联系我们</li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+		<div class="contactUs">
+			<!-- 联系我们 -->
+			<div class="row contactus">
+				<h1 class="title">联系<b>我们</b></h1>
+				<div id="wrap" class="my-map">
+					<div id="mapContainer"></div>
+				</div>
+				<section>
+					<ul>
+						<li><span><img src="../img/icon1.png"/></span>安徽省合肥市高新技术开发区创新大道2800号合肥创新产业园二期G4楼E区9层 </li>
+						<li><span></span>安徽冲锋信息技术有限公司</li>
+						<li><span><img src="../img/icon2.png"/></span>电话：0551-65311145</li>
+						<li><span><img src="../img/icon3.png"/></span>邮箱：5200570@163.com</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<div id="footer"></div>
+		<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+		<script type="text/javascript" src="../layui/layui.all.js"></script>
+		<script type="text/javascript" src="../js/jquery.qrcode.min.js"></script>
+		<script src="//webapi.amap.com/maps?v=1.3&key=8325164e247e15eea68b59e89200988b"></script>
+		<script type="text/javascript" src="../js/main.js"></script>
+		<script>
+			// 高德地图
+			mapContactus();
+			// 高德地图坐标，自定义获取方式：https://lbs.amap.com/console/show/tools
+			function mapContactus() {
+				var infoWindow, map, level = 14,
+					center = {
+						lng: 117.139403,
+						lat: 31.838853
+					},
+					features = [{
+						type: "Marker",
+						name: "安徽冲锋信息技术有限公司",
+						desc: "安徽省合肥市高新技术开发区创新大道2800号合肥创新产业园二期G4楼E区9层",
+						color: "red",
+						icon: "cir",
+						offset: {
+							x: -9,
+							y: -31
+						},
+						lnglat: {
+							lng: 117.139403,
+							lat: 31.838853
+						}
+					}];
+
+				function loadFeatures() {
+					for(var feature, data, i = 0, len = features.length, j, jl, path; i < len; i++) {
+						data = features[i];
+						switch(data.type) {
+							case "Marker":
+								feature = new AMap.Marker({
+									map: map,
+									position: new AMap.LngLat(data.lnglat.lng, data.lnglat.lat),
+									zIndex: 3,
+									extData: data,
+									offset: new AMap.Pixel(data.offset.x, data.offset.y),
+									title: data.name,
+									content: '<div class="icon icon-' + data.icon + ' icon-' + data.icon + '-' + data.color + '"></div>'
+								});
+								break;
+							case "Polyline":
+								for(j = 0, jl = data.lnglat.length, path = []; j < jl; j++) {
+									path.push(new AMap.LngLat(data.lnglat[j].lng, data.lnglat[j].lat));
+								}
+								feature = new AMap.Polyline({
+									map: map,
+									path: path,
+									extData: data,
+									zIndex: 2,
+									strokeWeight: data.strokeWeight,
+									strokeColor: data.strokeColor,
+									strokeOpacity: data.strokeOpacity
+								});
+								break;
+							case "Polygon":
+								for(j = 0, jl = data.lnglat.length, path = []; j < jl; j++) {
+									path.push(new AMap.LngLat(data.lnglat[j].lng, data.lnglat[j].lat));
+								}
+								feature = new AMap.Polygon({
+									map: map,
+									path: path,
+									extData: data,
+									zIndex: 1,
+									strokeWeight: data.strokeWeight,
+									strokeColor: data.strokeColor,
+									strokeOpacity: data.strokeOpacity,
+									fillColor: data.fillColor,
+									fillOpacity: data.fillOpacity
+								});
+								break;
+							default:
+								feature = null;
+						}
+						if(feature) {
+							AMap.event.addListener(feature, "click", mapFeatureClick);
+						}
+					}
+				}
+
+				function mapFeatureClick(e) {
+					if(!infoWindow) {
+						infoWindow = new AMap.InfoWindow({
+							autoMove: true
+						});
+					}
+					var extData = e.target.getExtData();
+					infoWindow.setContent("<h5>" + extData.name + "</h5><div>" + extData.desc + "</div>");
+					infoWindow.open(map, e.lnglat);
+				}
+
+				map = new AMap.Map("mapContainer", {
+					center: new AMap.LngLat(center.lng, center.lat),
+					level: level
+				});
+
+				loadFeatures();
+
+				map.on('complete', function() {
+					map.plugin(["AMap.ToolBar", "AMap.OverView", "AMap.Scale"], function() {
+						map.addControl(new AMap.ToolBar);
+						map.addControl(new AMap.OverView({
+							isOpen: true
+						}));
+						map.addControl(new AMap.Scale);
+					});
+				})
+
+			}
+		</script>
+	</body>
+
+</html>
