@@ -838,7 +838,7 @@ header nav ul .active {
 	display: -webkit-box;
 	word-break: break-all;
 	-webkit-box-orient: vertical;
-	-webkit-line-clamp: 4;
+	-webkit-line-clamp: 1;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
