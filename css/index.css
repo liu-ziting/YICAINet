@@ -661,7 +661,7 @@ header nav ul .active {
 	color:#252525;
 	text-align:center;
 	font-weight:700;
-	text-align:center;
+	text-align:left;
 	margin-bottom:10px;
 	margin-top:286px;
 	cursor:pointer
@@ -745,7 +745,13 @@ header nav ul .active {
 	font-size:14px;
 	color:#585757;
 	margin-top:15px;
-	margin-bottom:10px
+	margin-bottom:10px;
+	display: -webkit-box;
+	word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .main .activity .right ul li span {
 	display:block;
