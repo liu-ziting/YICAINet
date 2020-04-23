@@ -194,7 +194,6 @@ function purchasingInformationList(typeId) {
                         iHTML += "<span style='color: #666666;'>【" + result[i].purchaseStatus + "】</span>";
                     }
                 } else if (result[i].questionType == null || result[i].purchaseStatus == null) {
-                    alert(1)
                     iHTML += "<span style='dispaly:none'></span>";
                 }
 
