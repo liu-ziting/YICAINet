@@ -378,6 +378,14 @@
 		// 其他页面跳转到详情
 		var purchaseId = getQueryString("purchaseId");
 		if (purchaseId) {
+			var typeId = getQueryString("typeId");
+			if(typeId == 9 || typeId == 23 || typeId == 24){
+				$(".endTime").hide();
+				$(".openTime").hide();
+				$(".oneBox").hide();
+			}else{
+				$(".oneBox").show();
+			}
 			var id = purchaseId;
 			$(".policyList").hide();
 			localStorage.setItem("detailsId", id);
