@@ -603,12 +603,26 @@ header nav ul .active {
 	color:#1668d8;
 	margin-top:13px;
 	margin-bottom:12px;
-	cursor:pointer
+	cursor:pointer;
+	display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+	text-overflow: ellipsis;
+	width: 200px;
 }
 .main .classification p {
 	font-size:12px;
 	color:#3f3f3f;
-	margin-bottom:8px
+	margin-bottom:8px;
+	width: 200px;
+	display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+	text-overflow: ellipsis;
 }
 .main .classification .box {
 	margin-top:35px;
@@ -2408,7 +2422,8 @@ footer section span {
 .drugList .drugListMain ul li {
 	margin-right:16px;
 	margin-bottom:16px;
-	padding:30px
+	padding:30px;
+	height: 245px;
 }
 .drugList .drugListMain ul li:nth-child(3n+3) {
 	margin-right:0
@@ -2444,7 +2459,14 @@ footer section span {
 	width:50%;
 	float:left;
 	color:#666;
-	margin-bottom:5px
+	height: 20px;
+	margin-bottom:5px;
+	display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+	text-overflow: ellipsis;
 }
 .drugList .drugListMain ul li .down p:nth-child(2) {
 	color:#8b8b8b
@@ -2667,7 +2689,8 @@ footer section span {
 	color:#666;
 	padding-left:18px;
 	float:left;
-	display:block
+	display:block;
+	width: 310px;
 }
 .drugDetails .drugMain h2 {
 	font-size:16px;
