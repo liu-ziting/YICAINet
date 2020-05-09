@@ -92,11 +92,11 @@
 					<p>设备型号：{{d.model}}</p>
 					<p>设备品牌：{{d.brand}}</p>
 					<hr />
-					<p>市场售价：<span>￥{{d.marketPrice}}</span><a href="login.html">登录可见</a></p>
+					<p>市场售价：<span>￥{{d.marketPrice}}万元</span><a href="login.html">登录可见</a></p>
 					{{#  if( d.otherPrice == '会员可见'){ }}
 					{{#  } else { }}
 					{{#  for (var i = 0; i < JSON.parse(d.otherPrice).length; i++) { }}
-					<p>时间：{{JSON.parse(d.otherPrice)[i].date}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：{{JSON.parse(d.otherPrice)[i].price}}</p> 
+					<p>时间：{{JSON.parse(d.otherPrice)[i].date}}，地址：{{JSON.parse(d.otherPrice)[i].address}}，价格：{{JSON.parse(d.otherPrice)[i].price}}万元</p> 
 					{{#  } }}  
 					{{#  } }} 
 					<button onclick="openUrl('login.html')" type="button" class="layui-btn">
