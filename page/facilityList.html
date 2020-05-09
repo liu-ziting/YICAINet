@@ -130,7 +130,11 @@
 								{{#  } }} 
 								<h1 onclick="openUrl('facilityDetails.html?id={{item.id}}')">{{item.equipmentName}}</h1>
 								<p>设备型号：{{item.model}}</p>
+								{{#  if(item.manufacturer){ }}
 								<p>生产企业：{{JSON.parse(item.manufacturer).name}}</p>
+								{{#  } else { }}
+								<p>生产企业：暂无</p>
+								{{#  } }} 
 							</div>
 							<div class="down">
 								<p>价格：
