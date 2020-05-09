@@ -26,12 +26,15 @@ $(".right p:last-child ").click(function () {
 // 搜索
 $(".searchBox .search span").click(function () {
     var key = $(".searchBox .search input").val();
+    var _index = $(".searchBox .toptab .active").index();
     if (key) {
-        if ($(".searchBox .toptab .active").index() == 0) {
-            openUrl('page/drugList.html?key=' + encodeURI(encodeURI(key)) + '')
-        } else {
-            openUrl('page/materialsList.html?key=' + encodeURI(encodeURI(key)) + '')
-        }
+        if(_index == 0){
+			openUrl('page/drugList.html?key='+encodeURI(encodeURI(key))+'')
+		}else if(_index == 1){
+			openUrl('page/materialsList.html?key='+encodeURI(encodeURI(key))+'')
+		}else{
+			openUrl('page/facilityList.html?key='+encodeURI(encodeURI(key))+'')
+		}
     } else {
         layer.msg('请先输入关键词！', {
             icon: 5

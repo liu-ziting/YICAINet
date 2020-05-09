@@ -530,6 +530,7 @@ button {
 	color:rgba(22,104,216,1);
 	line-height:0.29rem;
 	margin-bottom: 0.51rem;
+	overflow: hidden;
 }
 .indexPage .boxList .textBox p{
 	font-size:0.24rem;
@@ -843,6 +844,8 @@ footer p:last-child{
 	float: left;
 	margin-top: 0.18rem;
 	width: 33.3%;
+	overflow: hidden;
+    height: 20px;
 }
 .detailsPage .main .spanList span img{
 	display: block;

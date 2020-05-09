@@ -159,7 +159,7 @@
 				}
 			}).then(function(data) {
 				if(data.code == 200) {
-					var data = data.data;
+					var data = FunNull(data.data);
 					var innerHTML = "";
 					innerHTML +='<h1>'+data.title+'</h1>'+
 					'<div class="spanList">'+
@@ -168,9 +168,12 @@
 					'<span class="yj"><img src="../img/yj.png">'+data.hitCount+'</span>'+
 					'</div>'+
 					'<div class="content">'+data.content+'</div>';
-					$("#resourcesId").val(data.resources.id);
+					if(data.resources != "暂无"){
+						$("#resourcesId").val(data.resources.id);
+					}
+					
 					//如果有标书可以下载
-					if(data.resources){
+					if(data.resources != "暂无"){
 						$(".downloadBox").show()
 					}
 					$("#detailsBox").append(innerHTML);

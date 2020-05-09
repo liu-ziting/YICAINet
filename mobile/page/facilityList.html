@@ -149,7 +149,13 @@
 									}else{
 										lis.push('<p>价格：<span>登录可见</span> ')
 									}	
-									lis.push('</p><p>设备型号：'+result.data.items[i].model+'</p><p>品牌：'+result.data.items[i].brand+' </p><p> 生产企业：'+JSON.parse(result.data.items[i].manufacturer).name+'</p></div></li>')
+									var manufacturername = "";
+									if(result.data.items[i].manufacturer == "会员可见"){
+										manufacturername = "会员可见"
+									}else{
+										manufacturername = JSON.parse(result.data.items[i].manufacturer).name;
+									}
+									lis.push('</p><p>设备型号：'+result.data.items[i].model+'</p><p>品牌：'+result.data.items[i].brand+' </p><p> 生产企业：'+manufacturername+'</p></div></li>')
 								};
 								next(lis.join(''), page < result.data.total / pageSize);
 							};

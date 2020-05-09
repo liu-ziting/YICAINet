@@ -42,6 +42,7 @@
 					<div class="toptab">
 						<span class="active">查询药品</span>
 						<span>查询耗材</span>
+						<span>查询设备</span>
 					</div>
 					<div class="search">
 						<input type="text" name="title" required lay-verify="required" placeholder="请输入搜索关键词"
@@ -130,10 +131,11 @@
 								{{#  } }} 
 								<h1 onclick="openUrl('facilityDetails.html?id={{item.id}}')">{{item.equipmentName}}</h1>
 								<p>设备型号：{{item.model}}</p>
-								{{#  if(item.manufacturer){ }}
-								<p>生产企业：{{JSON.parse(item.manufacturer).name}}</p>
+								
+								{{#  if(item.manufacturer == "会员可见"){ }}
+								<p>生产企业：会员可见</p>
 								{{#  } else { }}
-								<p>生产企业：暂无</p>
+								<p>生产企业：{{JSON.parse(item.manufacturer).name}}</p>
 								{{#  } }} 
 							</div>
 							<div class="down">
@@ -181,6 +183,15 @@
 			};
 		});
 
+		// 头部搜索
+		var key = getQueryString("key");
+		var _index = getQueryString("index");
+		if(key){
+			$(".searchBox .toptab span").eq(_index).addClass("active").siblings().removeClass("active");
+			$(".search input").val(decodeURI(decodeURI(key)));
+			$("#key").val(decodeURI(decodeURI(key)));
+			oneDrug_list([]);
+		}
 
 		//设备列表
 		var pageNo = 1;

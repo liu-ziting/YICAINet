@@ -213,11 +213,14 @@ $(".searchBox .toptab span").click(function () {
 // 点击头部搜索
 $(".searchBox .search span").click(function () {
 	var key = $(".searchBox .search input").val();
+	var _index = $(".searchBox .toptab .active").index();
 	if(key){
-		if($(".searchBox .toptab .active").index() == 0){
-			openUrl('drugList.html?key='+encodeURI(encodeURI(key))+'')
+		if(_index == 0){
+			openUrl('drugList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
+		}else if(_index == 1){
+			openUrl('materialsList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
 		}else{
-			openUrl('materialsList.html?key='+encodeURI(encodeURI(key))+'')
+			openUrl('facilityList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
 		}
 	}else{
 		layer.msg('请先输入关键词！', {
