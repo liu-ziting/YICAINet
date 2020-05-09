@@ -180,18 +180,18 @@
 									<em style="color: #666666;">【{{item.purchaseStatus}}】</em> 
 									{{#  } }} 
 									{{#  } }}  
-									<span  >查看详情</span>
+									<span >查看详情</span>
 								</h3>
 								<time>
 									发布：{{item.createDate}}&nbsp;&nbsp;&nbsp;
 									{{#  if(item.purchaseStatus == '' ||item.purchaseStatus == null){ }}
 									{{#  } else { }}
 									<span class="endTime">截止：{{item.endTime}}&nbsp;&nbsp;&nbsp;</span>
-									<span class="openTime">开标：{{item.openTime}}</sp
+									<span class="openTime">开标：{{item.openTime}}</span>
 									{{#  } }}  
 									
 								</time>
-								<p>{{item.remark}}</p>
+								<p>{{ item.remark }}</p>
 								<a href="javascript:;" style="right: 80px;right: 74px;position: absolute;bottom: 4px;" >
 									<img onclick="weixin(this)" id="/mobile/page/details.html?id={{item.id}}" src="../img/c19-05.png"/>
 									<img onclick="shareToXl(this)"  id="/mobile/page/details.html?id={{item.id}}" bt="{{item.title}}" src="../img/c19-06.png"/>
@@ -441,6 +441,7 @@
 			});
 		};
 
+		
 	</script>
 </body>
 

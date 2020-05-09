@@ -545,7 +545,8 @@ function IsPC(){
 
 //分享到微信
 function weixin(_this) {
-	var url = App.rootPath+$(_this).attr("id");
+	var url = "http://web.okyc.net"+$(_this).attr("id");
+	console.log(url)
     layer.open({
         type: 1,
         skin: 'layui-layer-demo', //样式类名
@@ -562,7 +563,7 @@ function weixin(_this) {
 //分享到新浪微博
 function shareToXl(_this) {
 	var title = $(_this).attr("bt");
-	var url = App.rootPath+$(_this).attr("id");
+	var url = "http://web.okyc.net"+$(_this).attr("id");
 	var picurl = $(_this).parent(".imgbox").find("img").attr("src");
     var sharesinastring = 'http://v.t.sina.com.cn/share/share.php?title=' + title + '&url=' + url + '&content=utf-8&sourceUrl=' + url + '&pic=' + picurl;
     window.open(sharesinastring, 'newwindow', 'height=400,width=400,top=100,left=100');
@@ -571,7 +572,7 @@ function shareToXl(_this) {
 //分享到qq空间
 function shareToQq(_this) {
 	var title = $(_this).attr("bt");
-	var url = App.rootPath+$(_this).attr("id");
+	var url = "http://web.okyc.net"+$(_this).attr("id");
 	var picurl = $(_this).parent(".imgbox").find("img").attr("src");
 	var summary = $(_this).parent("p").text();
     var shareqqzonestring = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary=' + summary + '&title=' + title + '&url=' + url + '&pics=' + picurl;
