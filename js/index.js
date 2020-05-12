@@ -343,14 +343,20 @@ function equipment_list() {
         if (data.code == 200) {
             var iHTML = "";
             var result = data.data.items;
+            var manufacturerName = ""
             for (var i = 0; i < result.length; i++) {
+                if(result[i].manufacturer == "会员可见"){
+                    manufacturerName = "会员可见";
+                }else{
+                    manufacturerName =  JSON.parse(result[i].manufacturer).name;
+                }
                 iHTML += "<div class=\"box\">" +
                     "<div class=\"leftimg\">" +
                     "<img onerror='imgError(this)' src=\"" + App.filePath + result[i].image.newFilename + "\" />" +
                     "</div>" +
                     "<div class=\"rightBox\">" +
                     "<h3 onclick=\"openUrl(\'page/facilityDetails.html?id=" + result[i].id + "\')\">" + result[i].equipmentName + "</h3>" +
-                    "<p>生产厂家：" + JSON.parse(result[i].manufacturer).name + "</p>" +
+                    "<p>生产厂家：" + manufacturerName + "</p>" +
                     "<p>设备型号：" + result[i].model + "</p>" +
                     "<p>品牌：" + result[i].brand + "</p>" +
                     "</div>" +

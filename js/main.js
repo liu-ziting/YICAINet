@@ -578,3 +578,26 @@ function shareToQq(_this) {
     var shareqqzonestring = 'http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?summary=' + summary + '&title=' + title + '&url=' + url + '&pics=' + picurl;
     window.open(shareqqzonestring, 'newwindow', 'height=400,width=400,top=100,left=100');
 }
+
+//系统通知
+sys_notice_main();
+function sys_notice_main() {
+	http.ajax({
+		url: 'user/sys_notice',
+		type: 'GET',
+		json: false,
+		mask: true,
+		data: {
+			pageNo: 1,
+			pageSize: 20
+		}
+	}).then(function (data) {
+		// 未读消息
+		var unreadSize = data.data.unreadSize;
+		$(".unreadSize").text("("+unreadSize+")");
+		$(".unreadSizeTop").text("(未读消息："+unreadSize+")");
+		
+	}, function (err) {
+
+	})
+};

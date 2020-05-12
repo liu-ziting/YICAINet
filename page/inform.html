@@ -20,6 +20,7 @@
 						<a class="login" href="login.html">登录 &nbsp;&nbsp;|</a>
 						<a class="register" href="register.html">免费注册</a>
 						<a class="userTop" href="user.html">个人中心</a>
+						<span onclick="openUrl('inform.html')" class="unreadSizeTop"></span>
 					</span>
 				</div>
 				<div class="right">
@@ -97,7 +98,7 @@
 					<span>服务中心</span>
 				</h2>
 				<ul>
-					<li class="active" onclick="openUrl('inform.html')">系统通知</li>
+					<li class="active" onclick="openUrl('inform.html')">系统通知<span class="unreadSize"></span></li>
 					<li onclick="openUrl('userHelp.html')">服务帮助</li>
 				</ul>
 				<button type="button" onclick="logout()" class="layui-btn quit">退出</button>

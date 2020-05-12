@@ -298,6 +298,10 @@ header nav ul .active {
 	float:left;
 	position:relative
 }
+.main .banner .left img{
+	width:840px;
+	height:402px;
+}
 .main .banner .left:before {
 	content:"图片加载中";
 	color:#8d8d8d;
@@ -1522,7 +1526,8 @@ footer section span {
 	color:#252525;
 	padding-left:65px;
 	line-height:36px;
-	cursor:pointer
+	cursor:pointer;
+	position: relative;
 }
 .user .left .leftTab .active {
 	background-color:#16cef4;
@@ -2813,4 +2818,17 @@ footer section span {
 	width: 1170px;
 	margin: 0 auto;
 	margin-bottom: 30px;
+}
+.unreadSize{
+	position: absolute;
+    text-align: center;
+    padding: 0 6px;
+    line-height: 36px;
+	color: #f00;
+	font-weight: bold;
+}
+.unreadSizeTop{
+	color: #1E9FFF;
+	font-size: 12px;
+	cursor: pointer;
 }
