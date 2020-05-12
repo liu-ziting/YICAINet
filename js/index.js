@@ -151,6 +151,11 @@ function purchasingInformation() {
 
     });
 };
+// 跳转到采购信息列表
+function opencallForBids(){
+    var urltypeId = $("#pfTitleList .layui-this").attr("id");
+    openUrl('page/callForBids.html?urltypeId='+urltypeId+'');
+}
 //采购信息列表
 function purchasingInformationList(typeId) {
    
