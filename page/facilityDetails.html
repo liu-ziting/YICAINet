@@ -127,15 +127,27 @@
 					</li>
 					<li>
 						<p>生产厂家：</p>
+						{{#  if( d.manufacturer == '会员可见'){ }}
+						<span>会员可见</span>
+						{{#  } else { }}
 						<span>{{JSON.parse(d.manufacturer).name}}</span>
+						{{#  } }} 
 					</li>
 					<li>
 						<p>生产地址：</p>
+						{{#  if( d.manufacturer == '会员可见'){ }}
+						<span>会员可见</span>
+						{{#  } else { }}
 						<span>{{JSON.parse(d.manufacturer).address}}</span>
+						{{#  } }} 
 					</li>
 					<li>
 						<p>联系电话：</p>
+						{{#  if( d.manufacturer == '会员可见'){ }}
+						<span>会员可见</span>
+						{{#  } else { }}
 						<span>{{JSON.parse(d.manufacturer).tel}}</span>
+						{{#  } }} 
 					</li>
 				</ul>
 				<h2>主要参数</h2>
