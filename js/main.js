@@ -586,7 +586,7 @@ function sys_notice_main() {
 		url: 'user/sys_notice',
 		type: 'GET',
 		json: false,
-		mask: true,
+		mask: false,
 		data: {
 			pageNo: 1,
 			pageSize: 20
