@@ -2832,3 +2832,28 @@ footer section span {
 	font-size: 12px;
 	cursor: pointer;
 }
+.dropDownNav{
+	position: absolute;
+	z-index: 9999;
+	margin-left: -19px;
+	text-align: center;
+	width: 134px;
+	display: none;
+}
+.dropDownNav > div:first-child{
+	border-top:none;
+}
+.dropDownNav > div{
+	background-color: #083A96;
+	color: #ffffff;
+	cursor: pointer;
+	opacity: 1;
+	border-top: 1px solid #ffffff;
+	font-size: 15px;
+}
+.dropDownNav > div:hover{
+	opacity: 0.95;
+}
+.centered li:hover .dropDownNav{
+	display: block;
+}

@@ -60,12 +60,38 @@
 			<div class="centered">
 				<ul>
 					<li onclick="openUrl('../index.html')">首页</li>
-					<li onclick="openUrl('callForBids.html')">招标采购信息</li>
+					<li>
+						<p onclick="openUrl('callForBids.html')">招标采购信息</p>
+						<section class="dropDownNav">
+							<div onclick="openUrl('callForBids.html?urltypeId=7')">招标采购公告</div>
+							<div onclick="openUrl('callForBids.html?urltypeId=9')">变更答疑</div>
+							<div onclick="openUrl('callForBids.html?urltypeId=23')">中标成交公告</div>
+							<div onclick="openUrl('callForBids.html?urltypeId=24')">项目异常公告</div>
+						</section>
+					</li>
 					<li onclick="openUrl('drugList.html')">药品信息</li>
 					<li onclick="openUrl('materialsList.html')">耗材信息</li>
 					<li onclick="openUrl('facilityList.html')">设备信息</li>
-					<li onclick="openUrl('policy.html')">政策法规</li>
-					<li onclick="openUrl('download.html')">下载中心</li>
+					<li>
+						<p onclick="openUrl('policy.html')">政策法规</p>
+						<section class="dropDownNav">
+							<div onclick="openUrl('policy.html?urltypeId=10')">国家政策法规</div>
+							<div onclick="openUrl('policy.html?urltypeId=11')">安徽政策法规</div>
+						</section>
+					</li>
+					<li>
+						<p onclick="openUrl('download.html')">下载中心</p>
+						<section class="dropDownNav">
+							<div onclick="openUrl('download.html?urltypeId=12')">药品招标相关文件</div>
+							<div onclick="openUrl('download.html?urltypeId=13')">耗材招标相关文件</div>	
+							<div onclick="openUrl('download.html?urltypeId=14')">政府采购相关文件</div>	
+							<div onclick="openUrl('download.html?urltypeId=15')">设备招标相关文件</div>
+							<div onclick="openUrl('download.html?urltypeId=16')">工程招标相关文件</div>	
+							<div onclick="openUrl('download.html?urltypeId=17')">服务招标相关文件</div>	
+							<div onclick="openUrl('download.html?urltypeId=18')">咨询服务相关文件</div>
+							<div onclick="openUrl('download.html?urltypeId=19')">其他文件资料下载</div>
+						</section>
+					</li>
 					<li onclick="openUrl('contactUs.html')">联系我们</li>
 				</ul>
 			</div>
