@@ -29,9 +29,11 @@ $(".searchBox .search span").click(function () {
     var _index = $(".searchBox .toptab .active").index();
     if (key) {
         if(_index == 0){
-			openUrl('page/drugList.html?key='+encodeURI(encodeURI(key))+'')
+			openUrl('page/callForBids.html?key='+encodeURI(encodeURI(key))+'')
 		}else if(_index == 1){
-			openUrl('page/materialsList.html?key='+encodeURI(encodeURI(key))+'')
+            openUrl('page/drugList.html?key='+encodeURI(encodeURI(key))+'')
+		}else if(_index == 2){
+            openUrl('page/materialsList.html?key='+encodeURI(encodeURI(key))+'')
 		}else{
 			openUrl('page/facilityList.html?key='+encodeURI(encodeURI(key))+'')
 		}

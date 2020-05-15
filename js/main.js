@@ -216,8 +216,10 @@ $(".searchBox .search span").click(function () {
 	var _index = $(".searchBox .toptab .active").index();
 	if(key){
 		if(_index == 0){
-			openUrl('drugList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
+			openUrl('callForBids.html?key='+encodeURI(encodeURI(key))+'')
 		}else if(_index == 1){
+			openUrl('drugList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
+		}else if(_index == 2){
 			openUrl('materialsList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
 		}else{
 			openUrl('facilityList.html?key='+encodeURI(encodeURI(key))+'&index='+_index+'')
@@ -228,6 +230,7 @@ $(".searchBox .search span").click(function () {
 		});
 	};
 })
+
 
 //表单重新渲染
 function renderForm() {
