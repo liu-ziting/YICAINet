@@ -320,7 +320,7 @@
 						for (var i = 0; i < leftTab.length; i++) {
 							if(leftTab.eq(i).find("input").val() == urltypeId){
 								leftTab.eq(i).addClass("active").siblings().removeClass("active");
-								get_news_list_by_type_id(urltypeId);
+								get_resource_list_by_type_id(urltypeId);
 								var leftText = leftTab.eq(i).find("p").text();
 								$(".crumbs").text(leftText.slice(0, leftText.length - 2));
 								$(".right h1 b").text(leftText.slice(0, leftText.length - 2));
