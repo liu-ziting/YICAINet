@@ -158,13 +158,15 @@
 								<img onerror="imgError(this)" src={{App.filePath+item.image}} />	
 								{{#  } }} 
 								<h1 onclick="openUrl('facilityDetails.html?id={{item.id}}')">{{item.equipmentName}}</h1>
-								<p>设备型号：{{item.model}}</p>
+							
 								
 								{{#  if(item.manufacturer == "会员可见"){ }}
 								<p>生产企业：会员可见</p>
 								{{#  } else { }}
 								<p>生产企业：{{JSON.parse(item.manufacturer).name}}</p>
 								{{#  } }} 
+
+								<p>设备型号：{{item.model}}</p>
 							</div>
 							<div class="down">
 								<p>价格：

@@ -2455,7 +2455,13 @@ footer section span {
 .drugList .drugListMain ul li .up p {
 	font-size:14px;
 	color:#3b3b3b;
-	margin-bottom:5px
+	margin-bottom:5px;
+	display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .drugList .drugListMain ul li .down {
 	padding-top:20px
