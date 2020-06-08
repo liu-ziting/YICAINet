@@ -472,7 +472,8 @@ header nav ul .active {
 	display:-webkit-box;
 	-webkit-box-orient:vertical;
 	overflow:hidden;
-	width:450px
+	width:450px;
+	height: 40px;
 }
 .main .purchaseBox li time {
 	float:right;
@@ -770,6 +771,8 @@ header nav ul .active {
   -webkit-line-clamp: 2;
   overflow: hidden;
   text-overflow: ellipsis;
+  height: 35px;
+  overflow: hidden;
 }
 .main .activity .right ul li span {
 	display:block;
@@ -937,7 +940,7 @@ footer .footerTop {
 	width:100%
 }
 footer ul {
-	width:860px;
+	width:760px;
 	height:40px;
 	color:#fff;
 	margin:0 auto
@@ -959,11 +962,12 @@ footer section {
 }
 footer section p {
 	font-size:14px;
-	width:595px;
-	margin:26px auto
+	width:690px;
+	margin:26px auto;
+	line-height: 30px;
 }
 footer section p a {
-	padding:0 20px;
+	padding: 0 20px 0 0;
 	color:#fff!important
 }
 footer section span {
@@ -1199,7 +1203,9 @@ footer section span {
 	-webkit-box-orient:vertical;
 	overflow:hidden;
 	font-family:"宋体";
-	opacity:.9
+	opacity:.9;
+	height: 45px;
+    overflow: hidden;
 }
 .download .left .cgactivity ul li:hover p {
 	opacity:1
